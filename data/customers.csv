@@ -1,0 +1,121 @@
+customer_id,customer_name,persona,region,rep
+CUST-001,Aurora Kaiseki 001,sushi,BC Interior,D. Tremblay
+CUST-002,Granville Market 002,grocery,Alberta,D. Tremblay
+CUST-003,Bluffs Pantry 003,grocery,Ontario,D. Tremblay
+CUST-004,Dockside Salumeria 004,charcuterie,Ontario,F. Osei
+CUST-005,Harbour Sushi 005,sushi,Ontario,B. Okafor
+CUST-006,Granville Tavern 006,steakhouse,Alberta,G. Lindqvist
+CUST-007,Highline Kaiseki 007,sushi,BC Interior,B. Okafor
+CUST-008,Cedar Chophouse 008,steakhouse,Alberta,G. Lindqvist
+CUST-009,Orchard Foods 009,grocery,BC Interior,E. Novak
+CUST-010,Yardley Chophouse 010,steakhouse,BC Interior,C. Delgado
+CUST-011,Bluffs Cellar 011,charcuterie,BC Interior,F. Osei
+CUST-012,Vista Steakhouse 012,steakhouse,BC Interior,H. Moreau
+CUST-013,Lakeside Grocer 013,grocery,BC Interior,E. Novak
+CUST-014,Orchard Grocer 014,grocery,BC Interior,H. Moreau
+CUST-015,Quarry Omakase 015,sushi,Alberta,G. Lindqvist
+CUST-016,Aurora Deli 016,charcuterie,BC Lower Mainland,F. Osei
+CUST-017,Canyon Foods 017,grocery,BC Interior,B. Okafor
+CUST-018,Whistler Izakaya 018,sushi,BC Interior,F. Osei
+CUST-019,Timber Sushi 019,sushi,BC Lower Mainland,H. Moreau
+CUST-020,Cedar Deli 020,charcuterie,Ontario,B. Okafor
+CUST-021,Willow Provisions 021,charcuterie,Ontario,D. Tremblay
+CUST-022,Zenith Foods 022,grocery,Ontario,H. Moreau
+CUST-023,Vista Pantry 023,grocery,BC Interior,D. Tremblay
+CUST-024,Lakeside Fresh Mart 024,grocery,BC Interior,C. Delgado
+CUST-025,Quarry Grocer 025,grocery,Alberta,B. Okafor
+CUST-026,Grove Market 026,grocery,Alberta,A. Fontaine
+CUST-027,Juniper Salumeria 027,charcuterie,BC Interior,H. Moreau
+CUST-028,Grove Market 028,grocery,Ontario,B. Okafor
+CUST-029,Pacific Grill 029,steakhouse,BC Interior,G. Lindqvist
+CUST-030,Elmwood Charcuterie 030,charcuterie,BC Lower Mainland,G. Lindqvist
+CUST-031,Zenith Ocean Bar 031,sushi,BC Interior,D. Tremblay
+CUST-032,Granville Sushi 032,sushi,Ontario,C. Delgado
+CUST-033,Cedar Cellar 033,charcuterie,Alberta,D. Tremblay
+CUST-034,Vista Pantry 034,grocery,Alberta,B. Okafor
+CUST-035,Inlet Foods 035,grocery,BC Interior,F. Osei
+CUST-036,Meridian Ocean Bar 036,sushi,BC Lower Mainland,B. Okafor
+CUST-037,Timber Foods 037,grocery,BC Interior,F. Osei
+CUST-038,Bluffs Provisions 038,charcuterie,Alberta,E. Novak
+CUST-039,Canyon Cellar 039,charcuterie,BC Interior,E. Novak
+CUST-040,Zenith Foods 040,grocery,Ontario,E. Novak
+CUST-041,Aurora Steakhouse 041,steakhouse,BC Interior,E. Novak
+CUST-042,Union Sushi 042,sushi,Alberta,B. Okafor
+CUST-043,Granville Foods 043,grocery,BC Lower Mainland,A. Fontaine
+CUST-044,Harbour Steakhouse 044,steakhouse,Ontario,C. Delgado
+CUST-045,Elmwood Chophouse 045,steakhouse,Ontario,A. Fontaine
+CUST-046,Canyon Izakaya 046,sushi,BC Lower Mainland,C. Delgado
+CUST-047,Grove Charcuterie 047,charcuterie,BC Interior,D. Tremblay
+CUST-048,Elmwood Grocer 048,grocery,BC Interior,A. Fontaine
+CUST-049,Cedar Steakhouse 049,steakhouse,BC Lower Mainland,G. Lindqvist
+CUST-050,Aurora Market 050,grocery,BC Lower Mainland,C. Delgado
+CUST-051,Timber Market 051,grocery,Ontario,D. Tremblay
+CUST-052,Inlet Prime 052,steakhouse,BC Interior,F. Osei
+CUST-053,Whistler Provisions 053,charcuterie,Alberta,E. Novak
+CUST-054,Bluffs Foods 054,grocery,BC Interior,D. Tremblay
+CUST-055,Highline Izakaya 055,sushi,BC Lower Mainland,G. Lindqvist
+CUST-056,Yardley Foods 056,grocery,Ontario,H. Moreau
+CUST-057,Highline Grocer 057,grocery,Alberta,E. Novak
+CUST-058,Foothill Grocer 058,grocery,BC Lower Mainland,D. Tremblay
+CUST-059,Sterling Prime 059,steakhouse,Alberta,H. Moreau
+CUST-060,Bluffs Tavern 060,steakhouse,Ontario,G. Lindqvist
+CUST-061,Dockside Grill 061,steakhouse,Ontario,D. Tremblay
+CUST-062,Grove Grill 062,steakhouse,Ontario,C. Delgado
+CUST-063,Whistler Provisions 063,charcuterie,Ontario,G. Lindqvist
+CUST-064,Canyon Charcuterie 064,charcuterie,Ontario,E. Novak
+CUST-065,Dockside Prime 065,steakhouse,Ontario,D. Tremblay
+CUST-066,Lakeside Steakhouse 066,steakhouse,BC Lower Mainland,B. Okafor
+CUST-067,Bluffs Izakaya 067,sushi,Alberta,G. Lindqvist
+CUST-068,Copper Fresh Mart 068,grocery,Ontario,A. Fontaine
+CUST-069,Foothill Charcuterie 069,charcuterie,BC Interior,H. Moreau
+CUST-070,Nordic Tavern 070,steakhouse,BC Interior,H. Moreau
+CUST-071,Zenith Market 071,grocery,Alberta,G. Lindqvist
+CUST-072,Pacific Steakhouse 072,steakhouse,BC Interior,H. Moreau
+CUST-073,Dockside Fresh Mart 073,grocery,BC Lower Mainland,B. Okafor
+CUST-074,Orchard Chophouse 074,steakhouse,Alberta,A. Fontaine
+CUST-075,Vista Izakaya 075,sushi,Ontario,E. Novak
+CUST-076,Canyon Sushi 076,sushi,BC Interior,E. Novak
+CUST-077,Pacific Salumeria 077,charcuterie,Alberta,D. Tremblay
+CUST-078,Vista Grill 078,steakhouse,BC Lower Mainland,G. Lindqvist
+CUST-079,Aurora Ocean Bar 079,sushi,Ontario,B. Okafor
+CUST-080,Riverbend Salumeria 080,charcuterie,Ontario,C. Delgado
+CUST-081,Sterling Fresh Mart 081,grocery,Ontario,E. Novak
+CUST-082,Lakeside Charcuterie 082,charcuterie,BC Interior,H. Moreau
+CUST-083,Sterling Foods 083,grocery,BC Interior,H. Moreau
+CUST-084,Highline Pantry 084,grocery,BC Lower Mainland,A. Fontaine
+CUST-085,Quarry Tavern 085,steakhouse,BC Interior,H. Moreau
+CUST-086,Cedar Kaiseki 086,sushi,BC Interior,G. Lindqvist
+CUST-087,Sterling Pantry 087,grocery,BC Lower Mainland,G. Lindqvist
+CUST-088,Juniper Market 088,grocery,BC Interior,F. Osei
+CUST-089,Willow Izakaya 089,sushi,BC Interior,H. Moreau
+CUST-090,Whistler Kaiseki 090,sushi,Alberta,D. Tremblay
+CUST-091,Bluffs Pantry 091,grocery,BC Interior,E. Novak
+CUST-092,Aurora Prime 092,steakhouse,BC Lower Mainland,H. Moreau
+CUST-093,Lakeside Charcuterie 093,charcuterie,Alberta,B. Okafor
+CUST-094,Granville Izakaya 094,sushi,BC Interior,E. Novak
+CUST-095,Quarry Pantry 095,grocery,BC Interior,G. Lindqvist
+CUST-096,Quarry Provisions 096,charcuterie,Alberta,B. Okafor
+CUST-097,Willow Prime 097,steakhouse,Alberta,C. Delgado
+CUST-098,Bluffs Steakhouse 098,steakhouse,Ontario,B. Okafor
+CUST-099,Inlet Izakaya 099,sushi,Ontario,B. Okafor
+CUST-100,Foothill Salumeria 100,charcuterie,Alberta,A. Fontaine
+CUST-101,Vista Kaiseki 101,sushi,Ontario,B. Okafor
+CUST-102,Lakeside Pantry 102,grocery,Ontario,H. Moreau
+CUST-103,Cedar Chophouse 103,steakhouse,Alberta,E. Novak
+CUST-104,Timber Tavern 104,steakhouse,BC Lower Mainland,C. Delgado
+CUST-105,Cedar Charcuterie 105,charcuterie,BC Lower Mainland,G. Lindqvist
+CUST-106,Nordic Charcuterie 106,charcuterie,Ontario,E. Novak
+CUST-107,Granville Ocean Bar 107,sushi,Alberta,F. Osei
+CUST-108,Grove Omakase 108,sushi,Alberta,H. Moreau
+CUST-109,Dockside Fresh Mart 109,grocery,Ontario,A. Fontaine
+CUST-110,Riverbend Charcuterie 110,charcuterie,Alberta,A. Fontaine
+CUST-111,Union Fresh Mart 111,grocery,Alberta,D. Tremblay
+CUST-112,Sterling Provisions 112,charcuterie,BC Lower Mainland,G. Lindqvist
+CUST-113,Inlet Pantry 113,grocery,BC Interior,B. Okafor
+CUST-114,Inlet Pantry 114,grocery,BC Lower Mainland,A. Fontaine
+CUST-115,Zenith Fresh Mart 115,grocery,BC Interior,H. Moreau
+CUST-116,Union Fresh Mart 116,grocery,Ontario,F. Osei
+CUST-117,Quarry Deli 117,charcuterie,BC Lower Mainland,H. Moreau
+CUST-118,Zenith Grocer 118,grocery,Ontario,A. Fontaine
+CUST-119,Harbour Cellar 119,charcuterie,Ontario,A. Fontaine
+CUST-120,Summit Sushi 120,sushi,Ontario,E. Novak

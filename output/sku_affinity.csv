@@ -1,0 +1,162 @@
+sku_a,description_a,sku_b,description_b,orders_together,confidence_a_to_b,lift
+SKU-023,Ahi Tuna Saku,SKU-024,Hamachi Loin,89,0.286,2.362
+SKU-023,Ahi Tuna Saku,SKU-026,Spot Prawns,81,0.26,2.213
+SKU-022,Sablefish Fillet,SKU-025,Scallops U10,89,0.271,2.131
+SKU-023,Ahi Tuna Saku,SKU-025,Scallops U10,84,0.27,2.128
+SKU-022,Sablefish Fillet,SKU-023,Ahi Tuna Saku,83,0.252,2.109
+SKU-022,Sablefish Fillet,SKU-024,Hamachi Loin,84,0.255,2.107
+SKU-031,Duck Rillette,SKU-032,Pate de Campagne,157,0.353,2.094
+SKU-022,Sablefish Fillet,SKU-026,Spot Prawns,80,0.243,2.066
+SKU-021,Atlantic Salmon Fillet,SKU-023,Ahi Tuna Saku,81,0.244,2.04
+SKU-030,Smoked Speck,SKU-032,Pate de Campagne,149,0.342,2.029
+SKU-024,Hamachi Loin,SKU-025,Scallops U10,81,0.257,2.026
+SKU-029,Genoa Salami,SKU-032,Pate de Campagne,141,0.341,2.022
+SKU-021,Atlantic Salmon Fillet,SKU-027,Uni Tray,86,0.259,1.998
+SKU-023,Ahi Tuna Saku,SKU-028,Octopus Tentacle,86,0.277,1.997
+SKU-021,Atlantic Salmon Fillet,SKU-026,Spot Prawns,78,0.235,1.996
+SKU-025,Scallops U10,SKU-028,Octopus Tentacle,90,0.273,1.97
+SKU-022,Sablefish Fillet,SKU-027,Uni Tray,84,0.255,1.97
+SKU-021,Atlantic Salmon Fillet,SKU-028,Octopus Tentacle,90,0.271,1.958
+SKU-032,Pate de Campagne,SKU-034,Bresaola,134,0.306,1.95
+SKU-030,Smoked Speck,SKU-031,Duck Rillette,145,0.333,1.943
+SKU-029,Genoa Salami,SKU-033,Coppa Sliced,132,0.319,1.932
+SKU-022,Sablefish Fillet,SKU-028,Octopus Tentacle,88,0.267,1.932
+SKU-024,Hamachi Loin,SKU-026,Spot Prawns,71,0.225,1.915
+SKU-026,Spot Prawns,SKU-028,Octopus Tentacle,81,0.265,1.912
+SKU-029,Genoa Salami,SKU-031,Duck Rillette,135,0.326,1.905
+SKU-023,Ahi Tuna Saku,SKU-027,Uni Tray,76,0.244,1.885
+SKU-025,Scallops U10,SKU-027,Uni Tray,80,0.242,1.87
+SKU-032,Pate de Campagne,SKU-033,Coppa Sliced,135,0.308,1.868
+SKU-027,Uni Tray,SKU-028,Octopus Tentacle,87,0.258,1.864
+SKU-029,Genoa Salami,SKU-034,Bresaola,121,0.292,1.863
+SKU-030,Smoked Speck,SKU-034,Bresaola,126,0.289,1.842
+SKU-024,Hamachi Loin,SKU-027,Uni Tray,75,0.238,1.837
+SKU-021,Atlantic Salmon Fillet,SKU-025,Scallops U10,77,0.232,1.827
+SKU-033,Coppa Sliced,SKU-034,Bresaola,122,0.284,1.812
+SKU-030,Smoked Speck,SKU-033,Coppa Sliced,130,0.298,1.807
+SKU-025,Scallops U10,SKU-026,Spot Prawns,70,0.212,1.802
+SKU-029,Genoa Salami,SKU-030,Smoked Speck,125,0.302,1.801
+SKU-021,Atlantic Salmon Fillet,SKU-024,Hamachi Loin,72,0.217,1.79
+SKU-031,Duck Rillette,SKU-033,Coppa Sliced,129,0.29,1.757
+SKU-031,Duck Rillette,SKU-034,Bresaola,121,0.272,1.733
+SKU-024,Hamachi Loin,SKU-028,Octopus Tentacle,74,0.235,1.697
+SKU-021,Atlantic Salmon Fillet,SKU-022,Sablefish Fillet,71,0.214,1.69
+SKU-026,Spot Prawns,SKU-027,Uni Tray,65,0.212,1.639
+SKU-002,Ribeye AAA,SKU-008,Beef Bones,133,0.276,1.587
+SKU-002,Ribeye AAA,SKU-037,Lamb Shank,99,0.205,1.557
+SKU-004,Brisket,SKU-008,Beef Bones,123,0.27,1.552
+SKU-013,Prosciutto Leg,SKU-033,Coppa Sliced,100,0.252,1.527
+SKU-002,Ribeye AAA,SKU-004,Brisket,128,0.266,1.514
+SKU-007,Flank Steak,SKU-038,Ground Lamb,90,0.193,1.486
+SKU-009,Berkshire Loin,SKU-030,Smoked Speck,104,0.249,1.484
+SKU-011,Shoulder Butt,SKU-033,Coppa Sliced,105,0.242,1.466
+SKU-011,Shoulder Butt,SKU-030,Smoked Speck,106,0.244,1.456
+SKU-004,Brisket,SKU-036,Lamb Leg BRT,88,0.193,1.438
+SKU-002,Ribeye AAA,SKU-003,Tenderloin,125,0.259,1.426
+SKU-011,Shoulder Butt,SKU-034,Bresaola,97,0.224,1.424
+SKU-006,Short Ribs,SKU-036,Lamb Leg BRT,85,0.19,1.417
+SKU-005,Ground Chuck,SKU-006,Short Ribs,112,0.243,1.416
+SKU-010,Belly Skin-On,SKU-033,Coppa Sliced,102,0.232,1.408
+SKU-002,Ribeye AAA,SKU-036,Lamb Leg BRT,91,0.189,1.407
+SKU-011,Shoulder Butt,SKU-029,Genoa Salami,97,0.224,1.404
+SKU-001,Striploin AAA,SKU-004,Brisket,109,0.246,1.403
+SKU-010,Belly Skin-On,SKU-030,Smoked Speck,103,0.235,1.399
+SKU-012,Back Ribs,SKU-013,Prosciutto Leg,86,0.213,1.398
+SKU-004,Brisket,SKU-006,Short Ribs,109,0.239,1.39
+SKU-002,Ribeye AAA,SKU-007,Flank Steak,120,0.249,1.389
+SKU-003,Tenderloin,SKU-004,Brisket,115,0.243,1.386
+SKU-013,Prosciutto Leg,SKU-034,Bresaola,86,0.217,1.38
+SKU-001,Striploin AAA,SKU-006,Short Ribs,105,0.237,1.379
+SKU-008,Beef Bones,SKU-038,Ground Lamb,81,0.179,1.378
+SKU-009,Berkshire Loin,SKU-032,Pate de Campagne,97,0.232,1.378
+SKU-018,Duck Breast,SKU-019,Turkey Breast Roast,68,0.184,1.373
+SKU-001,Striploin AAA,SKU-038,Ground Lamb,79,0.178,1.372
+SKU-005,Ground Chuck,SKU-037,Lamb Shank,83,0.18,1.368
+SKU-004,Brisket,SKU-035,Lamb Rack Frenched,87,0.191,1.367
+SKU-012,Back Ribs,SKU-033,Coppa Sliced,90,0.223,1.353
+SKU-009,Berkshire Loin,SKU-029,Genoa Salami,90,0.215,1.352
+SKU-003,Tenderloin,SKU-038,Ground Lamb,83,0.175,1.35
+SKU-004,Brisket,SKU-019,Turkey Breast Roast,82,0.18,1.344
+SKU-001,Striploin AAA,SKU-003,Tenderloin,108,0.244,1.34
+SKU-002,Ribeye AAA,SKU-035,Lamb Rack Frenched,90,0.187,1.337
+SKU-007,Flank Steak,SKU-035,Lamb Rack Frenched,87,0.187,1.337
+SKU-007,Flank Steak,SKU-008,Beef Bones,108,0.232,1.333
+SKU-034,Bresaola,SKU-036,Lamb Leg BRT,73,0.179,1.333
+SKU-010,Belly Skin-On,SKU-013,Prosciutto Leg,89,0.203,1.328
+SKU-009,Berkshire Loin,SKU-031,Duck Rillette,95,0.227,1.328
+SKU-005,Ground Chuck,SKU-036,Lamb Leg BRT,82,0.178,1.328
+SKU-011,Shoulder Butt,SKU-032,Pate de Campagne,97,0.224,1.327
+SKU-006,Short Ribs,SKU-008,Beef Bones,103,0.23,1.325
+SKU-005,Ground Chuck,SKU-035,Lamb Rack Frenched,85,0.185,1.324
+SKU-005,Ground Chuck,SKU-007,Flank Steak,109,0.237,1.322
+SKU-009,Berkshire Loin,SKU-033,Coppa Sliced,91,0.218,1.319
+SKU-003,Tenderloin,SKU-035,Lamb Rack Frenched,87,0.184,1.317
+SKU-035,Lamb Rack Frenched,SKU-038,Ground Lamb,62,0.171,1.314
+SKU-035,Lamb Rack Frenched,SKU-036,Lamb Leg BRT,64,0.176,1.313
+SKU-003,Tenderloin,SKU-008,Beef Bones,108,0.228,1.313
+SKU-012,Back Ribs,SKU-034,Bresaola,83,0.206,1.312
+SKU-001,Striploin AAA,SKU-036,Lamb Leg BRT,78,0.176,1.312
+SKU-012,Back Ribs,SKU-032,Pate de Campagne,89,0.221,1.311
+SKU-014,Chorizo Sausage,SKU-031,Duck Rillette,94,0.224,1.311
+SKU-013,Prosciutto Leg,SKU-031,Duck Rillette,89,0.224,1.31
+SKU-014,Chorizo Sausage,SKU-030,Smoked Speck,92,0.22,1.309
+SKU-008,Beef Bones,SKU-037,Lamb Shank,78,0.173,1.308
+SKU-013,Prosciutto Leg,SKU-030,Smoked Speck,87,0.219,1.307
+SKU-002,Ribeye AAA,SKU-006,Short Ribs,108,0.224,1.303
+SKU-009,Berkshire Loin,SKU-020,Quail 4-Pack,79,0.189,1.303
+SKU-004,Brisket,SKU-038,Ground Lamb,77,0.169,1.299
+SKU-004,Brisket,SKU-037,Lamb Shank,78,0.171,1.297
+SKU-003,Tenderloin,SKU-006,Short Ribs,105,0.222,1.291
+SKU-010,Belly Skin-On,SKU-029,Genoa Salami,90,0.205,1.288
+SKU-020,Quail 4-Pack,SKU-031,Duck Rillette,83,0.22,1.286
+SKU-011,Shoulder Butt,SKU-013,Prosciutto Leg,85,0.196,1.283
+SKU-011,Shoulder Butt,SKU-031,Duck Rillette,95,0.219,1.279
+SKU-007,Flank Steak,SKU-036,Lamb Leg BRT,80,0.172,1.279
+SKU-017,Whole Duck,SKU-032,Pate de Campagne,83,0.215,1.276
+SKU-014,Chorizo Sausage,SKU-029,Genoa Salami,85,0.203,1.274
+SKU-035,Lamb Rack Frenched,SKU-037,Lamb Shank,61,0.168,1.274
+SKU-006,Short Ribs,SKU-007,Flank Steak,102,0.228,1.273
+SKU-004,Brisket,SKU-007,Flank Steak,104,0.228,1.272
+SKU-009,Berkshire Loin,SKU-013,Prosciutto Leg,81,0.194,1.269
+SKU-019,Turkey Breast Roast,SKU-030,Smoked Speck,74,0.213,1.268
+SKU-009,Berkshire Loin,SKU-015,Chicken Breast,76,0.182,1.267
+SKU-003,Tenderloin,SKU-005,Ground Chuck,106,0.224,1.267
+SKU-009,Berkshire Loin,SKU-012,Back Ribs,82,0.196,1.266
+SKU-001,Striploin AAA,SKU-005,Ground Chuck,99,0.223,1.263
+SKU-015,Chicken Breast,SKU-018,Duck Breast,67,0.18,1.262
+SKU-014,Chorizo Sausage,SKU-032,Pate de Campagne,89,0.212,1.261
+SKU-009,Berkshire Loin,SKU-010,Belly Skin-On,89,0.213,1.261
+SKU-015,Chicken Breast,SKU-016,Chicken Thigh BL,64,0.172,1.26
+SKU-013,Prosciutto Leg,SKU-032,Pate de Campagne,84,0.212,1.256
+SKU-010,Belly Skin-On,SKU-011,Shoulder Butt,92,0.21,1.255
+SKU-003,Tenderloin,SKU-037,Lamb Shank,78,0.165,1.25
+SKU-003,Tenderloin,SKU-007,Flank Steak,106,0.224,1.25
+SKU-009,Berkshire Loin,SKU-034,Bresaola,82,0.196,1.25
+SKU-001,Striploin AAA,SKU-037,Lamb Shank,73,0.165,1.249
+SKU-014,Chorizo Sausage,SKU-015,Chicken Breast,75,0.179,1.248
+SKU-001,Striploin AAA,SKU-008,Beef Bones,96,0.217,1.247
+SKU-010,Belly Skin-On,SKU-014,Chorizo Sausage,88,0.2,1.244
+SKU-014,Chorizo Sausage,SKU-018,Duck Breast,74,0.177,1.241
+SKU-011,Shoulder Butt,SKU-038,Ground Lamb,70,0.161,1.241
+SKU-004,Brisket,SKU-005,Ground Chuck,100,0.219,1.24
+SKU-006,Short Ribs,SKU-038,Ground Lamb,72,0.161,1.239
+SKU-017,Whole Duck,SKU-034,Bresaola,75,0.194,1.238
+SKU-007,Flank Steak,SKU-037,Lamb Shank,76,0.163,1.236
+SKU-008,Beef Bones,SKU-035,Lamb Rack Frenched,78,0.173,1.236
+SKU-006,Short Ribs,SKU-035,Lamb Rack Frenched,77,0.172,1.234
+SKU-014,Chorizo Sausage,SKU-034,Bresaola,81,0.193,1.232
+SKU-001,Striploin AAA,SKU-002,Ribeye AAA,101,0.228,1.23
+SKU-002,Ribeye AAA,SKU-038,Ground Lamb,77,0.16,1.229
+SKU-013,Prosciutto Leg,SKU-015,Chicken Breast,70,0.176,1.229
+SKU-005,Ground Chuck,SKU-008,Beef Bones,98,0.213,1.225
+SKU-010,Belly Skin-On,SKU-031,Duck Rillette,92,0.21,1.224
+SKU-005,Ground Chuck,SKU-038,Ground Lamb,73,0.159,1.221
+SKU-017,Whole Duck,SKU-019,Turkey Breast Roast,63,0.163,1.219
+SKU-013,Prosciutto Leg,SKU-029,Genoa Salami,77,0.194,1.218
+SKU-036,Lamb Leg BRT,SKU-037,Lamb Shank,56,0.16,1.216
+SKU-001,Striploin AAA,SKU-017,Whole Duck,80,0.181,1.216
+SKU-005,Ground Chuck,SKU-020,Quail 4-Pack,81,0.176,1.214
+SKU-001,Striploin AAA,SKU-007,Flank Steak,96,0.217,1.209
+SKU-016,Chicken Thigh BL,SKU-029,Genoa Salami,68,0.192,1.206
+SKU-010,Belly Skin-On,SKU-034,Bresaola,83,0.189,1.205
+SKU-012,Back Ribs,SKU-036,Lamb Leg BRT,65,0.161,1.202

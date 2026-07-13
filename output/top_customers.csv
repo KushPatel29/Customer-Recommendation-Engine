@@ -1,0 +1,41 @@
+region,customer_id,customer_name,total_revenue,order_count,rank_in_region
+Alberta,CUST-015,Quarry Omakase 015,119987.86,57,1
+Alberta,CUST-077,Pacific Salumeria 077,76166.47,58,2
+Alberta,CUST-025,Quarry Grocer 025,35634.68,34,3
+Alberta,CUST-107,Granville Ocean Bar 107,32681.0,17,4
+Alberta,CUST-042,Union Sushi 042,28780.57,18,5
+Alberta,CUST-038,Bluffs Provisions 038,28776.57,32,6
+Alberta,CUST-097,Willow Prime 097,26528.46,21,7
+Alberta,CUST-108,Grove Omakase 108,24368.09,21,8
+Alberta,CUST-034,Vista Pantry 034,22471.31,23,9
+Alberta,CUST-110,Riverbend Charcuterie 110,20302.18,20,10
+BC Interior,CUST-018,Whistler Izakaya 018,80895.0,42,1
+BC Interior,CUST-001,Aurora Kaiseki 001,58790.68,36,2
+BC Interior,CUST-009,Orchard Foods 009,50978.73,42,3
+BC Interior,CUST-086,Cedar Kaiseki 086,50323.8,31,4
+BC Interior,CUST-017,Canyon Foods 017,50080.1,43,5
+BC Interior,CUST-047,Grove Charcuterie 047,46170.86,38,6
+BC Interior,CUST-031,Zenith Ocean Bar 031,37759.92,27,7
+BC Interior,CUST-013,Lakeside Grocer 013,34740.49,34,8
+BC Interior,CUST-070,Nordic Tavern 070,34591.99,31,9
+BC Interior,CUST-091,Bluffs Pantry 091,31505.8,30,10
+BC Lower Mainland,CUST-049,Cedar Steakhouse 049,140733.94,81,1
+BC Lower Mainland,CUST-117,Quarry Deli 117,93036.28,63,2
+BC Lower Mainland,CUST-104,Timber Tavern 104,90452.18,59,3
+BC Lower Mainland,CUST-030,Elmwood Charcuterie 030,63149.33,49,4
+BC Lower Mainland,CUST-046,Canyon Izakaya 046,53221.48,35,5
+BC Lower Mainland,CUST-043,Granville Foods 043,36021.43,36,6
+BC Lower Mainland,CUST-019,Timber Sushi 019,29540.73,18,7
+BC Lower Mainland,CUST-036,Meridian Ocean Bar 036,28579.47,23,8
+BC Lower Mainland,CUST-058,Foothill Grocer 058,25932.58,26,9
+BC Lower Mainland,CUST-078,Vista Grill 078,19857.329999999998,19,10
+Ontario,CUST-064,Canyon Charcuterie 064,182503.17,98,1
+Ontario,CUST-062,Grove Grill 062,94808.73,64,2
+Ontario,CUST-098,Bluffs Steakhouse 098,71592.04,51,3
+Ontario,CUST-044,Harbour Steakhouse 044,50580.81,42,4
+Ontario,CUST-021,Willow Provisions 021,49941.35,40,5
+Ontario,CUST-045,Elmwood Chophouse 045,49203.76,39,6
+Ontario,CUST-063,Whistler Provisions 063,44933.92,39,7
+Ontario,CUST-106,Nordic Charcuterie 106,42749.77,36,8
+Ontario,CUST-099,Inlet Izakaya 099,39714.33,28,9
+Ontario,CUST-075,Vista Izakaya 075,34048.04,21,10

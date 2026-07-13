@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  recommendation-invariants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pytest
+
+      - name: Regenerate data, run engine + holdout evaluation
+        run: |
+          python data_generator/generate_sales_data.py
+          python engine/recommend.py
+          python evaluation/evaluate_holdout.py
+
+      - name: Run invariant suite (incl. CF-beats-popularity gate)
+        run: pytest tests/ -v

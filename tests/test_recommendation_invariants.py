@@ -1,0 +1,100 @@
+"""
+Invariants for the recommendation engine.
+
+A recommender that suggests things you already buy, or that can't beat
+"just recommend the bestsellers", is worse than no recommender. These
+tests pin both failure modes, plus the math.
+"""
+
+import subprocess
+import sys
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+import pytest
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "engine"))
+sys.path.insert(0, str(ROOT / "evaluation"))
+
+from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
+                       customer_similarity, load_sales, sku_affinity,
+                       top_customers_by_region, growth_targets)
+
+
+@pytest.fixture(scope="module")
+def sales():
+    subprocess.run([sys.executable,
+                    str(ROOT / "data_generator" / "generate_sales_data.py")],
+                   check=True)
+    return load_sales()
+
+
+@pytest.fixture(scope="module")
+def matrix(sales):
+    return build_customer_sku_matrix(sales)
+
+
+@pytest.fixture(scope="module")
+def recs(sales):
+    return cross_sell_recommendations(sales)
+
+
+def test_similarity_matrix_is_well_formed(matrix):
+    sim = customer_similarity(matrix)
+    assert np.allclose(sim.values, sim.values.T), "similarity must be symmetric"
+    assert np.allclose(np.diag(sim.values), 1.0), "self-similarity must be 1"
+    assert sim.values.min() >= -1e-9 and sim.values.max() <= 1 + 1e-9
+
+
+def test_never_recommends_what_customer_already_buys(sales, recs):
+    owned = sales.groupby("customer_id")["sku"].apply(set)
+    for cust, g in recs.groupby("customer_id"):
+        overlap = set(g["sku"]) & owned[cust]
+        assert not overlap, f"{cust} recommended already-purchased {overlap}"
+
+
+def test_recommendations_ranked_by_score(recs):
+    for cust, g in recs.groupby("customer_id"):
+        scores = g.sort_values("rank")["score"].values
+        assert (np.diff(scores) <= 1e-9).all(), f"{cust} scores not descending"
+
+
+def test_top_customers_disjoint_from_growth_targets(sales):
+    top = top_customers_by_region(sales)
+    growth = growth_targets(sales, top)
+    assert not (set(top["customer_id"]) & set(growth["customer_id"]))
+
+
+def test_affinity_lift_math_on_toy_data():
+    """Hand-checkable: A and B always co-occur (lift = n_orders / 1... = 2 here),
+    A and C never do."""
+    toy = pd.DataFrame({
+        "order_id": ["o1", "o1", "o2", "o2", "o3", "o4"],
+        "sku": ["A", "B", "A", "B", "C", "C"],
+        "protein": ["x"] * 6,
+        "description": ["A", "B", "A", "B", "C", "C"],
+        "quantity_lb": [1] * 6,
+    })
+    out = sku_affinity(toy, min_lift=0, min_support=1)
+    ab = out[(out["sku_a"] == "A") & (out["sku_b"] == "B")].iloc[0]
+    # P(A,B)=2/4, P(A)=2/4, P(B)=2/4 -> lift = 0.5 / 0.25 = 2.0
+    assert ab["lift"] == 2.0
+    assert not ((out["sku_a"] == "A") & (out["sku_b"] == "C")).any()
+
+
+def test_cf_beats_popularity_baseline(sales):
+    """The reason this engine deserves to exist: on held-out purchases it
+    must out-recommend 'just suggest the bestsellers'."""
+    from evaluate_holdout import evaluate
+    results = evaluate(sales)
+    cf = results["cf_hits"].sum() / results["hidden"].sum()
+    pop = results["pop_hits"].sum() / results["hidden"].sum()
+    assert cf > pop, f"CF hit-rate {cf:.1%} does not beat popularity {pop:.1%}"
+
+
+def test_deterministic_outputs(sales):
+    a = cross_sell_recommendations(sales)
+    b = cross_sell_recommendations(sales)
+    pd.testing.assert_frame_equal(a, b)
