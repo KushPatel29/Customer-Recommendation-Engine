@@ -1,792 +1,792 @@
-customer_id,customer_name,rank,sku,protein,description,score
-CUST-001,Aurora Kaiseki 001,1,SKU-012,Pork,Back Ribs,4.0284
-CUST-001,Aurora Kaiseki 001,2,SKU-036,Lamb,Lamb Leg BRT,3.4997
-CUST-001,Aurora Kaiseki 001,3,SKU-008,Beef,Beef Bones,3.3504
-CUST-002,Granville Market 002,1,SKU-029,Deli,Genoa Salami,4.366
-CUST-002,Granville Market 002,2,SKU-031,Deli,Duck Rillette,4.2267
-CUST-002,Granville Market 002,3,SKU-003,Beef,Tenderloin,4.2244
-CUST-002,Granville Market 002,4,SKU-002,Beef,Ribeye AAA,4.2135
-CUST-002,Granville Market 002,5,SKU-004,Beef,Brisket,4.0699
-CUST-002,Granville Market 002,6,SKU-005,Beef,Ground Chuck,4.0646
-CUST-002,Granville Market 002,7,SKU-036,Lamb,Lamb Leg BRT,4.0128
-CUST-002,Granville Market 002,8,SKU-012,Pork,Back Ribs,4.0105
-CUST-002,Granville Market 002,9,SKU-037,Lamb,Lamb Shank,3.4772
-CUST-002,Granville Market 002,10,SKU-006,Beef,Short Ribs,3.4736
-CUST-003,Bluffs Pantry 003,1,SKU-033,Deli,Coppa Sliced,3.037
-CUST-003,Bluffs Pantry 003,2,SKU-030,Deli,Smoked Speck,2.7502
-CUST-003,Bluffs Pantry 003,3,SKU-021,Seafood,Atlantic Salmon Fillet,2.7202
-CUST-003,Bluffs Pantry 003,4,SKU-027,Seafood,Uni Tray,2.2672
-CUST-003,Bluffs Pantry 003,5,SKU-028,Seafood,Octopus Tentacle,1.8217
-CUST-003,Bluffs Pantry 003,6,SKU-026,Seafood,Spot Prawns,1.4486
-CUST-004,Dockside Salumeria 004,1,SKU-031,Deli,Duck Rillette,4.5589
-CUST-004,Dockside Salumeria 004,2,SKU-037,Lamb,Lamb Shank,3.7989
-CUST-004,Dockside Salumeria 004,3,SKU-007,Beef,Flank Steak,3.395
-CUST-004,Dockside Salumeria 004,4,SKU-004,Beef,Brisket,3.384
-CUST-004,Dockside Salumeria 004,5,SKU-006,Beef,Short Ribs,3.2132
-CUST-004,Dockside Salumeria 004,6,SKU-020,Poultry,Quail 4-Pack,3.1533
-CUST-004,Dockside Salumeria 004,7,SKU-018,Poultry,Duck Breast,3.1145
-CUST-004,Dockside Salumeria 004,8,SKU-003,Beef,Tenderloin,2.987
-CUST-004,Dockside Salumeria 004,9,SKU-038,Lamb,Ground Lamb,2.9771
-CUST-004,Dockside Salumeria 004,10,SKU-005,Beef,Ground Chuck,2.9314
-CUST-005,Harbour Sushi 005,1,SKU-003,Beef,Tenderloin,3.4221
-CUST-005,Harbour Sushi 005,2,SKU-007,Beef,Flank Steak,3.1799
-CUST-005,Harbour Sushi 005,3,SKU-010,Pork,Belly Skin-On,3.1017
-CUST-005,Harbour Sushi 005,4,SKU-005,Beef,Ground Chuck,2.9797
-CUST-005,Harbour Sushi 005,5,SKU-006,Beef,Short Ribs,2.4448
-CUST-005,Harbour Sushi 005,6,SKU-002,Beef,Ribeye AAA,2.1674
-CUST-005,Harbour Sushi 005,7,SKU-035,Lamb,Lamb Rack Frenched,2.0451
-CUST-005,Harbour Sushi 005,8,SKU-013,Pork,Prosciutto Leg,1.8125
-CUST-005,Harbour Sushi 005,9,SKU-009,Pork,Berkshire Loin,1.6648
-CUST-005,Harbour Sushi 005,10,SKU-030,Deli,Smoked Speck,1.5582
-CUST-006,Granville Tavern 006,1,SKU-014,Pork,Chorizo Sausage,3.6628
-CUST-006,Granville Tavern 006,2,SKU-016,Poultry,Chicken Thigh BL,3.4501
-CUST-006,Granville Tavern 006,3,SKU-028,Seafood,Octopus Tentacle,3.3344
-CUST-006,Granville Tavern 006,4,SKU-022,Seafood,Sablefish Fillet,3.2781
-CUST-006,Granville Tavern 006,5,SKU-032,Deli,Pate de Campagne,3.0817
-CUST-006,Granville Tavern 006,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.9429
-CUST-006,Granville Tavern 006,7,SKU-030,Deli,Smoked Speck,2.8783
-CUST-006,Granville Tavern 006,8,SKU-029,Deli,Genoa Salami,2.8372
-CUST-006,Granville Tavern 006,9,SKU-023,Seafood,Ahi Tuna Saku,2.5945
-CUST-006,Granville Tavern 006,10,SKU-034,Deli,Bresaola,2.3823
-CUST-007,Highline Kaiseki 007,1,SKU-019,Poultry,Turkey Breast Roast,2.6382
-CUST-007,Highline Kaiseki 007,2,SKU-017,Poultry,Whole Duck,2.1577
-CUST-007,Highline Kaiseki 007,3,SKU-003,Beef,Tenderloin,1.9023
-CUST-007,Highline Kaiseki 007,4,SKU-014,Pork,Chorizo Sausage,1.8783
-CUST-007,Highline Kaiseki 007,5,SKU-002,Beef,Ribeye AAA,1.6317
-CUST-007,Highline Kaiseki 007,6,SKU-036,Lamb,Lamb Leg BRT,1.6004
-CUST-007,Highline Kaiseki 007,7,SKU-034,Deli,Bresaola,1.5929
-CUST-007,Highline Kaiseki 007,8,SKU-006,Beef,Short Ribs,1.5733
-CUST-007,Highline Kaiseki 007,9,SKU-037,Lamb,Lamb Shank,1.4935
-CUST-007,Highline Kaiseki 007,10,SKU-033,Deli,Coppa Sliced,1.4909
-CUST-008,Cedar Chophouse 008,1,SKU-037,Lamb,Lamb Shank,4.4111
-CUST-008,Cedar Chophouse 008,2,SKU-009,Pork,Berkshire Loin,4.047
-CUST-008,Cedar Chophouse 008,3,SKU-013,Pork,Prosciutto Leg,3.7627
-CUST-008,Cedar Chophouse 008,4,SKU-028,Seafood,Octopus Tentacle,3.2078
-CUST-008,Cedar Chophouse 008,5,SKU-021,Seafood,Atlantic Salmon Fillet,3.1757
-CUST-008,Cedar Chophouse 008,6,SKU-010,Pork,Belly Skin-On,3.1706
-CUST-008,Cedar Chophouse 008,7,SKU-019,Poultry,Turkey Breast Roast,2.9335
-CUST-008,Cedar Chophouse 008,8,SKU-027,Seafood,Uni Tray,2.6789
-CUST-008,Cedar Chophouse 008,9,SKU-031,Deli,Duck Rillette,2.484
-CUST-008,Cedar Chophouse 008,10,SKU-023,Seafood,Ahi Tuna Saku,2.473
-CUST-009,Orchard Foods 009,1,SKU-026,Seafood,Spot Prawns,2.9307
-CUST-010,Yardley Chophouse 010,1,SKU-017,Poultry,Whole Duck,4.0115
-CUST-010,Yardley Chophouse 010,2,SKU-022,Seafood,Sablefish Fillet,3.4827
-CUST-010,Yardley Chophouse 010,3,SKU-029,Deli,Genoa Salami,3.2857
-CUST-010,Yardley Chophouse 010,4,SKU-030,Deli,Smoked Speck,3.2428
-CUST-010,Yardley Chophouse 010,5,SKU-021,Seafood,Atlantic Salmon Fillet,3.225
-CUST-010,Yardley Chophouse 010,6,SKU-031,Deli,Duck Rillette,3.1875
-CUST-010,Yardley Chophouse 010,7,SKU-025,Seafood,Scallops U10,2.9987
-CUST-011,Bluffs Cellar 011,1,SKU-011,Pork,Shoulder Butt,3.3314
-CUST-011,Bluffs Cellar 011,2,SKU-020,Poultry,Quail 4-Pack,3.1856
-CUST-011,Bluffs Cellar 011,3,SKU-018,Poultry,Duck Breast,3.1811
-CUST-011,Bluffs Cellar 011,4,SKU-001,Beef,Striploin AAA,2.9516
-CUST-011,Bluffs Cellar 011,5,SKU-005,Beef,Ground Chuck,2.8525
-CUST-011,Bluffs Cellar 011,6,SKU-008,Beef,Beef Bones,2.7611
-CUST-011,Bluffs Cellar 011,7,SKU-002,Beef,Ribeye AAA,2.3871
-CUST-011,Bluffs Cellar 011,8,SKU-027,Seafood,Uni Tray,2.0939
-CUST-011,Bluffs Cellar 011,9,SKU-025,Seafood,Scallops U10,2.0479
-CUST-011,Bluffs Cellar 011,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.9761
-CUST-012,Vista Steakhouse 012,1,SKU-036,Lamb,Lamb Leg BRT,4.9933
-CUST-012,Vista Steakhouse 012,2,SKU-009,Pork,Berkshire Loin,4.3002
-CUST-012,Vista Steakhouse 012,3,SKU-014,Pork,Chorizo Sausage,4.177
-CUST-012,Vista Steakhouse 012,4,SKU-018,Poultry,Duck Breast,3.8859
-CUST-012,Vista Steakhouse 012,5,SKU-019,Poultry,Turkey Breast Roast,3.838
-CUST-012,Vista Steakhouse 012,6,SKU-022,Seafood,Sablefish Fillet,3.6969
-CUST-012,Vista Steakhouse 012,7,SKU-021,Seafood,Atlantic Salmon Fillet,3.556
-CUST-012,Vista Steakhouse 012,8,SKU-017,Poultry,Whole Duck,3.5166
-CUST-012,Vista Steakhouse 012,9,SKU-016,Poultry,Chicken Thigh BL,3.4661
-CUST-012,Vista Steakhouse 012,10,SKU-027,Seafood,Uni Tray,3.3446
-CUST-013,Lakeside Grocer 013,1,SKU-024,Seafood,Hamachi Loin,1.8399
-CUST-013,Lakeside Grocer 013,2,SKU-026,Seafood,Spot Prawns,1.5076
-CUST-014,Orchard Grocer 014,1,SKU-013,Pork,Prosciutto Leg,3.1217
-CUST-014,Orchard Grocer 014,2,SKU-019,Poultry,Turkey Breast Roast,3.0714
-CUST-014,Orchard Grocer 014,3,SKU-020,Poultry,Quail 4-Pack,3.029
-CUST-014,Orchard Grocer 014,4,SKU-017,Poultry,Whole Duck,2.8891
-CUST-014,Orchard Grocer 014,5,SKU-004,Beef,Brisket,2.8842
-CUST-014,Orchard Grocer 014,6,SKU-034,Deli,Bresaola,2.8461
-CUST-014,Orchard Grocer 014,7,SKU-010,Pork,Belly Skin-On,2.826
-CUST-014,Orchard Grocer 014,8,SKU-001,Beef,Striploin AAA,2.6352
-CUST-014,Orchard Grocer 014,9,SKU-018,Poultry,Duck Breast,2.6346
-CUST-014,Orchard Grocer 014,10,SKU-031,Deli,Duck Rillette,2.6114
-CUST-015,Quarry Omakase 015,1,SKU-030,Deli,Smoked Speck,4.0375
-CUST-016,Aurora Deli 016,1,SKU-009,Pork,Berkshire Loin,4.6108
-CUST-016,Aurora Deli 016,2,SKU-008,Beef,Beef Bones,4.1869
-CUST-016,Aurora Deli 016,3,SKU-002,Beef,Ribeye AAA,3.9219
-CUST-016,Aurora Deli 016,4,SKU-005,Beef,Ground Chuck,3.5371
-CUST-016,Aurora Deli 016,5,SKU-025,Seafood,Scallops U10,3.4
-CUST-016,Aurora Deli 016,6,SKU-021,Seafood,Atlantic Salmon Fillet,3.3161
-CUST-016,Aurora Deli 016,7,SKU-023,Seafood,Ahi Tuna Saku,3.2345
-CUST-016,Aurora Deli 016,8,SKU-022,Seafood,Sablefish Fillet,3.0909
-CUST-016,Aurora Deli 016,9,SKU-027,Seafood,Uni Tray,3.0822
-CUST-016,Aurora Deli 016,10,SKU-028,Seafood,Octopus Tentacle,2.9993
-CUST-019,Timber Sushi 019,1,SKU-002,Beef,Ribeye AAA,2.7802
-CUST-019,Timber Sushi 019,2,SKU-005,Beef,Ground Chuck,2.7295
-CUST-019,Timber Sushi 019,3,SKU-006,Beef,Short Ribs,2.2706
-CUST-019,Timber Sushi 019,4,SKU-029,Deli,Genoa Salami,2.0992
-CUST-019,Timber Sushi 019,5,SKU-038,Lamb,Ground Lamb,2.0775
-CUST-019,Timber Sushi 019,6,SKU-033,Deli,Coppa Sliced,1.9768
-CUST-019,Timber Sushi 019,7,SKU-032,Deli,Pate de Campagne,1.7732
-CUST-019,Timber Sushi 019,8,SKU-037,Lamb,Lamb Shank,1.7583
-CUST-019,Timber Sushi 019,9,SKU-008,Beef,Beef Bones,1.6613
-CUST-019,Timber Sushi 019,10,SKU-011,Pork,Shoulder Butt,1.615
-CUST-020,Cedar Deli 020,1,SKU-013,Pork,Prosciutto Leg,4.0878
-CUST-020,Cedar Deli 020,2,SKU-014,Pork,Chorizo Sausage,4.0547
-CUST-020,Cedar Deli 020,3,SKU-011,Pork,Shoulder Butt,3.9019
-CUST-020,Cedar Deli 020,4,SKU-016,Poultry,Chicken Thigh BL,3.7409
-CUST-020,Cedar Deli 020,5,SKU-015,Poultry,Chicken Breast,3.3499
-CUST-020,Cedar Deli 020,6,SKU-038,Lamb,Ground Lamb,3.2891
-CUST-020,Cedar Deli 020,7,SKU-006,Beef,Short Ribs,3.2128
-CUST-020,Cedar Deli 020,8,SKU-003,Beef,Tenderloin,3.1645
-CUST-020,Cedar Deli 020,9,SKU-005,Beef,Ground Chuck,3.1584
-CUST-020,Cedar Deli 020,10,SKU-036,Lamb,Lamb Leg BRT,3.1279
-CUST-022,Zenith Foods 022,1,SKU-026,Seafood,Spot Prawns,2.4883
-CUST-023,Vista Pantry 023,1,SKU-005,Beef,Ground Chuck,3.555
-CUST-023,Vista Pantry 023,2,SKU-010,Pork,Belly Skin-On,3.4275
-CUST-023,Vista Pantry 023,3,SKU-031,Deli,Duck Rillette,3.326
-CUST-023,Vista Pantry 023,4,SKU-012,Pork,Back Ribs,3.2505
-CUST-023,Vista Pantry 023,5,SKU-014,Pork,Chorizo Sausage,3.0937
-CUST-023,Vista Pantry 023,6,SKU-032,Deli,Pate de Campagne,2.9951
-CUST-023,Vista Pantry 023,7,SKU-036,Lamb,Lamb Leg BRT,2.5554
-CUST-023,Vista Pantry 023,8,SKU-027,Seafood,Uni Tray,2.4314
-CUST-023,Vista Pantry 023,9,SKU-029,Deli,Genoa Salami,2.2769
-CUST-023,Vista Pantry 023,10,SKU-024,Seafood,Hamachi Loin,2.1249
-CUST-024,Lakeside Fresh Mart 024,1,SKU-022,Seafood,Sablefish Fillet,3.7346
-CUST-024,Lakeside Fresh Mart 024,2,SKU-024,Seafood,Hamachi Loin,3.0492
-CUST-024,Lakeside Fresh Mart 024,3,SKU-023,Seafood,Ahi Tuna Saku,3.0134
-CUST-025,Quarry Grocer 025,1,SKU-024,Seafood,Hamachi Loin,1.5562
-CUST-025,Quarry Grocer 025,2,SKU-026,Seafood,Spot Prawns,1.3248
-CUST-026,Grove Market 026,1,SKU-011,Pork,Shoulder Butt,4.5879
-CUST-026,Grove Market 026,2,SKU-032,Deli,Pate de Campagne,4.5314
-CUST-026,Grove Market 026,3,SKU-012,Pork,Back Ribs,4.2372
-CUST-026,Grove Market 026,4,SKU-005,Beef,Ground Chuck,4.1312
-CUST-026,Grove Market 026,5,SKU-021,Seafood,Atlantic Salmon Fillet,4.0189
-CUST-026,Grove Market 026,6,SKU-020,Poultry,Quail 4-Pack,3.9931
-CUST-026,Grove Market 026,7,SKU-037,Lamb,Lamb Shank,3.681
-CUST-026,Grove Market 026,8,SKU-008,Beef,Beef Bones,3.5995
-CUST-026,Grove Market 026,9,SKU-036,Lamb,Lamb Leg BRT,3.5345
-CUST-026,Grove Market 026,10,SKU-022,Seafood,Sablefish Fillet,3.2019
-CUST-027,Juniper Salumeria 027,1,SKU-014,Pork,Chorizo Sausage,3.8038
-CUST-027,Juniper Salumeria 027,2,SKU-018,Poultry,Duck Breast,3.3706
-CUST-027,Juniper Salumeria 027,3,SKU-003,Beef,Tenderloin,3.2429
-CUST-027,Juniper Salumeria 027,4,SKU-037,Lamb,Lamb Shank,3.0928
-CUST-027,Juniper Salumeria 027,5,SKU-008,Beef,Beef Bones,3.0695
-CUST-027,Juniper Salumeria 027,6,SKU-038,Lamb,Ground Lamb,3.0324
-CUST-027,Juniper Salumeria 027,7,SKU-004,Beef,Brisket,2.9737
-CUST-027,Juniper Salumeria 027,8,SKU-007,Beef,Flank Steak,2.9597
-CUST-027,Juniper Salumeria 027,9,SKU-025,Seafood,Scallops U10,2.655
-CUST-027,Juniper Salumeria 027,10,SKU-035,Lamb,Lamb Rack Frenched,2.5747
-CUST-028,Grove Market 028,1,SKU-007,Beef,Flank Steak,3.7926
-CUST-028,Grove Market 028,2,SKU-002,Beef,Ribeye AAA,3.7742
-CUST-028,Grove Market 028,3,SKU-003,Beef,Tenderloin,3.3093
-CUST-028,Grove Market 028,4,SKU-032,Deli,Pate de Campagne,3.2611
-CUST-028,Grove Market 028,5,SKU-038,Lamb,Ground Lamb,2.7144
-CUST-028,Grove Market 028,6,SKU-027,Seafood,Uni Tray,2.6062
-CUST-028,Grove Market 028,7,SKU-033,Deli,Coppa Sliced,2.5378
-CUST-028,Grove Market 028,8,SKU-034,Deli,Bresaola,2.5237
-CUST-028,Grove Market 028,9,SKU-028,Seafood,Octopus Tentacle,1.8503
-CUST-028,Grove Market 028,10,SKU-029,Deli,Genoa Salami,1.5437
-CUST-029,Pacific Grill 029,1,SKU-005,Beef,Ground Chuck,3.7286
-CUST-029,Pacific Grill 029,2,SKU-038,Lamb,Ground Lamb,3.3869
-CUST-029,Pacific Grill 029,3,SKU-007,Beef,Flank Steak,3.2383
-CUST-029,Pacific Grill 029,4,SKU-015,Poultry,Chicken Breast,2.978
-CUST-029,Pacific Grill 029,5,SKU-014,Pork,Chorizo Sausage,2.6138
-CUST-029,Pacific Grill 029,6,SKU-013,Pork,Prosciutto Leg,2.534
-CUST-029,Pacific Grill 029,7,SKU-018,Poultry,Duck Breast,2.4623
-CUST-029,Pacific Grill 029,8,SKU-017,Poultry,Whole Duck,2.3465
-CUST-029,Pacific Grill 029,9,SKU-033,Deli,Coppa Sliced,2.0559
-CUST-029,Pacific Grill 029,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.9839
-CUST-031,Zenith Ocean Bar 031,1,SKU-015,Poultry,Chicken Breast,3.2417
-CUST-031,Zenith Ocean Bar 031,2,SKU-029,Deli,Genoa Salami,2.6533
-CUST-031,Zenith Ocean Bar 031,3,SKU-014,Pork,Chorizo Sausage,2.5079
-CUST-031,Zenith Ocean Bar 031,4,SKU-030,Deli,Smoked Speck,2.2032
-CUST-031,Zenith Ocean Bar 031,5,SKU-036,Lamb,Lamb Leg BRT,2.0784
-CUST-032,Granville Sushi 032,1,SKU-023,Seafood,Ahi Tuna Saku,4.4209
-CUST-032,Granville Sushi 032,2,SKU-024,Seafood,Hamachi Loin,4.06
-CUST-032,Granville Sushi 032,3,SKU-020,Poultry,Quail 4-Pack,2.6945
-CUST-032,Granville Sushi 032,4,SKU-016,Poultry,Chicken Thigh BL,2.587
-CUST-032,Granville Sushi 032,5,SKU-008,Beef,Beef Bones,2.5786
-CUST-032,Granville Sushi 032,6,SKU-005,Beef,Ground Chuck,2.4595
-CUST-032,Granville Sushi 032,7,SKU-018,Poultry,Duck Breast,2.3622
-CUST-032,Granville Sushi 032,8,SKU-019,Poultry,Turkey Breast Roast,2.0701
-CUST-032,Granville Sushi 032,9,SKU-033,Deli,Coppa Sliced,2.0521
-CUST-032,Granville Sushi 032,10,SKU-015,Poultry,Chicken Breast,1.9461
-CUST-033,Cedar Cellar 033,1,SKU-031,Deli,Duck Rillette,4.0783
-CUST-033,Cedar Cellar 033,2,SKU-018,Poultry,Duck Breast,3.3142
-CUST-033,Cedar Cellar 033,3,SKU-016,Poultry,Chicken Thigh BL,3.2453
-CUST-033,Cedar Cellar 033,4,SKU-038,Lamb,Ground Lamb,3.1439
-CUST-033,Cedar Cellar 033,5,SKU-015,Poultry,Chicken Breast,3.1353
-CUST-033,Cedar Cellar 033,6,SKU-019,Poultry,Turkey Breast Roast,3.0672
-CUST-033,Cedar Cellar 033,7,SKU-011,Pork,Shoulder Butt,2.8912
-CUST-033,Cedar Cellar 033,8,SKU-037,Lamb,Lamb Shank,2.7963
-CUST-033,Cedar Cellar 033,9,SKU-035,Lamb,Lamb Rack Frenched,2.7484
-CUST-033,Cedar Cellar 033,10,SKU-020,Poultry,Quail 4-Pack,2.7172
-CUST-034,Vista Pantry 034,1,SKU-021,Seafood,Atlantic Salmon Fillet,3.2105
-CUST-034,Vista Pantry 034,2,SKU-025,Seafood,Scallops U10,2.9893
-CUST-034,Vista Pantry 034,3,SKU-028,Seafood,Octopus Tentacle,2.868
-CUST-035,Inlet Foods 035,1,SKU-001,Beef,Striploin AAA,3.6842
-CUST-035,Inlet Foods 035,2,SKU-015,Poultry,Chicken Breast,3.6658
-CUST-035,Inlet Foods 035,3,SKU-019,Poultry,Turkey Breast Roast,3.5868
-CUST-035,Inlet Foods 035,4,SKU-003,Beef,Tenderloin,3.5455
-CUST-035,Inlet Foods 035,5,SKU-004,Beef,Brisket,3.4183
-CUST-035,Inlet Foods 035,6,SKU-006,Beef,Short Ribs,3.1979
-CUST-035,Inlet Foods 035,7,SKU-038,Lamb,Ground Lamb,3.1105
-CUST-035,Inlet Foods 035,8,SKU-036,Lamb,Lamb Leg BRT,3.0537
-CUST-035,Inlet Foods 035,9,SKU-030,Deli,Smoked Speck,2.8496
-CUST-035,Inlet Foods 035,10,SKU-033,Deli,Coppa Sliced,2.8404
-CUST-036,Meridian Ocean Bar 036,1,SKU-018,Poultry,Duck Breast,3.6727
-CUST-036,Meridian Ocean Bar 036,2,SKU-033,Deli,Coppa Sliced,3.0795
-CUST-036,Meridian Ocean Bar 036,3,SKU-009,Pork,Berkshire Loin,2.9007
-CUST-036,Meridian Ocean Bar 036,4,SKU-013,Pork,Prosciutto Leg,2.8617
-CUST-036,Meridian Ocean Bar 036,5,SKU-014,Pork,Chorizo Sausage,2.5862
-CUST-036,Meridian Ocean Bar 036,6,SKU-032,Deli,Pate de Campagne,2.4094
-CUST-037,Timber Foods 037,1,SKU-038,Lamb,Ground Lamb,3.6662
-CUST-037,Timber Foods 037,2,SKU-032,Deli,Pate de Campagne,3.4047
-CUST-037,Timber Foods 037,3,SKU-034,Deli,Bresaola,3.29
-CUST-037,Timber Foods 037,4,SKU-029,Deli,Genoa Salami,3.0744
-CUST-037,Timber Foods 037,5,SKU-022,Seafood,Sablefish Fillet,2.9699
-CUST-037,Timber Foods 037,6,SKU-028,Seafood,Octopus Tentacle,2.6121
-CUST-037,Timber Foods 037,7,SKU-027,Seafood,Uni Tray,2.5281
-CUST-037,Timber Foods 037,8,SKU-024,Seafood,Hamachi Loin,2.1028
-CUST-037,Timber Foods 037,9,SKU-025,Seafood,Scallops U10,1.9388
-CUST-039,Canyon Cellar 039,1,SKU-004,Beef,Brisket,4.1034
-CUST-039,Canyon Cellar 039,2,SKU-018,Poultry,Duck Breast,3.9977
-CUST-039,Canyon Cellar 039,3,SKU-006,Beef,Short Ribs,3.941
-CUST-039,Canyon Cellar 039,4,SKU-019,Poultry,Turkey Breast Roast,3.7195
-CUST-039,Canyon Cellar 039,5,SKU-027,Seafood,Uni Tray,3.1238
-CUST-039,Canyon Cellar 039,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.9979
-CUST-039,Canyon Cellar 039,7,SKU-028,Seafood,Octopus Tentacle,2.8781
-CUST-039,Canyon Cellar 039,8,SKU-024,Seafood,Hamachi Loin,2.8543
-CUST-039,Canyon Cellar 039,9,SKU-026,Seafood,Spot Prawns,2.6195
-CUST-040,Zenith Foods 040,1,SKU-015,Poultry,Chicken Breast,3.8604
-CUST-040,Zenith Foods 040,2,SKU-018,Poultry,Duck Breast,3.7704
-CUST-040,Zenith Foods 040,3,SKU-013,Pork,Prosciutto Leg,3.5335
-CUST-040,Zenith Foods 040,4,SKU-010,Pork,Belly Skin-On,3.5176
-CUST-040,Zenith Foods 040,5,SKU-037,Lamb,Lamb Shank,3.4737
-CUST-040,Zenith Foods 040,6,SKU-003,Beef,Tenderloin,3.3602
-CUST-040,Zenith Foods 040,7,SKU-034,Deli,Bresaola,3.2735
-CUST-040,Zenith Foods 040,8,SKU-033,Deli,Coppa Sliced,3.2482
-CUST-040,Zenith Foods 040,9,SKU-035,Lamb,Lamb Rack Frenched,3.2263
-CUST-040,Zenith Foods 040,10,SKU-006,Beef,Short Ribs,2.9071
-CUST-041,Aurora Steakhouse 041,1,SKU-020,Poultry,Quail 4-Pack,2.9254
-CUST-041,Aurora Steakhouse 041,2,SKU-027,Seafood,Uni Tray,2.6227
-CUST-041,Aurora Steakhouse 041,3,SKU-026,Seafood,Spot Prawns,2.0092
-CUST-041,Aurora Steakhouse 041,4,SKU-028,Seafood,Octopus Tentacle,1.9975
-CUST-041,Aurora Steakhouse 041,5,SKU-033,Deli,Coppa Sliced,1.9909
-CUST-041,Aurora Steakhouse 041,6,SKU-025,Seafood,Scallops U10,1.8983
-CUST-041,Aurora Steakhouse 041,7,SKU-031,Deli,Duck Rillette,1.6936
-CUST-041,Aurora Steakhouse 041,8,SKU-029,Deli,Genoa Salami,1.6864
-CUST-041,Aurora Steakhouse 041,9,SKU-023,Seafood,Ahi Tuna Saku,1.6715
-CUST-041,Aurora Steakhouse 041,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.556
-CUST-042,Union Sushi 042,1,SKU-005,Beef,Ground Chuck,4.1839
-CUST-042,Union Sushi 042,2,SKU-003,Beef,Tenderloin,3.4823
-CUST-042,Union Sushi 042,3,SKU-015,Poultry,Chicken Breast,3.1878
-CUST-042,Union Sushi 042,4,SKU-031,Deli,Duck Rillette,3.0575
-CUST-042,Union Sushi 042,5,SKU-011,Pork,Shoulder Butt,2.8958
-CUST-042,Union Sushi 042,6,SKU-034,Deli,Bresaola,2.6469
-CUST-042,Union Sushi 042,7,SKU-029,Deli,Genoa Salami,2.3028
-CUST-043,Granville Foods 043,1,SKU-023,Seafood,Ahi Tuna Saku,2.917
-CUST-043,Granville Foods 043,2,SKU-024,Seafood,Hamachi Loin,2.0612
-CUST-044,Harbour Steakhouse 044,1,SKU-027,Seafood,Uni Tray,3.2986
-CUST-044,Harbour Steakhouse 044,2,SKU-034,Deli,Bresaola,2.6646
-CUST-045,Elmwood Chophouse 045,1,SKU-015,Poultry,Chicken Breast,4.0205
-CUST-045,Elmwood Chophouse 045,2,SKU-031,Deli,Duck Rillette,3.594
-CUST-045,Elmwood Chophouse 045,3,SKU-033,Deli,Coppa Sliced,3.2054
-CUST-046,Canyon Izakaya 046,1,SKU-017,Poultry,Whole Duck,4.323
-CUST-046,Canyon Izakaya 046,2,SKU-011,Pork,Shoulder Butt,4.1058
-CUST-046,Canyon Izakaya 046,3,SKU-008,Beef,Beef Bones,3.8523
-CUST-047,Grove Charcuterie 047,1,SKU-027,Seafood,Uni Tray,3.7774
-CUST-048,Elmwood Grocer 048,1,SKU-029,Deli,Genoa Salami,4.226
-CUST-048,Elmwood Grocer 048,2,SKU-021,Seafood,Atlantic Salmon Fillet,3.4864
-CUST-048,Elmwood Grocer 048,3,SKU-025,Seafood,Scallops U10,3.2595
-CUST-050,Aurora Market 050,1,SKU-005,Beef,Ground Chuck,4.8981
-CUST-050,Aurora Market 050,2,SKU-038,Lamb,Ground Lamb,4.6583
-CUST-050,Aurora Market 050,3,SKU-001,Beef,Striploin AAA,4.6378
-CUST-050,Aurora Market 050,4,SKU-033,Deli,Coppa Sliced,3.9239
-CUST-050,Aurora Market 050,5,SKU-030,Deli,Smoked Speck,3.9192
-CUST-050,Aurora Market 050,6,SKU-028,Seafood,Octopus Tentacle,3.7755
-CUST-050,Aurora Market 050,7,SKU-034,Deli,Bresaola,3.7402
-CUST-050,Aurora Market 050,8,SKU-029,Deli,Genoa Salami,3.6989
-CUST-050,Aurora Market 050,9,SKU-022,Seafood,Sablefish Fillet,3.3979
-CUST-050,Aurora Market 050,10,SKU-024,Seafood,Hamachi Loin,3.0079
-CUST-051,Timber Market 051,1,SKU-016,Poultry,Chicken Thigh BL,3.9451
-CUST-051,Timber Market 051,2,SKU-011,Pork,Shoulder Butt,3.8633
-CUST-051,Timber Market 051,3,SKU-012,Pork,Back Ribs,3.823
-CUST-051,Timber Market 051,4,SKU-014,Pork,Chorizo Sausage,3.7436
-CUST-051,Timber Market 051,5,SKU-002,Beef,Ribeye AAA,3.658
-CUST-051,Timber Market 051,6,SKU-036,Lamb,Lamb Leg BRT,3.5561
-CUST-051,Timber Market 051,7,SKU-030,Deli,Smoked Speck,3.5203
-CUST-051,Timber Market 051,8,SKU-033,Deli,Coppa Sliced,3.307
-CUST-051,Timber Market 051,9,SKU-035,Lamb,Lamb Rack Frenched,3.1439
-CUST-051,Timber Market 051,10,SKU-038,Lamb,Ground Lamb,3.1231
-CUST-052,Inlet Prime 052,1,SKU-003,Beef,Tenderloin,3.8481
-CUST-052,Inlet Prime 052,2,SKU-005,Beef,Ground Chuck,3.5838
-CUST-052,Inlet Prime 052,3,SKU-037,Lamb,Lamb Shank,3.4696
-CUST-052,Inlet Prime 052,4,SKU-008,Beef,Beef Bones,3.3547
-CUST-052,Inlet Prime 052,5,SKU-006,Beef,Short Ribs,3.3465
-CUST-052,Inlet Prime 052,6,SKU-011,Pork,Shoulder Butt,2.9109
-CUST-052,Inlet Prime 052,7,SKU-018,Poultry,Duck Breast,2.7695
-CUST-052,Inlet Prime 052,8,SKU-014,Pork,Chorizo Sausage,2.731
-CUST-052,Inlet Prime 052,9,SKU-015,Poultry,Chicken Breast,2.6888
-CUST-052,Inlet Prime 052,10,SKU-009,Pork,Berkshire Loin,2.3071
-CUST-053,Whistler Provisions 053,1,SKU-001,Beef,Striploin AAA,3.729
-CUST-053,Whistler Provisions 053,2,SKU-003,Beef,Tenderloin,3.2446
-CUST-053,Whistler Provisions 053,3,SKU-019,Poultry,Turkey Breast Roast,2.8431
-CUST-053,Whistler Provisions 053,4,SKU-027,Seafood,Uni Tray,2.6146
-CUST-053,Whistler Provisions 053,5,SKU-026,Seafood,Spot Prawns,2.4042
-CUST-053,Whistler Provisions 053,6,SKU-023,Seafood,Ahi Tuna Saku,2.276
-CUST-053,Whistler Provisions 053,7,SKU-028,Seafood,Octopus Tentacle,2.1126
-CUST-053,Whistler Provisions 053,8,SKU-022,Seafood,Sablefish Fillet,1.8577
-CUST-054,Bluffs Foods 054,1,SKU-018,Poultry,Duck Breast,3.3989
-CUST-054,Bluffs Foods 054,2,SKU-034,Deli,Bresaola,3.3834
-CUST-054,Bluffs Foods 054,3,SKU-020,Poultry,Quail 4-Pack,2.9267
-CUST-054,Bluffs Foods 054,4,SKU-013,Pork,Prosciutto Leg,2.9221
-CUST-054,Bluffs Foods 054,5,SKU-032,Deli,Pate de Campagne,2.8996
-CUST-054,Bluffs Foods 054,6,SKU-005,Beef,Ground Chuck,2.7022
-CUST-054,Bluffs Foods 054,7,SKU-030,Deli,Smoked Speck,2.6056
-CUST-054,Bluffs Foods 054,8,SKU-003,Beef,Tenderloin,2.5969
-CUST-054,Bluffs Foods 054,9,SKU-011,Pork,Shoulder Butt,2.5026
-CUST-054,Bluffs Foods 054,10,SKU-037,Lamb,Lamb Shank,2.4716
-CUST-055,Highline Izakaya 055,1,SKU-007,Beef,Flank Steak,3.2113
-CUST-055,Highline Izakaya 055,2,SKU-002,Beef,Ribeye AAA,3.1627
-CUST-055,Highline Izakaya 055,3,SKU-019,Poultry,Turkey Breast Roast,3.0025
-CUST-055,Highline Izakaya 055,4,SKU-037,Lamb,Lamb Shank,2.6429
-CUST-055,Highline Izakaya 055,5,SKU-001,Beef,Striploin AAA,2.6181
-CUST-055,Highline Izakaya 055,6,SKU-031,Deli,Duck Rillette,2.5853
-CUST-055,Highline Izakaya 055,7,SKU-034,Deli,Bresaola,2.5095
-CUST-055,Highline Izakaya 055,8,SKU-014,Pork,Chorizo Sausage,2.2325
-CUST-055,Highline Izakaya 055,9,SKU-012,Pork,Back Ribs,2.138
-CUST-055,Highline Izakaya 055,10,SKU-032,Deli,Pate de Campagne,2.0199
-CUST-056,Yardley Foods 056,1,SKU-036,Lamb,Lamb Leg BRT,4.0961
-CUST-056,Yardley Foods 056,2,SKU-028,Seafood,Octopus Tentacle,4.0668
-CUST-057,Highline Grocer 057,1,SKU-030,Deli,Smoked Speck,4.2563
-CUST-057,Highline Grocer 057,2,SKU-025,Seafood,Scallops U10,2.9071
-CUST-057,Highline Grocer 057,3,SKU-028,Seafood,Octopus Tentacle,2.8528
-CUST-058,Foothill Grocer 058,1,SKU-023,Seafood,Ahi Tuna Saku,3.008
-CUST-058,Foothill Grocer 058,2,SKU-027,Seafood,Uni Tray,2.819
-CUST-058,Foothill Grocer 058,3,SKU-022,Seafood,Sablefish Fillet,2.7455
-CUST-058,Foothill Grocer 058,4,SKU-028,Seafood,Octopus Tentacle,1.9827
-CUST-058,Foothill Grocer 058,5,SKU-026,Seafood,Spot Prawns,1.7931
-CUST-059,Sterling Prime 059,1,SKU-037,Lamb,Lamb Shank,4.314
-CUST-059,Sterling Prime 059,2,SKU-012,Pork,Back Ribs,3.7386
-CUST-059,Sterling Prime 059,3,SKU-020,Poultry,Quail 4-Pack,3.5631
-CUST-059,Sterling Prime 059,4,SKU-028,Seafood,Octopus Tentacle,3.3619
-CUST-059,Sterling Prime 059,5,SKU-022,Seafood,Sablefish Fillet,3.15
-CUST-059,Sterling Prime 059,6,SKU-032,Deli,Pate de Campagne,3.0483
-CUST-059,Sterling Prime 059,7,SKU-031,Deli,Duck Rillette,2.707
-CUST-059,Sterling Prime 059,8,SKU-029,Deli,Genoa Salami,2.7039
-CUST-059,Sterling Prime 059,9,SKU-033,Deli,Coppa Sliced,2.5652
-CUST-060,Bluffs Tavern 060,1,SKU-018,Poultry,Duck Breast,2.9729
-CUST-060,Bluffs Tavern 060,2,SKU-016,Poultry,Chicken Thigh BL,2.9014
-CUST-060,Bluffs Tavern 060,3,SKU-027,Seafood,Uni Tray,2.6688
-CUST-060,Bluffs Tavern 060,4,SKU-029,Deli,Genoa Salami,2.4649
-CUST-060,Bluffs Tavern 060,5,SKU-019,Poultry,Turkey Breast Roast,2.4613
-CUST-060,Bluffs Tavern 060,6,SKU-026,Seafood,Spot Prawns,2.4093
-CUST-060,Bluffs Tavern 060,7,SKU-020,Poultry,Quail 4-Pack,2.2552
-CUST-060,Bluffs Tavern 060,8,SKU-030,Deli,Smoked Speck,2.0269
-CUST-060,Bluffs Tavern 060,9,SKU-028,Seafood,Octopus Tentacle,2.0059
-CUST-060,Bluffs Tavern 060,10,SKU-023,Seafood,Ahi Tuna Saku,1.679
-CUST-061,Dockside Grill 061,1,SKU-017,Poultry,Whole Duck,4.0738
-CUST-061,Dockside Grill 061,2,SKU-032,Deli,Pate de Campagne,3.7455
-CUST-061,Dockside Grill 061,3,SKU-031,Deli,Duck Rillette,3.2601
-CUST-061,Dockside Grill 061,4,SKU-034,Deli,Bresaola,3.1261
-CUST-063,Whistler Provisions 063,1,SKU-028,Seafood,Octopus Tentacle,3.6517
-CUST-065,Dockside Prime 065,1,SKU-010,Pork,Belly Skin-On,3.9668
-CUST-065,Dockside Prime 065,2,SKU-032,Deli,Pate de Campagne,3.5827
-CUST-065,Dockside Prime 065,3,SKU-027,Seafood,Uni Tray,3.3342
-CUST-065,Dockside Prime 065,4,SKU-024,Seafood,Hamachi Loin,2.751
-CUST-065,Dockside Prime 065,5,SKU-033,Deli,Coppa Sliced,2.6315
-CUST-065,Dockside Prime 065,6,SKU-034,Deli,Bresaola,2.4805
-CUST-066,Lakeside Steakhouse 066,1,SKU-010,Pork,Belly Skin-On,3.773
-CUST-066,Lakeside Steakhouse 066,2,SKU-009,Pork,Berkshire Loin,3.7039
-CUST-066,Lakeside Steakhouse 066,3,SKU-020,Poultry,Quail 4-Pack,3.3849
-CUST-066,Lakeside Steakhouse 066,4,SKU-030,Deli,Smoked Speck,2.723
-CUST-066,Lakeside Steakhouse 066,5,SKU-031,Deli,Duck Rillette,2.6407
-CUST-066,Lakeside Steakhouse 066,6,SKU-026,Seafood,Spot Prawns,2.6203
-CUST-066,Lakeside Steakhouse 066,7,SKU-032,Deli,Pate de Campagne,2.5835
-CUST-066,Lakeside Steakhouse 066,8,SKU-025,Seafood,Scallops U10,2.5625
-CUST-066,Lakeside Steakhouse 066,9,SKU-023,Seafood,Ahi Tuna Saku,2.4062
-CUST-066,Lakeside Steakhouse 066,10,SKU-029,Deli,Genoa Salami,2.0353
-CUST-067,Bluffs Izakaya 067,1,SKU-020,Poultry,Quail 4-Pack,3.5325
-CUST-067,Bluffs Izakaya 067,2,SKU-001,Beef,Striploin AAA,3.032
-CUST-067,Bluffs Izakaya 067,3,SKU-004,Beef,Brisket,2.551
-CUST-067,Bluffs Izakaya 067,4,SKU-006,Beef,Short Ribs,2.4295
-CUST-067,Bluffs Izakaya 067,5,SKU-011,Pork,Shoulder Butt,2.3482
-CUST-067,Bluffs Izakaya 067,6,SKU-009,Pork,Berkshire Loin,2.3184
-CUST-067,Bluffs Izakaya 067,7,SKU-002,Beef,Ribeye AAA,2.1554
-CUST-067,Bluffs Izakaya 067,8,SKU-035,Lamb,Lamb Rack Frenched,2.0881
-CUST-067,Bluffs Izakaya 067,9,SKU-036,Lamb,Lamb Leg BRT,1.4692
-CUST-068,Copper Fresh Mart 068,1,SKU-005,Beef,Ground Chuck,4.7446
-CUST-068,Copper Fresh Mart 068,2,SKU-002,Beef,Ribeye AAA,4.6954
-CUST-068,Copper Fresh Mart 068,3,SKU-004,Beef,Brisket,4.5533
-CUST-068,Copper Fresh Mart 068,4,SKU-014,Pork,Chorizo Sausage,4.4218
-CUST-068,Copper Fresh Mart 068,5,SKU-017,Poultry,Whole Duck,4.3672
-CUST-068,Copper Fresh Mart 068,6,SKU-012,Pork,Back Ribs,4.3252
-CUST-068,Copper Fresh Mart 068,7,SKU-032,Deli,Pate de Campagne,4.2002
-CUST-068,Copper Fresh Mart 068,8,SKU-023,Seafood,Ahi Tuna Saku,3.7878
-CUST-068,Copper Fresh Mart 068,9,SKU-033,Deli,Coppa Sliced,3.6808
-CUST-068,Copper Fresh Mart 068,10,SKU-029,Deli,Genoa Salami,3.6727
-CUST-069,Foothill Charcuterie 069,1,SKU-014,Pork,Chorizo Sausage,3.5665
-CUST-069,Foothill Charcuterie 069,2,SKU-010,Pork,Belly Skin-On,3.4558
-CUST-069,Foothill Charcuterie 069,3,SKU-006,Beef,Short Ribs,3.4068
-CUST-069,Foothill Charcuterie 069,4,SKU-003,Beef,Tenderloin,3.4006
-CUST-069,Foothill Charcuterie 069,5,SKU-029,Deli,Genoa Salami,3.3996
-CUST-069,Foothill Charcuterie 069,6,SKU-019,Poultry,Turkey Breast Roast,3.3932
-CUST-069,Foothill Charcuterie 069,7,SKU-005,Beef,Ground Chuck,3.3275
-CUST-069,Foothill Charcuterie 069,8,SKU-032,Deli,Pate de Campagne,3.2882
-CUST-069,Foothill Charcuterie 069,9,SKU-017,Poultry,Whole Duck,3.2288
-CUST-069,Foothill Charcuterie 069,10,SKU-011,Pork,Shoulder Butt,3.205
-CUST-070,Nordic Tavern 070,1,SKU-024,Seafood,Hamachi Loin,3.1221
-CUST-071,Zenith Market 071,1,SKU-009,Pork,Berkshire Loin,4.0238
-CUST-071,Zenith Market 071,2,SKU-013,Pork,Prosciutto Leg,3.9672
-CUST-071,Zenith Market 071,3,SKU-001,Beef,Striploin AAA,3.6788
-CUST-071,Zenith Market 071,4,SKU-008,Beef,Beef Bones,3.4965
-CUST-071,Zenith Market 071,5,SKU-031,Deli,Duck Rillette,3.4718
-CUST-071,Zenith Market 071,6,SKU-038,Lamb,Ground Lamb,3.1861
-CUST-071,Zenith Market 071,7,SKU-037,Lamb,Lamb Shank,3.0486
-CUST-071,Zenith Market 071,8,SKU-035,Lamb,Lamb Rack Frenched,3.0467
-CUST-071,Zenith Market 071,9,SKU-029,Deli,Genoa Salami,2.8927
-CUST-071,Zenith Market 071,10,SKU-034,Deli,Bresaola,2.8176
-CUST-072,Pacific Steakhouse 072,1,SKU-011,Pork,Shoulder Butt,4.0922
-CUST-072,Pacific Steakhouse 072,2,SKU-009,Pork,Berkshire Loin,4.062
-CUST-072,Pacific Steakhouse 072,3,SKU-018,Poultry,Duck Breast,3.7733
-CUST-072,Pacific Steakhouse 072,4,SKU-032,Deli,Pate de Campagne,3.7161
-CUST-072,Pacific Steakhouse 072,5,SKU-019,Poultry,Turkey Breast Roast,3.6424
-CUST-072,Pacific Steakhouse 072,6,SKU-025,Seafood,Scallops U10,3.397
-CUST-072,Pacific Steakhouse 072,7,SKU-021,Seafood,Atlantic Salmon Fillet,3.0185
-CUST-072,Pacific Steakhouse 072,8,SKU-026,Seafood,Spot Prawns,2.8784
-CUST-072,Pacific Steakhouse 072,9,SKU-022,Seafood,Sablefish Fillet,2.7904
-CUST-072,Pacific Steakhouse 072,10,SKU-027,Seafood,Uni Tray,2.7349
-CUST-073,Dockside Fresh Mart 073,1,SKU-008,Beef,Beef Bones,4.4381
-CUST-073,Dockside Fresh Mart 073,2,SKU-020,Poultry,Quail 4-Pack,4.3648
-CUST-073,Dockside Fresh Mart 073,3,SKU-003,Beef,Tenderloin,4.1449
-CUST-073,Dockside Fresh Mart 073,4,SKU-022,Seafood,Sablefish Fillet,3.0531
-CUST-073,Dockside Fresh Mart 073,5,SKU-026,Seafood,Spot Prawns,2.7309
-CUST-074,Orchard Chophouse 074,1,SKU-007,Beef,Flank Steak,5.0172
-CUST-074,Orchard Chophouse 074,2,SKU-018,Poultry,Duck Breast,3.7596
-CUST-074,Orchard Chophouse 074,3,SKU-019,Poultry,Turkey Breast Roast,3.3842
-CUST-074,Orchard Chophouse 074,4,SKU-010,Pork,Belly Skin-On,3.2624
-CUST-074,Orchard Chophouse 074,5,SKU-028,Seafood,Octopus Tentacle,3.2109
-CUST-074,Orchard Chophouse 074,6,SKU-032,Deli,Pate de Campagne,2.6196
-CUST-074,Orchard Chophouse 074,7,SKU-030,Deli,Smoked Speck,2.6161
-CUST-074,Orchard Chophouse 074,8,SKU-024,Seafood,Hamachi Loin,1.6826
-CUST-075,Vista Izakaya 075,1,SKU-001,Beef,Striploin AAA,4.5693
-CUST-075,Vista Izakaya 075,2,SKU-010,Pork,Belly Skin-On,3.965
-CUST-075,Vista Izakaya 075,3,SKU-016,Poultry,Chicken Thigh BL,3.8532
-CUST-075,Vista Izakaya 075,4,SKU-038,Lamb,Ground Lamb,3.6219
-CUST-075,Vista Izakaya 075,5,SKU-032,Deli,Pate de Campagne,3.543
-CUST-075,Vista Izakaya 075,6,SKU-014,Pork,Chorizo Sausage,3.4268
-CUST-076,Canyon Sushi 076,1,SKU-020,Poultry,Quail 4-Pack,2.6524
-CUST-076,Canyon Sushi 076,2,SKU-019,Poultry,Turkey Breast Roast,2.2647
-CUST-076,Canyon Sushi 076,3,SKU-033,Deli,Coppa Sliced,2.1141
-CUST-076,Canyon Sushi 076,4,SKU-016,Poultry,Chicken Thigh BL,2.0653
-CUST-076,Canyon Sushi 076,5,SKU-006,Beef,Short Ribs,2.0155
-CUST-076,Canyon Sushi 076,6,SKU-031,Deli,Duck Rillette,1.971
-CUST-076,Canyon Sushi 076,7,SKU-034,Deli,Bresaola,1.9086
-CUST-076,Canyon Sushi 076,8,SKU-002,Beef,Ribeye AAA,1.716
-CUST-076,Canyon Sushi 076,9,SKU-004,Beef,Brisket,1.6345
-CUST-076,Canyon Sushi 076,10,SKU-038,Lamb,Ground Lamb,1.5748
-CUST-078,Vista Grill 078,1,SKU-023,Seafood,Ahi Tuna Saku,2.8967
-CUST-078,Vista Grill 078,2,SKU-024,Seafood,Hamachi Loin,2.7644
-CUST-078,Vista Grill 078,3,SKU-034,Deli,Bresaola,2.7538
-CUST-079,Aurora Ocean Bar 079,1,SKU-010,Pork,Belly Skin-On,3.0909
-CUST-079,Aurora Ocean Bar 079,2,SKU-019,Poultry,Turkey Breast Roast,2.8724
-CUST-079,Aurora Ocean Bar 079,3,SKU-003,Beef,Tenderloin,2.642
-CUST-079,Aurora Ocean Bar 079,4,SKU-032,Deli,Pate de Campagne,2.6064
-CUST-079,Aurora Ocean Bar 079,5,SKU-035,Lamb,Lamb Rack Frenched,2.2805
-CUST-079,Aurora Ocean Bar 079,6,SKU-031,Deli,Duck Rillette,2.2062
-CUST-079,Aurora Ocean Bar 079,7,SKU-029,Deli,Genoa Salami,2.1155
-CUST-079,Aurora Ocean Bar 079,8,SKU-038,Lamb,Ground Lamb,2.1148
-CUST-080,Riverbend Salumeria 080,1,SKU-033,Deli,Coppa Sliced,4.2125
-CUST-080,Riverbend Salumeria 080,2,SKU-013,Pork,Prosciutto Leg,3.5406
-CUST-080,Riverbend Salumeria 080,3,SKU-011,Pork,Shoulder Butt,3.4847
-CUST-080,Riverbend Salumeria 080,4,SKU-010,Pork,Belly Skin-On,3.4018
-CUST-080,Riverbend Salumeria 080,5,SKU-015,Poultry,Chicken Breast,3.3562
-CUST-080,Riverbend Salumeria 080,6,SKU-037,Lamb,Lamb Shank,3.2762
-CUST-080,Riverbend Salumeria 080,7,SKU-008,Beef,Beef Bones,3.1698
-CUST-080,Riverbend Salumeria 080,8,SKU-009,Pork,Berkshire Loin,3.1235
-CUST-080,Riverbend Salumeria 080,9,SKU-001,Beef,Striploin AAA,2.8564
-CUST-080,Riverbend Salumeria 080,10,SKU-006,Beef,Short Ribs,2.7601
-CUST-081,Sterling Fresh Mart 081,1,SKU-035,Lamb,Lamb Rack Frenched,3.7274
-CUST-081,Sterling Fresh Mart 081,2,SKU-027,Seafood,Uni Tray,3.4033
-CUST-081,Sterling Fresh Mart 081,3,SKU-028,Seafood,Octopus Tentacle,3.0308
-CUST-081,Sterling Fresh Mart 081,4,SKU-022,Seafood,Sablefish Fillet,2.7487
-CUST-082,Lakeside Charcuterie 082,1,SKU-012,Pork,Back Ribs,4.6951
-CUST-082,Lakeside Charcuterie 082,2,SKU-003,Beef,Tenderloin,3.9581
-CUST-082,Lakeside Charcuterie 082,3,SKU-019,Poultry,Turkey Breast Roast,3.7456
-CUST-082,Lakeside Charcuterie 082,4,SKU-028,Seafood,Octopus Tentacle,3.33
-CUST-082,Lakeside Charcuterie 082,5,SKU-023,Seafood,Ahi Tuna Saku,3.2025
-CUST-082,Lakeside Charcuterie 082,6,SKU-022,Seafood,Sablefish Fillet,2.8812
-CUST-083,Sterling Foods 083,1,SKU-012,Pork,Back Ribs,3.1955
-CUST-083,Sterling Foods 083,2,SKU-029,Deli,Genoa Salami,3.0008
-CUST-083,Sterling Foods 083,3,SKU-017,Poultry,Whole Duck,2.9031
-CUST-083,Sterling Foods 083,4,SKU-015,Poultry,Chicken Breast,2.7875
-CUST-083,Sterling Foods 083,5,SKU-011,Pork,Shoulder Butt,2.6506
-CUST-083,Sterling Foods 083,6,SKU-001,Beef,Striploin AAA,2.6421
-CUST-083,Sterling Foods 083,7,SKU-013,Pork,Prosciutto Leg,2.6295
-CUST-083,Sterling Foods 083,8,SKU-018,Poultry,Duck Breast,2.5728
-CUST-083,Sterling Foods 083,9,SKU-010,Pork,Belly Skin-On,2.4941
-CUST-083,Sterling Foods 083,10,SKU-033,Deli,Coppa Sliced,2.3862
-CUST-084,Highline Pantry 084,1,SKU-008,Beef,Beef Bones,4.8954
-CUST-084,Highline Pantry 084,2,SKU-014,Pork,Chorizo Sausage,4.6909
-CUST-084,Highline Pantry 084,3,SKU-034,Deli,Bresaola,4.4926
-CUST-084,Highline Pantry 084,4,SKU-026,Seafood,Spot Prawns,3.5156
-CUST-085,Quarry Tavern 085,1,SKU-020,Poultry,Quail 4-Pack,3.5233
-CUST-085,Quarry Tavern 085,2,SKU-032,Deli,Pate de Campagne,3.1715
-CUST-085,Quarry Tavern 085,3,SKU-022,Seafood,Sablefish Fillet,3.0655
-CUST-085,Quarry Tavern 085,4,SKU-026,Seafood,Spot Prawns,2.9769
-CUST-085,Quarry Tavern 085,5,SKU-021,Seafood,Atlantic Salmon Fillet,2.9436
-CUST-085,Quarry Tavern 085,6,SKU-031,Deli,Duck Rillette,2.8288
-CUST-085,Quarry Tavern 085,7,SKU-023,Seafood,Ahi Tuna Saku,2.4995
-CUST-085,Quarry Tavern 085,8,SKU-024,Seafood,Hamachi Loin,2.4786
-CUST-086,Cedar Kaiseki 086,1,SKU-019,Poultry,Turkey Breast Roast,3.0889
-CUST-086,Cedar Kaiseki 086,2,SKU-016,Poultry,Chicken Thigh BL,2.9285
-CUST-086,Cedar Kaiseki 086,3,SKU-012,Pork,Back Ribs,2.5028
-CUST-086,Cedar Kaiseki 086,4,SKU-013,Pork,Prosciutto Leg,2.4353
-CUST-086,Cedar Kaiseki 086,5,SKU-008,Beef,Beef Bones,2.4101
-CUST-086,Cedar Kaiseki 086,6,SKU-036,Lamb,Lamb Leg BRT,2.3106
-CUST-086,Cedar Kaiseki 086,7,SKU-035,Lamb,Lamb Rack Frenched,2.2436
-CUST-086,Cedar Kaiseki 086,8,SKU-038,Lamb,Ground Lamb,2.0516
-CUST-086,Cedar Kaiseki 086,9,SKU-011,Pork,Shoulder Butt,1.9958
-CUST-087,Sterling Pantry 087,1,SKU-015,Poultry,Chicken Breast,4.158
-CUST-087,Sterling Pantry 087,2,SKU-016,Poultry,Chicken Thigh BL,3.655
-CUST-087,Sterling Pantry 087,3,SKU-030,Deli,Smoked Speck,2.9063
-CUST-087,Sterling Pantry 087,4,SKU-035,Lamb,Lamb Rack Frenched,2.8961
-CUST-087,Sterling Pantry 087,5,SKU-023,Seafood,Ahi Tuna Saku,2.5467
-CUST-087,Sterling Pantry 087,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.2265
-CUST-087,Sterling Pantry 087,7,SKU-025,Seafood,Scallops U10,2.0995
-CUST-087,Sterling Pantry 087,8,SKU-027,Seafood,Uni Tray,1.9113
-CUST-087,Sterling Pantry 087,9,SKU-026,Seafood,Spot Prawns,1.3513
-CUST-087,Sterling Pantry 087,10,SKU-028,Seafood,Octopus Tentacle,1.3513
-CUST-088,Juniper Market 088,1,SKU-032,Deli,Pate de Campagne,4.1873
-CUST-088,Juniper Market 088,2,SKU-010,Pork,Belly Skin-On,3.9648
-CUST-088,Juniper Market 088,3,SKU-014,Pork,Chorizo Sausage,3.9522
-CUST-088,Juniper Market 088,4,SKU-013,Pork,Prosciutto Leg,3.8378
-CUST-088,Juniper Market 088,5,SKU-017,Poultry,Whole Duck,3.8115
-CUST-088,Juniper Market 088,6,SKU-006,Beef,Short Ribs,3.658
-CUST-088,Juniper Market 088,7,SKU-016,Poultry,Chicken Thigh BL,3.6548
-CUST-088,Juniper Market 088,8,SKU-005,Beef,Ground Chuck,3.6216
-CUST-088,Juniper Market 088,9,SKU-004,Beef,Brisket,3.6088
-CUST-088,Juniper Market 088,10,SKU-015,Poultry,Chicken Breast,3.4194
-CUST-089,Willow Izakaya 089,1,SKU-007,Beef,Flank Steak,3.3205
-CUST-089,Willow Izakaya 089,2,SKU-020,Poultry,Quail 4-Pack,3.1991
-CUST-089,Willow Izakaya 089,3,SKU-017,Poultry,Whole Duck,3.0581
-CUST-089,Willow Izakaya 089,4,SKU-032,Deli,Pate de Campagne,2.2089
-CUST-089,Willow Izakaya 089,5,SKU-012,Pork,Back Ribs,2.1352
-CUST-089,Willow Izakaya 089,6,SKU-009,Pork,Berkshire Loin,1.9076
-CUST-090,Whistler Kaiseki 090,1,SKU-017,Poultry,Whole Duck,2.7997
-CUST-090,Whistler Kaiseki 090,2,SKU-007,Beef,Flank Steak,2.7429
-CUST-090,Whistler Kaiseki 090,3,SKU-004,Beef,Brisket,2.6737
-CUST-090,Whistler Kaiseki 090,4,SKU-001,Beef,Striploin AAA,2.6333
-CUST-090,Whistler Kaiseki 090,5,SKU-011,Pork,Shoulder Butt,2.4984
-CUST-090,Whistler Kaiseki 090,6,SKU-020,Poultry,Quail 4-Pack,2.4325
-CUST-090,Whistler Kaiseki 090,7,SKU-033,Deli,Coppa Sliced,2.4125
-CUST-090,Whistler Kaiseki 090,8,SKU-032,Deli,Pate de Campagne,2.2059
-CUST-090,Whistler Kaiseki 090,9,SKU-038,Lamb,Ground Lamb,2.0878
-CUST-090,Whistler Kaiseki 090,10,SKU-014,Pork,Chorizo Sausage,2.0646
-CUST-091,Bluffs Pantry 091,1,SKU-027,Seafood,Uni Tray,3.3604
-CUST-091,Bluffs Pantry 091,2,SKU-025,Seafood,Scallops U10,2.8371
-CUST-091,Bluffs Pantry 091,3,SKU-024,Seafood,Hamachi Loin,1.8389
-CUST-091,Bluffs Pantry 091,4,SKU-026,Seafood,Spot Prawns,1.411
-CUST-092,Aurora Prime 092,1,SKU-013,Pork,Prosciutto Leg,3.6833
-CUST-092,Aurora Prime 092,2,SKU-014,Pork,Chorizo Sausage,3.3837
-CUST-092,Aurora Prime 092,3,SKU-021,Seafood,Atlantic Salmon Fillet,2.7997
-CUST-092,Aurora Prime 092,4,SKU-028,Seafood,Octopus Tentacle,2.555
-CUST-092,Aurora Prime 092,5,SKU-029,Deli,Genoa Salami,2.4578
-CUST-092,Aurora Prime 092,6,SKU-030,Deli,Smoked Speck,2.4506
-CUST-092,Aurora Prime 092,7,SKU-023,Seafood,Ahi Tuna Saku,2.3149
-CUST-092,Aurora Prime 092,8,SKU-032,Deli,Pate de Campagne,2.2993
-CUST-092,Aurora Prime 092,9,SKU-025,Seafood,Scallops U10,2.2916
-CUST-092,Aurora Prime 092,10,SKU-024,Seafood,Hamachi Loin,1.4209
-CUST-093,Lakeside Charcuterie 093,1,SKU-004,Beef,Brisket,4.0657
-CUST-093,Lakeside Charcuterie 093,2,SKU-001,Beef,Striploin AAA,3.8705
-CUST-093,Lakeside Charcuterie 093,3,SKU-007,Beef,Flank Steak,3.8643
-CUST-093,Lakeside Charcuterie 093,4,SKU-025,Seafood,Scallops U10,3.3894
-CUST-093,Lakeside Charcuterie 093,5,SKU-024,Seafood,Hamachi Loin,2.9839
-CUST-094,Granville Izakaya 094,1,SKU-017,Poultry,Whole Duck,2.7535
-CUST-094,Granville Izakaya 094,2,SKU-005,Beef,Ground Chuck,2.6576
-CUST-094,Granville Izakaya 094,3,SKU-003,Beef,Tenderloin,2.5798
-CUST-094,Granville Izakaya 094,4,SKU-004,Beef,Brisket,2.4649
-CUST-094,Granville Izakaya 094,5,SKU-002,Beef,Ribeye AAA,2.4499
-CUST-094,Granville Izakaya 094,6,SKU-001,Beef,Striploin AAA,2.4111
-CUST-094,Granville Izakaya 094,7,SKU-034,Deli,Bresaola,2.3756
-CUST-094,Granville Izakaya 094,8,SKU-032,Deli,Pate de Campagne,2.2167
-CUST-094,Granville Izakaya 094,9,SKU-038,Lamb,Ground Lamb,2.2046
-CUST-094,Granville Izakaya 094,10,SKU-006,Beef,Short Ribs,2.117
-CUST-095,Quarry Pantry 095,1,SKU-013,Pork,Prosciutto Leg,4.246
-CUST-095,Quarry Pantry 095,2,SKU-001,Beef,Striploin AAA,4.0729
-CUST-095,Quarry Pantry 095,3,SKU-033,Deli,Coppa Sliced,3.7513
-CUST-095,Quarry Pantry 095,4,SKU-006,Beef,Short Ribs,3.4171
-CUST-095,Quarry Pantry 095,5,SKU-034,Deli,Bresaola,3.3404
-CUST-095,Quarry Pantry 095,6,SKU-035,Lamb,Lamb Rack Frenched,3.1722
-CUST-095,Quarry Pantry 095,7,SKU-025,Seafood,Scallops U10,2.2823
-CUST-095,Quarry Pantry 095,8,SKU-022,Seafood,Sablefish Fillet,2.153
-CUST-095,Quarry Pantry 095,9,SKU-028,Seafood,Octopus Tentacle,1.99
-CUST-095,Quarry Pantry 095,10,SKU-026,Seafood,Spot Prawns,1.741
-CUST-096,Quarry Provisions 096,1,SKU-009,Pork,Berkshire Loin,3.8198
-CUST-096,Quarry Provisions 096,2,SKU-013,Pork,Prosciutto Leg,3.4339
-CUST-096,Quarry Provisions 096,3,SKU-011,Pork,Shoulder Butt,3.0196
-CUST-096,Quarry Provisions 096,4,SKU-017,Poultry,Whole Duck,2.9879
-CUST-096,Quarry Provisions 096,5,SKU-005,Beef,Ground Chuck,2.9581
-CUST-096,Quarry Provisions 096,6,SKU-015,Poultry,Chicken Breast,2.9263
-CUST-096,Quarry Provisions 096,7,SKU-010,Pork,Belly Skin-On,2.838
-CUST-096,Quarry Provisions 096,8,SKU-016,Poultry,Chicken Thigh BL,2.7856
-CUST-096,Quarry Provisions 096,9,SKU-038,Lamb,Ground Lamb,2.6872
-CUST-096,Quarry Provisions 096,10,SKU-008,Beef,Beef Bones,2.6694
-CUST-097,Willow Prime 097,1,SKU-019,Poultry,Turkey Breast Roast,3.6323
-CUST-097,Willow Prime 097,2,SKU-028,Seafood,Octopus Tentacle,2.8652
-CUST-097,Willow Prime 097,3,SKU-031,Deli,Duck Rillette,2.6425
-CUST-097,Willow Prime 097,4,SKU-032,Deli,Pate de Campagne,2.4788
-CUST-097,Willow Prime 097,5,SKU-025,Seafood,Scallops U10,2.3928
-CUST-097,Willow Prime 097,6,SKU-030,Deli,Smoked Speck,2.175
-CUST-097,Willow Prime 097,7,SKU-033,Deli,Coppa Sliced,2.1563
-CUST-097,Willow Prime 097,8,SKU-024,Seafood,Hamachi Loin,1.2976
-CUST-099,Inlet Izakaya 099,1,SKU-002,Beef,Ribeye AAA,3.0709
-CUST-099,Inlet Izakaya 099,2,SKU-032,Deli,Pate de Campagne,2.7735
-CUST-099,Inlet Izakaya 099,3,SKU-009,Pork,Berkshire Loin,2.6104
-CUST-099,Inlet Izakaya 099,4,SKU-035,Lamb,Lamb Rack Frenched,2.5714
-CUST-099,Inlet Izakaya 099,5,SKU-013,Pork,Prosciutto Leg,2.1114
-CUST-099,Inlet Izakaya 099,6,SKU-030,Deli,Smoked Speck,2.0298
-CUST-099,Inlet Izakaya 099,7,SKU-011,Pork,Shoulder Butt,2.0203
-CUST-099,Inlet Izakaya 099,8,SKU-036,Lamb,Lamb Leg BRT,1.5264
-CUST-100,Foothill Salumeria 100,1,SKU-030,Deli,Smoked Speck,4.331
-CUST-100,Foothill Salumeria 100,2,SKU-014,Pork,Chorizo Sausage,3.89
-CUST-100,Foothill Salumeria 100,3,SKU-017,Poultry,Whole Duck,3.5708
-CUST-100,Foothill Salumeria 100,4,SKU-012,Pork,Back Ribs,3.485
-CUST-100,Foothill Salumeria 100,5,SKU-006,Beef,Short Ribs,3.4381
-CUST-100,Foothill Salumeria 100,6,SKU-009,Pork,Berkshire Loin,3.3685
-CUST-100,Foothill Salumeria 100,7,SKU-015,Poultry,Chicken Breast,3.3481
-CUST-100,Foothill Salumeria 100,8,SKU-011,Pork,Shoulder Butt,3.3355
-CUST-100,Foothill Salumeria 100,9,SKU-037,Lamb,Lamb Shank,3.1234
-CUST-100,Foothill Salumeria 100,10,SKU-020,Poultry,Quail 4-Pack,3.0646
-CUST-101,Vista Kaiseki 101,1,SKU-019,Poultry,Turkey Breast Roast,3.0534
-CUST-101,Vista Kaiseki 101,2,SKU-018,Poultry,Duck Breast,2.9869
-CUST-101,Vista Kaiseki 101,3,SKU-006,Beef,Short Ribs,2.8906
-CUST-101,Vista Kaiseki 101,4,SKU-005,Beef,Ground Chuck,2.8237
-CUST-101,Vista Kaiseki 101,5,SKU-031,Deli,Duck Rillette,2.4745
-CUST-101,Vista Kaiseki 101,6,SKU-034,Deli,Bresaola,2.4255
-CUST-101,Vista Kaiseki 101,7,SKU-003,Beef,Tenderloin,2.2145
-CUST-101,Vista Kaiseki 101,8,SKU-009,Pork,Berkshire Loin,2.0713
-CUST-101,Vista Kaiseki 101,9,SKU-010,Pork,Belly Skin-On,2.0529
-CUST-101,Vista Kaiseki 101,10,SKU-014,Pork,Chorizo Sausage,1.9865
-CUST-102,Lakeside Pantry 102,1,SKU-035,Lamb,Lamb Rack Frenched,4.305
-CUST-102,Lakeside Pantry 102,2,SKU-036,Lamb,Lamb Leg BRT,4.1231
-CUST-102,Lakeside Pantry 102,3,SKU-032,Deli,Pate de Campagne,3.7965
-CUST-102,Lakeside Pantry 102,4,SKU-030,Deli,Smoked Speck,3.5993
-CUST-102,Lakeside Pantry 102,5,SKU-022,Seafood,Sablefish Fillet,3.4785
-CUST-102,Lakeside Pantry 102,6,SKU-026,Seafood,Spot Prawns,2.2518
-CUST-103,Cedar Chophouse 103,1,SKU-020,Poultry,Quail 4-Pack,4.0449
-CUST-103,Cedar Chophouse 103,2,SKU-009,Pork,Berkshire Loin,3.8952
-CUST-103,Cedar Chophouse 103,3,SKU-028,Seafood,Octopus Tentacle,3.1541
-CUST-103,Cedar Chophouse 103,4,SKU-031,Deli,Duck Rillette,2.9316
-CUST-103,Cedar Chophouse 103,5,SKU-029,Deli,Genoa Salami,2.9044
-CUST-103,Cedar Chophouse 103,6,SKU-025,Seafood,Scallops U10,2.7956
-CUST-103,Cedar Chophouse 103,7,SKU-022,Seafood,Sablefish Fillet,2.7267
-CUST-103,Cedar Chophouse 103,8,SKU-030,Deli,Smoked Speck,2.6238
-CUST-103,Cedar Chophouse 103,9,SKU-034,Deli,Bresaola,2.4096
-CUST-105,Cedar Charcuterie 105,1,SKU-013,Pork,Prosciutto Leg,4.5043
-CUST-105,Cedar Charcuterie 105,2,SKU-017,Poultry,Whole Duck,4.1642
-CUST-105,Cedar Charcuterie 105,3,SKU-016,Poultry,Chicken Thigh BL,3.7863
-CUST-105,Cedar Charcuterie 105,4,SKU-038,Lamb,Ground Lamb,3.6326
-CUST-105,Cedar Charcuterie 105,5,SKU-018,Poultry,Duck Breast,3.4248
-CUST-105,Cedar Charcuterie 105,6,SKU-002,Beef,Ribeye AAA,3.348
-CUST-105,Cedar Charcuterie 105,7,SKU-004,Beef,Brisket,3.2255
-CUST-105,Cedar Charcuterie 105,8,SKU-020,Poultry,Quail 4-Pack,3.2033
-CUST-105,Cedar Charcuterie 105,9,SKU-025,Seafood,Scallops U10,2.9235
-CUST-105,Cedar Charcuterie 105,10,SKU-021,Seafood,Atlantic Salmon Fillet,2.807
-CUST-106,Nordic Charcuterie 106,1,SKU-023,Seafood,Ahi Tuna Saku,3.1778
-CUST-107,Granville Ocean Bar 107,1,SKU-034,Deli,Bresaola,2.7103
-CUST-107,Granville Ocean Bar 107,2,SKU-020,Poultry,Quail 4-Pack,2.6762
-CUST-107,Granville Ocean Bar 107,3,SKU-004,Beef,Brisket,2.5326
-CUST-107,Granville Ocean Bar 107,4,SKU-003,Beef,Tenderloin,2.4127
-CUST-107,Granville Ocean Bar 107,5,SKU-014,Pork,Chorizo Sausage,2.3875
-CUST-107,Granville Ocean Bar 107,6,SKU-006,Beef,Short Ribs,2.3868
-CUST-107,Granville Ocean Bar 107,7,SKU-035,Lamb,Lamb Rack Frenched,2.0429
-CUST-107,Granville Ocean Bar 107,8,SKU-012,Pork,Back Ribs,1.7348
-CUST-107,Granville Ocean Bar 107,9,SKU-029,Deli,Genoa Salami,1.7101
-CUST-107,Granville Ocean Bar 107,10,SKU-013,Pork,Prosciutto Leg,1.6739
-CUST-108,Grove Omakase 108,1,SKU-033,Deli,Coppa Sliced,3.0559
-CUST-108,Grove Omakase 108,2,SKU-009,Pork,Berkshire Loin,2.7285
-CUST-108,Grove Omakase 108,3,SKU-003,Beef,Tenderloin,2.5176
-CUST-108,Grove Omakase 108,4,SKU-031,Deli,Duck Rillette,2.3584
-CUST-108,Grove Omakase 108,5,SKU-029,Deli,Genoa Salami,2.2263
-CUST-108,Grove Omakase 108,6,SKU-037,Lamb,Lamb Shank,2.1835
-CUST-108,Grove Omakase 108,7,SKU-035,Lamb,Lamb Rack Frenched,2.1033
-CUST-108,Grove Omakase 108,8,SKU-012,Pork,Back Ribs,1.8117
-CUST-109,Dockside Fresh Mart 109,1,SKU-003,Beef,Tenderloin,4.2613
-CUST-109,Dockside Fresh Mart 109,2,SKU-017,Poultry,Whole Duck,4.2604
-CUST-109,Dockside Fresh Mart 109,3,SKU-031,Deli,Duck Rillette,4.0811
-CUST-109,Dockside Fresh Mart 109,4,SKU-012,Pork,Back Ribs,4.0184
-CUST-109,Dockside Fresh Mart 109,5,SKU-029,Deli,Genoa Salami,3.9968
-CUST-109,Dockside Fresh Mart 109,6,SKU-038,Lamb,Ground Lamb,3.7906
-CUST-109,Dockside Fresh Mart 109,7,SKU-019,Poultry,Turkey Breast Roast,3.7538
-CUST-109,Dockside Fresh Mart 109,8,SKU-035,Lamb,Lamb Rack Frenched,3.6789
-CUST-109,Dockside Fresh Mart 109,9,SKU-004,Beef,Brisket,3.6545
-CUST-109,Dockside Fresh Mart 109,10,SKU-007,Beef,Flank Steak,3.6409
-CUST-110,Riverbend Charcuterie 110,1,SKU-007,Beef,Flank Steak,4.0936
-CUST-110,Riverbend Charcuterie 110,2,SKU-035,Lamb,Lamb Rack Frenched,3.8635
-CUST-110,Riverbend Charcuterie 110,3,SKU-027,Seafood,Uni Tray,3.2214
-CUST-110,Riverbend Charcuterie 110,4,SKU-024,Seafood,Hamachi Loin,3.037
-CUST-111,Union Fresh Mart 111,1,SKU-002,Beef,Ribeye AAA,4.4429
-CUST-111,Union Fresh Mart 111,2,SKU-029,Deli,Genoa Salami,3.883
-CUST-111,Union Fresh Mart 111,3,SKU-035,Lamb,Lamb Rack Frenched,3.6637
-CUST-111,Union Fresh Mart 111,4,SKU-023,Seafood,Ahi Tuna Saku,3.0219
-CUST-111,Union Fresh Mart 111,5,SKU-021,Seafood,Atlantic Salmon Fillet,2.7549
-CUST-111,Union Fresh Mart 111,6,SKU-025,Seafood,Scallops U10,2.6595
-CUST-112,Sterling Provisions 112,1,SKU-011,Pork,Shoulder Butt,3.1876
-CUST-112,Sterling Provisions 112,2,SKU-037,Lamb,Lamb Shank,3.0517
-CUST-112,Sterling Provisions 112,3,SKU-002,Beef,Ribeye AAA,2.5614
-CUST-112,Sterling Provisions 112,4,SKU-007,Beef,Flank Steak,2.341
-CUST-112,Sterling Provisions 112,5,SKU-004,Beef,Brisket,2.1368
-CUST-112,Sterling Provisions 112,6,SKU-003,Beef,Tenderloin,1.9142
-CUST-112,Sterling Provisions 112,7,SKU-026,Seafood,Spot Prawns,1.8547
-CUST-112,Sterling Provisions 112,8,SKU-008,Beef,Beef Bones,1.805
-CUST-112,Sterling Provisions 112,9,SKU-001,Beef,Striploin AAA,1.63
-CUST-112,Sterling Provisions 112,10,SKU-024,Seafood,Hamachi Loin,1.5928
-CUST-113,Inlet Pantry 113,1,SKU-018,Poultry,Duck Breast,4.3296
-CUST-113,Inlet Pantry 113,2,SKU-007,Beef,Flank Steak,4.1718
-CUST-113,Inlet Pantry 113,3,SKU-013,Pork,Prosciutto Leg,3.9967
-CUST-113,Inlet Pantry 113,4,SKU-009,Pork,Berkshire Loin,3.9413
-CUST-113,Inlet Pantry 113,5,SKU-032,Deli,Pate de Campagne,3.9111
-CUST-113,Inlet Pantry 113,6,SKU-029,Deli,Genoa Salami,3.6802
-CUST-113,Inlet Pantry 113,7,SKU-033,Deli,Coppa Sliced,3.5858
-CUST-113,Inlet Pantry 113,8,SKU-037,Lamb,Lamb Shank,3.0394
-CUST-113,Inlet Pantry 113,9,SKU-035,Lamb,Lamb Rack Frenched,2.7536
-CUST-113,Inlet Pantry 113,10,SKU-021,Seafood,Atlantic Salmon Fillet,2.1804
-CUST-114,Inlet Pantry 114,1,SKU-001,Beef,Striploin AAA,4.7219
-CUST-114,Inlet Pantry 114,2,SKU-014,Pork,Chorizo Sausage,4.5196
-CUST-114,Inlet Pantry 114,3,SKU-012,Pork,Back Ribs,4.3819
-CUST-114,Inlet Pantry 114,4,SKU-015,Poultry,Chicken Breast,4.1148
-CUST-114,Inlet Pantry 114,5,SKU-032,Deli,Pate de Campagne,4.1012
-CUST-114,Inlet Pantry 114,6,SKU-029,Deli,Genoa Salami,3.468
-CUST-114,Inlet Pantry 114,7,SKU-025,Seafood,Scallops U10,3.2526
-CUST-114,Inlet Pantry 114,8,SKU-024,Seafood,Hamachi Loin,3.0458
-CUST-115,Zenith Fresh Mart 115,1,SKU-025,Seafood,Scallops U10,3.0871
-CUST-115,Zenith Fresh Mart 115,2,SKU-026,Seafood,Spot Prawns,2.4952
-CUST-116,Union Fresh Mart 116,1,SKU-010,Pork,Belly Skin-On,4.4241
-CUST-116,Union Fresh Mart 116,2,SKU-003,Beef,Tenderloin,4.2149
-CUST-116,Union Fresh Mart 116,3,SKU-006,Beef,Short Ribs,4.0113
-CUST-116,Union Fresh Mart 116,4,SKU-033,Deli,Coppa Sliced,3.6405
-CUST-116,Union Fresh Mart 116,5,SKU-029,Deli,Genoa Salami,3.6093
-CUST-116,Union Fresh Mart 116,6,SKU-038,Lamb,Ground Lamb,3.6081
-CUST-116,Union Fresh Mart 116,7,SKU-022,Seafood,Sablefish Fillet,2.5584
-CUST-116,Union Fresh Mart 116,8,SKU-025,Seafood,Scallops U10,2.0628
-CUST-116,Union Fresh Mart 116,9,SKU-028,Seafood,Octopus Tentacle,1.8695
-CUST-116,Union Fresh Mart 116,10,SKU-026,Seafood,Spot Prawns,1.536
-CUST-118,Zenith Grocer 118,1,SKU-031,Deli,Duck Rillette,3.166
-CUST-118,Zenith Grocer 118,2,SKU-023,Seafood,Ahi Tuna Saku,2.9767
-CUST-118,Zenith Grocer 118,3,SKU-028,Seafood,Octopus Tentacle,2.8721
-CUST-118,Zenith Grocer 118,4,SKU-033,Deli,Coppa Sliced,2.8635
-CUST-118,Zenith Grocer 118,5,SKU-030,Deli,Smoked Speck,2.6604
-CUST-118,Zenith Grocer 118,6,SKU-026,Seafood,Spot Prawns,1.3434
-CUST-118,Zenith Grocer 118,7,SKU-024,Seafood,Hamachi Loin,1.0207
-CUST-119,Harbour Cellar 119,1,SKU-036,Lamb,Lamb Leg BRT,4.4351
-CUST-120,Summit Sushi 120,1,SKU-015,Poultry,Chicken Breast,2.4135
-CUST-120,Summit Sushi 120,2,SKU-019,Poultry,Turkey Breast Roast,2.1522
-CUST-120,Summit Sushi 120,3,SKU-002,Beef,Ribeye AAA,2.1478
-CUST-120,Summit Sushi 120,4,SKU-037,Lamb,Lamb Shank,2.0381
-CUST-120,Summit Sushi 120,5,SKU-012,Pork,Back Ribs,2.0066
-CUST-120,Summit Sushi 120,6,SKU-006,Beef,Short Ribs,2.0056
-CUST-120,Summit Sushi 120,7,SKU-033,Deli,Coppa Sliced,1.8954
-CUST-120,Summit Sushi 120,8,SKU-001,Beef,Striploin AAA,1.8161
-CUST-120,Summit Sushi 120,9,SKU-007,Beef,Flank Steak,1.7951
-CUST-120,Summit Sushi 120,10,SKU-010,Pork,Belly Skin-On,1.7588
+customer_id,customer_name,rank,sku,protein,description,score,est_revenue_opportunity,because_similar_to
+CUST-001,Aurora Kaiseki 001,1,SKU-012,Pork,Back Ribs,4.0284,524.54,Whistler Izakaya 018
+CUST-001,Aurora Kaiseki 001,2,SKU-036,Lamb,Lamb Leg BRT,3.4997,558.8,Whistler Izakaya 018
+CUST-001,Aurora Kaiseki 001,3,SKU-008,Beef,Beef Bones,3.3504,99.05,Whistler Izakaya 018
+CUST-002,Granville Market 002,1,SKU-029,Deli,Genoa Salami,4.366,1072.08,Lakeside Grocer 013
+CUST-002,Granville Market 002,2,SKU-031,Deli,Duck Rillette,4.2267,1054.41,Lakeside Grocer 013
+CUST-002,Granville Market 002,3,SKU-003,Beef,Tenderloin,4.2244,2761.05,Lakeside Grocer 013
+CUST-002,Granville Market 002,4,SKU-002,Beef,Ribeye AAA,4.2135,2034.17,Lakeside Grocer 013
+CUST-002,Granville Market 002,5,SKU-004,Beef,Brisket,4.0699,621.64,Lakeside Grocer 013
+CUST-002,Granville Market 002,6,SKU-005,Beef,Ground Chuck,4.0646,434.74,Lakeside Grocer 013
+CUST-002,Granville Market 002,7,SKU-036,Lamb,Lamb Leg BRT,4.0128,945.15,Lakeside Grocer 013
+CUST-002,Granville Market 002,8,SKU-012,Pork,Back Ribs,4.0105,515.07,Lakeside Grocer 013
+CUST-002,Granville Market 002,9,SKU-037,Lamb,Lamb Shank,3.4772,404.45,Lakeside Grocer 013
+CUST-002,Granville Market 002,10,SKU-006,Beef,Short Ribs,3.4736,452.7,Lakeside Grocer 013
+CUST-003,Bluffs Pantry 003,1,SKU-033,Deli,Coppa Sliced,3.037,394.41,Foothill Grocer 058
+CUST-003,Bluffs Pantry 003,2,SKU-030,Deli,Smoked Speck,2.7502,255.34,Foothill Grocer 058
+CUST-003,Bluffs Pantry 003,3,SKU-021,Seafood,Atlantic Salmon Fillet,2.7202,290.41,Foothill Grocer 058
+CUST-003,Bluffs Pantry 003,4,SKU-027,Seafood,Uni Tray,2.2672,501.72,Quarry Grocer 025
+CUST-003,Bluffs Pantry 003,5,SKU-028,Seafood,Octopus Tentacle,1.8217,129.4,Quarry Grocer 025
+CUST-003,Bluffs Pantry 003,6,SKU-026,Seafood,Spot Prawns,1.4486,92.79,Vista Pantry 034
+CUST-004,Dockside Salumeria 004,1,SKU-031,Deli,Duck Rillette,4.5589,1475.97,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,2,SKU-037,Lamb,Lamb Shank,3.7989,562.88,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,3,SKU-007,Beef,Flank Steak,3.395,466.9,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,4,SKU-004,Beef,Brisket,3.384,307.73,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,5,SKU-006,Beef,Short Ribs,3.2132,345.6,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,6,SKU-020,Poultry,Quail 4-Pack,3.1533,336.56,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,7,SKU-018,Poultry,Duck Breast,3.1145,463.22,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,8,SKU-003,Beef,Tenderloin,2.987,772.02,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,9,SKU-038,Lamb,Ground Lamb,2.9771,223.93,Grove Charcuterie 047
+CUST-004,Dockside Salumeria 004,10,SKU-005,Beef,Ground Chuck,2.9314,134.83,Grove Charcuterie 047
+CUST-005,Harbour Sushi 005,1,SKU-003,Beef,Tenderloin,3.4221,1215.18,Inlet Izakaya 099
+CUST-005,Harbour Sushi 005,2,SKU-007,Beef,Flank Steak,3.1799,373.39,Inlet Izakaya 099
+CUST-005,Harbour Sushi 005,3,SKU-010,Pork,Belly Skin-On,3.1017,195.43,Inlet Izakaya 099
+CUST-005,Harbour Sushi 005,4,SKU-005,Beef,Ground Chuck,2.9797,141.88,Inlet Izakaya 099
+CUST-005,Harbour Sushi 005,5,SKU-006,Beef,Short Ribs,2.4448,152.5,Inlet Izakaya 099
+CUST-005,Harbour Sushi 005,6,SKU-002,Beef,Ribeye AAA,2.1674,236.3,Quarry Omakase 015
+CUST-005,Harbour Sushi 005,7,SKU-035,Lamb,Lamb Rack Frenched,2.0451,239.11,Quarry Omakase 015
+CUST-005,Harbour Sushi 005,8,SKU-013,Pork,Prosciutto Leg,1.8125,97.63,Quarry Omakase 015
+CUST-005,Harbour Sushi 005,9,SKU-009,Pork,Berkshire Loin,1.6648,44.56,Quarry Omakase 015
+CUST-005,Harbour Sushi 005,10,SKU-030,Deli,Smoked Speck,1.5582,65.38,Aurora Kaiseki 001
+CUST-006,Granville Tavern 006,1,SKU-014,Pork,Chorizo Sausage,3.6628,384.35,Vista Grill 078
+CUST-006,Granville Tavern 006,2,SKU-016,Poultry,Chicken Thigh BL,3.4501,222.83,Vista Grill 078
+CUST-006,Granville Tavern 006,3,SKU-028,Seafood,Octopus Tentacle,3.3344,675.69,Vista Grill 078
+CUST-006,Granville Tavern 006,4,SKU-022,Seafood,Sablefish Fillet,3.2781,754.3,Vista Grill 078
+CUST-006,Granville Tavern 006,5,SKU-032,Deli,Pate de Campagne,3.0817,245.5,Vista Grill 078
+CUST-006,Granville Tavern 006,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.9429,367.96,Vista Grill 078
+CUST-006,Granville Tavern 006,7,SKU-030,Deli,Smoked Speck,2.8783,292.63,Vista Grill 078
+CUST-006,Granville Tavern 006,8,SKU-029,Deli,Genoa Salami,2.8372,221.62,Vista Grill 078
+CUST-006,Granville Tavern 006,9,SKU-023,Seafood,Ahi Tuna Saku,2.5945,415.36,Grove Grill 062
+CUST-006,Granville Tavern 006,10,SKU-034,Deli,Bresaola,2.3823,236.11,Grove Grill 062
+CUST-007,Highline Kaiseki 007,1,SKU-019,Poultry,Turkey Breast Roast,2.6382,154.28,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,2,SKU-017,Poultry,Whole Duck,2.1577,103.26,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,3,SKU-003,Beef,Tenderloin,1.9023,233.81,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,4,SKU-014,Pork,Chorizo Sausage,1.8783,56.1,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,5,SKU-002,Beef,Ribeye AAA,1.6317,125.63,Willow Izakaya 089
+CUST-007,Highline Kaiseki 007,6,SKU-036,Lamb,Lamb Leg BRT,1.6004,68.84,Willow Izakaya 089
+CUST-007,Highline Kaiseki 007,7,SKU-034,Deli,Bresaola,1.5929,94.1,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,8,SKU-006,Beef,Short Ribs,1.5733,55.37,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,9,SKU-037,Lamb,Lamb Shank,1.4935,44.52,Inlet Izakaya 099
+CUST-007,Highline Kaiseki 007,10,SKU-033,Deli,Coppa Sliced,1.4909,68.4,Inlet Izakaya 099
+CUST-008,Cedar Chophouse 008,1,SKU-037,Lamb,Lamb Shank,4.4111,1049.1,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,2,SKU-009,Pork,Berkshire Loin,4.047,584.83,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,3,SKU-013,Pork,Prosciutto Leg,3.7627,801.18,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,4,SKU-028,Seafood,Octopus Tentacle,3.2078,592.39,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,5,SKU-021,Seafood,Atlantic Salmon Fillet,3.1757,469.78,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,6,SKU-010,Pork,Belly Skin-On,3.1706,210.03,Vista Grill 078
+CUST-008,Cedar Chophouse 008,7,SKU-019,Poultry,Turkey Breast Roast,2.9335,211.35,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,8,SKU-027,Seafood,Uni Tray,2.6789,786.84,Vista Grill 078
+CUST-008,Cedar Chophouse 008,9,SKU-031,Deli,Duck Rillette,2.484,171.68,Dockside Prime 065
+CUST-008,Cedar Chophouse 008,10,SKU-023,Seafood,Ahi Tuna Saku,2.473,363.99,Dockside Prime 065
+CUST-009,Orchard Foods 009,1,SKU-026,Seafood,Spot Prawns,2.9307,505.41,Canyon Charcuterie 064
+CUST-010,Yardley Chophouse 010,1,SKU-017,Poultry,Whole Duck,4.0115,731.85,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,2,SKU-022,Seafood,Sablefish Fillet,3.4827,932.26,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,3,SKU-029,Deli,Genoa Salami,3.2857,354.83,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,4,SKU-030,Deli,Smoked Speck,3.2428,428.99,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,5,SKU-021,Seafood,Atlantic Salmon Fillet,3.225,494.55,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,6,SKU-031,Deli,Duck Rillette,3.1875,362.87,Cedar Steakhouse 049
+CUST-010,Yardley Chophouse 010,7,SKU-025,Seafood,Scallops U10,2.9987,754.42,Cedar Steakhouse 049
+CUST-011,Bluffs Cellar 011,1,SKU-011,Pork,Shoulder Butt,3.3314,175.28,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,2,SKU-020,Poultry,Quail 4-Pack,3.1856,348.11,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,3,SKU-018,Poultry,Duck Breast,3.1811,496.56,Pacific Salumeria 077
+CUST-011,Bluffs Cellar 011,4,SKU-001,Beef,Striploin AAA,2.9516,471.56,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,5,SKU-005,Beef,Ground Chuck,2.8525,124.03,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,6,SKU-008,Beef,Beef Bones,2.7611,53.34,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,7,SKU-002,Beef,Ribeye AAA,2.3871,301.86,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,8,SKU-027,Seafood,Uni Tray,2.0939,412.66,Pacific Salumeria 077
+CUST-011,Bluffs Cellar 011,9,SKU-025,Seafood,Scallops U10,2.0479,267.26,Canyon Cellar 039
+CUST-011,Bluffs Cellar 011,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.9761,127.25,Pacific Salumeria 077
+CUST-012,Vista Steakhouse 012,1,SKU-036,Lamb,Lamb Leg BRT,4.9933,2548.68,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,2,SKU-009,Pork,Berkshire Loin,4.3002,756.29,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,3,SKU-014,Pork,Chorizo Sausage,4.177,649.53,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,4,SKU-018,Poultry,Duck Breast,3.8859,1026.82,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,5,SKU-019,Poultry,Turkey Breast Roast,3.838,539.67,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,6,SKU-022,Seafood,Sablefish Fillet,3.6969,1162.06,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,7,SKU-021,Seafood,Atlantic Salmon Fillet,3.556,696.66,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,8,SKU-017,Poultry,Whole Duck,3.5166,440.9,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,9,SKU-016,Poultry,Chicken Thigh BL,3.4661,226.54,Harbour Steakhouse 044
+CUST-012,Vista Steakhouse 012,10,SKU-027,Seafood,Uni Tray,3.3446,1585.9,Dockside Grill 061
+CUST-013,Lakeside Grocer 013,1,SKU-024,Seafood,Hamachi Loin,1.8399,196.16,Orchard Foods 009
+CUST-013,Lakeside Grocer 013,2,SKU-026,Seafood,Spot Prawns,1.5076,100.16,Bluffs Steakhouse 098
+CUST-014,Orchard Grocer 014,1,SKU-013,Pork,Prosciutto Leg,3.1217,413.02,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,2,SKU-019,Poultry,Turkey Breast Roast,3.0714,244.36,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,3,SKU-020,Poultry,Quail 4-Pack,3.029,295.48,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,4,SKU-017,Poultry,Whole Duck,2.8891,229.11,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,5,SKU-004,Beef,Brisket,2.8842,182.44,Union Fresh Mart 111
+CUST-014,Orchard Grocer 014,6,SKU-034,Deli,Bresaola,2.8461,389.59,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,7,SKU-010,Pork,Belly Skin-On,2.826,146.11,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,8,SKU-001,Beef,Striploin AAA,2.6352,336.62,Juniper Salumeria 027
+CUST-014,Orchard Grocer 014,9,SKU-018,Poultry,Duck Breast,2.6346,278.44,Union Fresh Mart 111
+CUST-014,Orchard Grocer 014,10,SKU-031,Deli,Duck Rillette,2.6114,197.14,Juniper Salumeria 027
+CUST-015,Quarry Omakase 015,1,SKU-030,Deli,Smoked Speck,4.0375,970.84,Whistler Izakaya 018
+CUST-016,Aurora Deli 016,1,SKU-009,Pork,Berkshire Loin,4.6108,1035.62,Whistler Provisions 063
+CUST-016,Aurora Deli 016,2,SKU-008,Beef,Beef Bones,4.1869,233.34,Whistler Provisions 063
+CUST-016,Aurora Deli 016,3,SKU-002,Beef,Ribeye AAA,3.9219,1511.92,Whistler Provisions 063
+CUST-016,Aurora Deli 016,4,SKU-005,Beef,Ground Chuck,3.5371,253.41,Whistler Provisions 063
+CUST-016,Aurora Deli 016,5,SKU-025,Seafood,Scallops U10,3.4,1146.48,Whistler Provisions 063
+CUST-016,Aurora Deli 016,6,SKU-021,Seafood,Atlantic Salmon Fillet,3.3161,543.72,Whistler Provisions 063
+CUST-016,Aurora Deli 016,7,SKU-023,Seafood,Ahi Tuna Saku,3.2345,817.79,Whistler Provisions 063
+CUST-016,Aurora Deli 016,8,SKU-022,Seafood,Sablefish Fillet,3.0909,620.51,Whistler Provisions 063
+CUST-016,Aurora Deli 016,9,SKU-027,Seafood,Uni Tray,3.0822,1206.46,Whistler Provisions 063
+CUST-016,Aurora Deli 016,10,SKU-028,Seafood,Octopus Tentacle,2.9993,476.19,Harbour Cellar 119
+CUST-019,Timber Sushi 019,1,SKU-002,Beef,Ribeye AAA,2.7802,461.92,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,2,SKU-005,Beef,Ground Chuck,2.7295,108.79,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,3,SKU-006,Beef,Short Ribs,2.2706,125.8,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,4,SKU-029,Deli,Genoa Salami,2.0992,98.75,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,5,SKU-038,Lamb,Ground Lamb,2.0775,83.95,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,6,SKU-033,Deli,Coppa Sliced,1.9768,123.63,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,7,SKU-032,Deli,Pate de Campagne,1.7732,57.72,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,8,SKU-037,Lamb,Lamb Shank,1.7583,61.93,Aurora Kaiseki 001
+CUST-019,Timber Sushi 019,9,SKU-008,Beef,Beef Bones,1.6613,15.36,Inlet Izakaya 099
+CUST-019,Timber Sushi 019,10,SKU-011,Pork,Shoulder Butt,1.615,26.17,Aurora Kaiseki 001
+CUST-020,Cedar Deli 020,1,SKU-013,Pork,Prosciutto Leg,4.0878,1116.3,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,2,SKU-014,Pork,Chorizo Sausage,4.0547,573.59,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,3,SKU-011,Pork,Shoulder Butt,3.9019,315.1,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,4,SKU-016,Poultry,Chicken Thigh BL,3.7409,300.5,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,5,SKU-015,Poultry,Chicken Breast,3.3499,231.37,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,6,SKU-038,Lamb,Ground Lamb,3.2891,310.32,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,7,SKU-006,Beef,Short Ribs,3.2128,345.45,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,8,SKU-003,Beef,Tenderloin,3.1645,929.94,Harbour Cellar 119
+CUST-020,Cedar Deli 020,9,SKU-005,Beef,Ground Chuck,3.1584,171.12,Dockside Fresh Mart 073
+CUST-020,Cedar Deli 020,10,SKU-036,Lamb,Lamb Leg BRT,3.1279,379.92,Dockside Fresh Mart 073
+CUST-022,Zenith Foods 022,1,SKU-026,Seafood,Spot Prawns,2.4883,314.52,Timber Tavern 104
+CUST-023,Vista Pantry 023,1,SKU-005,Beef,Ground Chuck,3.555,258.13,Canyon Foods 017
+CUST-023,Vista Pantry 023,2,SKU-010,Pork,Belly Skin-On,3.4275,274.24,Canyon Foods 017
+CUST-023,Vista Pantry 023,3,SKU-031,Deli,Duck Rillette,3.326,419.12,Canyon Foods 017
+CUST-023,Vista Pantry 023,4,SKU-012,Pork,Back Ribs,3.2505,235.83,Canyon Foods 017
+CUST-023,Vista Pantry 023,5,SKU-014,Pork,Chorizo Sausage,3.0937,213.16,Canyon Foods 017
+CUST-023,Vista Pantry 023,6,SKU-032,Deli,Pate de Campagne,2.9951,224.15,Canyon Foods 017
+CUST-023,Vista Pantry 023,7,SKU-036,Lamb,Lamb Leg BRT,2.5554,206.72,Canyon Foods 017
+CUST-023,Vista Pantry 023,8,SKU-027,Seafood,Uni Tray,2.4314,601.59,Canyon Foods 017
+CUST-023,Vista Pantry 023,9,SKU-029,Deli,Genoa Salami,2.2769,120.63,Canyon Foods 017
+CUST-023,Vista Pantry 023,10,SKU-024,Seafood,Hamachi Loin,2.1249,273.07,Canyon Foods 017
+CUST-024,Lakeside Fresh Mart 024,1,SKU-022,Seafood,Sablefish Fillet,3.7346,1207.9,Granville Foods 043
+CUST-024,Lakeside Fresh Mart 024,2,SKU-024,Seafood,Hamachi Loin,3.0492,744.42,Elmwood Charcuterie 030
+CUST-024,Lakeside Fresh Mart 024,3,SKU-023,Seafood,Ahi Tuna Saku,3.0134,648.92,Elmwood Charcuterie 030
+CUST-025,Quarry Grocer 025,1,SKU-024,Seafood,Hamachi Loin,1.5562,138.56,Orchard Foods 009
+CUST-025,Quarry Grocer 025,2,SKU-026,Seafood,Spot Prawns,1.3248,78.67,Granville Foods 043
+CUST-026,Grove Market 026,1,SKU-011,Pork,Shoulder Butt,4.5879,632.16,Aurora Kaiseki 001
+CUST-026,Grove Market 026,2,SKU-032,Deli,Pate de Campagne,4.5314,1084.71,Aurora Kaiseki 001
+CUST-026,Grove Market 026,3,SKU-012,Pork,Back Ribs,4.2372,648.61,Quarry Deli 117
+CUST-026,Grove Market 026,4,SKU-005,Beef,Ground Chuck,4.1312,465.19,Aurora Kaiseki 001
+CUST-026,Grove Market 026,5,SKU-021,Seafood,Atlantic Salmon Fillet,4.0189,1118.77,Aurora Kaiseki 001
+CUST-026,Grove Market 026,6,SKU-020,Poultry,Quail 4-Pack,3.9931,799.19,Aurora Kaiseki 001
+CUST-026,Grove Market 026,7,SKU-037,Lamb,Lamb Shank,3.681,498.83,Aurora Kaiseki 001
+CUST-026,Grove Market 026,8,SKU-008,Beef,Beef Bones,3.5995,128.09,Quarry Deli 117
+CUST-026,Grove Market 026,9,SKU-036,Lamb,Lamb Leg BRT,3.5345,579.22,Quarry Deli 117
+CUST-026,Grove Market 026,10,SKU-022,Seafood,Sablefish Fillet,3.2019,696.85,Aurora Kaiseki 001
+CUST-027,Juniper Salumeria 027,1,SKU-014,Pork,Chorizo Sausage,3.8038,444.08,Sterling Provisions 112
+CUST-027,Juniper Salumeria 027,2,SKU-018,Poultry,Duck Breast,3.3706,604.69,Sterling Provisions 112
+CUST-027,Juniper Salumeria 027,3,SKU-003,Beef,Tenderloin,3.2429,1009.16,Riverbend Charcuterie 110
+CUST-027,Juniper Salumeria 027,4,SKU-037,Lamb,Lamb Shank,3.0928,271.26,Riverbend Charcuterie 110
+CUST-027,Juniper Salumeria 027,5,SKU-008,Beef,Beef Bones,3.0695,73.91,Riverbend Charcuterie 110
+CUST-027,Juniper Salumeria 027,6,SKU-038,Lamb,Ground Lamb,3.0324,237.35,Sterling Provisions 112
+CUST-027,Juniper Salumeria 027,7,SKU-004,Beef,Brisket,2.9737,200.53,Riverbend Charcuterie 110
+CUST-027,Juniper Salumeria 027,8,SKU-007,Beef,Flank Steak,2.9597,296.38,Pacific Salumeria 077
+CUST-027,Juniper Salumeria 027,9,SKU-025,Seafood,Scallops U10,2.655,523.5,Riverbend Charcuterie 110
+CUST-027,Juniper Salumeria 027,10,SKU-035,Lamb,Lamb Rack Frenched,2.5747,430.89,Sterling Provisions 112
+CUST-028,Grove Market 028,1,SKU-007,Beef,Flank Steak,3.7926,702.76,Elmwood Grocer 048
+CUST-028,Grove Market 028,2,SKU-002,Beef,Ribeye AAA,3.7742,1300.21,Elmwood Grocer 048
+CUST-028,Grove Market 028,3,SKU-003,Beef,Tenderloin,3.3093,1081.2,Elmwood Grocer 048
+CUST-028,Grove Market 028,4,SKU-032,Deli,Pate de Campagne,3.2611,296.06,Elmwood Grocer 048
+CUST-028,Grove Market 028,5,SKU-038,Lamb,Ground Lamb,2.7144,169.41,Elmwood Grocer 048
+CUST-028,Grove Market 028,6,SKU-027,Seafood,Uni Tray,2.6062,727.6,Elmwood Grocer 048
+CUST-028,Grove Market 028,7,SKU-033,Deli,Coppa Sliced,2.5378,231.61,Elmwood Grocer 048
+CUST-028,Grove Market 028,8,SKU-034,Deli,Bresaola,2.5237,275.6,Elmwood Grocer 048
+CUST-028,Grove Market 028,9,SKU-028,Seafood,Octopus Tentacle,1.8503,133.88,Elmwood Grocer 048
+CUST-028,Grove Market 028,10,SKU-029,Deli,Genoa Salami,1.5437,50.78,Vista Pantry 034
+CUST-029,Pacific Grill 029,1,SKU-005,Beef,Ground Chuck,3.7286,308.5,Aurora Prime 092
+CUST-029,Pacific Grill 029,2,SKU-038,Lamb,Ground Lamb,3.3869,343.43,Aurora Prime 092
+CUST-029,Pacific Grill 029,3,SKU-007,Beef,Flank Steak,3.2383,396.8,Aurora Prime 092
+CUST-029,Pacific Grill 029,4,SKU-015,Poultry,Chicken Breast,2.978,156.89,Aurora Prime 092
+CUST-029,Pacific Grill 029,5,SKU-014,Pork,Chorizo Sausage,2.6138,128.05,Aurora Steakhouse 041
+CUST-029,Pacific Grill 029,6,SKU-013,Pork,Prosciutto Leg,2.534,221.01,Aurora Steakhouse 041
+CUST-029,Pacific Grill 029,7,SKU-018,Poultry,Duck Breast,2.4623,230.98,Aurora Prime 092
+CUST-029,Pacific Grill 029,8,SKU-017,Poultry,Whole Duck,2.3465,127.52,Aurora Prime 092
+CUST-029,Pacific Grill 029,9,SKU-033,Deli,Coppa Sliced,2.0559,135.45,Aurora Prime 092
+CUST-029,Pacific Grill 029,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.9839,128.41,Willow Prime 097
+CUST-031,Zenith Ocean Bar 031,1,SKU-015,Poultry,Chicken Breast,3.2417,206.76,Quarry Omakase 015
+CUST-031,Zenith Ocean Bar 031,2,SKU-029,Deli,Genoa Salami,2.6533,182.07,Quarry Omakase 015
+CUST-031,Zenith Ocean Bar 031,3,SKU-014,Pork,Chorizo Sausage,2.5079,114.17,Quarry Omakase 015
+CUST-031,Zenith Ocean Bar 031,4,SKU-030,Deli,Smoked Speck,2.2032,140.41,Whistler Izakaya 018
+CUST-031,Zenith Ocean Bar 031,5,SKU-036,Lamb,Lamb Leg BRT,2.0784,121.7,Quarry Omakase 015
+CUST-032,Granville Sushi 032,1,SKU-023,Seafood,Ahi Tuna Saku,4.4209,2754.81,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,2,SKU-024,Seafood,Hamachi Loin,4.06,2110.32,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,3,SKU-020,Poultry,Quail 4-Pack,2.6945,207.19,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,4,SKU-016,Poultry,Chicken Thigh BL,2.587,89.78,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,5,SKU-008,Beef,Beef Bones,2.5786,43.84,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,6,SKU-005,Beef,Ground Chuck,2.4595,81.25,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,7,SKU-018,Poultry,Duck Breast,2.3622,206.91,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,8,SKU-019,Poultry,Turkey Breast Roast,2.0701,82.27,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,9,SKU-033,Deli,Coppa Sliced,2.0521,134.85,Inlet Izakaya 099
+CUST-032,Granville Sushi 032,10,SKU-015,Poultry,Chicken Breast,1.9461,50.49,Inlet Izakaya 099
+CUST-033,Cedar Cellar 033,1,SKU-031,Deli,Duck Rillette,4.0783,906.81,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,2,SKU-018,Poultry,Duck Breast,3.3142,570.36,Nordic Charcuterie 106
+CUST-033,Cedar Cellar 033,3,SKU-016,Poultry,Chicken Thigh BL,3.2453,180.21,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,4,SKU-038,Lamb,Ground Lamb,3.1439,266.77,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,5,SKU-015,Poultry,Chicken Breast,3.1353,185.05,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,6,SKU-019,Poultry,Turkey Breast Roast,3.0672,243.3,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,7,SKU-011,Pork,Shoulder Butt,2.8912,110.56,Nordic Charcuterie 106
+CUST-033,Cedar Cellar 033,8,SKU-037,Lamb,Lamb Shank,2.7963,198.35,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,9,SKU-035,Lamb,Lamb Rack Frenched,2.7484,519.35,Bluffs Cellar 011
+CUST-033,Cedar Cellar 033,10,SKU-020,Poultry,Quail 4-Pack,2.7172,212.31,Nordic Charcuterie 106
+CUST-034,Vista Pantry 034,1,SKU-021,Seafood,Atlantic Salmon Fillet,3.2105,487.17,Orchard Foods 009
+CUST-034,Vista Pantry 034,2,SKU-025,Seafood,Scallops U10,2.9893,747.05,Orchard Foods 009
+CUST-034,Vista Pantry 034,3,SKU-028,Seafood,Octopus Tentacle,2.868,414.55,Orchard Foods 009
+CUST-035,Inlet Foods 035,1,SKU-001,Beef,Striploin AAA,3.6842,1009.24,Zenith Foods 022
+CUST-035,Inlet Foods 035,2,SKU-015,Poultry,Chicken Breast,3.6658,320.42,Zenith Foods 022
+CUST-035,Inlet Foods 035,3,SKU-019,Poultry,Turkey Breast Roast,3.5868,417.13,Zenith Foods 022
+CUST-035,Inlet Foods 035,4,SKU-003,Beef,Tenderloin,3.5455,1380.26,Zenith Foods 022
+CUST-035,Inlet Foods 035,5,SKU-004,Beef,Brisket,3.4183,318.84,Zenith Foods 022
+CUST-035,Inlet Foods 035,6,SKU-006,Beef,Short Ribs,3.1979,340.12,Zenith Foods 022
+CUST-035,Inlet Foods 035,7,SKU-038,Lamb,Ground Lamb,3.1105,257.6,Zenith Foods 022
+CUST-035,Inlet Foods 035,8,SKU-036,Lamb,Lamb Leg BRT,3.0537,351.49,Zenith Foods 022
+CUST-035,Inlet Foods 035,9,SKU-030,Deli,Smoked Speck,2.8496,283.83,Zenith Foods 022
+CUST-035,Inlet Foods 035,10,SKU-033,Deli,Coppa Sliced,2.8404,320.49,Zenith Foods 022
+CUST-036,Meridian Ocean Bar 036,1,SKU-018,Poultry,Duck Breast,3.6727,825.54,Quarry Omakase 015
+CUST-036,Meridian Ocean Bar 036,2,SKU-033,Deli,Coppa Sliced,3.0795,412.41,Quarry Omakase 015
+CUST-036,Meridian Ocean Bar 036,3,SKU-009,Pork,Berkshire Loin,2.9007,178.77,Quarry Omakase 015
+CUST-036,Meridian Ocean Bar 036,4,SKU-013,Pork,Prosciutto Leg,2.8617,314.09,Quarry Omakase 015
+CUST-036,Meridian Ocean Bar 036,5,SKU-014,Pork,Chorizo Sausage,2.5862,124.28,Quarry Omakase 015
+CUST-036,Meridian Ocean Bar 036,6,SKU-032,Deli,Pate de Campagne,2.4094,119.55,Quarry Omakase 015
+CUST-037,Timber Foods 037,1,SKU-038,Lamb,Ground Lamb,3.6662,457.97,Elmwood Grocer 048
+CUST-037,Timber Foods 037,2,SKU-032,Deli,Pate de Campagne,3.4047,343.58,Elmwood Grocer 048
+CUST-037,Timber Foods 037,3,SKU-034,Deli,Bresaola,3.29,620.74,Elmwood Grocer 048
+CUST-037,Timber Foods 037,4,SKU-029,Deli,Genoa Salami,3.0744,284.62,Vista Pantry 034
+CUST-037,Timber Foods 037,5,SKU-022,Seafood,Sablefish Fillet,2.9699,546.45,Elmwood Grocer 048
+CUST-037,Timber Foods 037,6,SKU-028,Seafood,Octopus Tentacle,2.6121,315.29,Elmwood Grocer 048
+CUST-037,Timber Foods 037,7,SKU-027,Seafood,Uni Tray,2.5281,668.57,Elmwood Grocer 048
+CUST-037,Timber Foods 037,8,SKU-024,Seafood,Hamachi Loin,2.1028,266.27,Elmwood Grocer 048
+CUST-037,Timber Foods 037,9,SKU-025,Seafood,Scallops U10,1.9388,235.55,Quarry Grocer 025
+CUST-039,Canyon Cellar 039,1,SKU-004,Beef,Brisket,4.1034,643.23,Willow Provisions 021
+CUST-039,Canyon Cellar 039,2,SKU-018,Poultry,Duck Breast,3.9977,1150.85,Willow Provisions 021
+CUST-039,Canyon Cellar 039,3,SKU-006,Beef,Short Ribs,3.941,731.08,Willow Provisions 021
+CUST-039,Canyon Cellar 039,4,SKU-019,Poultry,Turkey Breast Roast,3.7195,478.05,Willow Provisions 021
+CUST-039,Canyon Cellar 039,5,SKU-027,Seafood,Uni Tray,3.1238,1260.26,Willow Provisions 021
+CUST-039,Canyon Cellar 039,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.9979,389.95,Willow Provisions 021
+CUST-039,Canyon Cellar 039,7,SKU-028,Seafood,Octopus Tentacle,2.8781,419.0,Willow Provisions 021
+CUST-039,Canyon Cellar 039,8,SKU-024,Seafood,Hamachi Loin,2.8543,606.04,Willow Provisions 021
+CUST-039,Canyon Cellar 039,9,SKU-026,Seafood,Spot Prawns,2.6195,362.64,Willow Provisions 021
+CUST-040,Zenith Foods 040,1,SKU-015,Poultry,Chicken Breast,3.8604,391.06,Highline Grocer 057
+CUST-040,Zenith Foods 040,2,SKU-018,Poultry,Duck Breast,3.7704,912.49,Highline Grocer 057
+CUST-040,Zenith Foods 040,3,SKU-013,Pork,Prosciutto Leg,3.5335,633.14,Highline Grocer 057
+CUST-040,Zenith Foods 040,4,SKU-010,Pork,Belly Skin-On,3.5176,300.97,Highline Grocer 057
+CUST-040,Zenith Foods 040,5,SKU-037,Lamb,Lamb Shank,3.4737,403.0,Highline Grocer 057
+CUST-040,Zenith Foods 040,6,SKU-003,Beef,Tenderloin,3.3602,1139.82,Highline Grocer 057
+CUST-040,Zenith Foods 040,7,SKU-034,Deli,Bresaola,3.2735,610.15,Highline Grocer 057
+CUST-040,Zenith Foods 040,8,SKU-033,Deli,Coppa Sliced,3.2482,491.86,Highline Grocer 057
+CUST-040,Zenith Foods 040,9,SKU-035,Lamb,Lamb Rack Frenched,3.2263,859.34,Highline Grocer 057
+CUST-040,Zenith Foods 040,10,SKU-006,Beef,Short Ribs,2.9071,250.66,Highline Grocer 057
+CUST-041,Aurora Steakhouse 041,1,SKU-020,Poultry,Quail 4-Pack,2.9254,264.91,Willow Prime 097
+CUST-041,Aurora Steakhouse 041,2,SKU-027,Seafood,Uni Tray,2.6227,740.68,Quarry Tavern 085
+CUST-041,Aurora Steakhouse 041,3,SKU-026,Seafood,Spot Prawns,2.0092,183.96,Willow Prime 097
+CUST-041,Aurora Steakhouse 041,4,SKU-028,Seafood,Octopus Tentacle,1.9975,159.08,Quarry Tavern 085
+CUST-041,Aurora Steakhouse 041,5,SKU-033,Deli,Coppa Sliced,1.9909,125.67,Quarry Tavern 085
+CUST-041,Aurora Steakhouse 041,6,SKU-025,Seafood,Scallops U10,1.8983,224.63,Quarry Tavern 085
+CUST-041,Aurora Steakhouse 041,7,SKU-031,Deli,Duck Rillette,1.6936,69.35,Aurora Prime 092
+CUST-041,Aurora Steakhouse 041,8,SKU-029,Deli,Genoa Salami,1.6864,60.69,Quarry Tavern 085
+CUST-041,Aurora Steakhouse 041,9,SKU-023,Seafood,Ahi Tuna Saku,1.6715,144.83,Willow Prime 097
+CUST-041,Aurora Steakhouse 041,10,SKU-021,Seafood,Atlantic Salmon Fillet,1.556,76.58,Willow Prime 097
+CUST-042,Union Sushi 042,1,SKU-005,Beef,Ground Chuck,4.1839,490.75,Whistler Izakaya 018
+CUST-042,Union Sushi 042,2,SKU-003,Beef,Tenderloin,3.4823,1293.15,Whistler Izakaya 018
+CUST-042,Union Sushi 042,3,SKU-015,Poultry,Chicken Breast,3.1878,195.47,Whistler Izakaya 018
+CUST-042,Union Sushi 042,4,SKU-031,Deli,Duck Rillette,3.0575,316.75,Whistler Izakaya 018
+CUST-042,Union Sushi 042,5,SKU-011,Pork,Shoulder Butt,2.8958,111.09,Whistler Izakaya 018
+CUST-042,Union Sushi 042,6,SKU-034,Deli,Bresaola,2.6469,314.89,Whistler Izakaya 018
+CUST-042,Union Sushi 042,7,SKU-029,Deli,Genoa Salami,2.3028,124.16,Whistler Izakaya 018
+CUST-043,Granville Foods 043,1,SKU-023,Seafood,Ahi Tuna Saku,2.917,586.17,Quarry Grocer 025
+CUST-043,Granville Foods 043,2,SKU-024,Seafood,Hamachi Loin,2.0612,253.92,Orchard Foods 009
+CUST-044,Harbour Steakhouse 044,1,SKU-027,Seafood,Uni Tray,3.2986,1511.95,Cedar Steakhouse 049
+CUST-044,Harbour Steakhouse 044,2,SKU-034,Deli,Bresaola,2.6646,320.96,Cedar Steakhouse 049
+CUST-045,Elmwood Chophouse 045,1,SKU-015,Poultry,Chicken Breast,4.0205,460.43,Cedar Steakhouse 049
+CUST-045,Elmwood Chophouse 045,2,SKU-031,Deli,Duck Rillette,3.594,552.7,Cedar Steakhouse 049
+CUST-045,Elmwood Chophouse 045,3,SKU-033,Deli,Coppa Sliced,3.2054,470.43,Cedar Steakhouse 049
+CUST-046,Canyon Izakaya 046,1,SKU-017,Poultry,Whole Duck,4.323,1004.27,Quarry Omakase 015
+CUST-046,Canyon Izakaya 046,2,SKU-011,Pork,Shoulder Butt,4.1058,387.84,Quarry Omakase 015
+CUST-046,Canyon Izakaya 046,3,SKU-008,Beef,Beef Bones,3.8523,165.95,Quarry Omakase 015
+CUST-047,Grove Charcuterie 047,1,SKU-027,Seafood,Uni Tray,3.7774,2476.31,Willow Provisions 021
+CUST-048,Elmwood Grocer 048,1,SKU-029,Deli,Genoa Salami,4.226,930.24,Cedar Steakhouse 049
+CUST-048,Elmwood Grocer 048,2,SKU-021,Seafood,Atlantic Salmon Fillet,3.4864,648.41,Cedar Steakhouse 049
+CUST-048,Elmwood Grocer 048,3,SKU-025,Seafood,Scallops U10,3.2595,991.05,Cedar Steakhouse 049
+CUST-050,Aurora Market 050,1,SKU-005,Beef,Ground Chuck,4.8981,1010.34,Yardley Foods 056
+CUST-050,Aurora Market 050,2,SKU-038,Lamb,Ground Lamb,4.6583,1255.53,Yardley Foods 056
+CUST-050,Aurora Market 050,3,SKU-001,Beef,Striploin AAA,4.6378,2660.32,Yardley Foods 056
+CUST-050,Aurora Market 050,4,SKU-033,Deli,Coppa Sliced,3.9239,985.85,Yardley Foods 056
+CUST-050,Aurora Market 050,5,SKU-030,Deli,Smoked Speck,3.9192,860.57,Yardley Foods 056
+CUST-050,Aurora Market 050,6,SKU-028,Seafood,Octopus Tentacle,3.7755,1064.24,Grove Grill 062
+CUST-050,Aurora Market 050,7,SKU-034,Deli,Bresaola,3.7402,987.36,Yardley Foods 056
+CUST-050,Aurora Market 050,8,SKU-029,Deli,Genoa Salami,3.6989,543.46,Yardley Foods 056
+CUST-050,Aurora Market 050,9,SKU-022,Seafood,Sablefish Fillet,3.3979,854.1,Yardley Foods 056
+CUST-050,Aurora Market 050,10,SKU-024,Seafood,Hamachi Loin,3.0079,712.86,Yardley Foods 056
+CUST-051,Timber Market 051,1,SKU-016,Poultry,Chicken Thigh BL,3.9451,370.26,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,2,SKU-011,Pork,Shoulder Butt,3.8633,302.92,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,3,SKU-012,Pork,Back Ribs,3.823,425.4,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,4,SKU-014,Pork,Chorizo Sausage,3.7436,417.52,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,5,SKU-002,Beef,Ribeye AAA,3.658,1154.15,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,6,SKU-036,Lamb,Lamb Leg BRT,3.5561,592.23,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,7,SKU-030,Deli,Smoked Speck,3.5203,571.74,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,8,SKU-033,Deli,Coppa Sliced,3.307,522.84,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,9,SKU-035,Lamb,Lamb Rack Frenched,3.1439,788.57,Lakeside Fresh Mart 024
+CUST-051,Timber Market 051,10,SKU-038,Lamb,Ground Lamb,3.1231,261.02,Lakeside Fresh Mart 024
+CUST-052,Inlet Prime 052,1,SKU-003,Beef,Tenderloin,3.8481,1882.44,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,2,SKU-005,Beef,Ground Chuck,3.5838,265.88,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,3,SKU-037,Lamb,Lamb Shank,3.4696,401.32,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,4,SKU-008,Beef,Beef Bones,3.3547,99.49,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,5,SKU-006,Beef,Short Ribs,3.3465,396.92,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,6,SKU-011,Pork,Shoulder Butt,2.9109,112.89,Willow Prime 097
+CUST-052,Inlet Prime 052,7,SKU-018,Poultry,Duck Breast,2.7695,321.77,Willow Prime 097
+CUST-052,Inlet Prime 052,8,SKU-014,Pork,Chorizo Sausage,2.731,145.23,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,9,SKU-015,Poultry,Chicken Breast,2.6888,115.38,Pacific Steakhouse 072
+CUST-052,Inlet Prime 052,10,SKU-009,Pork,Berkshire Loin,2.3071,94.08,Willow Prime 097
+CUST-053,Whistler Provisions 053,1,SKU-001,Beef,Striploin AAA,3.729,1056.65,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,2,SKU-003,Beef,Tenderloin,3.2446,1010.9,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,3,SKU-019,Poultry,Turkey Breast Roast,2.8431,192.05,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,4,SKU-027,Seafood,Uni Tray,2.6146,734.21,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,5,SKU-026,Seafood,Spot Prawns,2.4042,286.87,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,6,SKU-023,Seafood,Ahi Tuna Saku,2.276,292.91,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,7,SKU-028,Seafood,Octopus Tentacle,2.1126,181.52,Bluffs Provisions 038
+CUST-053,Whistler Provisions 053,8,SKU-022,Seafood,Sablefish Fillet,1.8577,159.85,Bluffs Provisions 038
+CUST-054,Bluffs Foods 054,1,SKU-018,Poultry,Duck Breast,3.3989,622.66,Highline Grocer 057
+CUST-054,Bluffs Foods 054,2,SKU-034,Deli,Bresaola,3.3834,683.84,Highline Grocer 057
+CUST-054,Bluffs Foods 054,3,SKU-020,Poultry,Quail 4-Pack,2.9267,265.27,Highline Grocer 057
+CUST-054,Bluffs Foods 054,4,SKU-013,Pork,Prosciutto Leg,2.9221,334.84,Highline Grocer 057
+CUST-054,Bluffs Foods 054,5,SKU-032,Deli,Pate de Campagne,2.8996,202.66,Highline Grocer 057
+CUST-054,Bluffs Foods 054,6,SKU-005,Beef,Ground Chuck,2.7022,105.66,Highline Grocer 057
+CUST-054,Bluffs Foods 054,7,SKU-030,Deli,Smoked Speck,2.6056,218.61,Quarry Grocer 025
+CUST-054,Bluffs Foods 054,8,SKU-003,Beef,Tenderloin,2.5969,509.43,Highline Grocer 057
+CUST-054,Bluffs Foods 054,9,SKU-011,Pork,Shoulder Butt,2.5026,72.86,Highline Grocer 057
+CUST-054,Bluffs Foods 054,10,SKU-037,Lamb,Lamb Shank,2.4716,139.79,Highline Grocer 057
+CUST-055,Highline Izakaya 055,1,SKU-007,Beef,Flank Steak,3.2113,385.79,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,2,SKU-002,Beef,Ribeye AAA,3.1627,691.45,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,3,SKU-019,Poultry,Turkey Breast Roast,3.0025,227.3,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,4,SKU-037,Lamb,Lamb Shank,2.6429,168.31,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,5,SKU-001,Beef,Striploin AAA,2.6181,330.47,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,6,SKU-031,Deli,Duck Rillette,2.5853,191.64,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,7,SKU-034,Deli,Bresaola,2.5095,271.4,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,8,SKU-014,Pork,Chorizo Sausage,2.2325,84.25,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,9,SKU-012,Pork,Back Ribs,2.138,71.14,Whistler Izakaya 018
+CUST-055,Highline Izakaya 055,10,SKU-032,Deli,Pate de Campagne,2.0199,77.17,Whistler Izakaya 018
+CUST-056,Yardley Foods 056,1,SKU-036,Lamb,Lamb Leg BRT,4.0961,1028.74,Canyon Foods 017
+CUST-056,Yardley Foods 056,2,SKU-028,Seafood,Octopus Tentacle,4.0668,1432.56,Canyon Foods 017
+CUST-057,Highline Grocer 057,1,SKU-030,Deli,Smoked Speck,4.2563,1212.52,Vista Pantry 034
+CUST-057,Highline Grocer 057,2,SKU-025,Seafood,Scallops U10,2.9071,684.92,Canyon Foods 017
+CUST-057,Highline Grocer 057,3,SKU-028,Seafood,Octopus Tentacle,2.8528,407.9,Canyon Foods 017
+CUST-058,Foothill Grocer 058,1,SKU-023,Seafood,Ahi Tuna Saku,3.008,645.22,Whistler Provisions 063
+CUST-058,Foothill Grocer 058,2,SKU-027,Seafood,Uni Tray,2.819,913.86,Whistler Provisions 063
+CUST-058,Foothill Grocer 058,3,SKU-022,Seafood,Sablefish Fillet,2.7455,430.64,Whistler Provisions 063
+CUST-058,Foothill Grocer 058,4,SKU-028,Seafood,Octopus Tentacle,1.9827,156.38,Orchard Foods 009
+CUST-058,Foothill Grocer 058,5,SKU-026,Seafood,Spot Prawns,1.7931,142.68,Whistler Provisions 063
+CUST-059,Sterling Prime 059,1,SKU-037,Lamb,Lamb Shank,4.314,950.79,Grove Grill 062
+CUST-059,Sterling Prime 059,2,SKU-012,Pork,Back Ribs,3.7386,390.21,Grove Grill 062
+CUST-059,Sterling Prime 059,3,SKU-020,Poultry,Quail 4-Pack,3.5631,514.67,Grove Grill 062
+CUST-059,Sterling Prime 059,4,SKU-028,Seafood,Octopus Tentacle,3.3619,695.24,Grove Grill 062
+CUST-059,Sterling Prime 059,5,SKU-022,Seafood,Sablefish Fillet,3.15,660.11,Grove Grill 062
+CUST-059,Sterling Prime 059,6,SKU-032,Deli,Pate de Campagne,3.0483,237.05,Grove Grill 062
+CUST-059,Sterling Prime 059,7,SKU-031,Deli,Duck Rillette,2.707,218.47,Grove Grill 062
+CUST-059,Sterling Prime 059,8,SKU-029,Deli,Genoa Salami,2.7039,192.25,Grove Grill 062
+CUST-059,Sterling Prime 059,9,SKU-033,Deli,Coppa Sliced,2.5652,238.6,Grove Grill 062
+CUST-060,Bluffs Tavern 060,1,SKU-018,Poultry,Duck Breast,2.9729,399.22,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,2,SKU-016,Poultry,Chicken Thigh BL,2.9014,125.65,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,3,SKU-027,Seafood,Uni Tray,2.6688,778.31,Dockside Grill 061
+CUST-060,Bluffs Tavern 060,4,SKU-029,Deli,Genoa Salami,2.4649,148.44,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,5,SKU-019,Poultry,Turkey Breast Roast,2.4613,127.34,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,6,SKU-026,Seafood,Spot Prawns,2.4093,288.49,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,7,SKU-020,Poultry,Quail 4-Pack,2.2552,128.2,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,8,SKU-030,Deli,Smoked Speck,2.0269,114.9,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,9,SKU-028,Seafood,Octopus Tentacle,2.0059,160.63,Harbour Steakhouse 044
+CUST-060,Bluffs Tavern 060,10,SKU-023,Seafood,Ahi Tuna Saku,1.679,146.17,Harbour Steakhouse 044
+CUST-061,Dockside Grill 061,1,SKU-017,Poultry,Whole Duck,4.0738,779.76,Timber Tavern 104
+CUST-061,Dockside Grill 061,2,SKU-032,Deli,Pate de Campagne,3.7455,487.92,Timber Tavern 104
+CUST-061,Dockside Grill 061,3,SKU-031,Deli,Duck Rillette,3.2601,391.37,Timber Tavern 104
+CUST-061,Dockside Grill 061,4,SKU-034,Deli,Bresaola,3.1261,523.24,Timber Tavern 104
+CUST-063,Whistler Provisions 063,1,SKU-028,Seafood,Octopus Tentacle,3.6517,937.37,Willow Provisions 021
+CUST-065,Dockside Prime 065,1,SKU-010,Pork,Belly Skin-On,3.9668,476.83,Harbour Steakhouse 044
+CUST-065,Dockside Prime 065,2,SKU-032,Deli,Pate de Campagne,3.5827,412.81,Harbour Steakhouse 044
+CUST-065,Dockside Prime 065,3,SKU-027,Seafood,Uni Tray,3.3342,1568.86,Nordic Tavern 070
+CUST-065,Dockside Prime 065,4,SKU-024,Seafood,Hamachi Loin,2.751,542.95,Harbour Steakhouse 044
+CUST-065,Dockside Prime 065,5,SKU-033,Deli,Coppa Sliced,2.6315,256.31,Harbour Steakhouse 044
+CUST-065,Dockside Prime 065,6,SKU-034,Deli,Bresaola,2.4805,262.95,Nordic Tavern 070
+CUST-066,Lakeside Steakhouse 066,1,SKU-010,Pork,Belly Skin-On,3.773,391.23,Quarry Tavern 085
+CUST-066,Lakeside Steakhouse 066,2,SKU-009,Pork,Berkshire Loin,3.7039,411.92,Quarry Tavern 085
+CUST-066,Lakeside Steakhouse 066,3,SKU-020,Poultry,Quail 4-Pack,3.3849,428.19,Cedar Steakhouse 049
+CUST-066,Lakeside Steakhouse 066,4,SKU-030,Deli,Smoked Speck,2.723,248.02,Quarry Tavern 085
+CUST-066,Lakeside Steakhouse 066,5,SKU-031,Deli,Duck Rillette,2.6407,203.46,Cedar Steakhouse 049
+CUST-066,Lakeside Steakhouse 066,6,SKU-026,Seafood,Spot Prawns,2.6203,362.96,Cedar Steakhouse 049
+CUST-066,Lakeside Steakhouse 066,7,SKU-032,Deli,Pate de Campagne,2.5835,144.54,Cedar Steakhouse 049
+CUST-066,Lakeside Steakhouse 066,8,SKU-025,Seafood,Scallops U10,2.5625,473.77,Quarry Tavern 085
+CUST-066,Lakeside Steakhouse 066,9,SKU-023,Seafood,Ahi Tuna Saku,2.4062,338.31,Cedar Steakhouse 049
+CUST-066,Lakeside Steakhouse 066,10,SKU-029,Deli,Genoa Salami,2.0353,91.78,Quarry Tavern 085
+CUST-067,Bluffs Izakaya 067,1,SKU-020,Poultry,Quail 4-Pack,3.5325,498.69,Inlet Izakaya 099
+CUST-067,Bluffs Izakaya 067,2,SKU-001,Beef,Striploin AAA,3.032,513.26,Inlet Izakaya 099
+CUST-067,Bluffs Izakaya 067,3,SKU-004,Beef,Brisket,2.551,127.68,Inlet Izakaya 099
+CUST-067,Bluffs Izakaya 067,4,SKU-006,Beef,Short Ribs,2.4295,149.97,Inlet Izakaya 099
+CUST-067,Bluffs Izakaya 067,5,SKU-011,Pork,Shoulder Butt,2.3482,61.51,Quarry Omakase 015
+CUST-067,Bluffs Izakaya 067,6,SKU-009,Pork,Berkshire Loin,2.3184,95.26,Quarry Omakase 015
+CUST-067,Bluffs Izakaya 067,7,SKU-002,Beef,Ribeye AAA,2.1554,233.13,Quarry Omakase 015
+CUST-067,Bluffs Izakaya 067,8,SKU-035,Lamb,Lamb Rack Frenched,2.0881,251.18,Quarry Omakase 015
+CUST-067,Bluffs Izakaya 067,9,SKU-036,Lamb,Lamb Leg BRT,1.4692,58.24,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,1,SKU-005,Beef,Ground Chuck,4.7446,865.52,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,2,SKU-002,Beef,Ribeye AAA,4.6954,3312.66,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,3,SKU-004,Beef,Brisket,4.5533,1014.82,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,4,SKU-014,Pork,Chorizo Sausage,4.4218,832.51,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,5,SKU-017,Poultry,Whole Duck,4.3672,1050.29,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,6,SKU-012,Pork,Back Ribs,4.3252,709.09,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,7,SKU-032,Deli,Pate de Campagne,4.2002,775.57,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,8,SKU-023,Seafood,Ahi Tuna Saku,3.7878,1446.84,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,9,SKU-033,Deli,Coppa Sliced,3.6808,768.85,Quarry Omakase 015
+CUST-068,Copper Fresh Mart 068,10,SKU-029,Deli,Genoa Salami,3.6727,529.06,Quarry Omakase 015
+CUST-069,Foothill Charcuterie 069,1,SKU-014,Pork,Chorizo Sausage,3.5665,348.13,Sterling Provisions 112
+CUST-069,Foothill Charcuterie 069,2,SKU-010,Pork,Belly Skin-On,3.4558,282.37,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,3,SKU-006,Beef,Short Ribs,3.4068,422.53,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,4,SKU-003,Beef,Tenderloin,3.4006,1188.43,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,5,SKU-029,Deli,Genoa Salami,3.3996,399.33,Sterling Provisions 112
+CUST-069,Foothill Charcuterie 069,6,SKU-019,Poultry,Turkey Breast Roast,3.3932,341.64,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,7,SKU-005,Beef,Ground Chuck,3.3275,204.06,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,8,SKU-032,Deli,Pate de Campagne,3.2882,304.49,Sterling Provisions 112
+CUST-069,Foothill Charcuterie 069,9,SKU-017,Poultry,Whole Duck,3.2288,327.27,Aurora Prime 092
+CUST-069,Foothill Charcuterie 069,10,SKU-011,Pork,Shoulder Butt,3.205,153.7,Aurora Prime 092
+CUST-070,Nordic Tavern 070,1,SKU-024,Seafood,Hamachi Loin,3.1221,803.57,Bluffs Steakhouse 098
+CUST-071,Zenith Market 071,1,SKU-009,Pork,Berkshire Loin,4.0238,571.16,Granville Foods 043
+CUST-071,Zenith Market 071,2,SKU-013,Pork,Prosciutto Leg,3.9672,987.27,Granville Foods 043
+CUST-071,Zenith Market 071,3,SKU-001,Beef,Striploin AAA,3.6788,1003.6,Granville Foods 043
+CUST-071,Zenith Market 071,4,SKU-008,Beef,Beef Bones,3.4965,115.19,Granville Foods 043
+CUST-071,Zenith Market 071,5,SKU-031,Deli,Duck Rillette,3.4718,487.34,Granville Foods 043
+CUST-071,Zenith Market 071,6,SKU-038,Lamb,Ground Lamb,3.1861,278.76,Granville Foods 043
+CUST-071,Zenith Market 071,7,SKU-037,Lamb,Lamb Shank,3.0486,258.98,Granville Foods 043
+CUST-071,Zenith Market 071,8,SKU-035,Lamb,Lamb Rack Frenched,3.0467,712.22,Granville Foods 043
+CUST-071,Zenith Market 071,9,SKU-029,Deli,Genoa Salami,2.8927,235.04,Granville Foods 043
+CUST-071,Zenith Market 071,10,SKU-034,Deli,Bresaola,2.8176,377.96,Granville Foods 043
+CUST-072,Pacific Steakhouse 072,1,SKU-011,Pork,Shoulder Butt,4.0922,382.54,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,2,SKU-009,Pork,Berkshire Loin,4.062,593.81,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,3,SKU-018,Poultry,Duck Breast,3.7733,915.16,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,4,SKU-032,Deli,Pate de Campagne,3.7161,473.41,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,5,SKU-019,Poultry,Turkey Breast Roast,3.6424,441.69,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,6,SKU-025,Seafood,Scallops U10,3.397,1142.94,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,7,SKU-021,Seafood,Atlantic Salmon Fillet,3.0185,398.49,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,8,SKU-026,Seafood,Spot Prawns,2.8784,478.2,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,9,SKU-022,Seafood,Sablefish Fillet,2.7904,451.77,Harbour Steakhouse 044
+CUST-072,Pacific Steakhouse 072,10,SKU-027,Seafood,Uni Tray,2.7349,835.48,Cedar Steakhouse 049
+CUST-073,Dockside Fresh Mart 073,1,SKU-008,Beef,Beef Bones,4.4381,301.01,Canyon Charcuterie 064
+CUST-073,Dockside Fresh Mart 073,2,SKU-020,Poultry,Quail 4-Pack,4.3648,1165.76,Canyon Charcuterie 064
+CUST-073,Dockside Fresh Mart 073,3,SKU-003,Beef,Tenderloin,4.1449,2547.05,Canyon Charcuterie 064
+CUST-073,Dockside Fresh Mart 073,4,SKU-022,Seafood,Sablefish Fillet,3.0531,596.39,Canyon Charcuterie 064
+CUST-073,Dockside Fresh Mart 073,5,SKU-026,Seafood,Spot Prawns,2.7309,408.7,Canyon Charcuterie 064
+CUST-074,Orchard Chophouse 074,1,SKU-007,Beef,Flank Steak,5.0172,2430.34,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,2,SKU-018,Poultry,Duck Breast,3.7596,902.41,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,3,SKU-019,Poultry,Turkey Breast Roast,3.3842,338.47,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,4,SKU-010,Pork,Belly Skin-On,3.2624,231.11,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,5,SKU-028,Seafood,Octopus Tentacle,3.2109,594.32,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,6,SKU-032,Deli,Pate de Campagne,2.6196,150.29,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,7,SKU-030,Deli,Smoked Speck,2.6161,221.1,Nordic Tavern 070
+CUST-074,Orchard Chophouse 074,8,SKU-024,Seafood,Hamachi Loin,1.6826,162.22,Bluffs Steakhouse 098
+CUST-075,Vista Izakaya 075,1,SKU-001,Beef,Striploin AAA,4.5693,2482.52,Quarry Omakase 015
+CUST-075,Vista Izakaya 075,2,SKU-010,Pork,Belly Skin-On,3.965,475.95,Quarry Omakase 015
+CUST-075,Vista Izakaya 075,3,SKU-016,Poultry,Chicken Thigh BL,3.8532,337.09,Quarry Omakase 015
+CUST-075,Vista Izakaya 075,4,SKU-038,Lamb,Ground Lamb,3.6219,437.61,Quarry Omakase 015
+CUST-075,Vista Izakaya 075,5,SKU-032,Deli,Pate de Campagne,3.543,396.3,Quarry Omakase 015
+CUST-075,Vista Izakaya 075,6,SKU-014,Pork,Chorizo Sausage,3.4268,301.41,Quarry Omakase 015
+CUST-076,Canyon Sushi 076,1,SKU-020,Poultry,Quail 4-Pack,2.6524,198.03,Summit Sushi 120
+CUST-076,Canyon Sushi 076,2,SKU-019,Poultry,Turkey Breast Roast,2.2647,102.49,Granville Ocean Bar 107
+CUST-076,Canyon Sushi 076,3,SKU-033,Deli,Coppa Sliced,2.1141,144.76,Granville Ocean Bar 107
+CUST-076,Canyon Sushi 076,4,SKU-016,Poultry,Chicken Thigh BL,2.0653,50.32,Granville Ocean Bar 107
+CUST-076,Canyon Sushi 076,5,SKU-006,Beef,Short Ribs,2.0155,94.22,Zenith Ocean Bar 031
+CUST-076,Canyon Sushi 076,6,SKU-031,Deli,Duck Rillette,1.971,96.52,Granville Ocean Bar 107
+CUST-076,Canyon Sushi 076,7,SKU-034,Deli,Bresaola,1.9086,137.96,Zenith Ocean Bar 031
+CUST-076,Canyon Sushi 076,8,SKU-002,Beef,Ribeye AAA,1.716,139.36,Granville Ocean Bar 107
+CUST-076,Canyon Sushi 076,9,SKU-004,Beef,Brisket,1.6345,44.58,Zenith Ocean Bar 031
+CUST-076,Canyon Sushi 076,10,SKU-038,Lamb,Ground Lamb,1.5748,46.03,Granville Ocean Bar 107
+CUST-078,Vista Grill 078,1,SKU-023,Seafood,Ahi Tuna Saku,2.8967,573.71,Nordic Tavern 070
+CUST-078,Vista Grill 078,2,SKU-024,Seafood,Hamachi Loin,2.7644,550.77,Grove Grill 062
+CUST-078,Vista Grill 078,3,SKU-034,Deli,Bresaola,2.7538,353.14,Nordic Tavern 070
+CUST-079,Aurora Ocean Bar 079,1,SKU-010,Pork,Belly Skin-On,3.0909,193.24,Cedar Kaiseki 086
+CUST-079,Aurora Ocean Bar 079,2,SKU-019,Poultry,Turkey Breast Roast,2.8724,198.13,Canyon Izakaya 046
+CUST-079,Aurora Ocean Bar 079,3,SKU-003,Beef,Tenderloin,2.642,534.78,Cedar Kaiseki 086
+CUST-079,Aurora Ocean Bar 079,4,SKU-032,Deli,Pate de Campagne,2.6064,148.16,Cedar Kaiseki 086
+CUST-079,Aurora Ocean Bar 079,5,SKU-035,Lamb,Lamb Rack Frenched,2.2805,312.01,Canyon Izakaya 046
+CUST-079,Aurora Ocean Bar 079,6,SKU-031,Deli,Duck Rillette,2.2062,126.25,Cedar Kaiseki 086
+CUST-079,Aurora Ocean Bar 079,7,SKU-029,Deli,Genoa Salami,2.1155,100.6,Cedar Kaiseki 086
+CUST-079,Aurora Ocean Bar 079,8,SKU-038,Lamb,Ground Lamb,2.1148,87.6,Canyon Izakaya 046
+CUST-080,Riverbend Salumeria 080,1,SKU-033,Deli,Coppa Sliced,4.2125,1322.41,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,2,SKU-013,Pork,Prosciutto Leg,3.5406,637.79,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,3,SKU-011,Pork,Shoulder Butt,3.4847,205.41,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,4,SKU-010,Pork,Belly Skin-On,3.4018,267.05,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,5,SKU-015,Poultry,Chicken Breast,3.3562,232.88,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,6,SKU-037,Lamb,Lamb Shank,3.2762,328.48,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,7,SKU-008,Beef,Beef Bones,3.1698,82.09,Cedar Charcuterie 105
+CUST-080,Riverbend Salumeria 080,8,SKU-009,Pork,Berkshire Loin,3.1235,225.96,Cedar Charcuterie 105
+CUST-080,Riverbend Salumeria 080,9,SKU-001,Beef,Striploin AAA,2.8564,426.4,Aurora Deli 016
+CUST-080,Riverbend Salumeria 080,10,SKU-006,Beef,Short Ribs,2.7601,214.39,Aurora Deli 016
+CUST-081,Sterling Fresh Mart 081,1,SKU-035,Lamb,Lamb Rack Frenched,3.7274,1441.48,Canyon Foods 017
+CUST-081,Sterling Fresh Mart 081,2,SKU-027,Seafood,Uni Tray,3.4033,1685.24,Canyon Foods 017
+CUST-081,Sterling Fresh Mart 081,3,SKU-028,Seafood,Octopus Tentacle,3.0308,492.25,Canyon Foods 017
+CUST-081,Sterling Fresh Mart 081,4,SKU-022,Seafood,Sablefish Fillet,2.7487,432.14,Canyon Foods 017
+CUST-082,Lakeside Charcuterie 082,1,SKU-012,Pork,Back Ribs,4.6951,1030.8,Bluffs Provisions 038
+CUST-082,Lakeside Charcuterie 082,2,SKU-003,Beef,Tenderloin,3.9581,2106.0,Bluffs Provisions 038
+CUST-082,Lakeside Charcuterie 082,3,SKU-019,Poultry,Turkey Breast Roast,3.7456,490.97,Bluffs Provisions 038
+CUST-082,Lakeside Charcuterie 082,4,SKU-028,Seafood,Octopus Tentacle,3.33,672.67,Bluffs Provisions 038
+CUST-082,Lakeside Charcuterie 082,5,SKU-023,Seafood,Ahi Tuna Saku,3.2025,790.98,Bluffs Provisions 038
+CUST-082,Lakeside Charcuterie 082,6,SKU-022,Seafood,Sablefish Fillet,2.8812,497.53,Bluffs Provisions 038
+CUST-083,Sterling Foods 083,1,SKU-012,Pork,Back Ribs,3.1955,222.7,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,2,SKU-029,Deli,Genoa Salami,3.0008,263.46,Aurora Deli 016
+CUST-083,Sterling Foods 083,3,SKU-017,Poultry,Whole Duck,2.9031,232.54,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,4,SKU-015,Poultry,Chicken Breast,2.7875,128.22,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,5,SKU-011,Pork,Shoulder Butt,2.6506,85.52,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,6,SKU-001,Beef,Striploin AAA,2.6421,339.15,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,7,SKU-013,Pork,Prosciutto Leg,2.6295,245.06,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,8,SKU-018,Poultry,Duck Breast,2.5728,260.47,Union Fresh Mart 116
+CUST-083,Sterling Foods 083,9,SKU-010,Pork,Belly Skin-On,2.4941,102.25,Aurora Deli 016
+CUST-083,Sterling Foods 083,10,SKU-033,Deli,Coppa Sliced,2.3862,196.24,Aurora Deli 016
+CUST-084,Highline Pantry 084,1,SKU-008,Beef,Beef Bones,4.8954,477.61,Orchard Foods 009
+CUST-084,Highline Pantry 084,2,SKU-014,Pork,Chorizo Sausage,4.6909,1092.66,Orchard Foods 009
+CUST-084,Highline Pantry 084,3,SKU-034,Deli,Bresaola,4.4926,2122.18,Orchard Foods 009
+CUST-084,Highline Pantry 084,4,SKU-026,Seafood,Spot Prawns,3.5156,929.81,Timber Tavern 104
+CUST-085,Quarry Tavern 085,1,SKU-020,Poultry,Quail 4-Pack,3.5233,493.97,Vista Grill 078
+CUST-085,Quarry Tavern 085,2,SKU-032,Deli,Pate de Campagne,3.1715,269.66,Vista Grill 078
+CUST-085,Quarry Tavern 085,3,SKU-022,Seafood,Sablefish Fillet,3.0655,604.19,Vista Grill 078
+CUST-085,Quarry Tavern 085,4,SKU-026,Seafood,Spot Prawns,2.9769,530.68,Vista Grill 078
+CUST-085,Quarry Tavern 085,5,SKU-021,Seafood,Atlantic Salmon Fillet,2.9436,368.25,Vista Grill 078
+CUST-085,Quarry Tavern 085,6,SKU-031,Deli,Duck Rillette,2.8288,248.79,Vista Grill 078
+CUST-085,Quarry Tavern 085,7,SKU-023,Seafood,Ahi Tuna Saku,2.4995,374.69,Nordic Tavern 070
+CUST-085,Quarry Tavern 085,8,SKU-024,Seafood,Hamachi Loin,2.4786,404.66,Bluffs Steakhouse 098
+CUST-086,Cedar Kaiseki 086,1,SKU-019,Poultry,Turkey Breast Roast,3.0889,248.9,Aurora Kaiseki 001
+CUST-086,Cedar Kaiseki 086,2,SKU-016,Poultry,Chicken Thigh BL,2.9285,129.3,Aurora Kaiseki 001
+CUST-086,Cedar Kaiseki 086,3,SKU-012,Pork,Back Ribs,2.5028,106.65,Canyon Izakaya 046
+CUST-086,Cedar Kaiseki 086,4,SKU-013,Pork,Prosciutto Leg,2.4353,198.45,Aurora Kaiseki 001
+CUST-086,Cedar Kaiseki 086,5,SKU-008,Beef,Beef Bones,2.4101,36.48,Whistler Izakaya 018
+CUST-086,Cedar Kaiseki 086,6,SKU-036,Lamb,Lamb Leg BRT,2.3106,158.06,Canyon Izakaya 046
+CUST-086,Cedar Kaiseki 086,7,SKU-035,Lamb,Lamb Rack Frenched,2.2436,299.41,Aurora Kaiseki 001
+CUST-086,Cedar Kaiseki 086,8,SKU-038,Lamb,Ground Lamb,2.0516,81.5,Aurora Kaiseki 001
+CUST-086,Cedar Kaiseki 086,9,SKU-011,Pork,Shoulder Butt,1.9958,41.31,Aurora Kaiseki 001
+CUST-087,Sterling Pantry 087,1,SKU-015,Poultry,Chicken Breast,4.158,529.56,Vista Pantry 034
+CUST-087,Sterling Pantry 087,2,SKU-016,Poultry,Chicken Thigh BL,3.655,275.18,Vista Pantry 034
+CUST-087,Sterling Pantry 087,3,SKU-030,Deli,Smoked Speck,2.9063,301.42,Vista Pantry 034
+CUST-087,Sterling Pantry 087,4,SKU-035,Lamb,Lamb Rack Frenched,2.8961,607.66,Vista Pantry 034
+CUST-087,Sterling Pantry 087,5,SKU-023,Seafood,Ahi Tuna Saku,2.5467,394.4,Vista Pantry 034
+CUST-087,Sterling Pantry 087,6,SKU-021,Seafood,Atlantic Salmon Fillet,2.2265,169.29,Foothill Grocer 058
+CUST-087,Sterling Pantry 087,7,SKU-025,Seafood,Scallops U10,2.0995,283.51,Foothill Grocer 058
+CUST-087,Sterling Pantry 087,8,SKU-027,Seafood,Uni Tray,1.9113,334.12,Vista Pantry 034
+CUST-087,Sterling Pantry 087,9,SKU-026,Seafood,Spot Prawns,1.3513,81.55,Vista Pantry 034
+CUST-087,Sterling Pantry 087,10,SKU-028,Seafood,Octopus Tentacle,1.3513,71.47,Bluffs Pantry 091
+CUST-088,Juniper Market 088,1,SKU-032,Deli,Pate de Campagne,4.1873,765.5,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,2,SKU-010,Pork,Belly Skin-On,3.9648,475.88,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,3,SKU-014,Pork,Chorizo Sausage,3.9522,516.72,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,4,SKU-013,Pork,Prosciutto Leg,3.8378,865.1,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,5,SKU-017,Poultry,Whole Duck,3.8115,596.73,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,6,SKU-006,Beef,Short Ribs,3.658,547.33,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,7,SKU-016,Poultry,Chicken Thigh BL,3.6548,275.11,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,8,SKU-005,Beef,Ground Chuck,3.6216,276.42,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,9,SKU-004,Beef,Brisket,3.6088,388.0,Dockside Fresh Mart 073
+CUST-088,Juniper Market 088,10,SKU-015,Poultry,Chicken Breast,3.4194,248.62,Dockside Fresh Mart 073
+CUST-089,Willow Izakaya 089,1,SKU-007,Beef,Flank Steak,3.3205,432.21,Whistler Izakaya 018
+CUST-089,Willow Izakaya 089,2,SKU-020,Poultry,Quail 4-Pack,3.1991,353.04,Whistler Izakaya 018
+CUST-089,Willow Izakaya 089,3,SKU-017,Poultry,Whole Duck,3.0581,273.78,Whistler Izakaya 018
+CUST-089,Willow Izakaya 089,4,SKU-032,Deli,Pate de Campagne,2.2089,95.68,Whistler Izakaya 018
+CUST-089,Willow Izakaya 089,5,SKU-012,Pork,Back Ribs,2.1352,70.92,Whistler Izakaya 018
+CUST-089,Willow Izakaya 089,6,SKU-009,Pork,Berkshire Loin,1.9076,59.67,Whistler Izakaya 018
+CUST-090,Whistler Kaiseki 090,1,SKU-017,Poultry,Whole Duck,2.7997,208.36,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,2,SKU-007,Beef,Flank Steak,2.7429,235.47,Grove Omakase 108
+CUST-090,Whistler Kaiseki 090,3,SKU-004,Beef,Brisket,2.6737,145.76,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,4,SKU-001,Beef,Striploin AAA,2.6333,335.92,Willow Izakaya 089
+CUST-090,Whistler Kaiseki 090,5,SKU-011,Pork,Shoulder Butt,2.4984,72.53,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,6,SKU-020,Poultry,Quail 4-Pack,2.4325,155.98,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,7,SKU-033,Deli,Coppa Sliced,2.4125,202.0,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,8,SKU-032,Deli,Pate de Campagne,2.2059,95.36,Grove Omakase 108
+CUST-090,Whistler Kaiseki 090,9,SKU-038,Lamb,Ground Lamb,2.0878,84.94,Highline Izakaya 055
+CUST-090,Whistler Kaiseki 090,10,SKU-014,Pork,Chorizo Sausage,2.0646,69.66,Willow Izakaya 089
+CUST-091,Bluffs Pantry 091,1,SKU-027,Seafood,Uni Tray,3.3604,1612.16,Zenith Fresh Mart 115
+CUST-091,Bluffs Pantry 091,2,SKU-025,Seafood,Scallops U10,2.8371,635.94,Lakeside Grocer 013
+CUST-091,Bluffs Pantry 091,3,SKU-024,Seafood,Hamachi Loin,1.8389,195.92,Zenith Fresh Mart 115
+CUST-091,Bluffs Pantry 091,4,SKU-026,Seafood,Spot Prawns,1.411,88.32,Bluffs Steakhouse 098
+CUST-092,Aurora Prime 092,1,SKU-013,Pork,Prosciutto Leg,3.6833,738.54,Willow Prime 097
+CUST-092,Aurora Prime 092,2,SKU-014,Pork,Chorizo Sausage,3.3837,288.28,Willow Prime 097
+CUST-092,Aurora Prime 092,3,SKU-021,Seafood,Atlantic Salmon Fillet,2.7997,316.13,Willow Prime 097
+CUST-092,Aurora Prime 092,4,SKU-028,Seafood,Octopus Tentacle,2.555,296.41,Nordic Tavern 070
+CUST-092,Aurora Prime 092,5,SKU-029,Deli,Genoa Salami,2.4578,147.29,Willow Prime 097
+CUST-092,Aurora Prime 092,6,SKU-030,Deli,Smoked Speck,2.4506,184.73,Nordic Tavern 070
+CUST-092,Aurora Prime 092,7,SKU-023,Seafood,Ahi Tuna Saku,2.3149,305.88,Willow Prime 097
+CUST-092,Aurora Prime 092,8,SKU-032,Deli,Pate de Campagne,2.2993,105.86,Nordic Tavern 070
+CUST-092,Aurora Prime 092,9,SKU-025,Seafood,Scallops U10,2.2916,351.94,Nordic Tavern 070
+CUST-092,Aurora Prime 092,10,SKU-024,Seafood,Hamachi Loin,1.4209,116.33,Timber Tavern 104
+CUST-093,Lakeside Charcuterie 093,1,SKU-004,Beef,Brisket,4.0657,619.02,Pacific Salumeria 077
+CUST-093,Lakeside Charcuterie 093,2,SKU-001,Beef,Striploin AAA,3.8705,1221.22,Pacific Salumeria 077
+CUST-093,Lakeside Charcuterie 093,3,SKU-007,Beef,Flank Steak,3.8643,756.21,Pacific Salumeria 077
+CUST-093,Lakeside Charcuterie 093,4,SKU-025,Seafood,Scallops U10,3.3894,1134.02,Pacific Salumeria 077
+CUST-093,Lakeside Charcuterie 093,5,SKU-024,Seafood,Hamachi Loin,2.9839,695.07,Pacific Salumeria 077
+CUST-094,Granville Izakaya 094,1,SKU-017,Poultry,Whole Duck,2.7535,198.34,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,2,SKU-005,Beef,Ground Chuck,2.6576,100.71,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,3,SKU-003,Beef,Tenderloin,2.5798,500.06,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,4,SKU-004,Beef,Brisket,2.4649,116.25,Inlet Izakaya 099
+CUST-094,Granville Izakaya 094,5,SKU-002,Beef,Ribeye AAA,2.4499,323.4,Whistler Izakaya 018
+CUST-094,Granville Izakaya 094,6,SKU-001,Beef,Striploin AAA,2.4111,263.81,Inlet Izakaya 099
+CUST-094,Granville Izakaya 094,7,SKU-034,Deli,Bresaola,2.3756,234.35,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,8,SKU-032,Deli,Pate de Campagne,2.2167,96.53,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,9,SKU-038,Lamb,Ground Lamb,2.2046,96.95,Bluffs Izakaya 067
+CUST-094,Granville Izakaya 094,10,SKU-006,Beef,Short Ribs,2.117,105.83,Inlet Izakaya 099
+CUST-095,Quarry Pantry 095,1,SKU-013,Pork,Prosciutto Leg,4.246,1310.82,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,2,SKU-001,Beef,Striploin AAA,4.0729,1501.04,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,3,SKU-033,Deli,Coppa Sliced,3.7513,826.45,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,4,SKU-006,Beef,Short Ribs,3.4171,427.05,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,5,SKU-034,Deli,Bresaola,3.3404,654.08,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,6,SKU-035,Lamb,Lamb Rack Frenched,3.1722,812.23,Foothill Grocer 058
+CUST-095,Quarry Pantry 095,7,SKU-025,Seafood,Scallops U10,2.2823,348.3,Sterling Fresh Mart 081
+CUST-095,Quarry Pantry 095,8,SKU-022,Seafood,Sablefish Fillet,2.153,224.93,Vista Pantry 034
+CUST-095,Quarry Pantry 095,9,SKU-028,Seafood,Octopus Tentacle,1.99,157.7,Grove Charcuterie 047
+CUST-095,Quarry Pantry 095,10,SKU-026,Seafood,Spot Prawns,1.741,133.99,Sterling Fresh Mart 081
+CUST-096,Quarry Provisions 096,1,SKU-009,Pork,Berkshire Loin,3.8198,463.85,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,2,SKU-013,Pork,Prosciutto Leg,3.4339,571.33,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,3,SKU-011,Pork,Shoulder Butt,3.0196,126.6,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,4,SKU-017,Poultry,Whole Duck,2.9879,254.3,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,5,SKU-005,Beef,Ground Chuck,2.9581,138.69,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,6,SKU-015,Poultry,Chicken Breast,2.9263,148.57,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,7,SKU-010,Pork,Belly Skin-On,2.838,147.99,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,8,SKU-016,Poultry,Chicken Thigh BL,2.7856,111.11,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,9,SKU-038,Lamb,Ground Lamb,2.6872,164.55,Lakeside Charcuterie 093
+CUST-096,Quarry Provisions 096,10,SKU-008,Beef,Beef Bones,2.6694,48.35,Lakeside Charcuterie 093
+CUST-097,Willow Prime 097,1,SKU-019,Poultry,Turkey Breast Roast,3.6323,437.12,Nordic Tavern 070
+CUST-097,Willow Prime 097,2,SKU-028,Seafood,Octopus Tentacle,2.8652,413.33,Nordic Tavern 070
+CUST-097,Willow Prime 097,3,SKU-031,Deli,Duck Rillette,2.6425,203.85,Nordic Tavern 070
+CUST-097,Willow Prime 097,4,SKU-032,Deli,Pate de Campagne,2.4788,128.99,Nordic Tavern 070
+CUST-097,Willow Prime 097,5,SKU-025,Seafood,Scallops U10,2.3928,393.64,Nordic Tavern 070
+CUST-097,Willow Prime 097,6,SKU-030,Deli,Smoked Speck,2.175,136.02,Nordic Tavern 070
+CUST-097,Willow Prime 097,7,SKU-033,Deli,Coppa Sliced,2.1563,151.85,Nordic Tavern 070
+CUST-097,Willow Prime 097,8,SKU-024,Seafood,Hamachi Loin,1.2976,98.55,Harbour Steakhouse 044
+CUST-099,Inlet Izakaya 099,1,SKU-002,Beef,Ribeye AAA,3.0709,628.08,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,2,SKU-032,Deli,Pate de Campagne,2.7735,177.24,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,3,SKU-009,Pork,Berkshire Loin,2.6104,131.09,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,4,SKU-035,Lamb,Lamb Rack Frenched,2.5714,429.34,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,5,SKU-013,Pork,Prosciutto Leg,2.1114,138.27,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,6,SKU-030,Deli,Smoked Speck,2.0298,115.28,Bluffs Izakaya 067
+CUST-099,Inlet Izakaya 099,7,SKU-011,Pork,Shoulder Butt,2.0203,42.5,Quarry Omakase 015
+CUST-099,Inlet Izakaya 099,8,SKU-036,Lamb,Lamb Leg BRT,1.5264,62.69,Quarry Omakase 015
+CUST-100,Foothill Salumeria 100,1,SKU-030,Deli,Smoked Speck,4.331,1307.91,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,2,SKU-014,Pork,Chorizo Sausage,3.89,484.94,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,3,SKU-017,Poultry,Whole Duck,3.5708,466.21,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,4,SKU-012,Pork,Back Ribs,3.485,300.65,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,5,SKU-006,Beef,Short Ribs,3.4381,436.39,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,6,SKU-009,Pork,Berkshire Loin,3.3685,291.58,Sterling Provisions 112
+CUST-100,Foothill Salumeria 100,7,SKU-015,Poultry,Chicken Breast,3.3481,230.93,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,8,SKU-011,Pork,Shoulder Butt,3.3355,176.04,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,9,SKU-037,Lamb,Lamb Shank,3.1234,280.11,Aurora Deli 016
+CUST-100,Foothill Salumeria 100,10,SKU-020,Poultry,Quail 4-Pack,3.0646,306.73,Aurora Deli 016
+CUST-101,Vista Kaiseki 101,1,SKU-019,Poultry,Turkey Breast Roast,3.0534,239.8,Union Sushi 042
+CUST-101,Vista Kaiseki 101,2,SKU-018,Poultry,Duck Breast,2.9869,405.12,Union Sushi 042
+CUST-101,Vista Kaiseki 101,3,SKU-006,Beef,Short Ribs,2.8906,246.29,Union Sushi 042
+CUST-101,Vista Kaiseki 101,4,SKU-005,Beef,Ground Chuck,2.8237,120.3,Quarry Omakase 015
+CUST-101,Vista Kaiseki 101,5,SKU-031,Deli,Duck Rillette,2.4745,169.9,Quarry Omakase 015
+CUST-101,Vista Kaiseki 101,6,SKU-034,Deli,Bresaola,2.4255,247.59,Quarry Omakase 015
+CUST-101,Vista Kaiseki 101,7,SKU-003,Beef,Tenderloin,2.2145,334.48,Quarry Omakase 015
+CUST-101,Vista Kaiseki 101,8,SKU-009,Pork,Berkshire Loin,2.0713,72.13,Union Sushi 042
+CUST-101,Vista Kaiseki 101,9,SKU-010,Pork,Belly Skin-On,2.0529,62.49,Union Sushi 042
+CUST-101,Vista Kaiseki 101,10,SKU-014,Pork,Chorizo Sausage,1.9865,63.67,Union Sushi 042
+CUST-102,Lakeside Pantry 102,1,SKU-035,Lamb,Lamb Rack Frenched,4.305,2596.13,Canyon Foods 017
+CUST-102,Lakeside Pantry 102,2,SKU-036,Lamb,Lamb Leg BRT,4.1231,1057.39,Canyon Foods 017
+CUST-102,Lakeside Pantry 102,3,SKU-032,Deli,Pate de Campagne,3.7965,514.07,Canyon Foods 017
+CUST-102,Lakeside Pantry 102,4,SKU-030,Deli,Smoked Speck,3.5993,620.2,Canyon Foods 017
+CUST-102,Lakeside Pantry 102,5,SKU-022,Seafood,Sablefish Fillet,3.4785,928.28,Canyon Foods 017
+CUST-102,Lakeside Pantry 102,6,SKU-026,Seafood,Spot Prawns,2.2518,242.29,Canyon Foods 017
+CUST-103,Cedar Chophouse 103,1,SKU-020,Poultry,Quail 4-Pack,4.0449,842.53,Grove Grill 062
+CUST-103,Cedar Chophouse 103,2,SKU-009,Pork,Berkshire Loin,3.8952,500.98,Grove Grill 062
+CUST-103,Cedar Chophouse 103,3,SKU-028,Seafood,Octopus Tentacle,3.1541,560.14,Grove Grill 062
+CUST-103,Cedar Chophouse 103,4,SKU-031,Deli,Duck Rillette,2.9316,277.41,Grove Grill 062
+CUST-103,Cedar Chophouse 103,5,SKU-029,Deli,Genoa Salami,2.9044,237.98,Grove Grill 062
+CUST-103,Cedar Chophouse 103,6,SKU-025,Seafood,Scallops U10,2.7956,608.53,Grove Grill 062
+CUST-103,Cedar Chophouse 103,7,SKU-022,Seafood,Sablefish Fillet,2.7267,422.06,Grove Grill 062
+CUST-103,Cedar Chophouse 103,8,SKU-030,Deli,Smoked Speck,2.6238,222.95,Grove Grill 062
+CUST-103,Cedar Chophouse 103,9,SKU-034,Deli,Bresaola,2.4096,243.29,Grove Grill 062
+CUST-105,Cedar Charcuterie 105,1,SKU-013,Pork,Prosciutto Leg,4.5043,1702.75,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,2,SKU-017,Poultry,Whole Duck,4.1642,854.84,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,3,SKU-016,Poultry,Chicken Thigh BL,3.7863,314.8,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,4,SKU-038,Lamb,Ground Lamb,3.6326,442.44,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,5,SKU-018,Poultry,Duck Breast,3.4248,639.56,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,6,SKU-002,Beef,Ribeye AAA,3.348,838.39,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,7,SKU-004,Beef,Brisket,3.2255,261.03,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,8,SKU-020,Poultry,Quail 4-Pack,3.2033,354.6,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,9,SKU-025,Seafood,Scallops U10,2.9235,696.94,Bluffs Provisions 038
+CUST-105,Cedar Charcuterie 105,10,SKU-021,Seafood,Atlantic Salmon Fillet,2.807,318.6,Bluffs Provisions 038
+CUST-106,Nordic Charcuterie 106,1,SKU-023,Seafood,Ahi Tuna Saku,3.1778,770.87,Quarry Deli 117
+CUST-107,Granville Ocean Bar 107,1,SKU-034,Deli,Bresaola,2.7103,337.09,Grove Omakase 108
+CUST-107,Granville Ocean Bar 107,2,SKU-020,Poultry,Quail 4-Pack,2.6762,203.18,Grove Omakase 108
+CUST-107,Granville Ocean Bar 107,3,SKU-004,Beef,Brisket,2.5326,125.15,Grove Omakase 108
+CUST-107,Granville Ocean Bar 107,4,SKU-003,Beef,Tenderloin,2.4127,416.8,Aurora Kaiseki 001
+CUST-107,Granville Ocean Bar 107,5,SKU-014,Pork,Chorizo Sausage,2.3875,100.07,Grove Omakase 108
+CUST-107,Granville Ocean Bar 107,6,SKU-006,Beef,Short Ribs,2.3868,143.09,Grove Omakase 108
+CUST-107,Granville Ocean Bar 107,7,SKU-035,Lamb,Lamb Rack Frenched,2.0429,238.52,Aurora Kaiseki 001
+CUST-107,Granville Ocean Bar 107,8,SKU-012,Pork,Back Ribs,1.7348,44.38,Meridian Ocean Bar 036
+CUST-107,Granville Ocean Bar 107,9,SKU-029,Deli,Genoa Salami,1.7101,62.48,Aurora Kaiseki 001
+CUST-107,Granville Ocean Bar 107,10,SKU-013,Pork,Prosciutto Leg,1.6739,82.52,Grove Omakase 108
+CUST-108,Grove Omakase 108,1,SKU-033,Deli,Coppa Sliced,3.0559,402.34,Willow Izakaya 089
+CUST-108,Grove Omakase 108,2,SKU-009,Pork,Berkshire Loin,2.7285,148.84,Aurora Kaiseki 001
+CUST-108,Grove Omakase 108,3,SKU-003,Beef,Tenderloin,2.5176,467.45,Willow Izakaya 089
+CUST-108,Grove Omakase 108,4,SKU-031,Deli,Duck Rillette,2.3584,149.57,Willow Izakaya 089
+CUST-108,Grove Omakase 108,5,SKU-029,Deli,Genoa Salami,2.2263,114.0,Willow Izakaya 089
+CUST-108,Grove Omakase 108,6,SKU-037,Lamb,Lamb Shank,2.1835,101.56,Willow Izakaya 089
+CUST-108,Grove Omakase 108,7,SKU-035,Lamb,Lamb Rack Frenched,2.1033,255.56,Willow Izakaya 089
+CUST-108,Grove Omakase 108,8,SKU-012,Pork,Back Ribs,1.8117,48.69,Whistler Izakaya 018
+CUST-109,Dockside Fresh Mart 109,1,SKU-003,Beef,Tenderloin,4.2613,2866.46,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,2,SKU-017,Poultry,Whole Duck,4.2604,942.48,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,3,SKU-031,Deli,Duck Rillette,4.0811,909.38,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,4,SKU-012,Pork,Back Ribs,4.0184,519.25,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,5,SKU-029,Deli,Genoa Salami,3.9968,736.82,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,6,SKU-038,Lamb,Ground Lamb,3.7906,520.26,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,7,SKU-019,Poultry,Turkey Breast Roast,3.7538,495.15,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,8,SKU-035,Lamb,Lamb Rack Frenched,3.6789,1371.5,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,9,SKU-004,Beef,Brisket,3.6545,406.66,Zenith Fresh Mart 115
+CUST-109,Dockside Fresh Mart 109,10,SKU-007,Beef,Flank Steak,3.6409,601.53,Zenith Fresh Mart 115
+CUST-110,Riverbend Charcuterie 110,1,SKU-007,Beef,Flank Steak,4.0936,955.26,Pacific Salumeria 077
+CUST-110,Riverbend Charcuterie 110,2,SKU-035,Lamb,Lamb Rack Frenched,3.8635,1656.85,Pacific Salumeria 077
+CUST-110,Riverbend Charcuterie 110,3,SKU-027,Seafood,Uni Tray,3.2214,1395.39,Pacific Salumeria 077
+CUST-110,Riverbend Charcuterie 110,4,SKU-024,Seafood,Hamachi Loin,3.037,734.94,Pacific Salumeria 077
+CUST-111,Union Fresh Mart 111,1,SKU-002,Beef,Ribeye AAA,4.4429,2566.54,Elmwood Grocer 048
+CUST-111,Union Fresh Mart 111,2,SKU-029,Deli,Genoa Salami,3.883,656.07,Canyon Foods 017
+CUST-111,Union Fresh Mart 111,3,SKU-035,Lamb,Lamb Rack Frenched,3.6637,1350.31,Elmwood Grocer 048
+CUST-111,Union Fresh Mart 111,4,SKU-023,Seafood,Ahi Tuna Saku,3.0219,654.72,Elmwood Grocer 048
+CUST-111,Union Fresh Mart 111,5,SKU-021,Seafood,Atlantic Salmon Fillet,2.7549,301.38,Canyon Foods 017
+CUST-111,Union Fresh Mart 111,6,SKU-025,Seafood,Scallops U10,2.6595,526.04,Canyon Foods 017
+CUST-112,Sterling Provisions 112,1,SKU-011,Pork,Shoulder Butt,3.1876,150.95,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,2,SKU-037,Lamb,Lamb Shank,3.0517,259.84,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,3,SKU-002,Beef,Ribeye AAA,2.5614,365.15,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,4,SKU-007,Beef,Flank Steak,2.341,152.16,Grove Charcuterie 047
+CUST-112,Sterling Provisions 112,5,SKU-004,Beef,Brisket,2.1368,80.72,Grove Charcuterie 047
+CUST-112,Sterling Provisions 112,6,SKU-003,Beef,Tenderloin,1.9142,237.09,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,7,SKU-026,Seafood,Spot Prawns,1.8547,153.55,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,8,SKU-008,Beef,Beef Bones,1.805,18.29,Lakeside Charcuterie 093
+CUST-112,Sterling Provisions 112,9,SKU-001,Beef,Striploin AAA,1.63,106.71,Grove Charcuterie 047
+CUST-112,Sterling Provisions 112,10,SKU-024,Seafood,Hamachi Loin,1.5928,145.1,Grove Charcuterie 047
+CUST-113,Inlet Pantry 113,1,SKU-018,Poultry,Duck Breast,4.3296,1612.32,Granville Foods 043
+CUST-113,Inlet Pantry 113,2,SKU-007,Beef,Flank Steak,4.1718,1034.22,Granville Foods 043
+CUST-113,Inlet Pantry 113,3,SKU-013,Pork,Prosciutto Leg,3.9967,1017.4,Granville Foods 043
+CUST-113,Inlet Pantry 113,4,SKU-009,Pork,Berkshire Loin,3.9413,525.08,Granville Foods 043
+CUST-113,Inlet Pantry 113,5,SKU-032,Deli,Pate de Campagne,3.9111,577.87,Granville Foods 043
+CUST-113,Inlet Pantry 113,6,SKU-029,Deli,Genoa Salami,3.6802,533.16,Granville Foods 043
+CUST-113,Inlet Pantry 113,7,SKU-033,Deli,Coppa Sliced,3.5858,697.35,Granville Foods 043
+CUST-113,Inlet Pantry 113,8,SKU-037,Lamb,Lamb Shank,3.0394,256.49,Granville Foods 043
+CUST-113,Inlet Pantry 113,9,SKU-035,Lamb,Lamb Rack Frenched,2.7536,522.24,Granville Foods 043
+CUST-113,Inlet Pantry 113,10,SKU-021,Seafood,Atlantic Salmon Fillet,2.1804,160.73,Granville Foods 043
+CUST-114,Inlet Pantry 114,1,SKU-001,Beef,Striploin AAA,4.7219,2896.21,Vista Grill 078
+CUST-114,Inlet Pantry 114,2,SKU-014,Pork,Chorizo Sausage,4.5196,919.04,Vista Grill 078
+CUST-114,Inlet Pantry 114,3,SKU-012,Pork,Back Ribs,4.3819,751.04,Vista Grill 078
+CUST-114,Inlet Pantry 114,4,SKU-015,Poultry,Chicken Breast,4.1148,506.79,Vista Grill 078
+CUST-114,Inlet Pantry 114,5,SKU-032,Deli,Pate de Campagne,4.1012,701.33,Vista Grill 078
+CUST-114,Inlet Pantry 114,6,SKU-029,Deli,Genoa Salami,3.468,428.54,Vista Grill 078
+CUST-114,Inlet Pantry 114,7,SKU-025,Seafood,Scallops U10,3.2526,983.94,Vista Grill 078
+CUST-114,Inlet Pantry 114,8,SKU-024,Seafood,Hamachi Loin,3.0458,741.8,Bluffs Steakhouse 098
+CUST-115,Zenith Fresh Mart 115,1,SKU-025,Seafood,Scallops U10,3.0871,827.86,Lakeside Grocer 013
+CUST-115,Zenith Fresh Mart 115,2,SKU-026,Seafood,Spot Prawns,2.4952,316.93,Bluffs Steakhouse 098
+CUST-116,Union Fresh Mart 116,1,SKU-010,Pork,Belly Skin-On,4.4241,758.66,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,2,SKU-003,Beef,Tenderloin,4.2149,2734.72,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,3,SKU-006,Beef,Short Ribs,4.0113,785.37,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,4,SKU-033,Deli,Coppa Sliced,3.6405,737.72,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,5,SKU-029,Deli,Genoa Salami,3.6093,495.71,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,6,SKU-038,Lamb,Ground Lamb,3.6081,431.45,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,7,SKU-022,Seafood,Sablefish Fillet,2.5584,352.12,Vista Pantry 034
+CUST-116,Union Fresh Mart 116,8,SKU-025,Seafood,Scallops U10,2.0628,271.87,Willow Provisions 021
+CUST-116,Union Fresh Mart 116,9,SKU-028,Seafood,Octopus Tentacle,1.8695,136.95,Willow Provisions 021
+CUST-116,Union Fresh Mart 116,10,SKU-026,Seafood,Spot Prawns,1.536,103.86,Vista Pantry 034
+CUST-118,Zenith Grocer 118,1,SKU-031,Deli,Duck Rillette,3.166,354.83,Zenith Fresh Mart 115
+CUST-118,Zenith Grocer 118,2,SKU-023,Seafood,Ahi Tuna Saku,2.9767,624.3,Zenith Fresh Mart 115
+CUST-118,Zenith Grocer 118,3,SKU-028,Seafood,Octopus Tentacle,2.8721,416.34,Zenith Fresh Mart 115
+CUST-118,Zenith Grocer 118,4,SKU-033,Deli,Coppa Sliced,2.8635,328.43,Zenith Fresh Mart 115
+CUST-118,Zenith Grocer 118,5,SKU-030,Deli,Smoked Speck,2.6604,231.91,Zenith Fresh Mart 115
+CUST-118,Zenith Grocer 118,6,SKU-026,Seafood,Spot Prawns,1.3434,80.68,Bluffs Steakhouse 098
+CUST-118,Zenith Grocer 118,7,SKU-024,Seafood,Hamachi Loin,1.0207,65.75,Zenith Fresh Mart 115
+CUST-119,Harbour Cellar 119,1,SKU-036,Lamb,Lamb Leg BRT,4.4351,1450.98,Pacific Salumeria 077
+CUST-120,Summit Sushi 120,1,SKU-015,Poultry,Chicken Breast,2.4135,85.59,Canyon Sushi 076
+CUST-120,Summit Sushi 120,2,SKU-019,Poultry,Turkey Breast Roast,2.1522,90.32,Granville Ocean Bar 107
+CUST-120,Summit Sushi 120,3,SKU-002,Beef,Ribeye AAA,2.1478,231.13,Granville Ocean Bar 107
+CUST-120,Summit Sushi 120,4,SKU-037,Lamb,Lamb Shank,2.0381,86.08,Canyon Sushi 076
+CUST-120,Summit Sushi 120,5,SKU-012,Pork,Back Ribs,2.0066,61.21,Canyon Sushi 076
+CUST-120,Summit Sushi 120,6,SKU-006,Beef,Short Ribs,2.0056,93.15,Highline Izakaya 055
+CUST-120,Summit Sushi 120,7,SKU-033,Deli,Coppa Sliced,1.8954,112.42,Granville Ocean Bar 107
+CUST-120,Summit Sushi 120,8,SKU-001,Beef,Striploin AAA,1.8161,133.86,Canyon Sushi 076
+CUST-120,Summit Sushi 120,9,SKU-007,Beef,Flank Steak,1.7951,81.34,Canyon Sushi 076
+CUST-120,Summit Sushi 120,10,SKU-010,Pork,Belly Skin-On,1.7588,44.22,Granville Ocean Bar 107

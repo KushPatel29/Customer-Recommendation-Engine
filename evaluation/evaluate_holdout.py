@@ -20,7 +20,9 @@ import random
 import sys
 from pathlib import Path
 
+import numpy as np
 import pandas as pd
+from sklearn.decomposition import TruncatedSVD
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
@@ -41,6 +43,19 @@ def popularity_baseline(train: pd.DataFrame, owned: set, k=K) -> list:
     return [s for s in pop if s not in owned][:k]
 
 
+def svd_recommendations(matrix: pd.DataFrame, cust: str, owned: set,
+                        k=K, n_factors=12) -> list:
+    """Latent-factor model: TruncatedSVD reconstructs the customer x SKU
+    matrix from n_factors dimensions; the reconstruction scores unpurchased
+    SKUs (classic matrix-factorization recommender)."""
+    svd = TruncatedSVD(n_components=n_factors, random_state=42)
+    latent = svd.fit_transform(matrix.values)
+    recon = latent @ svd.components_
+    scores = pd.Series(recon[matrix.index.get_loc(cust)], index=matrix.columns)
+    return [s for s in scores.sort_values(ascending=False).index
+            if s not in owned][:k]
+
+
 def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
     sku_counts = sales.groupby("customer_id")["sku"].nunique()
     eligible = sku_counts[sku_counts >= MIN_SKUS].index.tolist()
@@ -53,16 +68,20 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
 
         train = sales[~((sales["customer_id"] == cust) & (sales["sku"].isin(hidden)))]
         owned = set(train.loc[train["customer_id"] == cust, "sku"])
+        matrix = build_customer_sku_matrix(train)
 
-        recs = cross_sell_recommendations(train, n_recs=K)
+        recs = cross_sell_recommendations(train, matrix=matrix, n_recs=K)
         cf_recs = set(recs.loc[recs["customer_id"] == cust, "sku"])
+        svd_recs = set(svd_recommendations(matrix, cust, owned))
         pop_recs = set(popularity_baseline(train, owned))
 
         rows.append({
             "customer_id": cust,
             "hidden": len(hidden),
             "cf_hits": len(cf_recs & hidden),
+            "svd_hits": len(svd_recs & hidden),
             "pop_hits": len(pop_recs & hidden),
+            "cf_recs": ";".join(sorted(cf_recs)),
         })
     return pd.DataFrame(rows)
 
@@ -75,11 +94,18 @@ def main():
     results.to_csv(out / "holdout_evaluation.csv", index=False)
 
     cf = results["cf_hits"].sum() / results["hidden"].sum()
+    svd = results["svd_hits"].sum() / results["hidden"].sum()
     pop = results["pop_hits"].sum() / results["hidden"].sum()
+    # beyond-accuracy: what share of the catalog does each method ever surface?
+    n_skus = sales["sku"].nunique()
+    cf_coverage = len(set(";".join(results["cf_recs"]).split(";"))) / n_skus
     print(f"customers evaluated: {len(results)}")
     print(f"hit-rate@{K}  collaborative filtering: {cf:.1%}")
+    print(f"hit-rate@{K}  SVD latent factors:      {svd:.1%}")
     print(f"hit-rate@{K}  popularity baseline:     {pop:.1%}")
     print(f"CF lift over popularity: {cf / pop:.2f}x" if pop else "n/a")
+    print(f"CF catalog coverage: {cf_coverage:.0%} of SKUs surfaced "
+          f"(popularity by construction surfaces ~{K / n_skus:.0%})")
 
 
 if __name__ == "__main__":

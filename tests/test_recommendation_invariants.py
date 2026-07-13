@@ -19,8 +19,8 @@ sys.path.insert(0, str(ROOT / "engine"))
 sys.path.insert(0, str(ROOT / "evaluation"))
 
 from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
-                       customer_similarity, load_sales, sku_affinity,
-                       top_customers_by_region, growth_targets)
+                       customer_similarity, load_sales, recommend_for_new_customer,
+                       sku_affinity, top_customers_by_region, growth_targets)
 
 
 @pytest.fixture(scope="module")
@@ -98,3 +98,16 @@ def test_deterministic_outputs(sales):
     a = cross_sell_recommendations(sales)
     b = cross_sell_recommendations(sales)
     pd.testing.assert_frame_equal(a, b)
+
+
+def test_cold_start_returns_valid_ranked_skus(sales):
+    recs = recommend_for_new_customer(sales, "Ontario")
+    assert len(recs) == 10
+    assert set(recs["sku"]) <= set(sales["sku"].unique())
+    scores = recs.sort_values("rank")["blend_score"].values
+    assert (np.diff(scores) <= 1e-9).all()
+
+
+def test_explainability_and_opportunity_present(recs):
+    assert (recs["est_revenue_opportunity"] > 0).all()
+    assert (recs["because_similar_to"] != "").all(), "every rec must carry a why"

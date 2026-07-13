@@ -110,7 +110,8 @@ def cross_sell_recommendations(sales: pd.DataFrame, matrix=None, sim=None,
         sim = customer_similarity(matrix)
 
     sku_info = (sales.groupby("sku")
-                .agg(protein=("protein", "first"), description=("description", "first"))
+                .agg(protein=("protein", "first"), description=("description", "first"),
+                     avg_price=("unit_price", "mean"))
                 .to_dict("index"))
     names = sales.drop_duplicates("customer_id").set_index("customer_id")["customer_name"]
 
@@ -127,6 +128,12 @@ def cross_sell_recommendations(sales: pd.DataFrame, matrix=None, sim=None,
         for rank, (sku, score) in enumerate(candidates.items(), 1):
             if score <= 0:
                 continue
+            # explainability: the most similar neighbor who actually buys this SKU
+            buyers = [n for n in neighbors.index if matrix.at[n, sku] > 0]
+            because = names.get(buyers[0], buyers[0]) if buyers else ""
+            # indicative $ opportunity: implied lb volume x average street price
+            est_lb = float(np.expm1(score))
+            opportunity = round(est_lb * sku_info[sku]["avg_price"], 2)
             rows.append({
                 "customer_id": cust,
                 "customer_name": names.get(cust, cust),
@@ -135,8 +142,28 @@ def cross_sell_recommendations(sales: pd.DataFrame, matrix=None, sim=None,
                 "protein": sku_info[sku]["protein"],
                 "description": sku_info[sku]["description"],
                 "score": round(float(score), 4),
+                "est_revenue_opportunity": opportunity,
+                "because_similar_to": because,
             })
     return pd.DataFrame(rows)
+
+
+def recommend_for_new_customer(sales: pd.DataFrame, region: str,
+                               n_recs=N_RECS) -> pd.DataFrame:
+    """Cold start: a brand-new customer has no purchase history, so fall back
+    to a region-weighted popularity blend (70% their region, 30% global) —
+    the honest default until they have orders to learn from."""
+    regional = (sales[sales["region"] == region].groupby("sku")["revenue"].sum())
+    overall = sales.groupby("sku")["revenue"].sum()
+    blend = (0.7 * regional / regional.max()).add(
+        0.3 * overall / overall.max(), fill_value=0.0)
+    desc = sales.drop_duplicates("sku").set_index("sku")[["protein", "description"]]
+    top = blend.nlargest(n_recs)
+    out = desc.loc[top.index].reset_index()
+    out.insert(0, "region", region)
+    out["blend_score"] = top.values.round(4)
+    out["rank"] = range(1, len(out) + 1)
+    return out
 
 
 # ------------------------------------------------------ 3. basket affinity
