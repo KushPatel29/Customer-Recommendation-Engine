@@ -4,11 +4,13 @@
 ![ML](https://img.shields.io/badge/ML-Collaborative%20Filtering-FF6F00)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-A B2B cross-sell recommendation engine for a specialty-foods distributor:
-item-based collaborative filtering over purchase history, market-basket
-affinity ("orders with ahi tuna are 2.4x more likely to include hamachi"),
-and revenue-momentum growth targeting — with a **holdout evaluation that
-proves the recommender beats a popularity baseline before anyone acts on it**.
+A B2B customer & product analytics platform with recommendations at its
+core: item-based collaborative filtering over purchase history,
+market-basket affinity ("orders with ahi tuna are 2.4x more likely to
+include hamachi"), RFM segmentation, run-rate CLV, churn risk, cohort
+retention, ABC portfolio analysis — all joined into a rep-ready action
+list, with a **holdout evaluation that proves the recommender beats a
+popularity baseline before anyone acts on it**.
 
 ## Results (holdout evaluation, hit-rate@10)
 
@@ -50,12 +52,58 @@ end-to-end.
 
 ```
 output/
+├── action_list.csv                THE deliverable: segment + churn risk + CLV +
+│                                  best cross-sell (with why and $) per priority customer
+├── customer_analytics.csv         per-customer RFM scores/segment, CLV, churn risk, cadence
+├── rfm_segment_summary.csv        customers / revenue / avg CLV per segment
+├── cohort_retention.csv           monthly cohort x months-since retention matrix
+├── product_analytics.csv          per-SKU ABC class, growth, margin %, repeat rate, velocity
 ├── top_customers.csv              top 10 per region (revenue + cadence)
 ├── growth_targets.csv             non-top customers ranked by revenue momentum (H2 vs H1)
 ├── cross_sell_recommendations.csv top-10 white-space SKUs per customer, similarity-scored
 ├── sku_affinity.csv               SKU pairs with lift >= 1.2 and real support
-└── holdout_evaluation.csv         per-customer CF vs popularity hits
+└── holdout_evaluation.csv         per-customer CF vs SVD vs popularity hits
 ```
+
+## Customer analytics
+
+The KPI suite a commercial team standardizes on, computed transparently
+(no black boxes — every number is auditable back to order lines):
+
+| Metric | Definition here |
+|---|---|
+| **RFM segments** | Recency/Frequency/Monetary quintiles mapped to the standard named segments (Champions, Loyal, At Risk, Hibernating, ...) |
+| **CLV (12-mo run-rate)** | Annualized margin run-rate, damped by churn risk — labeled a heuristic on purpose |
+| **Churn risk** | Days-since-last-order measured against the customer's *own* median reorder cadence — a weekly buyer 3 weeks dark is High risk; a quarterly buyer isn't |
+| **Cohort retention** | Monthly first-purchase cohorts x months-since-first (the classic triangle) |
+
+![RFM segments](docs/rfm_segments.png)
+
+![Cohort retention](docs/cohort_retention.png)
+
+## Product analytics
+
+| Metric | Definition here |
+|---|---|
+| **ABC class** | A = SKUs covering the first 80% of revenue, B = next 15%, C = tail |
+| **Growth-share quadrant** | Revenue x H2-vs-H1 growth, bubble = margin % — big + declining is the watch list |
+| **Repeat purchase rate** | Share of a SKU's buyers who bought it 2+ times (stickiness) |
+| **Velocity** | lb/week, for ops and procurement |
+
+![Product portfolio](docs/product_portfolio.png)
+
+![ABC Pareto](docs/abc_pareto.png)
+
+## The action list — where it all converges
+
+`output/action_list.csv` is the artifact a sales manager would actually
+distribute on Monday morning: every priority customer (Champions, Loyal,
+Potential Loyalist, At Risk) with their segment, churn risk, CLV, and the
+single best cross-sell — including *why* ("because <similar customer> buys
+it") and an indicative $ size. Customers with no white-space left are
+flagged as retention calls, not dropped. Segmentation says **who** to call,
+churn risk says **when**, the recommender says **what to pitch**, and CLV
+says **in what order**.
 
 ## How the recommender works
 
@@ -82,8 +130,11 @@ output/
 pip install -r requirements.txt
 python data_generator/generate_sales_data.py   # 15k synthetic order lines
 python engine/recommend.py                     # all four outputs
-python evaluation/evaluate_holdout.py          # CF vs popularity scorecard
-pytest tests/ -v                               # 9 invariants
+python evaluation/evaluate_holdout.py          # CF vs SVD vs popularity scorecard
+python analytics/customer_analytics.py         # RFM, CLV, churn, cohorts, action list
+python analytics/product_analytics.py          # ABC, portfolio quadrant, repeat rates
+python analytics/make_visuals.py               # model visuals
+pytest tests/ -v                               # 14 invariants
 ```
 
 ## The synthetic data (and why it has structure)

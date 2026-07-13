@@ -17,6 +17,7 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
 sys.path.insert(0, str(ROOT / "evaluation"))
+sys.path.insert(0, str(ROOT / "analytics"))
 
 from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
                        customer_similarity, load_sales, recommend_for_new_customer,
@@ -111,3 +112,54 @@ def test_cold_start_returns_valid_ranked_skus(sales):
 def test_explainability_and_opportunity_present(recs):
     assert (recs["est_revenue_opportunity"] > 0).all()
     assert (recs["because_similar_to"] != "").all(), "every rec must carry a why"
+
+
+# ---------------------------------------------------- analytics invariants
+
+from customer_analytics import build_action_list, cohort_retention, customer_metrics
+from product_analytics import product_metrics
+
+VALID_SEGMENTS = {"Champions", "Loyal", "New / Promising", "Potential Loyalist",
+                  "Needs Attention", "At Risk (was valuable)", "At Risk",
+                  "Hibernating"}
+
+
+@pytest.fixture(scope="module")
+def cust(sales):
+    return customer_metrics(sales)
+
+
+def test_rfm_covers_every_customer_with_valid_segment(sales, cust):
+    assert len(cust) == sales["customer_id"].nunique()
+    assert set(cust["rfm_segment"]) <= VALID_SEGMENTS
+    assert cust["clv_12m_runrate"].min() >= 0
+
+
+def test_churn_risk_consistent_with_recency(cust):
+    repeaters = cust[cust["churn_risk"].isin(["Low", "Medium", "High"])]
+    ratio = repeaters["recency_days"] / repeaters["median_reorder_days"].clip(lower=3)
+    assert (ratio[repeaters["churn_risk"] == "High"] > 3).all()
+    assert (ratio[repeaters["churn_risk"] == "Low"] <= 1.5).all()
+
+
+def test_cohort_month_zero_is_full(sales):
+    retention = cohort_retention(sales)
+    assert (retention[0] == 1.0).all(), "month 0 must be 100% by definition"
+    assert retention.max().max() <= 1.0
+
+
+def test_abc_classification_properties(sales):
+    prod = product_metrics(sales)
+    assert len(prod) == sales["sku"].nunique()
+    a_share = prod.loc[prod["abc_class"] == "A", "revenue_share"].sum()
+    assert 0.75 <= a_share <= 0.85, f"A-class carries {a_share:.0%}, expected ~80%"
+    assert set(prod["abc_class"]) == {"A", "B", "C"}
+    assert prod["repeat_purchase_rate"].between(0, 1).all()
+
+
+def test_action_list_joins_cleanly(sales, cust):
+    actions = build_action_list(cust, sales)
+    assert actions["customer_id"].is_unique
+    assert actions["rfm_segment"].isin(VALID_SEGMENTS).all()
+    # every action-list row carries an action: a cross-sell or a retention call
+    assert actions["top_cross_sell"].notna().all()

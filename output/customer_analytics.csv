@@ -1,0 +1,121 @@
+customer_id,customer_name,region,rep,total_revenue,total_margin,orders,distinct_skus,first_order,last_order,avg_order_value,tenure_days,recency_days,median_reorder_days,churn_risk,R,F,M,rfm_segment,clv_12m_runrate
+CUST-001,Aurora Kaiseki 001,BC Interior,D. Tremblay,58790.68,20134.28,36,35,2025-07-09,2026-06-10,1633.07,357,21,7.0,Medium,2,5,5,At Risk (was valuable),12345.0
+CUST-002,Granville Market 002,Alberta,D. Tremblay,6718.12,2273.72,8,22,2025-08-25,2026-06-02,839.76,310,29,22.0,Low,2,1,1,Hibernating,2676.0
+CUST-003,Bluffs Pantry 003,Ontario,D. Tremblay,16197.2,5412.4,16,32,2025-07-06,2026-04-04,1012.32,360,88,13.0,High,1,3,3,At Risk,1371.0
+CUST-004,Dockside Salumeria 004,Ontario,F. Osei,9180.17,3210.87,10,20,2025-07-06,2026-01-01,918.02,360,181,20.0,High,1,1,2,Hibernating,813.0
+CUST-005,Harbour Sushi 005,Ontario,B. Okafor,18894.56,6526.86,14,27,2025-07-12,2026-06-07,1349.61,354,24,8.0,Medium,2,2,3,At Risk,4036.0
+CUST-006,Granville Tavern 006,Alberta,G. Lindqvist,11702.38,3870.28,13,27,2025-07-30,2026-06-30,900.18,336,1,22.0,Low,5,2,2,New / Promising,4202.0
+CUST-007,Highline Kaiseki 007,BC Interior,B. Okafor,9593.22,3192.12,9,21,2025-08-07,2026-06-25,1065.91,328,6,27.0,Low,4,1,2,New / Promising,3550.0
+CUST-008,Cedar Chophouse 008,Alberta,G. Lindqvist,12210.55,4049.45,11,24,2025-07-22,2026-06-19,1110.05,344,12,29.5,Low,3,2,2,Needs Attention,4294.0
+CUST-009,Orchard Foods 009,BC Interior,E. Novak,50978.73,17335.03,42,37,2025-07-09,2026-06-29,1213.78,357,2,7.0,Low,5,5,5,Champions,17714.0
+CUST-010,Yardley Chophouse 010,BC Interior,C. Delgado,23051.25,7635.95,24,31,2025-07-03,2026-06-09,960.47,363,22,9.0,Medium,2,4,4,At Risk (was valuable),4604.0
+CUST-011,Bluffs Cellar 011,BC Interior,F. Osei,7373.83,2509.53,10,25,2025-08-03,2026-06-14,737.38,332,17,23.0,Low,3,1,1,Needs Attention,2757.0
+CUST-012,Vista Steakhouse 012,BC Interior,H. Moreau,12162.48,4005.98,13,26,2025-07-25,2026-06-21,935.58,341,10,18.0,Low,4,2,2,New / Promising,4286.0
+CUST-013,Lakeside Grocer 013,BC Interior,E. Novak,34740.49,11757.99,34,36,2025-07-25,2026-06-27,1021.78,341,4,5.0,Low,5,5,4,Champions,12579.0
+CUST-014,Orchard Grocer 014,BC Interior,H. Moreau,1649.14,566.34,3,9,2025-11-22,2026-02-27,549.71,221,124,48.5,Medium,1,1,1,Hibernating,561.0
+CUST-015,Quarry Omakase 015,Alberta,G. Lindqvist,119987.86,40731.86,57,37,2025-07-12,2026-06-25,2105.05,354,6,5.0,Low,4,5,5,Champions,41975.0
+CUST-016,Aurora Deli 016,BC Lower Mainland,F. Osei,9899.08,3438.98,13,28,2025-07-16,2026-06-28,761.47,350,3,18.0,Low,5,2,2,New / Promising,3584.0
+CUST-017,Canyon Foods 017,BC Interior,B. Okafor,50080.1,17110.2,43,38,2025-07-02,2026-06-30,1164.65,364,1,5.0,Low,5,5,5,Champions,17148.0
+CUST-018,Whistler Izakaya 018,BC Interior,F. Osei,80895.0,27459.3,42,38,2025-07-06,2026-06-27,1926.07,360,4,6.0,Low,5,5,5,Champions,27825.0
+CUST-019,Timber Sushi 019,BC Lower Mainland,H. Moreau,29540.73,10113.13,18,24,2025-07-04,2026-06-07,1641.15,362,24,15.0,Medium,2,3,4,At Risk,6115.0
+CUST-020,Cedar Deli 020,Ontario,B. Okafor,5189.17,1779.27,6,17,2025-10-25,2026-06-14,864.86,249,17,35.0,Low,3,1,1,Needs Attention,2607.0
+CUST-021,Willow Provisions 021,Ontario,D. Tremblay,49941.35,17228.95,40,38,2025-07-12,2026-06-29,1248.53,354,2,5.0,Low,5,5,5,Champions,17755.0
+CUST-022,Zenith Foods 022,Ontario,H. Moreau,11276.35,3830.95,17,37,2025-07-15,2026-06-28,663.31,351,3,14.0,Low,5,3,2,Loyal,3982.0
+CUST-023,Vista Pantry 023,BC Interior,D. Tremblay,7105.83,2384.33,9,25,2025-07-07,2026-06-24,789.54,359,7,14.0,Low,4,1,1,New / Promising,2423.0
+CUST-024,Lakeside Fresh Mart 024,BC Interior,C. Delgado,23571.98,7944.38,24,35,2025-07-29,2026-05-10,982.17,337,52,12.0,High,1,4,4,At Risk (was valuable),2150.0
+CUST-025,Quarry Grocer 025,Alberta,B. Okafor,35634.68,11989.58,34,36,2025-07-20,2026-06-16,1048.08,346,15,8.0,Medium,3,5,4,Potential Loyalist,7585.0
+CUST-026,Grove Market 026,Alberta,A. Fontaine,9443.16,3145.96,11,26,2025-07-11,2026-06-16,858.47,355,15,35.0,Low,3,2,2,Needs Attention,3233.0
+CUST-027,Juniper Salumeria 027,BC Interior,H. Moreau,12482.8,4312.7,14,22,2025-08-18,2026-05-09,891.63,317,53,8.0,High,1,2,2,Hibernating,1241.0
+CUST-028,Grove Market 028,Ontario,B. Okafor,11244.37,3834.87,14,26,2025-07-24,2026-04-14,803.17,342,78,22.0,High,1,2,2,Hibernating,1023.0
+CUST-029,Pacific Grill 029,BC Interior,G. Lindqvist,6522.78,2217.58,7,15,2025-07-29,2026-06-06,931.83,337,25,25.5,Low,2,1,1,Hibernating,2401.0
+CUST-030,Elmwood Charcuterie 030,BC Lower Mainland,G. Lindqvist,63149.33,21924.33,49,38,2025-07-13,2026-06-23,1288.76,353,8,5.5,Low,4,5,5,Champions,22657.0
+CUST-031,Zenith Ocean Bar 031,BC Interior,D. Tremblay,37759.92,12752.52,27,33,2025-07-10,2026-06-22,1398.52,356,9,8.0,Low,4,4,5,Champions,13068.0
+CUST-032,Granville Sushi 032,Ontario,C. Delgado,5926.43,2033.33,6,14,2025-10-02,2026-06-11,987.74,272,20,28.0,Low,2,1,1,Hibernating,2727.0
+CUST-033,Cedar Cellar 033,Alberta,D. Tremblay,4140.69,1428.19,7,17,2025-07-04,2026-06-27,591.53,362,4,47.0,Low,5,1,1,New / Promising,1439.0
+CUST-034,Vista Pantry 034,Alberta,B. Okafor,22471.31,7511.31,23,35,2025-08-01,2026-06-29,977.01,334,2,9.5,Low,5,4,3,Loyal,8204.0
+CUST-035,Inlet Foods 035,BC Interior,F. Osei,4055.62,1407.02,5,15,2025-12-27,2026-06-15,811.12,186,16,14.0,Low,3,1,1,Needs Attention,2760.0
+CUST-036,Meridian Ocean Bar 036,BC Lower Mainland,B. Okafor,28579.47,9693.27,23,32,2025-07-07,2026-06-26,1242.59,359,5,9.0,Low,4,4,4,Champions,9850.0
+CUST-037,Timber Foods 037,BC Interior,F. Osei,13370.35,4556.55,17,29,2025-08-22,2026-06-22,786.49,313,9,12.5,Low,4,3,3,Loyal,5311.0
+CUST-038,Bluffs Provisions 038,Alberta,E. Novak,28776.57,9938.87,32,38,2025-07-05,2026-06-24,899.27,361,7,9.0,Low,4,4,4,Champions,10043.0
+CUST-039,Canyon Cellar 039,BC Interior,E. Novak,17953.37,6279.07,18,29,2025-07-15,2026-06-17,997.41,351,14,11.0,Low,3,3,3,Potential Loyalist,6526.0
+CUST-040,Zenith Foods 040,Ontario,E. Novak,5730.47,1956.87,9,22,2025-07-13,2026-06-15,636.72,353,16,18.0,Low,3,1,1,Needs Attention,2022.0
+CUST-041,Aurora Steakhouse 041,BC Interior,E. Novak,13421.51,4378.71,16,25,2025-07-11,2026-05-02,838.84,355,60,20.0,Medium,1,3,3,At Risk,2700.0
+CUST-042,Union Sushi 042,Alberta,B. Okafor,28780.57,9660.17,18,31,2025-07-06,2026-04-30,1598.92,360,62,15.0,High,1,3,4,At Risk,2447.0
+CUST-043,Granville Foods 043,BC Lower Mainland,A. Fontaine,36021.43,12274.63,36,36,2025-07-03,2026-06-21,1000.6,363,10,8.0,Low,4,5,5,Champions,12335.0
+CUST-044,Harbour Steakhouse 044,Ontario,C. Delgado,50580.81,16665.51,42,36,2025-07-09,2026-06-18,1204.3,357,13,6.0,Medium,3,5,5,Potential Loyalist,10218.0
+CUST-045,Elmwood Chophouse 045,Ontario,A. Fontaine,49203.76,16246.36,39,35,2025-07-11,2026-06-22,1261.63,355,9,6.5,Low,4,5,5,Champions,16695.0
+CUST-046,Canyon Izakaya 046,BC Lower Mainland,C. Delgado,53221.48,17902.38,35,35,2025-07-15,2026-06-26,1520.61,351,5,7.0,Low,4,5,5,Champions,18606.0
+CUST-047,Grove Charcuterie 047,BC Interior,D. Tremblay,46170.86,16154.96,38,37,2025-07-07,2026-06-29,1215.02,359,2,7.0,Low,5,5,5,Champions,16416.0
+CUST-048,Elmwood Grocer 048,BC Interior,A. Fontaine,29177.56,9883.76,26,35,2025-07-18,2026-06-24,1122.21,348,7,9.0,Low,4,4,4,Champions,10361.0
+CUST-049,Cedar Steakhouse 049,BC Lower Mainland,G. Lindqvist,140733.94,46853.14,81,38,2025-07-11,2026-06-20,1737.46,355,11,3.0,High,3,5,5,Potential Loyalist,12037.0
+CUST-050,Aurora Market 050,BC Lower Mainland,C. Delgado,11620.23,3911.73,14,28,2025-07-01,2026-04-22,830.02,365,70,17.0,High,1,2,2,Hibernating,977.0
+CUST-051,Timber Market 051,Ontario,D. Tremblay,10263.64,3513.64,11,22,2025-08-20,2026-04-19,933.06,315,73,11.5,High,1,2,2,Hibernating,1017.0
+CUST-052,Inlet Prime 052,BC Interior,F. Osei,4267.15,1395.85,4,11,2026-02-01,2026-06-23,1066.79,150,8,53.0,Low,4,1,1,New / Promising,3395.0
+CUST-053,Whistler Provisions 053,Alberta,E. Novak,14373.42,4982.02,16,30,2025-07-22,2026-06-14,898.34,344,17,18.0,Low,3,3,3,Potential Loyalist,5283.0
+CUST-054,Bluffs Foods 054,BC Interior,D. Tremblay,2132.55,736.55,6,13,2025-08-07,2026-04-17,355.42,328,75,35.0,Medium,1,1,1,Hibernating,492.0
+CUST-055,Highline Izakaya 055,BC Lower Mainland,G. Lindqvist,17509.35,6001.85,17,26,2025-07-01,2026-06-16,1029.96,365,15,18.0,Low,3,3,3,Potential Loyalist,5999.0
+CUST-056,Yardley Foods 056,Ontario,H. Moreau,21381.83,7184.63,19,36,2025-08-09,2026-06-28,1125.36,326,3,5.5,Low,5,3,3,Loyal,8040.0
+CUST-057,Highline Grocer 057,Alberta,E. Novak,18844.96,6341.86,23,35,2025-07-22,2026-06-08,819.35,344,23,12.0,Medium,2,4,3,At Risk,4035.0
+CUST-058,Foothill Grocer 058,BC Lower Mainland,D. Tremblay,25932.58,8705.98,26,33,2025-07-22,2026-06-24,997.41,344,7,9.0,Low,4,4,4,Champions,9232.0
+CUST-059,Sterling Prime 059,Alberta,H. Moreau,11248.96,3748.16,11,29,2025-07-16,2026-06-28,1022.63,350,3,11.0,Low,5,2,2,New / Promising,3907.0
+CUST-060,Bluffs Tavern 060,Ontario,G. Lindqvist,13725.67,4535.97,15,25,2025-07-19,2026-06-20,915.04,347,11,15.0,Low,3,3,3,Potential Loyalist,4769.0
+CUST-061,Dockside Grill 061,Ontario,D. Tremblay,27377.59,8985.79,25,34,2025-08-01,2026-06-24,1095.1,334,7,9.0,Low,4,4,4,Champions,9814.0
+CUST-062,Grove Grill 062,Ontario,C. Delgado,94808.73,31491.43,64,38,2025-07-03,2026-06-29,1481.39,363,2,3.0,Low,5,5,5,Champions,31648.0
+CUST-063,Whistler Provisions 063,Ontario,G. Lindqvist,44933.92,15553.92,39,37,2025-07-01,2026-06-25,1152.15,365,6,5.0,Low,4,5,5,Champions,15545.0
+CUST-064,Canyon Charcuterie 064,Ontario,E. Novak,182503.17,63111.87,98,38,2025-07-04,2026-06-28,1862.28,362,3,3.0,Low,5,5,5,Champions,63600.0
+CUST-065,Dockside Prime 065,Ontario,D. Tremblay,22540.98,7470.78,20,32,2025-07-09,2026-06-13,1127.05,357,18,12.0,Low,2,4,4,At Risk (was valuable),7634.0
+CUST-066,Lakeside Steakhouse 066,BC Lower Mainland,B. Okafor,11393.29,3806.39,12,27,2025-07-01,2026-06-24,949.44,365,7,26.0,Low,4,2,2,New / Promising,3804.0
+CUST-067,Bluffs Izakaya 067,Alberta,G. Lindqvist,16501.46,5603.66,14,29,2025-08-07,2026-04-21,1178.68,328,71,14.0,High,1,3,3,At Risk,1558.0
+CUST-068,Copper Fresh Mart 068,Ontario,A. Fontaine,8228.46,2867.56,12,25,2025-07-11,2026-04-20,685.7,355,72,16.0,High,1,2,1,Hibernating,737.0
+CUST-069,Foothill Charcuterie 069,BC Interior,H. Moreau,1920.88,677.78,3,12,2025-11-03,2026-05-18,640.29,240,44,98.0,Low,1,1,1,Hibernating,1030.0
+CUST-070,Nordic Tavern 070,BC Interior,H. Moreau,34591.99,11477.69,31,37,2025-07-07,2026-06-30,1115.87,359,1,9.0,Low,5,4,4,Champions,11663.0
+CUST-071,Zenith Market 071,Alberta,G. Lindqvist,6928.01,2356.31,9,23,2025-08-25,2026-05-20,769.78,310,42,43.0,Low,2,1,1,Hibernating,2773.0
+CUST-072,Pacific Steakhouse 072,BC Interior,H. Moreau,10823.15,3590.75,11,26,2025-08-17,2026-05-29,983.92,318,33,25.5,Low,2,2,2,Hibernating,4119.0
+CUST-073,Dockside Fresh Mart 073,BC Lower Mainland,B. Okafor,16852.07,5652.77,17,33,2025-07-07,2026-04-30,991.3,359,62,13.0,High,1,3,3,At Risk,1436.0
+CUST-074,Orchard Chophouse 074,Alberta,A. Fontaine,17235.48,5703.18,16,30,2025-07-07,2026-06-28,1077.22,359,3,21.0,Low,5,3,3,Loyal,5795.0
+CUST-075,Vista Izakaya 075,Ontario,E. Novak,34048.04,11593.24,21,32,2025-07-06,2026-06-28,1621.34,360,3,12.5,Low,5,4,4,Champions,11748.0
+CUST-076,Canyon Sushi 076,BC Interior,E. Novak,16877.19,5754.29,13,19,2025-07-21,2026-05-19,1298.25,345,43,16.5,Medium,1,2,3,At Risk,3651.0
+CUST-077,Pacific Salumeria 077,Alberta,D. Tremblay,76166.47,26414.67,58,38,2025-07-05,2026-06-07,1313.22,361,24,4.0,High,2,5,5,At Risk (was valuable),6673.0
+CUST-078,Vista Grill 078,BC Lower Mainland,G. Lindqvist,19857.33,6519.03,19,35,2025-07-05,2026-06-22,1045.12,361,9,10.5,Low,4,3,3,Loyal,6588.0
+CUST-079,Aurora Ocean Bar 079,Ontario,B. Okafor,26879.35,9012.85,20,30,2025-07-07,2026-06-13,1343.97,359,18,12.0,Low,2,4,4,At Risk (was valuable),9158.0
+CUST-080,Riverbend Salumeria 080,Ontario,C. Delgado,3353.97,1154.97,4,13,2025-08-21,2026-03-21,838.49,314,102,68.0,Low,1,1,1,Hibernating,1342.0
+CUST-081,Sterling Fresh Mart 081,Ontario,E. Novak,15746.85,5349.75,15,34,2025-07-24,2026-05-14,1049.79,342,48,18.5,Medium,1,3,3,At Risk,3424.0
+CUST-082,Lakeside Charcuterie 082,BC Interior,H. Moreau,23590.78,8213.88,25,32,2025-08-06,2026-06-27,943.63,329,4,9.0,Low,5,4,4,Champions,9108.0
+CUST-083,Sterling Foods 083,BC Interior,H. Moreau,1310.74,468.64,4,10,2025-07-08,2026-01-27,327.68,358,155,58.0,Medium,1,1,1,Hibernating,287.0
+CUST-084,Highline Pantry 084,BC Lower Mainland,A. Fontaine,19635.86,6739.56,20,34,2025-07-06,2026-05-25,981.79,360,37,11.0,High,2,4,3,At Risk,1707.0
+CUST-085,Quarry Tavern 085,BC Interior,H. Moreau,24556.82,8030.42,17,30,2025-07-20,2026-06-12,1444.52,346,19,14.5,Low,2,3,4,At Risk,8467.0
+CUST-086,Cedar Kaiseki 086,BC Interior,G. Lindqvist,50323.8,17151.2,31,29,2025-07-25,2026-06-30,1623.35,341,1,7.0,Low,5,4,5,Champions,18348.0
+CUST-087,Sterling Pantry 087,BC Lower Mainland,G. Lindqvist,8748.11,2990.11,13,28,2025-08-09,2026-06-06,672.93,326,25,19.0,Low,2,2,1,Hibernating,3346.0
+CUST-088,Juniper Market 088,BC Interior,F. Osei,7844.45,2601.85,6,17,2025-09-11,2026-06-21,1307.41,293,10,59.0,Low,4,1,1,New / Promising,3239.0
+CUST-089,Willow Izakaya 089,BC Interior,H. Moreau,24500.4,8359.1,19,32,2025-07-04,2026-06-25,1289.49,362,6,14.5,Low,4,3,4,Loyal,8424.0
+CUST-090,Whistler Kaiseki 090,Alberta,D. Tremblay,15874.23,5379.43,12,21,2025-07-29,2026-06-03,1322.85,337,28,22.0,Low,2,2,3,At Risk,5823.0
+CUST-091,Bluffs Pantry 091,BC Interior,E. Novak,31505.8,10755.2,30,34,2025-07-15,2026-06-18,1050.19,351,13,10.0,Low,3,4,4,Potential Loyalist,11178.0
+CUST-092,Aurora Prime 092,BC Lower Mainland,H. Moreau,12531.11,4101.31,15,28,2025-07-22,2026-06-17,835.41,344,14,14.5,Low,3,3,2,Needs Attention,4349.0
+CUST-093,Lakeside Charcuterie 093,Alberta,B. Okafor,16521.49,5758.79,23,33,2025-07-11,2026-06-20,718.33,355,11,11.5,Low,3,4,3,Potential Loyalist,5918.0
+CUST-094,Granville Izakaya 094,BC Interior,E. Novak,13947.35,4720.25,12,23,2025-07-01,2026-06-06,1162.28,365,25,16.0,Medium,2,2,3,At Risk,2831.0
+CUST-095,Quarry Pantry 095,BC Interior,G. Lindqvist,10020.75,3420.55,14,27,2025-08-01,2026-06-28,715.77,334,3,20.0,Low,5,3,2,Loyal,3736.0
+CUST-096,Quarry Provisions 096,Alberta,B. Okafor,3095.66,1104.06,7,15,2025-08-28,2026-05-17,442.24,307,45,42.0,Low,1,1,1,Hibernating,1312.0
+CUST-097,Willow Prime 097,Alberta,C. Delgado,26528.46,8561.16,21,30,2025-07-23,2026-06-29,1263.26,343,2,15.0,Low,5,4,4,Champions,9105.0
+CUST-098,Bluffs Steakhouse 098,Ontario,B. Okafor,71592.04,23802.74,51,38,2025-07-05,2026-06-22,1403.77,361,9,6.0,Low,4,5,5,Champions,24053.0
+CUST-099,Inlet Izakaya 099,Ontario,B. Okafor,39714.33,13504.63,28,30,2025-07-03,2026-06-28,1418.37,363,3,8.0,Low,5,4,5,Champions,13572.0
+CUST-100,Foothill Salumeria 100,Alberta,A. Fontaine,2897.17,983.77,5,12,2025-08-21,2026-06-07,579.43,314,24,55.0,Low,2,1,1,Hibernating,1143.0
+CUST-101,Vista Kaiseki 101,Ontario,B. Okafor,12417.07,4175.77,13,25,2025-07-29,2026-06-30,955.16,337,1,13.0,Low,5,2,2,New / Promising,4520.0
+CUST-102,Lakeside Pantry 102,Ontario,H. Moreau,10602.86,3611.06,14,32,2025-07-08,2026-05-05,757.35,358,57,17.0,High,1,3,2,At Risk,920.0
+CUST-103,Cedar Chophouse 103,Alberta,E. Novak,16562.51,5403.21,13,29,2025-11-18,2026-06-16,1274.04,225,15,12.5,Low,3,2,3,Needs Attention,8760.0
+CUST-104,Timber Tavern 104,BC Lower Mainland,C. Delgado,90452.18,30136.98,59,38,2025-07-28,2026-06-21,1533.09,338,10,4.5,Medium,4,5,5,Champions,19516.0
+CUST-105,Cedar Charcuterie 105,BC Lower Mainland,G. Lindqvist,7983.75,2773.05,11,25,2025-07-13,2026-04-23,725.8,353,69,27.5,Medium,1,2,1,Hibernating,1719.0
+CUST-106,Nordic Charcuterie 106,Ontario,E. Novak,42749.77,14781.57,36,37,2025-07-07,2026-06-18,1187.49,359,13,10.0,Low,3,5,5,Potential Loyalist,15020.0
+CUST-107,Granville Ocean Bar 107,Alberta,F. Osei,32681.0,11072.4,17,27,2025-07-28,2026-06-04,1922.41,338,27,14.5,Medium,2,3,4,At Risk,7170.0
+CUST-108,Grove Omakase 108,Alberta,H. Moreau,24368.09,8227.39,21,30,2025-07-10,2026-06-02,1160.39,356,29,11.5,Medium,2,4,4,At Risk (was valuable),5058.0
+CUST-109,Dockside Fresh Mart 109,Ontario,A. Fontaine,9613.24,3396.34,9,22,2025-07-29,2026-04-16,1068.14,337,76,27.0,Medium,1,1,2,Hibernating,2206.0
+CUST-110,Riverbend Charcuterie 110,Alberta,A. Fontaine,20302.18,7081.88,20,34,2025-07-20,2026-06-13,1015.11,346,18,12.0,Low,2,4,3,At Risk,7467.0
+CUST-111,Union Fresh Mart 111,Alberta,D. Tremblay,10857.03,3669.83,14,32,2025-07-15,2026-06-18,775.5,351,13,29.0,Low,3,3,2,Needs Attention,3814.0
+CUST-112,Sterling Provisions 112,BC Lower Mainland,G. Lindqvist,8439.67,2966.97,10,23,2025-07-26,2026-06-29,843.97,340,2,28.0,Low,5,1,1,New / Promising,3183.0
+CUST-113,Inlet Pantry 113,BC Interior,B. Okafor,6028.32,2026.02,10,22,2025-09-06,2026-03-25,602.83,298,98,12.0,High,1,2,1,Hibernating,620.0
+CUST-114,Inlet Pantry 114,BC Lower Mainland,A. Fontaine,8939.26,3018.86,12,30,2025-08-06,2026-06-24,744.94,329,7,15.0,Low,4,2,2,New / Promising,3347.0
+CUST-115,Zenith Fresh Mart 115,BC Interior,H. Moreau,30859.27,10497.17,31,36,2025-08-03,2026-06-18,995.46,332,13,7.0,Medium,3,4,4,Potential Loyalist,6921.0
+CUST-116,Union Fresh Mart 116,Ontario,F. Osei,13771.08,4670.58,13,28,2025-07-14,2026-06-19,1059.31,352,12,22.5,Low,3,2,3,Needs Attention,4840.0
+CUST-117,Quarry Deli 117,BC Lower Mainland,H. Moreau,93036.28,32405.38,63,38,2025-07-02,2026-06-27,1476.77,364,4,4.0,Low,5,5,5,Champions,32477.0
+CUST-118,Zenith Grocer 118,Ontario,A. Fontaine,12405.19,4161.89,18,31,2025-09-25,2026-06-20,689.18,279,11,8.0,Low,3,3,2,Needs Attention,5442.0
+CUST-119,Harbour Cellar 119,Ontario,A. Fontaine,31356.37,10856.27,32,37,2025-07-20,2026-06-30,979.89,346,1,9.0,Low,5,5,4,Champions,11446.0
+CUST-120,Summit Sushi 120,Ontario,E. Novak,10673.94,3639.44,9,17,2025-08-19,2026-05-20,1185.99,316,42,24.0,Medium,2,1,2,Hibernating,2521.0
