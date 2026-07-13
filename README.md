@@ -83,7 +83,7 @@ pip install -r requirements.txt
 python data_generator/generate_sales_data.py   # 15k synthetic order lines
 python engine/recommend.py                     # all four outputs
 python evaluation/evaluate_holdout.py          # CF vs popularity scorecard
-pytest tests/ -v                               # 7 invariants
+pytest tests/ -v                               # 9 invariants
 ```
 
 ## The synthetic data (and why it has structure)
