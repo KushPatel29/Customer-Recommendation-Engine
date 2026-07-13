@@ -71,6 +71,13 @@ def product_metrics(sales: pd.DataFrame) -> pd.DataFrame:
     repeat = (per_buyer >= 2).groupby("sku").mean().rename("repeat_purchase_rate")
     prod = prod.join(repeat.round(3), on="sku")
 
+    # dead stock: days since the SKU last appeared on any order
+    as_of = sales["order_date"].max() + pd.Timedelta(days=1)
+    last_sold = sales.groupby("sku")["order_date"].max()
+    prod = prod.merge(((as_of - last_sold).dt.days).rename("days_since_last_sold"),
+                      on="sku", how="left")
+    prod["dead_stock_flag"] = (prod["days_since_last_sold"] > 30).astype(int)
+
     # ABC classification on cumulative revenue
     prod = prod.sort_values("revenue", ascending=False).reset_index(drop=True)
     cum = prod["revenue"].cumsum() / prod["revenue"].sum()

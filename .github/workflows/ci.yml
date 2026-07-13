@@ -23,6 +23,9 @@ jobs:
           python data_generator/generate_sales_data.py
           python engine/recommend.py
           python evaluation/evaluate_holdout.py
+          python analytics/customer_analytics.py
+          python analytics/product_analytics.py
+          python analytics/revenue_forecast.py
 
       - name: Run invariant suite (incl. CF-beats-popularity gate)
         run: pytest tests/ -v

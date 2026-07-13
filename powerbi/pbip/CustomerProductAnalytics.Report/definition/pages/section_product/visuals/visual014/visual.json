@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual014",
+  "position": {
+    "x": 660,
+    "y": 20,
+    "z": 14000,
+    "height": 110,
+    "width": 300,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Repeat Purchase Rate"
+                }
+              },
+              "queryRef": "_Measures.Avg Repeat Purchase Rate",
+              "nativeQueryRef": "Avg Repeat Purchase Rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

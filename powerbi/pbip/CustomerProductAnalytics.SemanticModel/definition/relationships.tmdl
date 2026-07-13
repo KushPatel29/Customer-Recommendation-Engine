@@ -1,0 +1,19 @@
+relationship e1000001-0000-4000-8000-000000000001
+	fromColumn: fact_sales.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship e1000001-0000-4000-8000-000000000002
+	fromColumn: fact_sales.sku
+	toColumn: dim_product.sku
+
+relationship e1000001-0000-4000-8000-000000000003
+	fromColumn: fact_sales.order_month
+	toColumn: dim_month.month
+
+relationship e1000001-0000-4000-8000-000000000004
+	fromColumn: cross_sell.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship e1000001-0000-4000-8000-000000000005
+	fromColumn: cross_sell.sku
+	toColumn: dim_product.sku

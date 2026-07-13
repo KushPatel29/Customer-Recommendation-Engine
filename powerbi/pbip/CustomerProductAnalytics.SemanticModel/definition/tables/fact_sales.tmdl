@@ -1,0 +1,66 @@
+table fact_sales
+	lineageTag: 83bd159a-2fbc-479b-9adc-521ef4d9b509
+
+	column order_id
+		dataType: string
+		lineageTag: 446f757c-595d-443a-9e32-ed6ccf10170d
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column order_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4a0a5b66-8a45-4d44-aad5-96a67a14b48c
+		summarizeBy: none
+		sourceColumn: order_date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_id
+		dataType: string
+		lineageTag: 7e5a42d2-876c-45a0-874e-b74f561f1167
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column sku
+		dataType: string
+		lineageTag: 8e51323c-efd3-411f-bd7f-44c9accb34d4
+		summarizeBy: none
+		sourceColumn: sku
+
+	column quantity_lb
+		dataType: int64
+		formatString: #,0
+		lineageTag: 1a5fd8d8-0bd4-4990-97fc-daaef9b23f95
+		summarizeBy: sum
+		sourceColumn: quantity_lb
+
+	column revenue
+		dataType: double
+		lineageTag: b7c31791-461c-4263-8bd5-f6be32e57e09
+		summarizeBy: sum
+		sourceColumn: revenue
+
+	column cost
+		dataType: double
+		lineageTag: f4590b96-fe97-4c72-aa13-e42be75296cb
+		summarizeBy: sum
+		sourceColumn: cost
+
+	column order_month
+		dataType: string
+		lineageTag: 0ec1bfeb-0c71-4d3e-b618-7ad2c017cb10
+		summarizeBy: none
+		sourceColumn: order_month
+
+	partition fact_sales = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\data\sales_lines.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"order_id", "order_date", "customer_id", "sku", "quantity_lb", "revenue", "cost"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"order_id", type text}, {"order_date", type date}, {"customer_id", type text}, {"sku", type text}, {"quantity_lb", Int64.Type}, {"revenue", type number}, {"cost", type number}}),
+				    AddedMonth = Table.AddColumn(Typed, "order_month", each Date.ToText([order_date], "yyyy-MM"), type text)
+				in
+				    AddedMonth

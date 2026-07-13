@@ -31,7 +31,11 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
 
-from recommend import cross_sell_recommendations, load_sales
+from sklearn.cluster import KMeans
+from sklearn.metrics import adjusted_rand_score, silhouette_score
+
+from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
+                       load_sales)
 
 OUT = ROOT / "output"
 DOCS = ROOT / "docs"
@@ -105,6 +109,19 @@ def customer_metrics(sales: pd.DataFrame) -> pd.DataFrame:
     cust["rfm_segment"] = [rfm_segment(r, (f + m) / 2)
                            for r, f, m in zip(cust["R"], cust["F"], cust["M"])]
 
+    # expected next order: last order + the customer's own median cadence
+    cust["expected_next_order"] = (
+        cust["last_order"] + pd.to_timedelta(cust["median_reorder_days"], unit="D")
+    ).dt.date
+    cust["days_overdue"] = (
+        cust["recency_days"] - cust["median_reorder_days"]
+    ).clip(lower=0).round(0)
+
+    # basket breadth: distinct proteins bought (range vs depth of relationship)
+    breadth = sales.groupby("customer_id")["protein"].nunique().rename("protein_breadth")
+    cust = cust.join(breadth, on="customer_id")
+    cust["margin_pct"] = (cust["total_margin"] / cust["total_revenue"]).round(4)
+
     # run-rate CLV: annualized margin run-rate, damped by churn risk
     monthly_margin = cust["total_margin"] / (cust["tenure_days"].clip(lower=30) / 30.4)
     damp = cust["churn_risk"].map(
@@ -116,6 +133,26 @@ def customer_metrics(sales: pd.DataFrame) -> pd.DataFrame:
 
 
 # ------------------------------------------------------------ cohorts
+
+def behavioural_clusters(sales: pd.DataFrame, cust: pd.DataFrame,
+                         k=4, seed=42) -> tuple[pd.DataFrame, float, float]:
+    """Unsupervised K-Means on the (L2-normalized) customer x SKU matrix.
+    Returns cluster labels plus the two validation metrics that make the
+    clustering claim honest: silhouette (internal cohesion) and Adjusted
+    Rand Index against the generator's ground-truth personas (external)."""
+    matrix = build_customer_sku_matrix(sales)
+    normed = matrix.values / np.linalg.norm(matrix.values, axis=1, keepdims=True)
+    labels = KMeans(n_clusters=k, random_state=seed, n_init=10).fit_predict(normed)
+    sil = silhouette_score(normed, labels)
+    personas = (pd.read_csv(ROOT / "data" / "customers.csv")
+                .set_index("customer_id")["persona"]
+                .reindex(matrix.index))
+    ari = adjusted_rand_score(personas.values, labels)
+    out = cust.merge(pd.DataFrame({"customer_id": matrix.index,
+                                   "behaviour_cluster": labels}),
+                     on="customer_id", how="left")
+    return out, sil, ari
+
 
 def cohort_retention(sales: pd.DataFrame) -> pd.DataFrame:
     orders = (sales.groupby(["customer_id", "order_id"])
@@ -211,6 +248,7 @@ def build_action_list(cust: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
 def main():
     sales = load_sales()
     cust = customer_metrics(sales)
+    cust, sil, ari = behavioural_clusters(sales, cust)
     retention = cohort_retention(sales)
     actions = build_action_list(cust, sales)
 
@@ -230,6 +268,8 @@ def main():
     at_risk_value = cust.loc[cust["rfm_segment"].str.startswith("At Risk"),
                              "total_revenue"].sum()
     print(f"customers analyzed: {len(cust)}")
+    print(f"K-Means behaviour clusters: silhouette={sil:.2f}, "
+          f"ARI vs ground-truth personas={ari:.2f}")
     print(cust["rfm_segment"].value_counts().to_string())
     print(f"\nrevenue sitting in At-Risk segments: {at_risk_value:,.0f}")
     print(f"action list: {len(actions)} customers with segment + risk + best rec")

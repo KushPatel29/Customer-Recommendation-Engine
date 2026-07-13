@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .pytest_cache/
 output/holdout_evaluation.csv
+# Power BI Project local state (created when the .pbip is opened)
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/unappliedChanges.json

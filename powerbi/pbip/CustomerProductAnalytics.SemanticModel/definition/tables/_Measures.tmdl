@@ -1,0 +1,117 @@
+table _Measures
+	lineageTag: 3c292cb7-b83b-4a4a-b806-8882ed9867c7
+
+	measure 'Total Revenue' = SUM(fact_sales[revenue])
+		formatString: #,0
+		lineageTag: ce9f147f-f082-402b-a348-c22cf69a8ff8
+
+	measure 'Total Margin' = SUM(fact_sales[revenue]) - SUM(fact_sales[cost])
+		formatString: #,0
+		lineageTag: 5563405f-bf63-4e74-8d72-c0be38bf919d
+
+	measure 'Margin %' = DIVIDE([Total Margin], [Total Revenue])
+		formatString: 0.0%
+		lineageTag: ce71579e-7dc1-48ae-a258-b1fb9a528fa1
+
+	measure 'Orders' = DISTINCTCOUNT(fact_sales[order_id])
+		formatString: #,0
+		lineageTag: e40178b8-ff51-4c5a-a60b-5e8e42239c12
+
+	measure 'Avg Order Value' = DIVIDE([Total Revenue], [Orders])
+		formatString: #,0
+		lineageTag: 09c7eda2-072c-463b-8fdd-fda4e134c86a
+
+	measure 'Customer Count' = COUNTROWS(dim_customer)
+		formatString: #,0
+		lineageTag: f2fc9b61-104c-46c4-9380-29d7e581e7ef
+
+	measure 'Active Customers' = DISTINCTCOUNT(fact_sales[customer_id])
+		formatString: #,0
+		lineageTag: d6ee26d1-9d03-41bc-bc55-5460f99e1198
+
+	measure 'At-Risk Revenue' = CALCULATE([Total Revenue], dim_customer[rfm_segment] IN {"At Risk", "At Risk (was valuable)"})
+		formatString: #,0
+		lineageTag: 78e51e40-95a9-4da8-bc95-cfbca8a3c03f
+
+	measure 'Avg CLV (12m)' = AVERAGE(dim_customer[clv_12m_runrate])
+		formatString: #,0
+		lineageTag: 61c6bf12-10db-43ce-906f-b5946a3b9422
+
+	measure 'High Churn-Risk Customers' = CALCULATE(COUNTROWS(dim_customer), dim_customer[churn_risk] = "High")
+		formatString: #,0
+		lineageTag: 682107e3-713d-419c-a529-f6431cd0d163
+
+	measure 'A-Class SKUs' = CALCULATE(COUNTROWS(dim_product), dim_product[abc_class] = "A")
+		formatString: #,0
+		lineageTag: c05665cf-7c42-4bf1-93fd-69337ff332c0
+
+	measure 'Dead-Stock SKUs' = CALCULATE(COUNTROWS(dim_product), dim_product[dead_stock_flag] = 1)
+		formatString: #,0
+		lineageTag: d04d9a4c-9e7a-4b3f-af75-ab1ce05cc1df
+
+	measure 'Avg Repeat Purchase Rate' = AVERAGE(dim_product[repeat_purchase_rate])
+		formatString: 0.0%
+		lineageTag: f083020d-4391-41de-be15-c2e388038c1d
+
+	measure 'Quantity (lb)' = SUM(fact_sales[quantity_lb])
+		formatString: #,0
+		lineageTag: 2b022f90-e5f1-4527-804f-a34725caa24f
+
+	measure 'Avg Revenue per Customer' = DIVIDE([Total Revenue], [Active Customers])
+		formatString: #,0
+		lineageTag: 575743c8-b52a-4558-9059-c9811675a829
+
+	measure 'Revenue PM' =
+			VAR d = MAX(fact_sales[order_date])
+			VAR mstart = DATE(YEAR(d), MONTH(d), 1)
+			RETURN
+			    CALCULATE(
+			        [Total Revenue],
+			        FILTER(ALL(dim_month), dim_month[month_start] = EDATE(mstart, -1))
+			    )
+		formatString: #,0
+		lineageTag: 54e87c7e-8785-4b0e-b574-f751a3789c3e
+
+	measure 'Revenue MoM %' =
+			VAR d = MAX(fact_sales[order_date])
+			VAR mstart = DATE(YEAR(d), MONTH(d), 1)
+			VAR cur = CALCULATE([Total Revenue], FILTER(ALL(dim_month), dim_month[month_start] = mstart))
+			RETURN DIVIDE(cur - [Revenue PM], [Revenue PM])
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 49dac373-c682-409b-a0f9-d9e6ceffcd6f
+
+	measure 'Revenue % of Total' = DIVIDE([Total Revenue], CALCULATE([Total Revenue], REMOVEFILTERS()))
+		formatString: 0.0%
+		lineageTag: 7475570e-a917-4bb9-8211-cd6f4339db48
+
+	measure 'Forecast Revenue (8w)' = SUM(fact_forecast[forecast_revenue])
+		formatString: #,0
+		lineageTag: 86338e92-3a70-4d33-b9a1-408b1b6c058e
+
+	measure 'Pipeline Opportunity $' = SUM(cross_sell[est_revenue_opportunity])
+		formatString: #,0
+		lineageTag: bd1a1b6d-a747-4fd1-8476-b9402d5fe97b
+
+	measure 'Recommendations' = COUNTROWS(cross_sell)
+		formatString: #,0
+		lineageTag: 20e72d87-3ca1-45e6-9aa6-4dbf5d133a29
+
+	measure 'Customers With Recs' = DISTINCTCOUNT(cross_sell[customer_id])
+		formatString: #,0
+		lineageTag: 81923840-ba98-4dad-a601-2fb196f2cd52
+
+	column Value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 380556a7-55d9-4ff2-a645-f3a6d58dd9b9
+		summarizeBy: none
+		sourceColumn: Value
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [Value = Int64.Type], {})
+				in
+				    Source

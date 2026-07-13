@@ -1,0 +1,21 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["fact_sales", "dim_customer", "dim_product", "cross_sell", "fact_forecast", "dim_month", "_Measures", "DataPath"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fact_sales
+ref table dim_customer
+ref table dim_product
+ref table cross_sell
+ref table fact_forecast
+ref table dim_month
+ref table _Measures

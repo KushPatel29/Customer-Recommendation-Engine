@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual057",
+  "position": {
+    "x": 780,
+    "y": 450,
+    "z": 57000,
+    "height": 250,
+    "width": 480,
+    "tabOrder": 57000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "week"
+                }
+              },
+              "queryRef": "fact_forecast.week",
+              "nativeQueryRef": "week"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "protein"
+                }
+              },
+              "queryRef": "fact_forecast.protein",
+              "nativeQueryRef": "protein"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Forecast Revenue (8w)"
+                }
+              },
+              "queryRef": "_Measures.Forecast Revenue (8w)",
+              "nativeQueryRef": "Forecast Revenue (8w)"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_forecast"
+                    }
+                  },
+                  "Property": "model"
+                }
+              },
+              "queryRef": "fact_forecast.model",
+              "nativeQueryRef": "model"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Forecast Detail (model: backtest winner)'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

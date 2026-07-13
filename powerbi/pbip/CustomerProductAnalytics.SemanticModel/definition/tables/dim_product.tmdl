@@ -1,0 +1,72 @@
+table dim_product
+	lineageTag: dc080766-6fc5-468f-968c-ecd91f4576bd
+
+	column sku
+		dataType: string
+		lineageTag: a7052a96-1b54-41ee-add6-fb53bf645b20
+		summarizeBy: none
+		sourceColumn: sku
+
+	column protein
+		dataType: string
+		lineageTag: 134499a8-13e9-4363-93c3-e4602660fcea
+		summarizeBy: none
+		sourceColumn: protein
+
+	column description
+		dataType: string
+		lineageTag: 66c60378-c725-46ce-b352-5051210f5c6f
+		summarizeBy: none
+		sourceColumn: description
+
+	column margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 03e298f9-ac96-4d4c-b016-bf41a608a809
+		summarizeBy: none
+		sourceColumn: margin_pct
+
+	column growth
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 9c84c1e7-7541-4500-953e-42501b1e6298
+		summarizeBy: none
+		sourceColumn: growth
+
+	column repeat_purchase_rate
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 039768c7-340a-4f42-a8ae-1b158d702658
+		summarizeBy: none
+		sourceColumn: repeat_purchase_rate
+
+	column days_since_last_sold
+		dataType: int64
+		formatString: 0
+		lineageTag: cb038258-d76f-4206-8963-530bc666da4b
+		summarizeBy: none
+		sourceColumn: days_since_last_sold
+
+	column dead_stock_flag
+		dataType: int64
+		formatString: 0
+		lineageTag: 609e5ec7-9574-462a-a7ab-8ad52d97cb82
+		summarizeBy: none
+		sourceColumn: dead_stock_flag
+
+	column abc_class
+		dataType: string
+		lineageTag: cfb801f5-47d5-47aa-b68d-53a2aed2cd4d
+		summarizeBy: none
+		sourceColumn: abc_class
+
+	partition dim_product = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\product_analytics.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"sku", "protein", "description", "margin_pct", "growth", "repeat_purchase_rate", "days_since_last_sold", "dead_stock_flag", "abc_class"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"sku", type text}, {"protein", type text}, {"description", type text}, {"margin_pct", type number}, {"growth", type number}, {"repeat_purchase_rate", type number}, {"days_since_last_sold", Int64.Type}, {"dead_stock_flag", Int64.Type}, {"abc_class", type text}})
+				in
+				    Typed

@@ -163,3 +163,43 @@ def test_action_list_joins_cleanly(sales, cust):
     assert actions["rfm_segment"].isin(VALID_SEGMENTS).all()
     # every action-list row carries an action: a cross-sell or a retention call
     assert actions["top_cross_sell"].notna().all()
+
+
+# ---------------------------------------------------- forecasting + DS extras
+
+from customer_analytics import behavioural_clusters
+from product_analytics import product_metrics as _pm
+from revenue_forecast import MODELS as FC_MODELS, backtest, weekly_revenue, wape as fc_wape
+
+
+def test_forecast_backtest_no_leakage_and_beats_naive(sales):
+    weekly = weekly_revenue(sales)
+    results = backtest(weekly)
+    assert not results.empty
+    avg = results.groupby("model")["wape"].mean()
+    assert avg.drop("seasonal_naive").min() <= avg["seasonal_naive"], \
+        "a candidate model must beat the naive baseline or you ship the baseline"
+    assert (results["wape"] >= 0).all()
+
+
+def test_forecasts_nonnegative_full_horizon(sales):
+    weekly = weekly_revenue(sales)
+    for _, g in weekly.groupby("protein"):
+        series = g.sort_values("order_date")["revenue"].values
+        for name, fn in FC_MODELS.items():
+            fc = fn(series[:-8], 8)
+            assert len(fc) == 8 and (fc >= 0).all(), name
+
+
+def test_clustering_recovers_planted_structure(sales, cust):
+    _, sil, ari = behavioural_clusters(sales, cust)
+    assert ari > 0.3, f"ARI {ari:.2f}: clusters should align with planted personas"
+    assert sil > 0, "silhouette must be positive (clusters cohere at all)"
+
+
+def test_dead_stock_flag_consistent(sales):
+    prod = _pm(sales)
+    flagged = prod[prod["dead_stock_flag"] == 1]
+    assert (flagged["days_since_last_sold"] > 30).all()
+    unflagged = prod[prod["dead_stock_flag"] == 0]
+    assert (unflagged["days_since_last_sold"] <= 30).all()

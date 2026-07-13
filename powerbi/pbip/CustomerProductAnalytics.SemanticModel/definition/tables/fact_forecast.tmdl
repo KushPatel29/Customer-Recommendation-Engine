@@ -1,0 +1,40 @@
+table fact_forecast
+	lineageTag: 0ed684f8-e625-4bc7-b8e7-aa6107e4fd01
+
+	column protein
+		dataType: string
+		lineageTag: 7ba358f5-6ecc-4263-9e63-6764bdd1fcbd
+		summarizeBy: none
+		sourceColumn: protein
+
+	column week
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 194c1ebf-de5f-486e-be23-6bed8cc5b17a
+		summarizeBy: none
+		sourceColumn: week
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column forecast_revenue
+		dataType: double
+		lineageTag: f249fab1-0b07-4868-8a72-5b9f11e83808
+		summarizeBy: sum
+		sourceColumn: forecast_revenue
+
+	column model
+		dataType: string
+		lineageTag: db8a2132-da76-43c9-a7f2-49c7e7c88a0e
+		summarizeBy: none
+		sourceColumn: model
+
+	partition fact_forecast = m
+		mode: import
+		source =
+				let
+				    // The ML pipeline's 8-week revenue forecast, consumed as its own table.
+				    Source = Csv.Document(File.Contents(DataPath & "\output\revenue_forecast_8w.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"protein", type text}, {"week", type date}, {"forecast_revenue", type number}, {"model", type text}})
+				in
+				    Typed

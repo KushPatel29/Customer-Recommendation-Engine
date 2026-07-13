@@ -1,0 +1,4 @@
+expression DataPath = "C:\Users\kush2\Claude\portfolio-projects\Customer-Recommendation-Engine" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: bbc05a91-daf1-4c3d-ab2a-4767e6137265
+
+	annotation PBI_ResultType = Text

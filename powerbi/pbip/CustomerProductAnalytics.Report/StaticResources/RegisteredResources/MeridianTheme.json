@@ -1,0 +1,94 @@
+{
+    "name": "Meridian Corporate",
+    "dataColors": [
+        "#12436D",
+        "#28A197",
+        "#F46A25",
+        "#801650",
+        "#5A9BD5",
+        "#3B8C6E",
+        "#A285D1",
+        "#D4A017"
+    ],
+    "background": "#FFFFFF",
+    "foreground": "#252423",
+    "tableAccent": "#12436D",
+    "good": "#3B8C6E",
+    "neutral": "#D4A017",
+    "bad": "#C0392B",
+    "textClasses": {
+        "title": {
+            "fontSize": 12,
+            "fontFace": "Segoe UI Semibold",
+            "color": "#12436D"
+        },
+        "label": {
+            "fontSize": 10,
+            "fontFace": "Segoe UI",
+            "color": "#3D3D3D"
+        },
+        "callout": {
+            "fontSize": 26,
+            "fontFace": "Segoe UI Semibold",
+            "color": "#12436D"
+        },
+        "header": {
+            "fontSize": 11,
+            "fontFace": "Segoe UI Semibold",
+            "color": "#12436D"
+        }
+    },
+    "visualStyles": {
+        "*": {
+            "*": {
+                "background": [
+                    {
+                        "show": true,
+                        "color": { "solid": { "color": "#FFFFFF" } },
+                        "transparency": 0
+                    }
+                ],
+                "border": [
+                    {
+                        "show": true,
+                        "color": { "solid": { "color": "#E3E8EE" } },
+                        "radius": 10
+                    }
+                ],
+                "dropShadow": [
+                    {
+                        "show": true,
+                        "position": "Outer",
+                        "preset": "BottomRight"
+                    }
+                ],
+                "title": [
+                    {
+                        "show": true,
+                        "fontColor": { "solid": { "color": "#12436D" } },
+                        "background": { "solid": { "color": "#FFFFFF" } },
+                        "fontSize": 12,
+                        "fontFamily": "Segoe UI Semibold",
+                        "alignment": "left"
+                    }
+                ]
+            }
+        },
+        "page": {
+            "*": {
+                "background": [
+                    {
+                        "color": { "solid": { "color": "#F4F6F9" } },
+                        "transparency": 0
+                    }
+                ],
+                "outspace": [
+                    {
+                        "color": { "solid": { "color": "#EAEEF3" } },
+                        "transparency": 0
+                    }
+                ]
+            }
+        }
+    }
+}

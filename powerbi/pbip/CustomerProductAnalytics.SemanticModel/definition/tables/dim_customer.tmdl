@@ -1,0 +1,96 @@
+table dim_customer
+	lineageTag: 0a5dfd0f-307e-4488-a6f8-db1e4a8804f7
+
+	column customer_id
+		dataType: string
+		lineageTag: 0f013b88-23a4-40d2-b0ba-2dfa71e43f58
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: e6ba3208-7160-4063-a7fb-a74d1e5a7c69
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column region
+		dataType: string
+		lineageTag: 256de779-134c-45a8-bd97-a01f9fe79ff3
+		summarizeBy: none
+		sourceColumn: region
+
+	column rep
+		dataType: string
+		lineageTag: 8d69b316-afba-4098-ab65-5b9d8a320485
+		summarizeBy: none
+		sourceColumn: rep
+
+	column orders
+		dataType: int64
+		formatString: 0
+		lineageTag: c8e76485-7782-4ad6-ab42-2e10a48c3fe2
+		summarizeBy: none
+		sourceColumn: orders
+
+	column recency_days
+		dataType: int64
+		formatString: 0
+		lineageTag: 69287138-ba13-43e4-a1fb-84584056d1a8
+		summarizeBy: none
+		sourceColumn: recency_days
+
+	column median_reorder_days
+		dataType: double
+		lineageTag: fc289912-80c7-4738-863b-de9554b1321e
+		summarizeBy: none
+		sourceColumn: median_reorder_days
+
+	column days_overdue
+		dataType: double
+		lineageTag: 941124a8-11d9-4ee3-866d-93a42cd52c57
+		summarizeBy: none
+		sourceColumn: days_overdue
+
+	column protein_breadth
+		dataType: int64
+		formatString: 0
+		lineageTag: 73734a0e-5d39-48f0-9543-153380fa7b28
+		summarizeBy: none
+		sourceColumn: protein_breadth
+
+	column churn_risk
+		dataType: string
+		lineageTag: 38913a4c-3b90-42c9-a9dc-62a11f171c8e
+		summarizeBy: none
+		sourceColumn: churn_risk
+
+	column rfm_segment
+		dataType: string
+		lineageTag: b0fecd35-8985-4b66-925e-8960430c07b3
+		summarizeBy: none
+		sourceColumn: rfm_segment
+
+	column behaviour_cluster
+		dataType: string
+		lineageTag: 24c542a5-c765-4909-b376-c0516977bf34
+		summarizeBy: none
+		sourceColumn: behaviour_cluster
+
+	column clv_12m_runrate
+		dataType: double
+		lineageTag: 9e47a351-f126-4786-8869-54c440a01a1d
+		summarizeBy: none
+		sourceColumn: clv_12m_runrate
+
+	partition dim_customer = m
+		mode: import
+		source =
+				let
+				    // The ML pipeline's customer_analytics output IS the customer dimension:
+				    // segments, churn risk, and CLV ride straight into the model.
+				    Source = Csv.Document(File.Contents(DataPath & "\output\customer_analytics.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"customer_id", "customer_name", "region", "rep", "orders", "recency_days", "median_reorder_days", "days_overdue", "protein_breadth", "churn_risk", "rfm_segment", "behaviour_cluster", "clv_12m_runrate"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"customer_id", type text}, {"customer_name", type text}, {"region", type text}, {"rep", type text}, {"orders", Int64.Type}, {"recency_days", Int64.Type}, {"median_reorder_days", type number}, {"days_overdue", type number}, {"protein_breadth", Int64.Type}, {"churn_risk", type text}, {"rfm_segment", type text}, {"behaviour_cluster", type text}, {"clv_12m_runrate", type number}})
+				in
+				    Typed

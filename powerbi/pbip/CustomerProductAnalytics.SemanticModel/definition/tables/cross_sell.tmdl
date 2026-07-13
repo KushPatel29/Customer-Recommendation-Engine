@@ -1,0 +1,56 @@
+table cross_sell
+	lineageTag: 7951b477-83e4-479f-ba5c-8755ec8d68dd
+
+	column customer_id
+		dataType: string
+		lineageTag: 0e08513d-0b57-444b-8100-f41c990f8219
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: ea5a412c-14ec-4f23-9b87-b9d2e043696e
+		summarizeBy: none
+		sourceColumn: rank
+
+	column sku
+		dataType: string
+		lineageTag: 35fb5aaf-ef20-442c-b1a3-dab8a1abc2e1
+		summarizeBy: none
+		sourceColumn: sku
+
+	column description
+		dataType: string
+		lineageTag: 51fa854f-71f7-42b3-bede-f78d16a512a9
+		summarizeBy: none
+		sourceColumn: description
+
+	column score
+		dataType: double
+		lineageTag: bdd2647a-4b46-4be9-acf4-62b151c9d038
+		summarizeBy: none
+		sourceColumn: score
+
+	column est_revenue_opportunity
+		dataType: double
+		lineageTag: 32db6db0-655f-4ffe-b7df-25d15da89c56
+		summarizeBy: sum
+		sourceColumn: est_revenue_opportunity
+
+	column because_similar_to
+		dataType: string
+		lineageTag: 67228a54-bc79-4cb0-b3e3-0eada946c020
+		summarizeBy: none
+		sourceColumn: because_similar_to
+
+	partition cross_sell = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\cross_sell_recommendations.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"customer_id", "rank", "sku", "description", "score", "est_revenue_opportunity", "because_similar_to"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"customer_id", type text}, {"rank", Int64.Type}, {"sku", type text}, {"description", type text}, {"score", type number}, {"est_revenue_opportunity", type number}, {"because_similar_to", type text}})
+				in
+				    Typed

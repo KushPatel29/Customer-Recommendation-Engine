@@ -12,6 +12,57 @@ retention, ABC portfolio analysis — all joined into a rep-ready action
 list, with a **holdout evaluation that proves the recommender beats a
 popularity baseline before anyone acts on it**.
 
+## The interactive dashboard (Power BI)
+
+Everything below converges in a six-page, fully cross-filtering Power BI
+dashboard — hand-authored as a Power BI Project (TMDL + PBIR) in
+[`powerbi/pbip/`](powerbi/pbip/), where the ML pipeline's outputs *are* the
+semantic model: `customer_analytics.csv` becomes the customer dimension
+(segments, churn risk, CLV ride straight into every visual),
+`product_analytics.csv` becomes the product dimension (ABC class, repeat
+rate), and the recommender's output becomes a fact table you can slice by
+segment.
+
+| Page | What it answers |
+|---|---|
+| **Sales Overview** | Revenue, margin, orders, MoM growth — by month, region, protein, rep |
+| **Sales Team Performance** | Rep leaderboard (revenue/margin/orders/customers), regional trends |
+| **Customer Analytics** | Revenue by RFM segment over time, churn-risk exposure, segment slicers |
+| **Product Analytics** | Interactive margin-x-revenue scatter by ABC class, protein treemap |
+| **Revenue Forecast** | The 8-week ML forecast alongside actuals, with the backtest-winner model named |
+| **Recommendations & Actions** | Cross-sell pipeline $ by segment and protein, and the who/what/why action table |
+
+![Sales Overview](powerbi/screenshots/01-sales-overview.png)
+
+![Revenue Forecast](powerbi/screenshots/05-revenue-forecast.png)
+
+![Recommendations](powerbi/screenshots/06-recommendations-actions.png)
+
+Open `CustomerProductAnalytics.pbip` in Power BI Desktop and hit Refresh
+(run the pipeline scripts first so `output/` is populated). Because
+`defaultDrillFilterOtherVisuals` is on and every page carries slicers,
+selecting any segment, region, protein, or month cross-filters the page —
+including the recommendation table.
+
+## Revenue forecasting (rolling-origin backtest)
+
+`analytics/revenue_forecast.py` forecasts weekly revenue per protein group
+8 weeks ahead. Three models compete across 3 rolling folds; the moving
+average wins (22.3% WAPE vs 23.8% Holt-Winters, 29.9% seasonal naive) and
+the CI-tested rule is "beat the naive baseline or ship the baseline."
+
+![Revenue forecast](docs/revenue_forecast.png)
+
+## Data-science validation metrics
+
+- **K-Means behavioural clustering** on the customer x SKU matrix, validated
+  two ways: silhouette 0.11 (internal) and **Adjusted Rand Index 0.57**
+  against the generator's ground-truth personas (external) — the clustering
+  claim is measured, not asserted.
+- **Expected next order** per customer (last order + their own median
+  cadence) with a `days_overdue` column — the practical churn trigger.
+- **Dead-stock detection** per SKU (no sale in 30+ days).
+
 ## Results (holdout evaluation, hit-rate@10)
 
 For every customer, 25% of their SKUs are hidden, the model is rebuilt
