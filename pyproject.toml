@@ -1,0 +1,29 @@
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+# E/F: pycodestyle + pyflakes, I: import order, B: bugbear, UP: pyupgrade
+select = ["E", "F", "I", "B", "UP"]
+ignore = [
+    "E501",  # long lines: docstrings/DAX/prints read better unwrapped
+]
+
+[tool.ruff.lint.per-file-ignores]
+# sys.path bootstrap (and matplotlib.use before pyplot) must precede imports
+"api/main.py" = ["E402"]
+"tests/*" = ["E402"]
+"evaluation/*" = ["E402"]
+"analytics/*" = ["E402"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true      # pandas/sklearn/statsmodels ship no stubs
+check_untyped_defs = true
+warn_unused_ignores = true
+no_implicit_optional = true
+explicit_package_bases = true
+files = ["api", "engine", "contracts"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

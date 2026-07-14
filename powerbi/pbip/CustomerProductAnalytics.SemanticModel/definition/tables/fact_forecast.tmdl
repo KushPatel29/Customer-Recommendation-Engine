@@ -38,3 +38,4 @@ table fact_forecast
 				    Typed = Table.TransformColumnTypes(Promoted, {{"protein", type text}, {"week", type date}, {"forecast_revenue", type number}, {"model", type text}})
 				in
 				    Typed
+

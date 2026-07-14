@@ -17,6 +17,7 @@ import sys
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
@@ -27,8 +28,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
 sys.path.insert(0, str(ROOT / "evaluation"))
 
-from recommend import build_customer_sku_matrix, customer_similarity, load_sales
 from evaluate_holdout import evaluate
+from recommend import build_customer_sku_matrix, customer_similarity, load_sales
 
 DOCS = ROOT / "docs"
 DOCS.mkdir(exist_ok=True)
@@ -79,7 +80,8 @@ def main():
     ax.set_title("Customer-customer cosine similarity, sorted by persona\n"
                  "(block structure = buyer segments recovered from purchase history)",
                  fontsize=10.5, fontweight="bold", color=NAVY, loc="left")
-    ax.set_xticks([]); ax.set_yticks([])
+    ax.set_xticks([])
+    ax.set_yticks([])
     fig.colorbar(im, ax=ax, shrink=0.8, label="cosine similarity")
     fig.tight_layout()
     fig.savefig(DOCS / "similarity_heatmap.png", dpi=130)
@@ -94,7 +96,7 @@ def main():
     }
     fig, ax = plt.subplots(figsize=(7, 4.2))
     bars = ax.bar(rates.keys(), rates.values(), color=[NAVY, TEAL, "#9AA5B1"], width=0.55)
-    for bar, v in zip(bars, rates.values()):
+    for bar, v in zip(bars, rates.values(), strict=True):
         ax.text(bar.get_x() + bar.get_width() / 2, v + 0.012, f"{v:.1%}",
                 ha="center", fontsize=11, fontweight="bold", color=NAVY)
     ax.set_ylim(0, 1)

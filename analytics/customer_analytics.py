@@ -23,6 +23,7 @@ import sys
 from pathlib import Path
 
 import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
@@ -31,11 +32,9 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
 
+from recommend import build_customer_sku_matrix, cross_sell_recommendations, load_sales
 from sklearn.cluster import KMeans
 from sklearn.metrics import adjusted_rand_score, silhouette_score
-
-from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
-                       load_sales)
 
 OUT = ROOT / "output"
 DOCS = ROOT / "docs"
@@ -107,7 +106,7 @@ def customer_metrics(sales: pd.DataFrame) -> pd.DataFrame:
     cust["M"] = pd.qcut(cust["total_revenue"].rank(method="first"), 5,
                         labels=[1, 2, 3, 4, 5]).astype(int)
     cust["rfm_segment"] = [rfm_segment(r, (f + m) / 2)
-                           for r, f, m in zip(cust["R"], cust["F"], cust["M"])]
+                           for r, f, m in zip(cust["R"], cust["F"], cust["M"], strict=True)]
 
     # expected next order: last order + the customer's own median cadence
     cust["expected_next_order"] = (
@@ -184,7 +183,7 @@ def plot_rfm(cust: pd.DataFrame):
              .sort_values("revenue", ascending=True))
     fig, ax = plt.subplots(figsize=(9, 4.8))
     bars = ax.barh(order.index, order["revenue"] / 1000, color=NAVY)
-    for bar, (seg, row) in zip(bars, order.iterrows()):
+    for bar, (_seg, row) in zip(bars, order.iterrows(), strict=True):
         ax.text(bar.get_width() + 8, bar.get_y() + bar.get_height() / 2,
                 f"{row['customers']} customers", va="center", fontsize=8.5,
                 color="#5A6570")

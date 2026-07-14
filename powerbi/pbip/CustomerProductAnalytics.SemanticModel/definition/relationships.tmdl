@@ -17,3 +17,4 @@ relationship e1000001-0000-4000-8000-000000000004
 relationship e1000001-0000-4000-8000-000000000005
 	fromColumn: cross_sell.sku
 	toColumn: dim_product.sku
+

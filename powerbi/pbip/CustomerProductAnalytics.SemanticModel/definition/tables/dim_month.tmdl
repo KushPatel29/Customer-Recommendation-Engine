@@ -3,10 +3,10 @@ table dim_month
 
 	column month
 		dataType: string
-		sortByColumn: month_start
 		lineageTag: 0f17fb07-bff4-49cf-b1dc-9c8c2d5d269d
 		summarizeBy: none
 		sourceColumn: month
+		sortByColumn: month_start
 
 	column month_start
 		dataType: dateTime
@@ -28,3 +28,4 @@ table dim_month
 				    Reordered = Table.ReorderColumns(AddedLabel, {"month", "month_start"})
 				in
 				    Reordered
+

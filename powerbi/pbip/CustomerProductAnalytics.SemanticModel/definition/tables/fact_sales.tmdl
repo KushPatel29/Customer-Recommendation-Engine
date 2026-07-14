@@ -64,3 +64,4 @@ table fact_sales
 				    AddedMonth = Table.AddColumn(Typed, "order_month", each Date.ToText([order_date], "yyyy-MM"), type text)
 				in
 				    AddedMonth
+

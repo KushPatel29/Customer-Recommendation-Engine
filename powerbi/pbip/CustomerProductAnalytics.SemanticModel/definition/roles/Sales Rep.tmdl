@@ -1,0 +1,8 @@
+/// Dynamic RLS: each rep sees only their own book of business. Filter on dim_customer propagates to fact_sales and cross_sell.
+role 'Sales Rep'
+	modelPermission: read
+
+	tablePermission dim_customer = dim_customer[rep] = USERPRINCIPALNAME()
+
+	annotation PBI_Id = 8e16ce55d8314961ada1abd7c31dcaf5
+

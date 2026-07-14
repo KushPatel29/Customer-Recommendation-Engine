@@ -19,9 +19,16 @@ sys.path.insert(0, str(ROOT / "engine"))
 sys.path.insert(0, str(ROOT / "evaluation"))
 sys.path.insert(0, str(ROOT / "analytics"))
 
-from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
-                       customer_similarity, load_sales, recommend_for_new_customer,
-                       sku_affinity, top_customers_by_region, growth_targets)
+from recommend import (
+    build_customer_sku_matrix,
+    cross_sell_recommendations,
+    customer_similarity,
+    growth_targets,
+    load_sales,
+    recommend_for_new_customer,
+    sku_affinity,
+    top_customers_by_region,
+)
 
 
 @pytest.fixture(scope="module")
@@ -169,7 +176,8 @@ def test_action_list_joins_cleanly(sales, cust):
 
 from customer_analytics import behavioural_clusters
 from product_analytics import product_metrics as _pm
-from revenue_forecast import MODELS as FC_MODELS, backtest, weekly_revenue, wape as fc_wape
+from revenue_forecast import MODELS as FC_MODELS
+from revenue_forecast import backtest, weekly_revenue
 
 
 def test_forecast_backtest_no_leakage_and_beats_naive(sales):

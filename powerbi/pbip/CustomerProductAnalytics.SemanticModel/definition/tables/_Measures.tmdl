@@ -13,7 +13,7 @@ table _Measures
 		formatString: 0.0%
 		lineageTag: ce71579e-7dc1-48ae-a258-b1fb9a528fa1
 
-	measure 'Orders' = DISTINCTCOUNT(fact_sales[order_id])
+	measure Orders = DISTINCTCOUNT(fact_sales[order_id])
 		formatString: #,0
 		lineageTag: e40178b8-ff51-4c5a-a60b-5e8e42239c12
 
@@ -92,7 +92,7 @@ table _Measures
 		formatString: #,0
 		lineageTag: bd1a1b6d-a747-4fd1-8476-b9402d5fe97b
 
-	measure 'Recommendations' = COUNTROWS(cross_sell)
+	measure Recommendations = COUNTROWS(cross_sell)
 		formatString: #,0
 		lineageTag: 20e72d87-3ca1-45e6-9aa6-4dbf5d133a29
 
@@ -115,3 +115,4 @@ table _Measures
 				    Source = #table(type table [Value = Int64.Type], {})
 				in
 				    Source
+

@@ -1,0 +1,8 @@
+/// Static RLS example: regional leadership locked to the two BC territories.
+role 'BC Region'
+	modelPermission: read
+
+	tablePermission dim_customer = dim_customer[region] IN {"BC Lower Mainland", "BC Interior"}
+
+	annotation PBI_Id = fd1247aafe9c4f50a305942ac2ff554a
+

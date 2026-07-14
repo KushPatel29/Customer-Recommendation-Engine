@@ -54,3 +54,4 @@ table cross_sell
 				    Typed = Table.TransformColumnTypes(Selected, {{"customer_id", type text}, {"rank", Int64.Type}, {"sku", type text}, {"description", type text}, {"score", type number}, {"est_revenue_opportunity", type number}, {"because_similar_to", type text}})
 				in
 				    Typed
+

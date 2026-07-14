@@ -19,3 +19,7 @@ ref table cross_sell
 ref table fact_forecast
 ref table dim_month
 ref table _Measures
+
+ref role 'Sales Rep'
+ref role 'BC Region'
+

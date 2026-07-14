@@ -4,21 +4,36 @@ on:
   push:
     branches: [master, main]
   pull_request:
+  schedule:
+    # nightly at 09:17 UTC: prove the pipeline stays green with no human in the loop
+    - cron: "17 9 * * *"
 
 jobs:
-  recommendation-invariants:
+  lint-and-types:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install dependencies + tooling
+        run: pip install -r requirements.txt -r requirements-api.txt ruff mypy
+      - name: Ruff (lint + import order)
+        run: ruff check .
+      - name: Mypy (api, engine, contracts)
+        run: mypy
 
+  pipeline-and-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r requirements.txt pytest
+        run: pip install -r requirements.txt -r requirements-api.txt pytest
 
-      - name: Regenerate data, run engine + holdout evaluation
+      - name: Run full pipeline (generate -> score -> evaluate -> analytics)
         run: |
           python data_generator/generate_sales_data.py
           python engine/recommend.py
@@ -27,5 +42,26 @@ jobs:
           python analytics/product_analytics.py
           python analytics/revenue_forecast.py
 
-      - name: Run invariant suite (incl. CF-beats-popularity gate)
+      - name: Enforce data contracts (pandera)
+        run: python contracts/schemas.py
+
+      - name: Run test suite (engine invariants + CF-beats-popularity gate + API contract tests)
         run: pytest tests/ -v
+
+  docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the self-contained recommendation-service image
+        run: docker build -t rec-api .
+      - name: Smoke-test the containerized API
+        run: |
+          docker run -d -p 8000:8000 --name rec rec-api
+          ok=0
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8000/health > /dev/null; then ok=1; break; fi
+            sleep 2
+          done
+          [ "$ok" = "1" ] || { docker logs rec; exit 1; }
+          curl -sf http://localhost:8000/health | grep -q '"status":"ok"'
+          docker rm -f rec

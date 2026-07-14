@@ -94,3 +94,4 @@ table dim_customer
 				    Typed = Table.TransformColumnTypes(Selected, {{"customer_id", type text}, {"customer_name", type text}, {"region", type text}, {"rep", type text}, {"orders", Int64.Type}, {"recency_days", Int64.Type}, {"median_reorder_days", type number}, {"days_overdue", type number}, {"protein_breadth", Int64.Type}, {"churn_risk", type text}, {"rfm_segment", type text}, {"behaviour_cluster", type text}, {"clv_12m_runrate", type number}})
 				in
 				    Typed
+

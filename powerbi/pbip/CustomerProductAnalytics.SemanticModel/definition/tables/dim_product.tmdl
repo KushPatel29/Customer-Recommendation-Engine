@@ -70,3 +70,4 @@ table dim_product
 				    Typed = Table.TransformColumnTypes(Selected, {{"sku", type text}, {"protein", type text}, {"description", type text}, {"margin_pct", type number}, {"growth", type number}, {"repeat_purchase_rate", type number}, {"days_since_last_sold", Int64.Type}, {"dead_stock_flag", Int64.Type}, {"abc_class", type text}})
 				in
 				    Typed
+

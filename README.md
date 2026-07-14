@@ -1,7 +1,11 @@
 # Customer Recommendation Engine
 
+[![CI](https://github.com/KushPatel29/Customer-Recommendation-Engine/actions/workflows/ci.yml/badge.svg)](https://github.com/KushPatel29/Customer-Recommendation-Engine/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-pandas%20%2B%20scikit--learn-3776AB?logo=python&logoColor=white)
 ![ML](https://img.shields.io/badge/ML-Collaborative%20Filtering-FF6F00)
+![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-6%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 A B2B customer & product analytics platform with recommendations at its
@@ -11,6 +15,80 @@ include hamachi"), RFM segmentation, run-rate CLV, churn risk, cohort
 retention, ABC portfolio analysis — all joined into a rep-ready action
 list, with a **holdout evaluation that proves the recommender beats a
 popularity baseline before anyone acts on it**.
+
+The model ships four ways, like a production recsys: a **FastAPI service**
+(batch-scored recs + live cold-start inference, packaged in **Docker**), a
+**Streamlit rep console**, a **6-page Power BI dashboard with dynamic
+row-level security**, and CSV artifacts. The bake-off is tracked in
+**MLflow**; **pandera contracts** guard both pipeline boundaries; **ruff +
+mypy** gate every push; and a **nightly CI run** re-executes the whole
+pipeline from a fresh data generation to prove it stays green unattended.
+
+```mermaid
+flowchart LR
+    GEN[data_generator] --> CONTRACT1{{pandera<br/>source contract}}
+    CONTRACT1 --> ENG[engine/recommend.py<br/>CF + affinity + growth]
+    ENG --> EVAL[holdout bake-off<br/>CF vs SVD vs popularity]
+    EVAL --> MLF[(MLflow<br/>experiment tracking)]
+    ENG --> CONTRACT2{{pandera<br/>output contract}}
+    CONTRACT2 --> API[FastAPI service<br/>Docker image]
+    CONTRACT2 --> UI[Streamlit<br/>rep console]
+    CONTRACT2 --> PBI[Power BI 6 pages<br/>dynamic RLS]
+    CONTRACT2 --> CSV[action_list.csv]
+```
+
+## The serving layer — API, container, console
+
+**FastAPI service** ([`api/main.py`](api/main.py)) exposes the engine the way
+a production recommender is actually consumed: cross-sell scores are
+**batch-computed** offline and served with low latency, while the cold-start
+endpoint runs **live inference** per request (the region-blend fallback for
+brand-new customers). OpenAPI docs are auto-generated at `/docs`.
+
+```
+GET /health                                   service + artifact status
+GET /customers?region=&rep=&limit=            ranked book of business
+GET /customers/{id}                           profile: segment, churn risk, CLV
+GET /customers/{id}/recommendations           top-10 recs with why + $ opportunity
+GET /recommendations/cold-start/{region}      LIVE inference for a new customer
+GET /affinity?min_lift=                       basket talk tracks
+```
+
+The **Dockerfile** bakes generator → engine → analytics into a
+self-contained image; CI builds it and smoke-tests `/health` on every push:
+
+```bash
+docker build -t rec-api . && docker run -p 8000:8000 rec-api
+```
+
+**Streamlit rep console** ([`app/streamlit_app.py`](app/streamlit_app.py)) —
+pick a customer, get the whole call plan on one screen: who they are (RFM,
+churn risk, CLV), what to pitch (recs with the *because-similar-to* reason
+and $ opportunity), and the basket talk tracks. Runs on the same artifacts
+the API serves:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+![Streamlit rep console](docs/streamlit_console.png)
+
+7 API contract tests (FastAPI `TestClient`) assert the service serves the
+batch-scored table verbatim, 404s unknown customers, and returns
+monotonically-ranked cold-start results.
+
+## Experiment tracking (MLflow)
+
+Every run of the holdout evaluation logs the three-model bake-off — params
+(k, holdout fraction, n_similar, SVD factors) and metrics (hit-rate@10,
+catalog coverage, lift over popularity) — to a local MLflow store, so model
+generations accumulate an auditable history:
+
+```bash
+mlflow ui --backend-store-uri sqlite:///mlflow.db
+```
+
+![MLflow tracking](docs/mlflow_tracking.png)
 
 ## The interactive dashboard (Power BI)
 
@@ -43,6 +121,25 @@ Open `CustomerProductAnalytics.pbip` in Power BI Desktop and hit Refresh
 `defaultDrillFilterOtherVisuals` is on and every page carries slicers,
 selecting any segment, region, protein, or month cross-filters the page —
 including the recommendation table.
+
+### Dynamic row-level security (RLS)
+
+The semantic model carries two security roles, defined in TMDL
+([`roles/`](powerbi/pbip/CustomerProductAnalytics.SemanticModel/definition/roles/)):
+
+- **Sales Rep** (dynamic): `dim_customer[rep] = USERPRINCIPALNAME()` — each
+  rep sees only their own book of business; the filter propagates through
+  the relationships to `fact_sales` and the recommendation table, so every
+  visual scopes itself automatically.
+- **BC Region** (static): the regional-leadership variant with the filter
+  embedded.
+
+![RLS roles](docs/rls_roles.png)
+
+Verified against the live model via DAX impersonation: no role sees
+**120 customers / $3,154,990.62**; the `BC Region` role sees
+**59 customers / $1,550,085.42** — matching a pandas cross-check of the
+source data to the cent.
 
 ## Revenue forecasting (rolling-origin backtest)
 
@@ -175,18 +272,63 @@ says **in what order**.
    with a support floor, so a rep gets pairs that occur often enough to say
    out loud.
 
+## Engineering quality gates
+
+- **Data contracts** ([`contracts/schemas.py`](contracts/schemas.py)):
+  pandera schemas at both pipeline boundaries — the source contract (IDs
+  match `CUST-\d{3}`/`SKU-\d{3}`, quantities positive, **revenue reconciles
+  to quantity x price** on every row) and the output contract (ranks 1–10,
+  scores positive). CI fails on any violation.
+- **Lint + types**: `ruff` (pyflakes, bugbear, import order, pyupgrade) and
+  `mypy` over `api/`, `engine/`, `contracts/` run as a dedicated CI job;
+  [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
+  locally before a commit leaves the machine.
+- **26 tests**: engine invariants (never recommend what's owned, symmetric
+  similarity, hand-checked lift math, determinism), the **CF-beats-popularity
+  gate**, data contracts, and the 7 API contract tests.
+- **Nightly schedule**: CI's cron trigger regenerates the data and re-runs
+  the entire pipeline + suite every night — unattended-green as a feature.
+
 ## Run it (60 seconds, no setup)
 
 ```bash
 pip install -r requirements.txt
 python data_generator/generate_sales_data.py   # 15k synthetic order lines
 python engine/recommend.py                     # all four outputs
-python evaluation/evaluate_holdout.py          # CF vs SVD vs popularity scorecard
+python evaluation/evaluate_holdout.py          # CF vs SVD vs popularity + MLflow logging
 python analytics/customer_analytics.py         # RFM, CLV, churn, cohorts, action list
 python analytics/product_analytics.py          # ABC, portfolio quadrant, repeat rates
 python analytics/make_visuals.py               # model visuals
-pytest tests/ -v                               # 14 invariants
+python contracts/schemas.py                    # enforce the data contracts
+pytest tests/ -v                               # 26 invariants
+# optional serving layer:
+pip install -r requirements-api.txt
+uvicorn api.main:app          # http://127.0.0.1:8000/docs
+streamlit run app/streamlit_app.py
 ```
+
+## Deliberate architecture choices (what this repo does NOT fake)
+
+Choices a reviewer should read as intentional, not missing:
+
+- **No cloud warehouse cosplay.** The medallion/warehouse/orchestration story
+  lives where it can be *verified*: my
+  [dbt + DuckDB/Snowflake repo](https://github.com/KushPatel29/supply-chain-analytics-dbt)
+  (staging → marts, incremental models, SCD2, semantic layer, Airflow DAG
+  with DagBag CI validation) and the
+  [Fabric medallion repo](https://github.com/KushPatel29/supply-chain-control-tower-).
+  Duplicating an unrunnable Snowflake config here would add keywords, not
+  evidence.
+- **Batch scoring + thin serving, not a feature store.** At 120 customers x
+  38 SKUs, precomputing all scores is the correct production shape; the API
+  documents that tradeoff and still demonstrates live inference on the
+  cold-start path.
+- **Neighborhood CF over a two-tower network.** The bake-off already contains
+  a latent-factor model (SVD) — and the neighborhood model *beats it* while
+  staying explainable enough to put a "because" column in front of a sales
+  rep. Reaching for deep learning on a 38-SKU catalog would be
+  resume-driven engineering; the discipline worth showing is the measured
+  comparison and the gate that ships the winner.
 
 ## The synthetic data (and why it has structure)
 
@@ -221,10 +363,13 @@ because:
 data_generator/   synthetic B2B sales generator (persona-structured, fixed seed)
 engine/           recommend.py — CF cross-sell (+why/+$), growth targets,
                   basket affinity, cold-start fallback
-evaluation/       holdout protocol: CF vs SVD vs popularity, hit-rate@10 + coverage
-analytics/        make_visuals.py — persona map, similarity heatmap, eval chart
-tests/            9 invariants: no already-owned recs, symmetric similarity,
-                  hand-checked lift math, CF-beats-popularity gate, determinism,
-                  cold-start sanity, every rec carries a why
-.github/workflows/ CI — regenerates data, runs engine + evaluation + tests
+evaluation/       holdout protocol: CF vs SVD vs popularity + MLflow logging
+api/              FastAPI service (batch-scored recs + live cold-start)
+app/              Streamlit rep console
+contracts/        pandera data contracts (source + output schemas)
+analytics/        customer/product analytics, forecasting, visuals
+powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
+tests/            26 invariants: engine, CF-beats-popularity gate, contracts, API
+Dockerfile        self-contained rec-service image (CI-built + smoke-tested)
+.github/workflows/ CI — lint+types | pipeline+contracts+tests | docker | nightly cron
 ```

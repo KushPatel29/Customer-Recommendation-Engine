@@ -20,15 +20,13 @@ import random
 import sys
 from pathlib import Path
 
-import numpy as np
 import pandas as pd
 from sklearn.decomposition import TruncatedSVD
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "engine"))
 
-from recommend import (build_customer_sku_matrix, cross_sell_recommendations,
-                       load_sales)
+from recommend import build_customer_sku_matrix, cross_sell_recommendations, load_sales
 
 random.seed(42)
 
@@ -86,6 +84,35 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def log_to_mlflow(metrics_by_model: dict, n_customers: int) -> None:
+    """Track the bake-off in MLflow (local SQLite store, mlflow.db).
+
+    One run per model within an experiment, so `mlflow ui` shows the
+    CF / SVD / popularity comparison side by side and every re-run of the
+    pipeline appends a new evaluation generation. Kept import-optional: the
+    core pipeline must not require the serving/MLOps extras.
+
+    Inspect with:  mlflow ui --backend-store-uri sqlite:///mlflow.db
+    """
+    try:
+        import mlflow
+    except ImportError:
+        print("mlflow not installed - skipping experiment tracking "
+              "(pip install -r requirements-api.txt)")
+        return
+
+    mlflow.set_tracking_uri(f"sqlite:///{(ROOT / 'mlflow.db').as_posix()}")
+    mlflow.set_experiment("cross-sell-bakeoff")
+    shared = {"k": K, "holdout_frac": HOLDOUT_FRAC, "min_skus": MIN_SKUS,
+              "n_customers": n_customers}
+    for model_name, m in metrics_by_model.items():
+        with mlflow.start_run(run_name=model_name):
+            mlflow.log_params({**shared, **m.get("params", {})})
+            mlflow.log_metrics({k: v for k, v in m.items() if k != "params"})
+    print(f"mlflow: logged {len(metrics_by_model)} runs -> {ROOT / 'mlflow.db'} "
+          "(inspect with `mlflow ui --backend-store-uri sqlite:///mlflow.db`)")
+
+
 def main():
     sales = load_sales()
     results = evaluate(sales)
@@ -106,6 +133,17 @@ def main():
     print(f"CF lift over popularity: {cf / pop:.2f}x" if pop else "n/a")
     print(f"CF catalog coverage: {cf_coverage:.0%} of SKUs surfaced "
           f"(popularity by construction surfaces ~{K / n_skus:.0%})")
+
+    log_to_mlflow({
+        "item-based-cf": {"hit_rate_at_k": cf, "catalog_coverage": cf_coverage,
+                          "lift_over_popularity": cf / pop if pop else 0.0,
+                          "params": {"n_similar": 8, "damping": "log1p"}},
+        "svd-latent-factors": {"hit_rate_at_k": svd,
+                               "params": {"n_factors": 12}},
+        "popularity-baseline": {"hit_rate_at_k": pop,
+                                "catalog_coverage": K / n_skus,
+                                "params": {"strategy": "global-top-sellers"}},
+    }, n_customers=len(results))
 
 
 if __name__ == "__main__":

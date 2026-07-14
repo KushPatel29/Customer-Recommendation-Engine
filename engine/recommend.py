@@ -173,7 +173,8 @@ def sku_affinity(sales: pd.DataFrame, min_lift=MIN_LIFT,
     """Order-level co-occurrence lift between SKU pairs."""
     baskets = sales.groupby("order_id")["sku"].apply(set)
     n_orders = len(baskets)
-    counts, pair_counts = {}, {}
+    counts: dict[str, int] = {}
+    pair_counts: dict[tuple[str, str], int] = {}
     for basket in baskets:
         for a in basket:
             counts[a] = counts.get(a, 0) + 1
