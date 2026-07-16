@@ -21,9 +21,16 @@ def client():
 
 
 @pytest.fixture(scope="module")
-def known_customer():
+def known_customer(client):
+    """A customer in A/B variant A: this test asserts verbatim serving of the
+    CF champion's batch-scored file, so it must not pick a customer whose
+    traffic is routed to the two-stage challenger (variant B). Depends on
+    `client` because variant assignment activates only once the lifespan has
+    loaded the challenger artifact."""
+    from api.main import ab_variant
     recs = pd.read_csv(OUT / "cross_sell_recommendations.csv")
-    return recs.iloc[0]["customer_id"]
+    return next(cid for cid in recs["customer_id"].unique()
+                if ab_variant(cid) == "A")
 
 
 def test_health(client):
