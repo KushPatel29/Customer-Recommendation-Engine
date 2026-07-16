@@ -24,6 +24,7 @@ import pandas as pd
 from sklearn.decomposition import TruncatedSVD
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "engine"))
 
 from recommend import build_customer_sku_matrix, cross_sell_recommendations, load_sales
@@ -54,11 +55,15 @@ def svd_recommendations(matrix: pd.DataFrame, cust: str, owned: set,
             if s not in owned][:k]
 
 
+N_CANDIDATES = 30   # stage-1 pool handed to the stage-2 ranker
+
+
 def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
     sku_counts = sales.groupby("customer_id")["sku"].nunique()
     eligible = sku_counts[sku_counts >= MIN_SKUS].index.tolist()
 
     rows = []
+    candidate_pools = {}   # per customer: stage-1 pool with labels, for the ranker
     for cust in eligible:
         cust_skus = sorted(sales.loc[sales["customer_id"] == cust, "sku"].unique())
         n_hide = max(2, int(len(cust_skus) * HOLDOUT_FRAC))
@@ -68,10 +73,16 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
         owned = set(train.loc[train["customer_id"] == cust, "sku"])
         matrix = build_customer_sku_matrix(train)
 
-        recs = cross_sell_recommendations(train, matrix=matrix, n_recs=K)
-        cf_recs = set(recs.loc[recs["customer_id"] == cust, "sku"])
+        # one retrieval pass at candidate depth; CF@10 is simply its head
+        pool = cross_sell_recommendations(train, matrix=matrix, n_recs=N_CANDIDATES)
+        pool = pool[pool["customer_id"] == cust].sort_values("rank")
+        cf_recs = set(pool.head(K)["sku"])
         svd_recs = set(svd_recommendations(matrix, cust, owned))
         pop_recs = set(popularity_baseline(train, owned))
+
+        labeled = pool[["customer_id", "sku", "score"]].copy()
+        labeled["label"] = labeled["sku"].isin(hidden).astype(int)
+        candidate_pools[cust] = labeled
 
         rows.append({
             "customer_id": cust,
@@ -81,7 +92,33 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
             "pop_hits": len(pop_recs & hidden),
             "cf_recs": ";".join(sorted(cf_recs)),
         })
-    return pd.DataFrame(rows)
+    results = pd.DataFrame(rows)
+    results["ts_hits"] = two_stage_hits(candidate_pools, results)
+    return results
+
+
+def two_stage_hits(candidate_pools: dict, results: pd.DataFrame) -> pd.Series:
+    """Score the two-stage system (retrieval -> learned ranker) with
+    customer-disjoint training: rank half A's candidates with a model trained
+    only on half B's labels, and vice versa — zero label leakage."""
+    from engine.ranker import rerank, train_ranker
+
+    products = pd.read_csv(ROOT / "output" / "product_analytics.csv")
+    customers = pd.read_csv(ROOT / "output" / "customer_analytics.csv")
+
+    custs = sorted(candidate_pools)
+    halves = (set(custs[0::2]), set(custs[1::2]))
+    hits = {}
+    for train_half, score_half in ((halves[0], halves[1]), (halves[1], halves[0])):
+        train_pairs = pd.concat([candidate_pools[c] for c in sorted(train_half)],
+                                ignore_index=True)
+        model, cols = train_ranker(train_pairs, products, customers)
+        for cust in score_half:
+            pool = candidate_pools[cust]
+            ranked = rerank(model, cols, pool, products, customers, n_final=K)
+            hidden_skus = set(pool.loc[pool["label"] == 1, "sku"])
+            hits[cust] = len(set(ranked["sku"]) & hidden_skus)
+    return results["customer_id"].map(hits)
 
 
 def log_to_mlflow(metrics_by_model: dict, n_customers: int) -> None:
@@ -123,10 +160,12 @@ def main():
     cf = results["cf_hits"].sum() / results["hidden"].sum()
     svd = results["svd_hits"].sum() / results["hidden"].sum()
     pop = results["pop_hits"].sum() / results["hidden"].sum()
+    ts = results["ts_hits"].sum() / results["hidden"].sum()
     # beyond-accuracy: what share of the catalog does each method ever surface?
     n_skus = sales["sku"].nunique()
     cf_coverage = len(set(";".join(results["cf_recs"]).split(";"))) / n_skus
     print(f"customers evaluated: {len(results)}")
+    print(f"hit-rate@{K}  two-stage (CF -> ranker): {ts:.1%}")
     print(f"hit-rate@{K}  collaborative filtering: {cf:.1%}")
     print(f"hit-rate@{K}  SVD latent factors:      {svd:.1%}")
     print(f"hit-rate@{K}  popularity baseline:     {pop:.1%}")
@@ -140,6 +179,10 @@ def main():
                           "params": {"n_similar": 8, "damping": "log1p"}},
         "svd-latent-factors": {"hit_rate_at_k": svd,
                                "params": {"n_factors": 12}},
+        "two-stage-cf-ranker": {"hit_rate_at_k": ts,
+                                "params": {"n_candidates": 30,
+                                           "ranker": "hist-gradient-boosting",
+                                           "training": "customer-disjoint 2-fold"}},
         "popularity-baseline": {"hit_rate_at_k": pop,
                                 "catalog_coverage": K / n_skus,
                                 "params": {"strategy": "global-top-sellers"}},

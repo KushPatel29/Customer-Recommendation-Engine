@@ -10,3 +10,4 @@ output/holdout_evaluation.csv
 mlflow.db
 mlruns/
 mlartifacts/
+output/telemetry_events.jsonl

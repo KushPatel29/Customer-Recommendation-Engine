@@ -27,9 +27,13 @@ pipeline from a fresh data generation to prove it stays green unattended.
 ```mermaid
 flowchart LR
     GEN[data_generator] --> CONTRACT1{{pandera<br/>source contract}}
-    CONTRACT1 --> ENG[engine/recommend.py<br/>CF + affinity + growth]
-    ENG --> EVAL[holdout bake-off<br/>CF vs SVD vs popularity]
+    CONTRACT1 --> ENG[engine/recommend.py<br/>stage 1: CF retrieval]
+    ENG --> RANK[engine/ranker.py<br/>stage 2: learned ranking]
+    ENG --> EVAL[holdout bake-off<br/>two-stage vs CF vs SVD vs pop]
+    RANK --> EVAL
     EVAL --> MLF[(MLflow<br/>experiment tracking)]
+    RANK -.variant B.-> API
+    API --> AB[experiments/<br/>A/B chi-square]
     ENG --> CONTRACT2{{pandera<br/>output contract}}
     CONTRACT2 --> API[FastAPI service<br/>Docker image]
     CONTRACT2 --> UI[Streamlit<br/>rep console]
@@ -52,7 +56,13 @@ GET /customers/{id}                           profile: segment, churn risk, CLV
 GET /customers/{id}/recommendations           top-10 recs with why + $ opportunity
 GET /recommendations/cold-start/{region}      LIVE inference for a new customer
 GET /affinity?min_lift=                       basket talk tracks
+POST /events                                  click/purchase telemetry; purchases
+                                              suppress the SKU from the next call
 ```
+
+Every recommendation response carries its `experiment_variant` (sticky
+hash-based A/B assignment: A = CF champion, B = two-stage challenger) and
+any `suppressed_skus` from the current session.
 
 The **Dockerfile** bakes generator → engine → analytics into a
 self-contained image; CI builds it and smoke-tests `/health` on every push:
@@ -79,7 +89,7 @@ monotonically-ranked cold-start results.
 
 ## Experiment tracking (MLflow)
 
-Every run of the holdout evaluation logs the three-model bake-off — params
+Every run of the holdout evaluation logs the four-model bake-off — params
 (k, holdout fraction, n_similar, SVD factors) and metrics (hit-rate@10,
 catalog coverage, lift over popularity) — to a local MLflow store, so model
 generations accumulate an auditable history:
@@ -169,6 +179,7 @@ in its top 10:
 | Recommender | Hit-rate@10 | Catalog coverage |
 |---|---|---|
 | **Collaborative filtering (this engine)** | **84.9%** | **100% of SKUs surfaced** |
+| Two-stage: CF retrieval → gradient-boosted ranker | 80.0% | — |
 | SVD latent factors (matrix factorization) | 79.4% | — |
 | Popularity baseline ("suggest the bestsellers") | 75.4% | ~26% by construction |
 
@@ -181,6 +192,42 @@ the second axis: popularity can only ever recommend the same bestsellers to
 everyone, while CF personalizes across the whole catalog. The test suite
 enforces `CF > popularity` as a hard invariant: if a code change breaks the
 model's edge, CI fails.
+
+## The two-stage pipeline, and what happened when it lost
+
+The production RecSys pattern at catalog scale is **retrieval → ranking**:
+a cheap recall-oriented stage fetches a candidate pool, and a learned ranker
+re-orders it with features the retriever can't see. This repo implements
+exactly that ([`engine/ranker.py`](engine/ranker.py)): CF retrieves the top
+30 SKUs per customer, then a gradient-boosted ranker re-scores them on
+product economics (margin %, ABC class, repeat-purchase rate) and customer
+context (RFM, CLV, recency). Training is leakage-safe twice over — hidden
+SKUs are the labels, candidates come from a matrix that never saw them, and
+the evaluation trains on one half of customers to score the other
+(**customer-disjoint 2-fold**, so the ranker is never graded on labels it
+studied).
+
+It lost. 80.0% vs single-stage CF's 84.9%: on a 38-SKU catalog the retrieval
+signal already saturates, and business features don't add repurchase-
+prediction power. So CF ships — but "lost offline" isn't the end of the
+story, because the ranker optimizes margin-aware ordering that hit-rate@10
+can't measure. That tension is what online experiments are for.
+
+**The A/B framework** ([`experiments/ab_analysis.py`](experiments/ab_analysis.py)):
+the API assigns every customer a sticky variant by hash — A serves the CF
+champion, B the two-stage challenger — and logs impressions, clicks, and
+purchases to a telemetry log. The analysis script builds the conversion
+contingency table and runs a chi-square test with a pre-registered rule:
+*promote B only if p < 0.05 and lift > 0*. The demo mode
+(`--simulate 5000`, labeled simulation) plants known conversion rates to
+show the test detects a real difference and — just as important — refuses
+to promote on noise or thin data. Only real traffic can judge the
+challenger; the framework is how it would get a fair hearing.
+
+The serving layer also closes the batch/online gap with a **serve-time
+suppressor**: `POST /events` with a purchase updates session state, and the
+very next recommendation call excludes the bought SKU and re-closes the
+ranks — batch scores don't know what happened 10 seconds ago; the API does.
 
 ## The model, visually
 
@@ -283,9 +330,11 @@ says **in what order**.
   `mypy` over `api/`, `engine/`, `contracts/` run as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   locally before a commit leaves the machine.
-- **26 tests**: engine invariants (never recommend what's owned, symmetric
+- **33 tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the **CF-beats-popularity
-  gate**, data contracts, and the 7 API contract tests.
+  gate**, data contracts, the API contract tests, and the experimentation
+  suite (sticky A/B assignment, serve-time suppression, chi-square detects
+  planted differences and refuses to reward noise).
 - **Nightly schedule**: CI's cron trigger regenerates the data and re-runs
   the entire pipeline + suite every night — unattended-green as a feature.
 
@@ -300,7 +349,7 @@ python analytics/customer_analytics.py         # RFM, CLV, churn, cohorts, actio
 python analytics/product_analytics.py          # ABC, portfolio quadrant, repeat rates
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 26 invariants
+pytest tests/ -v                               # 33 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -323,6 +372,12 @@ Choices a reviewer should read as intentional, not missing:
   38 SKUs, precomputing all scores is the correct production shape; the API
   documents that tradeoff and still demonstrates live inference on the
   cold-start path.
+- **No FAISS on 120 customers.** Approximate nearest-neighbor search earns
+  its approximation error above roughly 10^5 vectors; below that, exact
+  brute force is both optimal and faster. Wrapping a 120x38 matrix in a
+  vector database would be resume-driven infrastructure — knowing *when not
+  to reach for ANN* is the production skill. (The two-stage pipeline is
+  where this repo demonstrates scale-shaped architecture instead.)
 - **Neighborhood CF over a two-tower network.** The bake-off already contains
   a latent-factor model (SVD) — and the neighborhood model *beats it* while
   staying explainable enough to put a "because" column in front of a sales
@@ -361,9 +416,12 @@ because:
 
 ```
 data_generator/   synthetic B2B sales generator (persona-structured, fixed seed)
-engine/           recommend.py — CF cross-sell (+why/+$), growth targets,
-                  basket affinity, cold-start fallback
-evaluation/       holdout protocol: CF vs SVD vs popularity + MLflow logging
+engine/           recommend.py — stage 1: CF cross-sell (+why/+$), growth
+                  targets, basket affinity, cold-start fallback
+                  ranker.py — stage 2: gradient-boosted re-ranker (two-stage)
+evaluation/       holdout protocol: two-stage vs CF vs SVD vs popularity,
+                  customer-disjoint ranker eval + MLflow logging
+experiments/      A/B analysis: chi-square with a pre-registered promotion rule
 api/              FastAPI service (batch-scored recs + live cold-start)
 app/              Streamlit rep console
 contracts/        pandera data contracts (source + output schemas)

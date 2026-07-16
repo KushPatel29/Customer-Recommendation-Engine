@@ -18,9 +18,12 @@ The Dockerfile at the repo root packages generator -> engine -> API into a
 self-contained image: `docker build -t rec-api . && docker run -p 8000:8000 rec-api`.
 """
 
+import json
 import sys
+import zlib
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pandas as pd
@@ -46,6 +49,11 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     store["affinity"] = pd.read_csv(OUT / "sku_affinity.csv")
     store["actions"] = pd.read_csv(OUT / "action_list.csv")
     store["sales"] = pd.read_csv(DATA / "sales_lines.csv", parse_dates=["order_date"])
+    # variant B (the A/B challenger): two-stage re-ranked recs, if built
+    ts_file = OUT / "two_stage_recommendations.csv"
+    store["recs_b"] = pd.read_csv(ts_file) if ts_file.exists() else None
+    # online state: session purchases per customer (the serve-time suppressor)
+    store["session_purchases"] = {}
     yield
     store.clear()
 
@@ -88,7 +96,33 @@ class CustomerRecommendations(BaseModel):
     customer_id: str
     customer_name: str
     model: str = "item-based collaborative filtering (batch-scored)"
+    experiment_variant: str = "A"
+    suppressed_skus: list[str] = []
     recommendations: list[Recommendation]
+
+
+class TrackedEvent(BaseModel):
+    customer_id: str
+    sku: str
+    event_type: str = Field(pattern="^(click|purchase)$")
+
+
+TELEMETRY = OUT / "telemetry_events.jsonl"
+
+
+def ab_variant(customer_id: str) -> str:
+    """Deterministic, sticky assignment: same customer, same variant, every
+    request, no state — a hash split, the standard first tool of online
+    experimentation. B serves the two-stage challenger when it's built."""
+    if store.get("recs_b") is None:
+        return "A"
+    return "B" if zlib.crc32(customer_id.encode()) % 2 else "A"
+
+
+def log_telemetry(event: dict) -> None:
+    event["ts"] = datetime.now(UTC).isoformat()
+    with open(TELEMETRY, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(event) + "\n")
 
 
 class ColdStartRecommendation(BaseModel):
@@ -163,8 +197,9 @@ def get_recommendations(
     customer_id: str,
     limit: int = Query(10, ge=1, le=10),
 ) -> CustomerRecommendations:
-    recs = store["recs"]
-    match = recs[recs["customer_id"] == customer_id].sort_values("rank").head(limit)
+    variant = ab_variant(customer_id)
+    recs = store["recs"] if variant == "A" else store["recs_b"]
+    match = recs[recs["customer_id"] == customer_id].sort_values("rank")
     if match.empty:
         # distinguish "unknown customer" from "known but fully penetrated"
         if customer_id not in set(store["customers"]["customer_id"]):
@@ -172,18 +207,49 @@ def get_recommendations(
         return CustomerRecommendations(
             customer_id=customer_id,
             customer_name=_name_of(customer_id),
+            experiment_variant=variant,
             recommendations=[],
         )
+
+    # serve-time suppressor: anything bought THIS session leaves the list
+    # immediately — the batch scores don't know about it yet, the API does
+    suppressed = sorted(store["session_purchases"].get(customer_id, set()))
+    match = match[~match["sku"].isin(suppressed)].head(limit).copy()
+    match["rank"] = range(1, len(match) + 1)
+
+    served = [
+        Recommendation(**row) for row in
+        match[["rank", "sku", "protein", "description", "score",
+               "est_revenue_opportunity", "because_similar_to"]]
+        .fillna({"because_similar_to": ""}).to_dict("records")
+    ]
+    log_telemetry({"event_type": "impression", "customer_id": customer_id,
+                   "variant": variant, "skus": [r.sku for r in served]})
     return CustomerRecommendations(
         customer_id=customer_id,
-        customer_name=str(match.iloc[0]["customer_name"]),
-        recommendations=[
-            Recommendation(**row) for row in
-            match[["rank", "sku", "protein", "description", "score",
-                   "est_revenue_opportunity", "because_similar_to"]]
-            .fillna({"because_similar_to": ""}).to_dict("records")
-        ],
+        customer_name=str(match.iloc[0]["customer_name"]) if len(match) else _name_of(customer_id),
+        model=("item-based CF (batch-scored)" if variant == "A"
+               else "two-stage CF -> gradient-boosted ranker"),
+        experiment_variant=variant,
+        suppressed_skus=suppressed,
+        recommendations=served,
     )
+
+
+@app.post("/events", status_code=202, tags=["experimentation"])
+def track_event(event: TrackedEvent) -> dict:
+    """Online feedback loop: clicks and purchases land in the telemetry log
+    (the A/B evidence), and purchases update the session store so the very
+    next recommendation call already excludes the bought SKU."""
+    if event.customer_id not in set(store["customers"]["customer_id"]):
+        raise HTTPException(404, f"unknown customer_id {event.customer_id!r}")
+    log_telemetry({"event_type": event.event_type,
+                   "customer_id": event.customer_id,
+                   "variant": ab_variant(event.customer_id),
+                   "sku": event.sku})
+    if event.event_type == "purchase":
+        store["session_purchases"].setdefault(event.customer_id, set()).add(event.sku)
+    return {"accepted": True, "variant": ab_variant(event.customer_id)}
 
 
 @app.get("/recommendations/cold-start/{region}",

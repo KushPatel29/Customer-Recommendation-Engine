@@ -14,11 +14,13 @@ RUN pip install --no-cache-dir -r requirements.txt -r requirements-api.txt
 
 COPY . .
 
-# Bake the batch-scored artifacts into the image at build time.
+# Bake the batch-scored artifacts into the image at build time
+# (both A/B variants: CF champion + two-stage challenger).
 RUN python data_generator/generate_sales_data.py \
  && python engine/recommend.py \
  && python analytics/customer_analytics.py \
- && python analytics/product_analytics.py
+ && python analytics/product_analytics.py \
+ && python engine/ranker.py
 
 EXPOSE 8000
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]

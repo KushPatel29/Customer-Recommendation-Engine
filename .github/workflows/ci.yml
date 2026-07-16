@@ -33,17 +33,21 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt -r requirements-api.txt pytest
 
-      - name: Run full pipeline (generate -> score -> evaluate -> analytics)
+      - name: Run full pipeline (generate -> retrieve -> analytics -> evaluate -> rank)
         run: |
           python data_generator/generate_sales_data.py
           python engine/recommend.py
-          python evaluation/evaluate_holdout.py
           python analytics/customer_analytics.py
           python analytics/product_analytics.py
+          python evaluation/evaluate_holdout.py
+          python engine/ranker.py
           python analytics/revenue_forecast.py
 
       - name: Enforce data contracts (pandera)
         run: python contracts/schemas.py
+
+      - name: A/B framework statistics demo (simulated traffic, labeled as such)
+        run: python experiments/ab_analysis.py --simulate 5000
 
       - name: Run test suite (engine invariants + CF-beats-popularity gate + API contract tests)
         run: pytest tests/ -v
