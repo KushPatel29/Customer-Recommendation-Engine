@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual062",
+  "position": {
+    "x": 660,
+    "y": 20,
+    "z": 62000,
+    "height": 110,
+    "width": 280,
+    "tabOrder": 62000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Champion WAPE (Moving Avg)"
+                }
+              },
+              "queryRef": "_Measures.Champion WAPE (Moving Avg)",
+              "nativeQueryRef": "Champion WAPE (Moving Avg)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

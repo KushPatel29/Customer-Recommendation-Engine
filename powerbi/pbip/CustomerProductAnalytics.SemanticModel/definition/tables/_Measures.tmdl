@@ -108,6 +108,38 @@ table _Measures
 		summarizeBy: none
 		sourceColumn: Value
 
+	measure 'Retention Rate' = AVERAGE(cohort_retention[retention_rate])
+		formatString: 0%
+		lineageTag: 0baa8376-b651-411d-be75-bf93efd06b41
+
+	measure 'Hit Rate @10 (CF)' = DIVIDE(SUM(holdout_evaluation[cf_hits]), SUM(holdout_evaluation[hidden]))
+		formatString: 0.0%
+		lineageTag: a036f0e1-b3f9-4fb4-bb97-c99182297b96
+
+	measure 'Hit Rate @10 (Two-Stage)' = DIVIDE(SUM(holdout_evaluation[ts_hits]), SUM(holdout_evaluation[hidden]))
+		formatString: 0.0%
+		lineageTag: dfb25481-04b0-428b-9cbf-5df937860551
+
+	measure 'Hit Rate @10 (SVD)' = DIVIDE(SUM(holdout_evaluation[svd_hits]), SUM(holdout_evaluation[hidden]))
+		formatString: 0.0%
+		lineageTag: 610c1dea-586d-4aca-a5ae-7ee97368e75b
+
+	measure 'Hit Rate @10 (Popularity)' = DIVIDE(SUM(holdout_evaluation[pop_hits]), SUM(holdout_evaluation[hidden]))
+		formatString: 0.0%
+		lineageTag: ed7b2d6b-2604-4435-b16d-8d08cf430b74
+
+	measure 'Avg WAPE' = AVERAGE(forecast_backtest[wape])
+		formatString: 0.0%
+		lineageTag: 1b7f3ab1-7ef8-41c9-be83-c5d629a7341a
+
+	measure 'Champion WAPE (Moving Avg)' = CALCULATE(AVERAGE(forecast_backtest[wape]), forecast_backtest[model] = "moving_avg_8w")
+		formatString: 0.0%
+		lineageTag: 5434ed79-41cf-4e27-9caf-50f49c8a2f17
+
+	measure 'Customers Evaluated' = COUNTROWS(holdout_evaluation)
+		formatString: #,0
+		lineageTag: f4d9f494-9a72-4672-9e66-a0d6a3f7e46d
+
 	partition _Measures = m
 		mode: import
 		source =

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual064",
+  "position": {
+    "x": 20,
+    "y": 150,
+    "z": 64000,
+    "height": 250,
+    "width": 610,
+    "tabOrder": 64000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hit Rate @10 (CF)"
+                }
+              },
+              "queryRef": "_Measures.Hit Rate @10 (CF)",
+              "nativeQueryRef": "Hit Rate @10 (CF)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hit Rate @10 (Two-Stage)"
+                }
+              },
+              "queryRef": "_Measures.Hit Rate @10 (Two-Stage)",
+              "nativeQueryRef": "Hit Rate @10 (Two-Stage)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hit Rate @10 (SVD)"
+                }
+              },
+              "queryRef": "_Measures.Hit Rate @10 (SVD)",
+              "nativeQueryRef": "Hit Rate @10 (SVD)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Hit Rate @10 (Popularity)"
+                }
+              },
+              "queryRef": "_Measures.Hit Rate @10 (Popularity)",
+              "nativeQueryRef": "Hit Rate @10 (Popularity)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Offline Bake-Off: Hit-Rate@10 by Algorithm (held-out baskets)'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

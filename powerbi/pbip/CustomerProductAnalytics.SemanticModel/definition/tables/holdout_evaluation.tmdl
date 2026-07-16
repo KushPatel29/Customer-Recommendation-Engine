@@ -1,0 +1,60 @@
+table holdout_evaluation
+	lineageTag: b5aaaf89-9331-4b9e-aa01-5ac900eae977
+
+	column customer_id
+		dataType: string
+		lineageTag: a644acbb-9afc-4498-95b8-88e4e3d1e2f5
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column hidden
+		dataType: int64
+		formatString: 0
+		lineageTag: 82978b6e-0c9f-42d5-a97d-e3c8571f68f8
+		summarizeBy: sum
+		sourceColumn: hidden
+
+	column cf_hits
+		dataType: int64
+		formatString: 0
+		lineageTag: f1a2bf78-0f37-45c1-95aa-a855fb9594e8
+		summarizeBy: sum
+		sourceColumn: cf_hits
+
+	column svd_hits
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ea63e2b-6a7e-4746-b271-a8c21c4f732e
+		summarizeBy: sum
+		sourceColumn: svd_hits
+
+	column pop_hits
+		dataType: int64
+		formatString: 0
+		lineageTag: 263348d7-9ddf-47e4-80e6-623c8457fd91
+		summarizeBy: sum
+		sourceColumn: pop_hits
+
+	column cf_recs
+		dataType: string
+		lineageTag: 0ca40443-e47e-467b-a2b5-0b55efe7bd5e
+		summarizeBy: none
+		sourceColumn: cf_recs
+
+	column ts_hits
+		dataType: int64
+		formatString: 0
+		lineageTag: 84dde407-f4cc-49ec-a744-3e2a1180d1b8
+		summarizeBy: sum
+		sourceColumn: ts_hits
+
+	partition holdout_evaluation = m
+		mode: import
+		source =
+				let
+				    // Per-customer holdout results from evaluation/evaluate_holdout.py.
+				    Source = Csv.Document(File.Contents(DataPath & "\output\holdout_evaluation.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"hidden", Int64.Type}, {"cf_hits", Int64.Type}, {"svd_hits", Int64.Type}, {"pop_hits", Int64.Type}, {"cf_recs", type text}, {"ts_hits", Int64.Type}})
+				in
+				    Typed

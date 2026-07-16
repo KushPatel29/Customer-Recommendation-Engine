@@ -1,0 +1,134 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual067",
+  "position": {
+    "x": 680,
+    "y": 420,
+    "z": 67000,
+    "height": 280,
+    "width": 580,
+    "tabOrder": 67000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sku_affinity"
+                    }
+                  },
+                  "Property": "description_a"
+                }
+              },
+              "queryRef": "sku_affinity.description_a",
+              "nativeQueryRef": "description_a"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sku_affinity"
+                    }
+                  },
+                  "Property": "description_b"
+                }
+              },
+              "queryRef": "sku_affinity.description_b",
+              "nativeQueryRef": "description_b"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sku_affinity"
+                    }
+                  },
+                  "Property": "orders_together"
+                }
+              },
+              "queryRef": "sku_affinity.orders_together",
+              "nativeQueryRef": "orders_together"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sku_affinity"
+                    }
+                  },
+                  "Property": "confidence_a_to_b"
+                }
+              },
+              "queryRef": "sku_affinity.confidence_a_to_b",
+              "nativeQueryRef": "confidence_a_to_b"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "sku_affinity"
+                    }
+                  },
+                  "Property": "lift"
+                }
+              },
+              "queryRef": "sku_affinity.lift",
+              "nativeQueryRef": "lift"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "sku_affinity"
+                  }
+                },
+                "Property": "lift"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Basket Talk Tracks: Highest-Lift SKU Pairs'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

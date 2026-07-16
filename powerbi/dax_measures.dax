@@ -1,0 +1,78 @@
+// DAX measures for CustomerProductAnalytics.pbip — synced from
+// powerbi/pbip/.../tables/_Measures.tmdl (the model is the source of truth).
+
+'Total Revenue' = SUM(fact_sales[revenue])
+
+'Total Margin' = SUM(fact_sales[revenue]) - SUM(fact_sales[cost])
+
+'Margin %' = DIVIDE([Total Margin], [Total Revenue])
+
+Orders = DISTINCTCOUNT(fact_sales[order_id])
+
+'Avg Order Value' = DIVIDE([Total Revenue], [Orders])
+
+'Customer Count' = COUNTROWS(dim_customer)
+
+'Active Customers' = DISTINCTCOUNT(fact_sales[customer_id])
+
+'At-Risk Revenue' = CALCULATE([Total Revenue], dim_customer[rfm_segment] IN {"At Risk", "At Risk (was valuable)"})
+
+'Avg CLV (12m)' = AVERAGE(dim_customer[clv_12m_runrate])
+
+'High Churn-Risk Customers' = CALCULATE(COUNTROWS(dim_customer), dim_customer[churn_risk] = "High")
+
+'A-Class SKUs' = CALCULATE(COUNTROWS(dim_product), dim_product[abc_class] = "A")
+
+'Dead-Stock SKUs' = CALCULATE(COUNTROWS(dim_product), dim_product[dead_stock_flag] = 1)
+
+'Avg Repeat Purchase Rate' = AVERAGE(dim_product[repeat_purchase_rate])
+
+'Quantity (lb)' = SUM(fact_sales[quantity_lb])
+
+'Avg Revenue per Customer' = DIVIDE([Total Revenue], [Active Customers])
+
+'Revenue PM' =
+    VAR d = MAX(fact_sales[order_date])
+    VAR mstart = DATE(YEAR(d), MONTH(d), 1)
+    RETURN
+    CALCULATE(
+    [Total Revenue],
+    FILTER(ALL(dim_month), dim_month[month_start] = EDATE(mstart, -1))
+    )
+
+'Revenue MoM %' =
+    VAR d = MAX(fact_sales[order_date])
+    VAR mstart = DATE(YEAR(d), MONTH(d), 1)
+    VAR cur = CALCULATE([Total Revenue], FILTER(ALL(dim_month), dim_month[month_start] = mstart))
+    RETURN DIVIDE(cur - [Revenue PM], [Revenue PM])
+
+'Revenue % of Total' = DIVIDE([Total Revenue], CALCULATE([Total Revenue], REMOVEFILTERS()))
+
+'Forecast Revenue (8w)' = SUM(fact_forecast[forecast_revenue])
+
+'Pipeline Opportunity $' = SUM(cross_sell[est_revenue_opportunity])
+
+Recommendations = COUNTROWS(cross_sell)
+
+'Customers With Recs' = DISTINCTCOUNT(cross_sell[customer_id])
+    column Value
+    dataType: int64
+    isHidden
+    summarizeBy: none
+    sourceColumn: Value
+
+'Retention Rate' = AVERAGE(cohort_retention[retention_rate])
+
+'Hit Rate @10 (CF)' = DIVIDE(SUM(holdout_evaluation[cf_hits]), SUM(holdout_evaluation[hidden]))
+
+'Hit Rate @10 (Two-Stage)' = DIVIDE(SUM(holdout_evaluation[ts_hits]), SUM(holdout_evaluation[hidden]))
+
+'Hit Rate @10 (SVD)' = DIVIDE(SUM(holdout_evaluation[svd_hits]), SUM(holdout_evaluation[hidden]))
+
+'Hit Rate @10 (Popularity)' = DIVIDE(SUM(holdout_evaluation[pop_hits]), SUM(holdout_evaluation[hidden]))
+
+'Avg WAPE' = AVERAGE(forecast_backtest[wape])
+
+'Champion WAPE (Moving Avg)' = CALCULATE(AVERAGE(forecast_backtest[wape]), forecast_backtest[model] = "moving_avg_8w")
+
+'Customers Evaluated' = COUNTROWS(holdout_evaluation)

@@ -1,0 +1,36 @@
+table cohort_retention
+	lineageTag: 80a67cf3-a822-4aa6-904d-34119a201bc7
+
+	column cohort
+		dataType: string
+		lineageTag: 0e3e7ef4-c7fb-4711-bcbd-324853245b2d
+		summarizeBy: none
+		sourceColumn: cohort
+
+	column months_since_first
+		dataType: int64
+		formatString: 0
+		lineageTag: a4ab7578-7f7e-4ec8-97d6-b3a303b6fe05
+		summarizeBy: none
+		sourceColumn: months_since_first
+
+	column retention_rate
+		dataType: double
+		formatString: 0%
+		lineageTag: f537f7d0-fce2-4ac0-8ced-35cb9683427c
+		summarizeBy: none
+		sourceColumn: retention_rate
+
+	partition cohort_retention = m
+		mode: import
+		source =
+				let
+				    // Wide triangle (cohort x month columns 0..11) from the analytics pipeline,
+				    // unpivoted here so the matrix visual gets one row per (cohort, month).
+				    Source = Csv.Document(File.Contents(DataPath & "\output\cohort_retention.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Unpivoted = Table.UnpivotOtherColumns(Promoted, {"cohort"}, "months_since_first", "retention_rate"),
+				    NoBlanks = Table.SelectRows(Unpivoted, each [retention_rate] <> null and [retention_rate] <> ""),
+				    Typed = Table.TransformColumnTypes(NoBlanks, {{"cohort", type text}, {"months_since_first", Int64.Type}, {"retention_rate", type number}})
+				in
+				    Typed

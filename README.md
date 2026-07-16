@@ -5,7 +5,7 @@
 ![ML](https://img.shields.io/badge/ML-Collaborative%20Filtering-FF6F00)
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-6%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
+![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 The most useful number in this repo is a loss.
@@ -52,7 +52,7 @@ flowchart LR
     ENG --> CONTRACT2{{pandera<br/>output contract}}
     CONTRACT2 --> API[FastAPI service<br/>Docker image]
     CONTRACT2 --> UI[Streamlit<br/>rep console]
-    CONTRACT2 --> PBI[Power BI 6 pages<br/>dynamic RLS]
+    CONTRACT2 --> PBI[Power BI 7 pages<br/>dynamic RLS]
     CONTRACT2 --> CSV[action_list.csv]
 ```
 
@@ -223,7 +223,7 @@ streamlit run app/streamlit_app.py
 
 ![Streamlit rep console](docs/streamlit_console.png)
 
-### The dashboard (Power BI, six pages, dynamic RLS)
+### The dashboard (Power BI, seven pages, dynamic RLS)
 
 Hand-authored as a Power BI Project (TMDL + PBIR) in
 [`powerbi/pbip/`](powerbi/pbip/), where the ML pipeline's outputs *are* the
@@ -240,12 +240,15 @@ table you can slice by segment.
 | **Product Analytics** | Interactive margin-x-revenue scatter by ABC class, protein treemap |
 | **Revenue Forecast** | The 8-week ML forecast alongside actuals, with the backtest-winner model named |
 | **Recommendations & Actions** | Cross-sell pipeline $ by segment and protein, and the who/what/why action table |
+| **Model Integrity** | The bake-off and backtest, live: hit-rate@10 per algorithm, WAPE per forecast model, the cohort retention triangle, and the highest-lift basket pairs |
 
 ![Sales Overview](powerbi/screenshots/01-sales-overview.png)
 
 ![Revenue Forecast](powerbi/screenshots/05-revenue-forecast.png)
 
 ![Recommendations](powerbi/screenshots/06-recommendations-actions.png)
+
+![Model Integrity](powerbi/screenshots/07-model-integrity.png)
 
 Open `CustomerProductAnalytics.pbip` in Power BI Desktop and hit Refresh
 (run the pipeline first so `output/` is populated). Every page carries
@@ -368,7 +371,7 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   `mypy` over `api/`, `engine/`, `contracts/` as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   before a commit leaves the machine.
-- **33 tests**: engine invariants (never recommend what's owned, symmetric
+- **38 tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
   gate, the data contracts, the API contract tests, and the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
@@ -403,6 +406,18 @@ Choices a reviewer should read as intentional, not missing:
   explainable enough to put a "because" column in front of a sales rep.
   Deep learning on a 38-SKU catalog would be the same mistake as FAISS,
   with a GPU bill.
+- **No "attributed uplift" revenue measure.** It's tempting to sum every
+  post-recommendation purchase of a recommended SKU and call it model-driven
+  revenue. That's false attribution — plenty of those orders would have
+  happened anyway, and a measure can't know which. Credit requires a
+  counterfactual, which is exactly what the A/B framework exists to
+  provide; the dashboard reports *pipeline opportunity* (an honest label
+  for "what the reps could pitch") and leaves "uplift" to the experiment.
+- **No what-if sliders or decomposition trees on the dashboard.** A
+  "churn-reduction %" slider that scales the forecast line up isn't
+  scenario planning, it's multiplying by a number. The Model Integrity page
+  shows what the models actually earn (hit-rates, WAPE, retention curves);
+  invented dials would undercut it.
 
 ## The synthetic data (and why it has structure)
 
@@ -427,7 +442,7 @@ python evaluation/evaluate_holdout.py          # the four-model bake-off + MLflo
 python analytics/revenue_forecast.py           # rolling-origin forecast backtest
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 33 invariants
+pytest tests/ -v                               # 38 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -466,7 +481,7 @@ app/              Streamlit rep console
 contracts/        pandera data contracts (source + output schemas)
 analytics/        customer/product analytics, forecasting, visuals
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            33 invariants: engine, CF-beats-popularity gate, contracts,
+tests/            38 invariants: engine, CF-beats-popularity gate, contracts,
                   API, experimentation
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)
 .github/workflows/ CI — lint+types | pipeline+contracts+tests | docker | nightly cron

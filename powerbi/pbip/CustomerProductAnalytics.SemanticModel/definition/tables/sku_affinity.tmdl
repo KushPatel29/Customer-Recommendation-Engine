@@ -1,0 +1,58 @@
+table sku_affinity
+	lineageTag: fb4469ea-8b24-497e-90d9-992ecb70b80a
+
+	column sku_a
+		dataType: string
+		lineageTag: fdaa40a5-094b-4e0f-8c02-9c5f823ae261
+		summarizeBy: none
+		sourceColumn: sku_a
+
+	column description_a
+		dataType: string
+		lineageTag: 94cd7eef-cd09-4dc6-89cc-e75cee85a281
+		summarizeBy: none
+		sourceColumn: description_a
+
+	column sku_b
+		dataType: string
+		lineageTag: 459e249d-99f9-4565-8245-2fe652c2bc68
+		summarizeBy: none
+		sourceColumn: sku_b
+
+	column description_b
+		dataType: string
+		lineageTag: 1b485f63-61cc-4faa-a4ee-fd978a797b03
+		summarizeBy: none
+		sourceColumn: description_b
+
+	column orders_together
+		dataType: int64
+		formatString: 0
+		lineageTag: fd796005-a81e-4cb8-9baf-833977aed22f
+		summarizeBy: sum
+		sourceColumn: orders_together
+
+	column confidence_a_to_b
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 1f136709-4746-4119-aecb-933243c0d0d9
+		summarizeBy: none
+		sourceColumn: confidence_a_to_b
+
+	column lift
+		dataType: double
+		formatString: 0.00
+		lineageTag: 037f3536-5edc-4a1c-b4fd-aabfde34c1db
+		summarizeBy: none
+		sourceColumn: lift
+
+	partition sku_affinity = m
+		mode: import
+		source =
+				let
+				    // Basket-lift pairs from the market-basket analysis.
+				    Source = Csv.Document(File.Contents(DataPath & "\output\sku_affinity.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"sku_a", type text}, {"description_a", type text}, {"sku_b", type text}, {"description_b", type text}, {"orders_together", Int64.Type}, {"confidence_a_to_b", type number}, {"lift", type number}})
+				in
+				    Typed

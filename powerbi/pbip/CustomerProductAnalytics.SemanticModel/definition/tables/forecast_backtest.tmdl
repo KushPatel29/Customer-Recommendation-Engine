@@ -1,0 +1,39 @@
+table forecast_backtest
+	lineageTag: c88d64ea-f4d9-4232-8985-8133fc2c8bfa
+
+	column protein
+		dataType: string
+		lineageTag: f9147b0c-f479-4891-b260-4970a113386c
+		summarizeBy: none
+		sourceColumn: protein
+
+	column fold
+		dataType: int64
+		formatString: 0
+		lineageTag: ce99e437-269a-4f2d-9ca3-d71bbf649f4f
+		summarizeBy: none
+		sourceColumn: fold
+
+	column model
+		dataType: string
+		lineageTag: 85bb3e37-ca4d-47cf-a32f-a91869f89ee6
+		summarizeBy: none
+		sourceColumn: model
+
+	column wape
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 363514f0-e768-4ff3-97a4-bb393ec410fc
+		summarizeBy: none
+		sourceColumn: wape
+
+	partition forecast_backtest = m
+		mode: import
+		source =
+				let
+				    // Rolling-origin backtest folds from analytics/revenue_forecast.py.
+				    Source = Csv.Document(File.Contents(DataPath & "\output\forecast_backtest.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"protein", type text}, {"fold", Int64.Type}, {"model", type text}, {"wape", type number}})
+				in
+				    Typed
