@@ -3,3 +3,8 @@ numpy>=1.24
 scikit-learn>=1.3
 statsmodels>=0.14
 matplotlib>=3.7
+# app/streamlit_app.py imports this. Streamlit Cloud happens to install
+# streamlit whether or not it is listed, which is exactly why it was missing --
+# declaring it keeps `pip install -r requirements.txt` enough to run the app
+# anywhere else.
+streamlit>=1.36
