@@ -56,3 +56,4 @@ table sku_affinity
 				    Typed = Table.TransformColumnTypes(Promoted, {{"sku_a", type text}, {"description_a", type text}, {"sku_b", type text}, {"description_b", type text}, {"orders_together", Int64.Type}, {"confidence_a_to_b", type number}, {"lift", type number}})
 				in
 				    Typed
+

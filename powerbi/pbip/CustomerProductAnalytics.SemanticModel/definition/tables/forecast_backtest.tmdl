@@ -37,3 +37,4 @@ table forecast_backtest
 				    Typed = Table.TransformColumnTypes(Promoted, {{"protein", type text}, {"fold", Int64.Type}, {"model", type text}, {"wape", type number}})
 				in
 				    Typed
+

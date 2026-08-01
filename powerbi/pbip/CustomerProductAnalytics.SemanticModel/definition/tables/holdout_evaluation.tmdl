@@ -58,3 +58,4 @@ table holdout_evaluation
 				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"hidden", Int64.Type}, {"cf_hits", Int64.Type}, {"svd_hits", Int64.Type}, {"pop_hits", Int64.Type}, {"cf_recs", type text}, {"ts_hits", Int64.Type}})
 				in
 				    Typed
+

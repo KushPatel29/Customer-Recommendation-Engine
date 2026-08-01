@@ -100,14 +100,6 @@ table _Measures
 		formatString: #,0
 		lineageTag: 81923840-ba98-4dad-a601-2fb196f2cd52
 
-	column Value
-		dataType: int64
-		isHidden
-		formatString: 0
-		lineageTag: 380556a7-55d9-4ff2-a645-f3a6d58dd9b9
-		summarizeBy: none
-		sourceColumn: Value
-
 	measure 'Retention Rate' = AVERAGE(cohort_retention[retention_rate])
 		formatString: 0%
 		lineageTag: 0baa8376-b651-411d-be75-bf93efd06b41
@@ -139,6 +131,14 @@ table _Measures
 	measure 'Customers Evaluated' = COUNTROWS(holdout_evaluation)
 		formatString: #,0
 		lineageTag: f4d9f494-9a72-4672-9e66-a0d6a3f7e46d
+
+	column Value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 380556a7-55d9-4ff2-a645-f3a6d58dd9b9
+		summarizeBy: none
+		sourceColumn: Value
 
 	partition _Measures = m
 		mode: import
