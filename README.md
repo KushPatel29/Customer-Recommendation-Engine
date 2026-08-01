@@ -6,7 +6,11 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
+![Tests](https://img.shields.io/badge/tests-38%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+
+**▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
+the rep console: pick a customer, see what to pitch next, why, and what it's worth.
 
 The most useful number in this repo is a loss.
 
