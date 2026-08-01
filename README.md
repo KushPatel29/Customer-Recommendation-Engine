@@ -392,7 +392,7 @@ Choices a reviewer should read as intentional, not missing:
   [dbt + DuckDB/Snowflake repo](https://github.com/KushPatel29/supply-chain-analytics-dbt)
   (staging → marts, incremental models, SCD2, semantic layer, Airflow DAG
   with DagBag CI validation) and the
-  [Fabric medallion repo](https://github.com/KushPatel29/supply-chain-control-tower-).
+  [Fabric medallion repo](https://github.com/KushPatel29/supply-chain-control-tower).
   Duplicating an unrunnable Snowflake config here would add keywords, not
   evidence.
 - **Batch scoring + thin serving, not a feature store.** At 120 customers ×
