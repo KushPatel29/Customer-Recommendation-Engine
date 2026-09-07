@@ -377,9 +377,12 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   before a commit leaves the machine.
 - **107 tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
-  gate, the data contracts, the API contract tests, and the experimentation
+  gate, the data contracts, the API contract tests, the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
-  planted differences and refuses to reward noise).
+  planted differences and refuses to reward noise), and the semantic-model
+  gate — every column the Power BI model binds and types must exist in the
+  CSV it reads, since a column renamed upstream renders *blank* rather than
+  failing, and Power BI reconciles neither until someone opens Desktop.
 - **Nightly schedule**: CI's cron trigger regenerates the data and re-runs
   the entire pipeline + suite every night — unattended-green as a feature.
 
@@ -486,7 +489,7 @@ contracts/        pandera data contracts (source + output schemas)
 analytics/        customer/product analytics, forecasting, visuals
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
 tests/            107 invariants: engine, CF-beats-popularity gate, contracts,
-                  API, experimentation
+                  API, experimentation, semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)
 .github/workflows/ CI — lint+types | pipeline+contracts+tests | docker | nightly cron
 ```
