@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-107%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-119%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -248,6 +248,12 @@ table you can slice by segment.
 
 ![Sales Overview](powerbi/screenshots/01-sales-overview.png)
 
+![Sales Team Performance](powerbi/screenshots/02-sales-team-performance.png)
+
+![Customer Analytics](powerbi/screenshots/03-customer-analytics.png)
+
+![Product Analytics](powerbi/screenshots/04-product-analytics.png)
+
 ![Revenue Forecast](powerbi/screenshots/05-revenue-forecast.png)
 
 ![Recommendations](powerbi/screenshots/06-recommendations-actions.png)
@@ -375,7 +381,7 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   `mypy` over `api/`, `engine/`, `contracts/` as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   before a commit leaves the machine.
-- **107 tests**: engine invariants (never recommend what's owned, symmetric
+- **119 tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
   gate, the data contracts, the API contract tests, the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
@@ -449,7 +455,7 @@ python evaluation/evaluate_holdout.py          # the four-model bake-off + MLflo
 python analytics/revenue_forecast.py           # rolling-origin forecast backtest
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 107 invariants
+pytest tests/ -v                               # 119 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -488,7 +494,7 @@ app/              Streamlit rep console
 contracts/        pandera data contracts (source + output schemas)
 analytics/        customer/product analytics, forecasting, visuals
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            107 invariants: engine, CF-beats-popularity gate, contracts,
+tests/            119 invariants: engine, CF-beats-popularity gate, contracts,
                   API, experimentation, semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)
 .github/workflows/ CI — lint+types | pipeline+contracts+tests | docker | nightly cron
