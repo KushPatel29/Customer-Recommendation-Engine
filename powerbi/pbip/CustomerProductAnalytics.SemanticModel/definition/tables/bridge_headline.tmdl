@@ -1,0 +1,292 @@
+/// One row: the revenue-bridge and concentration headline figures.
+table bridge_headline
+	lineageTag: 3cbe3e44-7413-5c06-b0c7-89fb56e048c5
+
+	column window_start
+		dataType: string
+		lineageTag: 112dcc14-3fcf-58e2-bc3b-fc092e0da571
+		summarizeBy: none
+		sourceColumn: window_start
+
+	column window_end
+		dataType: string
+		lineageTag: 2079060b-71b6-526d-817d-2bb9b8ba3a2f
+		summarizeBy: none
+		sourceColumn: window_end
+
+	column split_at
+		dataType: string
+		lineageTag: d04ad6e2-1a0e-5ed7-a0de-fc9bcd856676
+		summarizeBy: none
+		sourceColumn: split_at
+
+	column revenue_prior
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 0e0b6a3d-d284-521e-9cd5-26cebf41439a
+		summarizeBy: none
+		sourceColumn: revenue_prior
+
+	column revenue_current
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 97b8dfac-76b7-543d-b52b-d9fe2171b9e8
+		summarizeBy: none
+		sourceColumn: revenue_current
+
+	column revenue_change
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 892c3e6d-ac48-5706-809d-dbc717a363be
+		summarizeBy: none
+		sourceColumn: revenue_change
+
+	column revenue_change_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 587ab9e2-8d4c-532f-b1f8-20f647b93464
+		summarizeBy: none
+		sourceColumn: revenue_change_pct
+
+	column revenue_volume
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f19151ec-24f7-5c1a-a13f-a1ddc7831dff
+		summarizeBy: none
+		sourceColumn: revenue_volume
+
+	column revenue_mix
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5696d116-0ca4-5c85-bf2c-dd0accf3a511
+		summarizeBy: none
+		sourceColumn: revenue_mix
+
+	column revenue_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8d19b9e7-8d67-5f1a-9134-c53f9dba27cd
+		summarizeBy: none
+		sourceColumn: revenue_rate
+
+	column pocket_prior
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bcb656e3-c4ec-5481-ae5f-2a4dd6b0673c
+		summarizeBy: none
+		sourceColumn: pocket_prior
+
+	column pocket_current
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e91ee170-6c84-5404-a41f-bcbe4b96f241
+		summarizeBy: none
+		sourceColumn: pocket_current
+
+	column pocket_change
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 16647b80-38f6-5ef6-964d-229c2a79049c
+		summarizeBy: none
+		sourceColumn: pocket_change
+
+	column pocket_change_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 120ca53d-91fd-520f-8fe4-d6d171d79c32
+		summarizeBy: none
+		sourceColumn: pocket_change_pct
+
+	column pocket_volume
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6fd73893-f442-57d6-8467-767be019b570
+		summarizeBy: none
+		sourceColumn: pocket_volume
+
+	column pocket_mix
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d8db1b0b-643d-5e53-93db-d74621d8ec9f
+		summarizeBy: none
+		sourceColumn: pocket_mix
+
+	column pocket_rate
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 88fea499-5f28-58e3-af7f-bcc9a5f4ab75
+		summarizeBy: none
+		sourceColumn: pocket_rate
+
+	column leakage_rate_prior
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b5236963-e055-5c46-8f75-1bf24ba90610
+		summarizeBy: none
+		sourceColumn: leakage_rate_prior
+
+	column leakage_rate_current
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4cf8c06f-e31c-583e-981f-8acfcc053083
+		summarizeBy: none
+		sourceColumn: leakage_rate_current
+
+	column leakage_drift_pts
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b9535737-9207-5d40-9553-daba8ca34538
+		summarizeBy: none
+		sourceColumn: leakage_drift_pts
+
+	column largest_revenue_effect
+		dataType: string
+		lineageTag: 0d06e2fe-9298-5e63-b4da-89fec05b26ee
+		summarizeBy: none
+		sourceColumn: largest_revenue_effect
+
+	column worst_protein
+		dataType: string
+		lineageTag: d0dd0a59-52a5-5615-b952-5add95ac4eea
+		summarizeBy: none
+		sourceColumn: worst_protein
+
+	column worst_protein_change
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 3c5c812a-e7f1-5dea-98cf-907df37ea5df
+		summarizeBy: none
+		sourceColumn: worst_protein_change
+
+	column best_protein
+		dataType: string
+		lineageTag: 9411ac95-d2cc-5360-bd89-dff70cf293b2
+		summarizeBy: none
+		sourceColumn: best_protein
+
+	column best_protein_change
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 391b3a74-c1c1-52e3-adc6-dd668ebc0e70
+		summarizeBy: none
+		sourceColumn: best_protein_change
+
+	column customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 539e24fe-0b84-5466-861f-26e50dfa3480
+		summarizeBy: none
+		sourceColumn: customers
+
+	column hhi
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 3b5bd1b3-a830-5f5f-8119-cae1f976c03d
+		summarizeBy: none
+		sourceColumn: hhi
+
+	column hhi_band
+		dataType: string
+		lineageTag: f2811c7d-a471-5722-8723-3a5436c42d21
+		summarizeBy: none
+		sourceColumn: hhi_band
+
+	column top5_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: fa6ad7b0-a2b6-58f1-950a-298fea4d2bee
+		summarizeBy: none
+		sourceColumn: top5_share
+
+	column top10_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1c56a2be-533e-5fdd-ae84-12f1b0c9a9bb
+		summarizeBy: none
+		sourceColumn: top10_share
+
+	column top20_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bdc46d40-18fc-596e-aa66-c7c5928dd3b3
+		summarizeBy: none
+		sourceColumn: top20_share
+
+	column customers_to_half_the_book
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4e621641-dd2a-5a7d-a327-d853643f89ed
+		summarizeBy: none
+		sourceColumn: customers_to_half_the_book
+
+	column revenue_at_risk
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 349d88f0-cdbe-511c-8058-25ea0cb29177
+		summarizeBy: none
+		sourceColumn: revenue_at_risk
+
+	column revenue_at_risk_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a38ee4ca-bac0-5a0a-8098-fc390f179aea
+		summarizeBy: none
+		sourceColumn: revenue_at_risk_pct
+
+	column revenue_watchlist
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c32a4705-db6c-567f-87a3-fdff6a1ffdc9
+		summarizeBy: none
+		sourceColumn: revenue_watchlist
+
+	column customers_at_risk
+		dataType: int64
+		formatString: #,0
+		lineageTag: 95a7d9a3-486d-58c3-a942-4824f21c23f8
+		summarizeBy: none
+		sourceColumn: customers_at_risk
+
+	column worst_overdue_ratio
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d62deaea-94fe-5082-a843-317d7d018fae
+		summarizeBy: none
+		sourceColumn: worst_overdue_ratio
+
+	column top10_at_risk_customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 222a16d8-cc25-5b93-b67f-d907b4b9e219
+		summarizeBy: none
+		sourceColumn: top10_at_risk_customers
+
+	column top10_at_risk_revenue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 5649ecd0-fad8-5828-9417-3251d18cbcf5
+		summarizeBy: none
+		sourceColumn: top10_at_risk_revenue
+
+	column largest_customer
+		dataType: string
+		lineageTag: 1b08cb5f-d4bb-5a36-8d85-94979c9bdf88
+		summarizeBy: none
+		sourceColumn: largest_customer
+
+	column largest_customer_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9c7a448a-125d-5777-b84a-e9fadeb61070
+		summarizeBy: none
+		sourceColumn: largest_customer_share
+
+	partition bridge_headline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\revenue_bridge_headline.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"window_start", type text}, {"window_end", type text}, {"split_at", type text}, {"revenue_prior", type number}, {"revenue_current", type number}, {"revenue_change", type number}, {"revenue_change_pct", type number}, {"revenue_volume", type number}, {"revenue_mix", type number}, {"revenue_rate", type number}, {"pocket_prior", type number}, {"pocket_current", type number}, {"pocket_change", type number}, {"pocket_change_pct", type number}, {"pocket_volume", type number}, {"pocket_mix", type number}, {"pocket_rate", type number}, {"leakage_rate_prior", type number}, {"leakage_rate_current", type number}, {"leakage_drift_pts", type number}, {"largest_revenue_effect", type text}, {"worst_protein", type text}, {"worst_protein_change", type number}, {"best_protein", type text}, {"best_protein_change", type number}, {"customers", Int64.Type}, {"hhi", type number}, {"hhi_band", type text}, {"top5_share", type number}, {"top10_share", type number}, {"top20_share", type number}, {"customers_to_half_the_book", Int64.Type}, {"revenue_at_risk", type number}, {"revenue_at_risk_pct", type number}, {"revenue_watchlist", type number}, {"customers_at_risk", Int64.Type}, {"worst_overdue_ratio", type number}, {"top10_at_risk_customers", Int64.Type}, {"top10_at_risk_revenue", type number}, {"largest_customer", type text}, {"largest_customer_share", type number}})
+				in
+				    Typed

@@ -36,12 +36,23 @@ jobs:
       - name: Run full pipeline (generate -> retrieve -> analytics -> evaluate -> rank)
         run: |
           python data_generator/generate_sales_data.py
+          python data_generator/generate_commercial_terms.py
           python engine/recommend.py
           python analytics/customer_analytics.py
           python analytics/product_analytics.py
           python evaluation/evaluate_holdout.py
           python engine/ranker.py
           python analytics/revenue_forecast.py
+          python analytics/pocket_margin.py
+          python analytics/revenue_bridge.py
+
+      - name: The published commercial figures must be reproducible byte for byte
+        # Scoped to the files this round added. The older outputs come out of
+        # scikit-learn and statsmodels, whose last decimal place is not
+        # guaranteed to match across platforms; asserting on them here would
+        # fail the build for a difference that is not a defect.
+        run: |
+          git diff --exit-code --             output/pocket_waterfall.csv output/pocket_by_customer.csv             output/leakage_by_component.csv output/freight_by_order_band.csv             output/pocket_margin_summary.json output/pocket_margin_headline.csv             output/revenue_bridge.csv output/revenue_bridge_by_protein.csv             output/customer_concentration.csv             output/revenue_bridge_summary.json output/revenue_bridge_headline.csv             data/customer_terms.csv data/settlements.csv
 
       - name: Enforce data contracts (pandera)
         run: python contracts/schemas.py

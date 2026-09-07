@@ -1,0 +1,61 @@
+/// The same decomposition cut by protein category. The cuts add back to the whole book, which a test checks - a cut that does not is a cut of something else.
+table revenue_bridge_by_protein
+	lineageTag: 3e2e1857-d680-5dc2-a8c0-c25a43998f56
+
+	column protein
+		dataType: string
+		lineageTag: 479f1fc9-ccd4-5ce2-af88-88ed15486e4c
+		summarizeBy: none
+		sourceColumn: protein
+
+	column prior
+		dataType: double
+		formatString: \$#,0
+		lineageTag: d7d1db6f-92e4-548e-b55b-2dc157d67168
+		summarizeBy: none
+		sourceColumn: prior
+
+	column current
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 3b59c571-dd31-588c-ae5d-378f618cac8f
+		summarizeBy: none
+		sourceColumn: current
+
+	column change
+		dataType: double
+		formatString: \$#,0
+		lineageTag: d0517c1b-2220-5581-a135-452abf8f0d7c
+		summarizeBy: none
+		sourceColumn: change
+
+	column volume
+		dataType: double
+		formatString: \$#,0
+		lineageTag: c9a744ed-1a5d-539d-9778-88282cbd4d47
+		summarizeBy: none
+		sourceColumn: volume
+
+	column mix
+		dataType: double
+		formatString: \$#,0
+		lineageTag: c18f5dcf-3d0e-5324-a69c-6684b674e387
+		summarizeBy: none
+		sourceColumn: mix
+
+	column rate
+		dataType: double
+		formatString: \$#,0
+		lineageTag: af21a3f7-c06f-514c-82a4-a08c3f7ac4f4
+		summarizeBy: none
+		sourceColumn: rate
+
+	partition revenue_bridge_by_protein = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\revenue_bridge_by_protein.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"protein", type text}, {"prior", type number}, {"current", type number}, {"change", type number}, {"volume", type number}, {"mix", type number}, {"rate", type number}})
+				in
+				    Typed

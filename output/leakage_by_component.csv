@@ -1,0 +1,6 @@
+component,value,pct_of_invoice,orders_affected,note,share_of_leakage,cumulative_share
+Volume rebate,51490.77,0.01632,1852,"Accrued against the year's purchases. Agreed once, paid quarterly, rarely revisited against the volume that was promised for it.",0.3826,0.3826
+Freight absorbed,26701.08,0.00846,975,"Charged on weight, not on value - which is why it lands hardest on small drops of cheap product.",0.1984,0.581
+Cash discount,21238.95,0.00673,984,"Taken by the customer for paying early. Free money to a customer with cash, and a real cost of capital to the seller.",0.1578,0.7388
+Credit notes,20531.57,0.00651,87,"Short-dated stock, damage, mis-picks. The only leak on this list that is a service failure rather than a commercial term.",0.1526,0.8914
+Co-op advertising,14619.3,0.00463,808,Retail and deli accounts run promotions; the allowance funds them.,0.1086,1.0

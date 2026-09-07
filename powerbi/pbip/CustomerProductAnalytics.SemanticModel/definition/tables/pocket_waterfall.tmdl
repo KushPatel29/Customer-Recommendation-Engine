@@ -1,0 +1,47 @@
+/// List price walked down to pocket margin, one named leak at a time. Published by analytics/pocket_margin.py; the steps are ordered as events, not sorted by size, because a waterfall reordered to flatter the story stops meaning anything.
+table pocket_waterfall
+	lineageTag: 34de7bee-aace-53fb-ae6a-a325da230f38
+
+	column order
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 796a4be3-6444-5a69-b872-8f734bb299d4
+		summarizeBy: none
+		sourceColumn: order
+
+	column step
+		dataType: string
+		lineageTag: 3a52e9ef-45a2-559a-8b03-4c90a28f55b8
+		summarizeBy: none
+		sourceColumn: step
+		sortByColumn: order
+
+	column kind
+		dataType: string
+		lineageTag: fec9d501-8b7d-542e-856d-897ed05b1e52
+		summarizeBy: none
+		sourceColumn: kind
+
+	column amount
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 1e3387b5-2c4c-58a3-95b5-9f18aec93114
+		summarizeBy: none
+		sourceColumn: amount
+
+	column note
+		dataType: string
+		lineageTag: 800a8ec4-8092-5e09-a82c-df7c76b6c5bd
+		summarizeBy: none
+		sourceColumn: note
+
+	partition pocket_waterfall = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\pocket_waterfall.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"step", type text}, {"kind", type text}, {"amount", type number}, {"note", type text}, {"order", Int64.Type}})
+				in
+				    Typed

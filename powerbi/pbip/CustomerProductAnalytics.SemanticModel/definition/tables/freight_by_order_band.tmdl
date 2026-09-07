@@ -1,0 +1,84 @@
+/// Cost to serve against drop size. Freight is charged on weight and earned on value, so the two diverge hardest on small orders - which makes this a minimum-drop conversation rather than a pricing one.
+table freight_by_order_band
+	lineageTag: 466501aa-f8d4-5771-8ff0-487c412ccc32
+
+	column band_floor
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: affbcb74-11e3-5afb-be9b-70e0170dbbc5
+		summarizeBy: none
+		sourceColumn: band_floor
+
+	column order_band
+		dataType: string
+		lineageTag: f418ad95-f1c5-5a21-b7bf-ac0f338ec34f
+		summarizeBy: none
+		sourceColumn: order_band
+		sortByColumn: band_floor
+
+	column orders
+		dataType: int64
+		formatString: #,0
+		lineageTag: 35b259d2-e415-517f-a2ad-812cba5b0df5
+		summarizeBy: none
+		sourceColumn: orders
+
+	column invoice_revenue
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 06dfceae-8831-590b-8806-e1fc01c3c255
+		summarizeBy: none
+		sourceColumn: invoice_revenue
+
+	column avg_order_value
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 2920e2f7-96a9-5db7-a6de-077ead0bee09
+		summarizeBy: none
+		sourceColumn: avg_order_value
+
+	column pounds
+		dataType: double
+		formatString: #,0
+		lineageTag: eea8f2be-ed8e-57b0-b812-903b373380f7
+		summarizeBy: none
+		sourceColumn: pounds
+
+	column freight_absorbed
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 2463e963-e92e-5ad1-91d2-412a88028077
+		summarizeBy: none
+		sourceColumn: freight_absorbed
+
+	column freight_pct_of_revenue
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 73336dc1-04e9-5d6d-803b-edb3c6e10f61
+		summarizeBy: none
+		sourceColumn: freight_pct_of_revenue
+
+	column pocket_margin
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 14b165dc-01e3-57c1-8c69-689b5fb48d69
+		summarizeBy: none
+		sourceColumn: pocket_margin
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2b4a07fc-ee30-5128-ad21-bad08d55deab
+		summarizeBy: none
+		sourceColumn: pocket_margin_pct
+
+	partition freight_by_order_band = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\freight_by_order_band.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"order_band", type text}, {"band_floor", Int64.Type}, {"orders", Int64.Type}, {"invoice_revenue", type number}, {"avg_order_value", type number}, {"pounds", type number}, {"freight_absorbed", type number}, {"freight_pct_of_revenue", type number}, {"pocket_margin", type number}, {"pocket_margin_pct", type number}})
+				in
+				    Typed

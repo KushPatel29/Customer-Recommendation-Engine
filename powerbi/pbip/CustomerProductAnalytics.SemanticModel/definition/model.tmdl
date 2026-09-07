@@ -27,3 +27,20 @@ ref table sku_affinity
 ref role 'Sales Rep'
 ref role 'BC Region'
 
+ref table pocket_waterfall
+
+ref table pocket_by_customer
+
+ref table leakage_by_component
+
+ref table freight_by_order_band
+
+ref table revenue_bridge
+
+ref table revenue_bridge_by_protein
+
+ref table customer_concentration
+
+ref table pocket_headline
+
+ref table bridge_headline

@@ -79,10 +79,55 @@ customer_analytics_schema = pa.DataFrameSchema(
 )
 
 
+customer_terms_schema = pa.DataFrameSchema(
+    {
+        "customer_id": Column(str, CUSTOMER_ID),
+        "rebate_pct": Column(float, C.in_range(0, 0.10)),
+        "annual_commitment_lb": Column(int, C.ge(0), coerce=True),
+        "freight_policy": Column(str, C.isin(
+            ["prepaid", "prepaid over 500lb", "collect"])),
+        "freight_cost_per_lb": Column(float, C.in_range(0, 2.0)),
+        "payment_terms": Column(str, C.str_length(min_value=1)),
+        "cash_discount_pct": Column(float, C.in_range(0, 0.05)),
+        "cash_discount_take_rate": Column(float, C.in_range(0, 1)),
+        "coop_allowance_pct": Column(float, C.in_range(0, 0.05)),
+    },
+    strict=True,
+    unique_column_names=True,
+)
+
+settlements_schema = pa.DataFrameSchema(
+    {
+        "order_id": Column(str, C.str_matches(r"^ORD-\d{5}$")),
+        "order_date": Column(pa.DateTime, coerce=True),
+        "customer_id": Column(str, CUSTOMER_ID),
+        "invoice_revenue": Column(float, C.gt(0)),
+        "pounds_shipped": Column(float, C.gt(0)),
+        "rebate_accrued": Column(float, C.ge(0)),
+        "coop_allowance": Column(float, C.ge(0)),
+        "freight_absorbed": Column(float, C.ge(0)),
+        "cash_discount_taken": Column(float, C.ge(0)),
+        "credit_notes": Column(float, C.ge(0)),
+    },
+    # Every settlement together must stay under the invoice it settles. A
+    # credit note larger than the order it credits is arithmetically possible
+    # and commercially impossible, and it would put the pocket-margin
+    # waterfall below zero without anything else noticing.
+    checks=C(lambda df: (df["rebate_accrued"] + df["coop_allowance"]
+                         + df["freight_absorbed"] + df["cash_discount_taken"]
+                         + df["credit_notes"]) < df["invoice_revenue"],
+             name="settlement_never_exceeds_the_invoice",
+             error="off-invoice settlements must total less than the invoice"),
+    strict=True,
+    unique_column_names=True,
+)
+
 CONTRACTS = [
     ("data/sales_lines.csv", sales_lines_schema, dict(parse_dates=["order_date"])),
     ("output/cross_sell_recommendations.csv", cross_sell_schema, {}),
     ("output/customer_analytics.csv", customer_analytics_schema, {}),
+    ("data/customer_terms.csv", customer_terms_schema, {}),
+    ("data/settlements.csv", settlements_schema, dict(parse_dates=["order_date"])),
 ]
 
 

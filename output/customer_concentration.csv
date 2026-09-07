@@ -1,0 +1,121 @@
+customer_id,revenue,share,cumulative_share,rank,customer_name,region,rep,persona,churn_risk,rfm_segment,days_overdue,median_reorder_days,pocket_margin,leakage_pct,revenue_at_risk,revenue_watchlist,overdue_ratio
+CUST-064,182503.17,0.05785,0.05785,1,Canyon Charcuterie 064,Ontario,E. Novak,charcuterie,Low,Champions,0.0,3.0,59012.91,0.0225,0.0,0.0,0.0
+CUST-049,140733.94,0.04461,0.10245,2,Cedar Steakhouse 049,BC Lower Mainland,G. Lindqvist,steakhouse,High,Potential Loyalist,8.0,3.0,41124.34,0.0407,140733.94,0.0,2.67
+CUST-015,119987.86,0.03803,0.14048,3,Quarry Omakase 015,Alberta,G. Lindqvist,sushi,Low,Champions,1.0,5.0,35497.41,0.0436,0.0,0.0,0.2
+CUST-062,94808.73,0.03005,0.17053,4,Grove Grill 062,Ontario,C. Delgado,steakhouse,Low,Champions,0.0,3.0,27764.18,0.0393,0.0,0.0,0.0
+CUST-117,93036.28,0.02949,0.20002,5,Quarry Deli 117,BC Lower Mainland,H. Moreau,charcuterie,Low,Champions,0.0,4.0,28084.64,0.0464,0.0,0.0,0.0
+CUST-104,90452.18,0.02867,0.22869,6,Timber Tavern 104,BC Lower Mainland,C. Delgado,steakhouse,Medium,Champions,6.0,4.5,24958.35,0.0573,0.0,90452.18,1.33
+CUST-018,80895.0,0.02564,0.25433,7,Whistler Izakaya 018,BC Interior,F. Osei,sushi,Low,Champions,0.0,6.0,24608.72,0.0352,0.0,0.0,0.0
+CUST-077,76166.47,0.02414,0.27847,8,Pacific Salumeria 077,Alberta,D. Tremblay,charcuterie,High,At Risk (was valuable),20.0,4.0,21665.54,0.0624,76166.47,0.0,5.0
+CUST-098,71592.04,0.02269,0.30117,9,Bluffs Steakhouse 098,Ontario,B. Okafor,steakhouse,Low,Champions,3.0,6.0,23440.16,0.0051,0.0,0.0,0.5
+CUST-030,63149.33,0.02002,0.32118,10,Elmwood Charcuterie 030,BC Lower Mainland,G. Lindqvist,charcuterie,Low,Champions,2.0,5.5,19922.79,0.0317,0.0,0.0,0.36
+CUST-001,58790.68,0.01863,0.33982,11,Aurora Kaiseki 001,BC Interior,D. Tremblay,sushi,Medium,At Risk (was valuable),14.0,7.0,19189.7,0.0161,0.0,58790.68,2.0
+CUST-046,53221.48,0.01687,0.35668,12,Canyon Izakaya 046,BC Lower Mainland,C. Delgado,sushi,Low,Champions,0.0,7.0,15507.42,0.045,0.0,0.0,0.0
+CUST-009,50978.73,0.01616,0.37284,13,Orchard Foods 009,BC Interior,E. Novak,grocery,Low,Champions,0.0,7.0,13831.17,0.0687,0.0,0.0,0.0
+CUST-044,50580.81,0.01603,0.38887,14,Harbour Steakhouse 044,Ontario,C. Delgado,steakhouse,Medium,Potential Loyalist,7.0,6.0,15612.26,0.0208,0.0,50580.81,1.17
+CUST-086,50323.8,0.01595,0.40483,15,Cedar Kaiseki 086,BC Interior,G. Lindqvist,sushi,Low,Champions,0.0,7.0,14861.26,0.0455,0.0,0.0,0.0
+CUST-017,50080.1,0.01587,0.4207,16,Canyon Foods 017,BC Interior,B. Okafor,grocery,Low,Champions,0.0,5.0,13864.36,0.0648,0.0,0.0,0.0
+CUST-021,49941.35,0.01583,0.43653,17,Willow Provisions 021,Ontario,D. Tremblay,charcuterie,Low,Champions,0.0,5.0,17128.41,0.002,0.0,0.0,0.0
+CUST-045,49203.76,0.0156,0.45212,18,Elmwood Chophouse 045,Ontario,A. Fontaine,steakhouse,Low,Champions,2.0,6.5,13066.03,0.0646,0.0,0.0,0.31
+CUST-047,46170.86,0.01463,0.46676,19,Grove Charcuterie 047,BC Interior,D. Tremblay,charcuterie,Low,Champions,0.0,7.0,14497.51,0.0359,0.0,0.0,0.0
+CUST-063,44933.92,0.01424,0.481,20,Whistler Provisions 063,Ontario,G. Lindqvist,charcuterie,Low,Champions,1.0,5.0,12263.62,0.0732,0.0,0.0,0.2
+CUST-106,42749.77,0.01355,0.49455,21,Nordic Charcuterie 106,Ontario,E. Novak,charcuterie,Low,Potential Loyalist,3.0,10.0,12804.64,0.0462,0.0,0.0,0.3
+CUST-099,39714.33,0.01259,0.50714,22,Inlet Izakaya 099,Ontario,B. Okafor,sushi,Low,Champions,0.0,8.0,11285.42,0.0559,0.0,0.0,0.0
+CUST-031,37759.92,0.01197,0.51911,23,Zenith Ocean Bar 031,BC Interior,D. Tremblay,sushi,Low,Champions,1.0,8.0,10311.76,0.0646,0.0,0.0,0.12
+CUST-043,36021.43,0.01142,0.53052,24,Granville Foods 043,BC Lower Mainland,A. Fontaine,grocery,Low,Champions,2.0,8.0,10833.71,0.04,0.0,0.0,0.25
+CUST-025,35634.68,0.01129,0.54182,25,Quarry Grocer 025,Alberta,B. Okafor,grocery,Medium,Potential Loyalist,7.0,8.0,10037.79,0.0548,0.0,35634.68,0.88
+CUST-013,34740.49,0.01101,0.55283,26,Lakeside Grocer 013,BC Interior,E. Novak,grocery,Low,Champions,0.0,5.0,8814.43,0.0847,0.0,0.0,0.0
+CUST-070,34591.99,0.01096,0.56379,27,Nordic Tavern 070,BC Interior,H. Moreau,steakhouse,Low,Champions,0.0,9.0,11477.69,0.0,0.0,0.0,0.0
+CUST-075,34048.04,0.01079,0.57459,28,Vista Izakaya 075,Ontario,E. Novak,sushi,Low,Champions,0.0,12.5,11593.24,0.0,0.0,0.0,0.0
+CUST-107,32681.0,0.01036,0.58494,29,Granville Ocean Bar 107,Alberta,F. Osei,sushi,Medium,At Risk,12.0,14.5,9982.43,0.0334,0.0,32681.0,0.83
+CUST-091,31505.8,0.00999,0.59493,30,Bluffs Pantry 091,BC Interior,E. Novak,grocery,Low,Potential Loyalist,3.0,10.0,9409.44,0.0427,0.0,0.0,0.3
+CUST-119,31356.37,0.00994,0.60487,31,Harbour Cellar 119,Ontario,A. Fontaine,charcuterie,Low,Champions,0.0,9.0,9357.48,0.0478,0.0,0.0,0.0
+CUST-115,30859.27,0.00978,0.61465,32,Zenith Fresh Mart 115,BC Interior,H. Moreau,grocery,Medium,Potential Loyalist,6.0,7.0,8412.9,0.0675,0.0,30859.27,0.86
+CUST-019,29540.73,0.00936,0.62401,33,Timber Sushi 019,BC Lower Mainland,H. Moreau,sushi,Medium,At Risk,9.0,15.0,9042.35,0.0362,0.0,29540.73,0.6
+CUST-048,29177.56,0.00925,0.63326,34,Elmwood Grocer 048,BC Interior,A. Fontaine,grocery,Low,Champions,0.0,9.0,8354.3,0.0524,0.0,0.0,0.0
+CUST-042,28780.57,0.00912,0.64238,35,Union Sushi 042,Alberta,B. Okafor,sushi,High,At Risk,47.0,15.0,9518.08,0.0049,28780.57,0.0,3.13
+CUST-038,28776.57,0.00912,0.6515,36,Bluffs Provisions 038,Alberta,E. Novak,charcuterie,Low,Champions,0.0,9.0,9192.05,0.026,0.0,0.0,0.0
+CUST-036,28579.47,0.00906,0.66056,37,Meridian Ocean Bar 036,BC Lower Mainland,B. Okafor,sushi,Low,Champions,0.0,9.0,8331.47,0.0476,0.0,0.0,0.0
+CUST-061,27377.59,0.00868,0.66924,38,Dockside Grill 061,Ontario,D. Tremblay,steakhouse,Low,Champions,0.0,9.0,8023.8,0.0351,0.0,0.0,0.0
+CUST-079,26879.35,0.00852,0.67776,39,Aurora Ocean Bar 079,Ontario,B. Okafor,sushi,Low,At Risk (was valuable),6.0,12.0,7165.01,0.0687,0.0,0.0,0.5
+CUST-097,26528.46,0.00841,0.68617,40,Willow Prime 097,Alberta,C. Delgado,steakhouse,Low,Champions,0.0,15.0,7605.19,0.036,0.0,0.0,0.0
+CUST-058,25932.58,0.00822,0.69439,41,Foothill Grocer 058,BC Lower Mainland,D. Tremblay,grocery,Low,Champions,0.0,9.0,6450.95,0.087,0.0,0.0,0.0
+CUST-085,24556.82,0.00778,0.70217,42,Quarry Tavern 085,BC Interior,H. Moreau,steakhouse,Low,At Risk,4.0,14.5,6821.35,0.0492,0.0,0.0,0.28
+CUST-089,24500.4,0.00777,0.70994,43,Willow Izakaya 089,BC Interior,H. Moreau,sushi,Low,Loyal,0.0,14.5,6833.96,0.0622,0.0,0.0,0.0
+CUST-108,24368.09,0.00772,0.71766,44,Grove Omakase 108,Alberta,H. Moreau,sushi,Medium,At Risk (was valuable),18.0,11.5,6821.49,0.0577,0.0,24368.09,1.57
+CUST-082,23590.78,0.00748,0.72514,45,Lakeside Charcuterie 082,BC Interior,H. Moreau,charcuterie,Low,Champions,0.0,9.0,7858.67,0.0151,0.0,0.0,0.0
+CUST-024,23571.98,0.00747,0.73261,46,Lakeside Fresh Mart 024,BC Interior,C. Delgado,grocery,High,At Risk (was valuable),40.0,12.0,6940.03,0.0426,23571.98,0.0,3.33
+CUST-010,23051.25,0.00731,0.73992,47,Yardley Chophouse 010,BC Interior,C. Delgado,steakhouse,Medium,At Risk (was valuable),13.0,9.0,5212.94,0.1051,0.0,23051.25,1.44
+CUST-065,22540.98,0.00714,0.74706,48,Dockside Prime 065,Ontario,D. Tremblay,steakhouse,Low,At Risk (was valuable),6.0,12.0,5877.48,0.0707,0.0,0.0,0.5
+CUST-034,22471.31,0.00712,0.75418,49,Vista Pantry 034,Alberta,B. Okafor,grocery,Low,Loyal,0.0,9.5,6799.31,0.0317,0.0,0.0,0.0
+CUST-056,21381.83,0.00678,0.76096,50,Yardley Foods 056,Ontario,H. Moreau,grocery,Low,Loyal,0.0,5.5,6612.02,0.0268,0.0,0.0,0.0
+CUST-110,20302.18,0.00643,0.76739,51,Riverbend Charcuterie 110,Alberta,A. Fontaine,charcuterie,Low,At Risk,6.0,12.0,6802.28,0.0138,0.0,0.0,0.5
+CUST-078,19857.33,0.00629,0.77369,52,Vista Grill 078,BC Lower Mainland,G. Lindqvist,steakhouse,Low,Loyal,0.0,10.5,6363.39,0.0078,0.0,0.0,0.0
+CUST-084,19635.86,0.00622,0.77991,53,Highline Pantry 084,BC Lower Mainland,A. Fontaine,grocery,High,At Risk,26.0,11.0,6376.31,0.0185,19635.86,0.0,2.36
+CUST-005,18894.56,0.00599,0.7859,54,Harbour Sushi 005,Ontario,B. Okafor,sushi,Medium,At Risk,16.0,8.0,5960.73,0.03,0.0,18894.56,2.0
+CUST-057,18844.96,0.00597,0.79187,55,Highline Grocer 057,Alberta,E. Novak,grocery,Medium,At Risk,11.0,12.0,5313.06,0.0546,0.0,18844.96,0.92
+CUST-039,17953.37,0.00569,0.79756,56,Canyon Cellar 039,BC Interior,E. Novak,charcuterie,Low,Potential Loyalist,3.0,11.0,5027.65,0.0697,0.0,0.0,0.27
+CUST-055,17509.35,0.00555,0.80311,57,Highline Izakaya 055,BC Lower Mainland,G. Lindqvist,sushi,Low,Potential Loyalist,0.0,18.0,4316.52,0.0963,0.0,0.0,0.0
+CUST-074,17235.48,0.00546,0.80858,58,Orchard Chophouse 074,Alberta,A. Fontaine,steakhouse,Low,Loyal,0.0,21.0,4833.0,0.0505,0.0,0.0,0.0
+CUST-076,16877.19,0.00535,0.81393,59,Canyon Sushi 076,BC Interior,E. Novak,sushi,Medium,At Risk,26.0,16.5,4535.09,0.0722,0.0,16877.19,1.58
+CUST-073,16852.07,0.00534,0.81927,60,Dockside Fresh Mart 073,BC Lower Mainland,B. Okafor,grocery,High,At Risk,49.0,13.0,5224.76,0.0254,16852.07,0.0,3.77
+CUST-103,16562.51,0.00525,0.82452,61,Cedar Chophouse 103,Alberta,E. Novak,steakhouse,Low,Needs Attention,2.0,12.5,4692.41,0.0429,0.0,0.0,0.16
+CUST-093,16521.49,0.00524,0.82975,62,Lakeside Charcuterie 093,Alberta,B. Okafor,charcuterie,Low,Potential Loyalist,0.0,11.5,5429.44,0.0199,0.0,0.0,0.0
+CUST-067,16501.46,0.00523,0.83498,63,Bluffs Izakaya 067,Alberta,G. Lindqvist,sushi,High,At Risk,57.0,14.0,5603.66,0.0,16501.46,0.0,4.07
+CUST-003,16197.2,0.00513,0.84012,64,Bluffs Pantry 003,Ontario,D. Tremblay,grocery,High,At Risk,75.0,13.0,4286.39,0.0695,16197.2,0.0,5.77
+CUST-090,15874.23,0.00503,0.84515,65,Whistler Kaiseki 090,Alberta,D. Tremblay,sushi,Low,At Risk,6.0,22.0,4297.21,0.0682,0.0,0.0,0.27
+CUST-081,15746.85,0.00499,0.85014,66,Sterling Fresh Mart 081,Ontario,E. Novak,grocery,Medium,At Risk,30.0,18.5,4177.19,0.0745,0.0,15746.85,1.62
+CUST-053,14373.42,0.00456,0.8547,67,Whistler Provisions 053,Alberta,E. Novak,charcuterie,Low,Potential Loyalist,0.0,18.0,4590.58,0.0272,0.0,0.0,0.0
+CUST-094,13947.35,0.00442,0.85912,68,Granville Izakaya 094,BC Interior,E. Novak,sushi,Medium,At Risk,9.0,16.0,4128.18,0.0425,0.0,13947.35,0.56
+CUST-116,13771.08,0.00436,0.86348,69,Union Fresh Mart 116,Ontario,F. Osei,grocery,Low,Needs Attention,0.0,22.5,3635.41,0.0752,0.0,0.0,0.0
+CUST-060,13725.67,0.00435,0.86783,70,Bluffs Tavern 060,Ontario,G. Lindqvist,steakhouse,Low,Potential Loyalist,0.0,15.0,3917.3,0.0451,0.0,0.0,0.0
+CUST-041,13421.51,0.00425,0.87209,71,Aurora Steakhouse 041,BC Interior,E. Novak,steakhouse,Medium,At Risk,40.0,20.0,4068.03,0.0231,0.0,13421.51,2.0
+CUST-037,13370.35,0.00424,0.87632,72,Timber Foods 037,BC Interior,F. Osei,grocery,Low,Loyal,0.0,12.5,3679.49,0.0656,0.0,0.0,0.0
+CUST-092,12531.11,0.00397,0.8803,73,Aurora Prime 092,BC Lower Mainland,H. Moreau,steakhouse,Low,Needs Attention,0.0,14.5,3172.59,0.0741,0.0,0.0,0.0
+CUST-027,12482.8,0.00396,0.88425,74,Juniper Salumeria 027,BC Interior,H. Moreau,charcuterie,High,Hibernating,45.0,8.0,3564.41,0.0599,12482.8,0.0,5.62
+CUST-101,12417.07,0.00394,0.88819,75,Vista Kaiseki 101,Ontario,B. Okafor,sushi,Low,New / Promising,0.0,13.0,3330.09,0.0681,0.0,0.0,0.0
+CUST-118,12405.19,0.00393,0.89212,76,Zenith Grocer 118,Ontario,A. Fontaine,grocery,Low,Needs Attention,3.0,8.0,2976.24,0.0956,0.0,0.0,0.38
+CUST-008,12210.55,0.00387,0.89599,77,Cedar Chophouse 008,Alberta,G. Lindqvist,steakhouse,Low,Needs Attention,0.0,29.5,3477.27,0.0469,0.0,0.0,0.0
+CUST-012,12162.48,0.00385,0.89985,78,Vista Steakhouse 012,BC Interior,H. Moreau,steakhouse,Low,New / Promising,0.0,18.0,3157.0,0.0698,0.0,0.0,0.0
+CUST-006,11702.38,0.00371,0.90355,79,Granville Tavern 006,Alberta,G. Lindqvist,steakhouse,Low,New / Promising,0.0,22.0,3560.48,0.0265,0.0,0.0,0.0
+CUST-050,11620.23,0.00368,0.90724,80,Aurora Market 050,BC Lower Mainland,C. Delgado,grocery,High,Hibernating,53.0,17.0,2959.39,0.082,11620.23,0.0,3.12
+CUST-066,11393.29,0.00361,0.91085,81,Lakeside Steakhouse 066,BC Lower Mainland,B. Okafor,steakhouse,Low,New / Promising,0.0,26.0,3311.53,0.0434,0.0,0.0,0.0
+CUST-022,11276.35,0.00357,0.91442,82,Zenith Foods 022,Ontario,H. Moreau,grocery,Low,Loyal,0.0,14.0,3264.08,0.0503,0.0,0.0,0.0
+CUST-059,11248.96,0.00357,0.91799,83,Sterling Prime 059,Alberta,H. Moreau,steakhouse,Low,New / Promising,0.0,11.0,3100.76,0.0576,0.0,0.0,0.0
+CUST-028,11244.37,0.00356,0.92155,84,Grove Market 028,Ontario,B. Okafor,grocery,High,Hibernating,56.0,22.0,3609.97,0.02,11244.37,0.0,2.55
+CUST-111,10857.03,0.00344,0.92499,85,Union Fresh Mart 111,Alberta,D. Tremblay,grocery,Low,Needs Attention,0.0,29.0,3226.06,0.0409,0.0,0.0,0.0
+CUST-072,10823.15,0.00343,0.92842,86,Pacific Steakhouse 072,BC Interior,H. Moreau,steakhouse,Low,Hibernating,8.0,25.5,3347.76,0.0225,0.0,0.0,0.31
+CUST-120,10673.94,0.00338,0.93181,87,Summit Sushi 120,Ontario,E. Novak,sushi,Medium,Hibernating,18.0,24.0,3639.44,0.0,0.0,10673.94,0.75
+CUST-102,10602.86,0.00336,0.93517,88,Lakeside Pantry 102,Ontario,H. Moreau,grocery,High,At Risk,40.0,17.0,3399.01,0.02,10602.86,0.0,2.35
+CUST-051,10263.64,0.00325,0.93842,89,Timber Market 051,Ontario,D. Tremblay,grocery,High,Hibernating,62.0,11.5,2884.56,0.0613,10263.64,0.0,5.39
+CUST-095,10020.75,0.00318,0.9416,90,Quarry Pantry 095,BC Interior,G. Lindqvist,grocery,Low,Loyal,0.0,20.0,2560.57,0.0858,0.0,0.0,0.0
+CUST-016,9899.08,0.00314,0.94474,91,Aurora Deli 016,BC Lower Mainland,F. Osei,charcuterie,Low,New / Promising,0.0,18.0,3125.12,0.0317,0.0,0.0,0.0
+CUST-109,9613.24,0.00305,0.94778,92,Dockside Fresh Mart 109,Ontario,A. Fontaine,grocery,Medium,Hibernating,49.0,27.0,3130.99,0.0276,0.0,9613.24,1.81
+CUST-007,9593.22,0.00304,0.95082,93,Highline Kaiseki 007,BC Interior,B. Okafor,sushi,Low,New / Promising,0.0,27.0,3048.2,0.015,0.0,0.0,0.0
+CUST-026,9443.16,0.00299,0.95382,94,Grove Market 026,Alberta,A. Fontaine,grocery,Low,Needs Attention,0.0,35.0,2644.12,0.0531,0.0,0.0,0.0
+CUST-004,9180.17,0.00291,0.95673,95,Dockside Salumeria 004,Ontario,F. Osei,charcuterie,High,Hibernating,161.0,20.0,2622.37,0.0641,9180.17,0.0,8.05
+CUST-114,8939.26,0.00283,0.95956,96,Inlet Pantry 114,BC Lower Mainland,A. Fontaine,grocery,Low,New / Promising,0.0,15.0,2085.51,0.1044,0.0,0.0,0.0
+CUST-087,8748.11,0.00277,0.96233,97,Sterling Pantry 087,BC Lower Mainland,G. Lindqvist,grocery,Low,Hibernating,6.0,19.0,2744.53,0.0281,0.0,0.0,0.32
+CUST-112,8439.67,0.00268,0.96501,98,Sterling Provisions 112,BC Lower Mainland,G. Lindqvist,charcuterie,Low,New / Promising,0.0,28.0,2729.65,0.0281,0.0,0.0,0.0
+CUST-068,8228.46,0.00261,0.96761,99,Copper Fresh Mart 068,Ontario,A. Fontaine,grocery,High,Hibernating,56.0,16.0,2785.28,0.01,8228.46,0.0,3.5
+CUST-105,7983.75,0.00253,0.97015,100,Cedar Charcuterie 105,BC Lower Mainland,G. Lindqvist,charcuterie,Medium,Hibernating,42.0,27.5,2597.04,0.022,0.0,7983.75,1.53
+CUST-088,7844.45,0.00249,0.97263,101,Juniper Market 088,BC Interior,F. Osei,grocery,Low,New / Promising,0.0,59.0,2578.07,0.003,0.0,0.0,0.0
+CUST-011,7373.83,0.00234,0.97497,102,Bluffs Cellar 011,BC Interior,F. Osei,charcuterie,Low,Needs Attention,0.0,23.0,2194.61,0.0427,0.0,0.0,0.0
+CUST-023,7105.83,0.00225,0.97722,103,Vista Pantry 023,BC Interior,D. Tremblay,grocery,Low,New / Promising,0.0,14.0,2119.28,0.0373,0.0,0.0,0.0
+CUST-071,6928.01,0.0022,0.97942,104,Zenith Market 071,Alberta,G. Lindqvist,grocery,Low,Hibernating,0.0,43.0,2216.45,0.0202,0.0,0.0,0.0
+CUST-002,6718.12,0.00213,0.98155,105,Granville Market 002,Alberta,D. Tremblay,grocery,Low,Hibernating,7.0,22.0,2149.44,0.0185,0.0,0.0,0.32
+CUST-029,6522.78,0.00207,0.98361,106,Pacific Grill 029,BC Interior,G. Lindqvist,steakhouse,Low,Hibernating,0.0,25.5,1765.72,0.0693,0.0,0.0,0.0
+CUST-113,6028.32,0.00191,0.98552,107,Inlet Pantry 113,BC Interior,B. Okafor,grocery,High,Hibernating,86.0,12.0,1680.19,0.0574,6028.32,0.0,7.17
+CUST-032,5926.43,0.00188,0.9874,108,Granville Sushi 032,Ontario,C. Delgado,sushi,Low,Hibernating,0.0,28.0,1816.53,0.0366,0.0,0.0,0.0
+CUST-040,5730.47,0.00182,0.98922,109,Zenith Foods 040,Ontario,E. Novak,grocery,Low,Needs Attention,0.0,18.0,1607.53,0.061,0.0,0.0,0.0
+CUST-020,5189.17,0.00164,0.99086,110,Cedar Deli 020,Ontario,B. Okafor,charcuterie,Low,Needs Attention,0.0,35.0,1642.83,0.0263,0.0,0.0,0.0
+CUST-052,4267.15,0.00135,0.99222,111,Inlet Prime 052,BC Interior,F. Osei,steakhouse,Low,New / Promising,0.0,53.0,1295.05,0.0236,0.0,0.0,0.0
+CUST-033,4140.69,0.00131,0.99353,112,Cedar Cellar 033,Alberta,D. Tremblay,charcuterie,Low,New / Promising,0.0,47.0,1147.78,0.0677,0.0,0.0,0.0
+CUST-035,4055.62,0.00129,0.99481,113,Inlet Foods 035,BC Interior,F. Osei,grocery,Low,Needs Attention,2.0,14.0,1083.72,0.0797,0.0,0.0,0.14
+CUST-080,3353.97,0.00106,0.99588,114,Riverbend Salumeria 080,Ontario,C. Delgado,charcuterie,Low,Hibernating,34.0,68.0,948.01,0.0617,0.0,0.0,0.5
+CUST-096,3095.66,0.00098,0.99686,115,Quarry Provisions 096,Alberta,B. Okafor,charcuterie,Low,Hibernating,3.0,42.0,1095.56,0.0027,0.0,0.0,0.07
+CUST-100,2897.17,0.00092,0.99778,116,Foothill Salumeria 100,Alberta,A. Fontaine,charcuterie,Low,Hibernating,0.0,55.0,925.83,0.02,0.0,0.0,0.0
+CUST-054,2132.55,0.00068,0.99845,117,Bluffs Foods 054,BC Interior,D. Tremblay,grocery,Medium,Hibernating,40.0,35.0,550.45,0.0873,0.0,2132.55,1.14
+CUST-069,1920.88,0.00061,0.99906,118,Foothill Charcuterie 069,BC Interior,H. Moreau,charcuterie,Low,Hibernating,0.0,98.0,574.32,0.0539,0.0,0.0,0.0
+CUST-014,1649.14,0.00052,0.99958,119,Orchard Grocer 014,BC Interior,H. Moreau,grocery,Medium,Hibernating,76.0,48.5,519.3,0.0285,0.0,1649.14,1.57
+CUST-083,1310.74,0.00042,1.0,120,Sterling Foods 083,BC Interior,H. Moreau,grocery,Medium,Hibernating,97.0,58.0,442.82,0.0197,0.0,1310.74,1.67

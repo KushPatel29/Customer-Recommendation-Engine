@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-119%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-194%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -242,6 +242,8 @@ table you can slice by segment.
 | **Sales Team Performance** | Rep leaderboard (revenue/margin/orders/customers), regional trends |
 | **Customer Analytics** | Revenue by RFM segment over time, churn-risk exposure, segment slicers |
 | **Product Analytics** | Interactive margin-x-revenue scatter by ABC class, protein treemap |
+| **Revenue Bridge** | Price/volume/mix on revenue and again on pocket margin, the concentration curve, and which of the largest accounts have gone quiet |
+| **Pocket Margin** | List price walked down to what reached the bank, what each customer is worth against what its terms cost, and cost to serve by drop size |
 | **Revenue Forecast** | The 8-week ML forecast alongside actuals, with the backtest-winner model named |
 | **Recommendations & Actions** | Cross-sell pipeline $ by segment and protein, and the who/what/why action table |
 | **Model Integrity** | The bake-off and backtest, live: hit-rate@10 per algorithm, WAPE per forecast model, the cohort retention triangle, and the highest-lift basket pairs |
@@ -254,11 +256,15 @@ table you can slice by segment.
 
 ![Product Analytics](powerbi/screenshots/04-product-analytics.png)
 
-![Revenue Forecast](powerbi/screenshots/05-revenue-forecast.png)
+![Revenue Bridge](powerbi/screenshots/05-revenue-bridge.png)
 
-![Recommendations](powerbi/screenshots/06-recommendations-actions.png)
+![Pocket Margin](powerbi/screenshots/06-pocket-margin.png)
 
-![Model Integrity](powerbi/screenshots/07-model-integrity.png)
+![Revenue Forecast](powerbi/screenshots/07-revenue-forecast.png)
+
+![Recommendations](powerbi/screenshots/08-recommendations-actions.png)
+
+![Model Integrity](powerbi/screenshots/09-model-integrity.png)
 
 Open `CustomerProductAnalytics.pbip` in Power BI Desktop and hit Refresh
 (run the pipeline first so `output/` is populated). Every page carries
@@ -356,6 +362,137 @@ retention calls, not dropped. Segmentation says **who** to call, churn risk
 says **when**, the recommender says **what to pitch**, and CLV says **in
 what order**.
 
+## What the invoice does not show
+
+Every page above this one stops at invoice revenue. That is the number the
+price list produces, the number the rep is measured on, and the number a
+pricing meeting argues about. It is not the number that reaches the bank.
+
+Between the two sit the terms: the volume rebate accrued against the year, the
+freight absorbed on a small drop, the co-op advertising allowance, the cash
+discount taken for paying in ten days, the credit note for a short-dated
+delivery. Individually each is a rounding error somebody signed off once.
+Together they are $134,582 —
+4.27% of invoice revenue — and because none of
+them appear on an invoice line, almost nobody measures them per customer.
+
+Two new files carry them
+([`data_generator/generate_commercial_terms.py`](data_generator/generate_commercial_terms.py)):
+`customer_terms.csv` is the deal behind the price list, `settlements.csv` is
+what actually came off each order afterwards. Both are additive — invoice
+revenue still reconciles exactly to `sales_lines.csv`, and a test asserts it —
+and the terms are drawn **independently of customer value**, because "our best
+terms are not going to our best customers" is the finding a commercial review
+exists to produce rather than something the generator should hand over.
+
+### The pocket-price waterfall
+
+[`analytics/pocket_margin.py`](analytics/pocket_margin.py) walks list price
+down to pocket margin, one named leak at a time:
+
+| step | amount |
+|---|---|
+| List revenue | $3,152,588 |
+| Invoice price variance | +$2,402 |
+| **Invoice revenue** | **$3,154,991** |
+| Volume rebate, co-op, freight, cash discount, credit notes | −$134,582 |
+| **Pocket revenue** | **$3,020,409** |
+| Cost of goods | −$2,085,061 |
+| **Pocket margin** | **$935,348** |
+
+The contrast is the point. The lever that gets governed weekly — realised
+price against the catalogue — moved revenue by
+0.08%, and on this book it nets to a small
+*premium* rather than a discount. The lever nobody re-reads moved it by
+4.27%. Margin falls from
+33.9% on the invoice to 29.6%
+in the bank — 4.3 points — and
+"Volume rebate" alone is 38% of the leak.
+
+### The band underneath it
+
+120 customers, the same catalogue, near-identical invoice prices
+— and pocket margin runs from 25.4% to
+33.8% across them, a 8.4-point band.
+Leakage correlates -0.068 with customer revenue: the
+terms are not tracking the value they were granted for.
+18 accounts hold the richest terms on the lowest
+value, covering $206,294 of revenue.
+
+Bringing every above-median account to the **median** leakage rate returns
+$26,738 —
+2.9% of pocket margin — without touching a
+single price. That is a renegotiation agenda, not an instruction: a rebate is
+part of a commercial relationship and withdrawing it has consequences this data
+cannot see.
+
+### Cost to serve, by drop size
+
+Freight is charged on weight and earned on value, so the two diverge hardest on
+small orders of cheap product. The $0-$250 band gives up
+1.24% of revenue to freight against
+0.57% on the $2,500+ band, and
+28.2% pocket margin against
+29.6%. That is a minimum-drop conversation, not a
+pricing one.
+
+## Why revenue moved, and what it is standing on
+
+"Revenue is up 4%" is not a finding, it is a prompt. Up because prices rose,
+because volume rose, or because the mix drifted are three different businesses
+with three different responses, and they can point in opposite directions
+inside the same 4%.
+
+[`analytics/revenue_bridge.py`](analytics/revenue_bridge.py) decomposes it
+exactly — `volume = (Q₁−Q₀)·r̄₀`, `mix = Σ(q₁ᵢ − Q₁·s₀ᵢ)·r₀ᵢ`,
+`rate = Σq₁ᵢ(r₁ᵢ − r₀ᵢ)` — and a test asserts the three add to the change to
+the cent, because a bridge that does not reconcile is worse than no bridge: it
+looks authoritative and is wrong in a direction nobody can see. More tests
+construct periods where only volume, only price, and only mix change, and
+require each to land in its own term and nowhere else.
+
+Half to half:
+
+| | invoice revenue | pocket margin |
+|---|---|---|
+| prior | $1,578,985 | $469,008 |
+| volume | $+33,534 | $+9,961 |
+| mix | $-38,194 | $-12,798 |
+| rate | $+1,680 | $+173 |
+| **current** | **$1,576,005** (-0.2%) | **$466,344** (-0.6%) |
+
+Running the same walk on pocket margin is what catches the second finding.
+Revenue moved -0.2% and pocket margin
+-0.6% — the same direction, not the same distance,
+because the weighted cost of off-invoice terms went from
+4.21% to 4.32% of revenue
+(+0.103 pts). The book drifted towards accounts whose
+terms cost more, and no revenue report would have said so.
+Seafood gave up the most at
+$-43,442, almost entirely on volume.
+
+### Concentration
+
+120 customers at an HHI of 178 —
+unconcentrated on the published competition-authority scale rather than one
+invented to make this book look diversified. The top ten hold
+32.1%, 22 customers make up
+half the book, and the largest single account
+(Canyon Charcuterie 064) is 5.8%.
+
+16 accounts are already flagged High risk — measured
+against their *own* reorder rhythm, not a common cutoff — carrying
+$418,090 (13.2% of the book),
+with $507,054 more on the Medium watchlist behind them.
+2 of the top ten are in that High group, carrying
+$216,900 between them, and the worst account is
+8.1× past its own normal gap between orders.
+
+Revenue at risk here is revenue *behind flagged accounts*, deliberately not
+revenue multiplied by a churn probability: no such probability exists in this
+data, and manufacturing one would put a decimal point on a guess. A test
+asserts it stays that way.
+
 ## The model, visually
 
 The data generator plants four buyer personas — steakhouse, grocery, sushi,
@@ -447,15 +584,18 @@ rewrite, which is also why v2 generates its data instead of shipping any.)
 ```bash
 pip install -r requirements.txt
 python data_generator/generate_sales_data.py   # 15k synthetic order lines
+python data_generator/generate_commercial_terms.py  # rebates, freight, terms, settlements
 python engine/recommend.py                     # recs, growth targets, affinity, cold-start
 python analytics/customer_analytics.py         # RFM, CLV, churn, cohorts, action list
 python analytics/product_analytics.py          # ABC, portfolio quadrant, repeat rates
 python evaluation/evaluate_holdout.py          # the four-model bake-off + MLflow logging
                                                # (needs the analytics outputs — order matters)
 python analytics/revenue_forecast.py           # rolling-origin forecast backtest
+python analytics/pocket_margin.py              # pocket-price waterfall, band, cost to serve
+python analytics/revenue_bridge.py             # price/volume/mix + concentration
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 119 invariants
+pytest tests/ -v                               # 194 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -493,9 +633,14 @@ api/              FastAPI service (batch-scored recs + live cold-start)
 app/              Streamlit rep console
 contracts/        pandera data contracts (source + output schemas)
 analytics/        customer/product analytics, forecasting, visuals
+                  pocket_margin.py — the waterfall from list price to what
+                  reached the bank, the pocket-price band, cost to serve
+                  revenue_bridge.py — price/volume/mix on revenue and on pocket
+                  margin, HHI concentration, revenue behind quiet accounts
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            119 invariants: engine, CF-beats-popularity gate, contracts,
-                  API, experimentation, semantic-model bindings
+tests/            194 invariants: engine, CF-beats-popularity gate, contracts,
+                  API, experimentation, pocket margin, revenue bridge,
+                  semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)
 .github/workflows/ CI — lint+types | pipeline+contracts+tests | docker | nightly cron
 ```

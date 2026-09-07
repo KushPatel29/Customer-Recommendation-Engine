@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual115",
+  "position": {
+    "x": 660,
+    "y": 148,
+    "z": 1000,
+    "height": 260,
+    "width": 600,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "revenue_bridge"
+                    }
+                  },
+                  "Property": "measure"
+                }
+              },
+              "queryRef": "revenue_bridge.measure",
+              "nativeQueryRef": "measure"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Bridge Prior"
+                }
+              },
+              "queryRef": "_Measures.Bridge Prior",
+              "nativeQueryRef": "Bridge Prior"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Volume Effect"
+                }
+              },
+              "queryRef": "_Measures.Volume Effect",
+              "nativeQueryRef": "Volume Effect"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Mix Effect"
+                }
+              },
+              "queryRef": "_Measures.Mix Effect",
+              "nativeQueryRef": "Mix Effect"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rate Effect"
+                }
+              },
+              "queryRef": "_Measures.Rate Effect",
+              "nativeQueryRef": "Rate Effect"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Bridge Current"
+                }
+              },
+              "queryRef": "_Measures.Bridge Current",
+              "nativeQueryRef": "Bridge Current"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Price, volume and mix - on revenue and on what it was worth'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'The three effects reconcile to the change exactly. Running the same walk on pocket margin is what catches a book growing its way into less money'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

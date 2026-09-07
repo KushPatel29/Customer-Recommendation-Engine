@@ -219,6 +219,284 @@ table _Measures
 		lineageTag: 831776fe-8e49-5e82-b838-f844fa9c6193
 		displayFolder: Verdict
 
+	/// One step of the walk from list price to pocket margin.
+	measure 'Waterfall Amount' = SUM(pocket_waterfall[amount])
+		formatString: \$#,0
+		lineageTag: 1ddb75a9-eacb-5a82-90c0-4f9137302792
+		displayFolder: Pocket Margin
+
+	/// What was billed. The number every other page in this report stops at.
+	measure 'Invoice Revenue' = SUM(pocket_headline[invoice_revenue])
+		formatString: \$#,0
+		lineageTag: 772467f0-9bbc-55c3-840d-26ff94af0735
+		displayFolder: Pocket Margin
+
+	/// What reached the bank after every off-invoice term settled.
+	measure 'Pocket Margin' = SUM(pocket_headline[pocket_margin])
+		formatString: \$#,0
+		lineageTag: 22ba8a04-47a2-5c2b-9ae0-e08fcbfe4f63
+		displayFolder: Pocket Margin
+
+	/// Rebates, freight, co-op, cash discounts and credit notes. None of it appears on an invoice line, which is why almost nobody measures it per customer.
+	measure 'Off Invoice Leakage' = SUM(pocket_headline[off_invoice_leakage])
+		formatString: \$#,0
+		lineageTag: d9c84892-eaad-513d-b65d-66bdea142f81
+		displayFolder: Pocket Margin
+
+	/// Points of margin between the invoice and the bank.
+	measure 'Margin Points Lost' = SUM(pocket_headline[margin_points_lost])
+		formatString: 0.0
+		lineageTag: 3e70f138-244e-5382-b846-13e8f271f296
+		displayFolder: Pocket Margin
+
+	/// The pocket-price band: how far apart the best and worst customers are on pocket margin, after being sold the same catalogue at near-identical invoice prices.
+	measure 'Band Width' = SUM(pocket_headline[band_width_pts])
+		formatString: 0.0
+		lineageTag: 658b666e-e7e5-5d8d-841e-5b5e26823ec0
+		displayFolder: Pocket Margin
+
+	/// What bringing every above-median account back to the MEDIAN leakage rate returns - without touching a single price.
+	measure 'Opportunity to Median' = SUM(pocket_headline[opportunity_to_median])
+		formatString: \$#,0
+		lineageTag: 84f7e6c1-61d5-5ac7-98b1-63e8e7015d82
+		displayFolder: Pocket Margin
+
+	measure 'Component Value' = SUM(leakage_by_component[value])
+		formatString: \$#,0
+		lineageTag: 710334aa-2230-5e91-a09b-392e4ce32abc
+		displayFolder: Pocket Margin
+
+	measure 'Customer Leakage' = SUM(pocket_by_customer[off_invoice_total])
+		formatString: \$#,0
+		lineageTag: 09077125-05bf-58da-b6b8-371ae3cb9076
+		displayFolder: Pocket Margin
+
+	measure 'Customer Pocket Margin' = SUM(pocket_by_customer[pocket_margin])
+		formatString: \$#,0
+		lineageTag: 5dbd58ef-54d6-51a5-bbec-ad324bd0ab1a
+		displayFolder: Pocket Margin
+
+	measure 'Customer Leakage Rate' = DIVIDE([Customer Leakage], SUM(pocket_by_customer[invoice_revenue]))
+		formatString: 0.0%
+		lineageTag: 74824e7a-268a-5f3b-af83-cea9fd7952b8
+		displayFolder: Pocket Margin
+
+	measure 'Freight Share' = SUM(freight_by_order_band[freight_pct_of_revenue])
+		formatString: 0.00%
+		lineageTag: 218d6a5d-e4a4-5d42-be15-955e480081a9
+		displayFolder: Pocket Margin
+
+	measure 'Band Pocket Margin %' = SUM(freight_by_order_band[pocket_margin_pct])
+		formatString: 0.0%
+		lineageTag: c135bda4-9e37-5398-9bdc-894a51448071
+		displayFolder: Pocket Margin
+
+	/// Leaks red, the closing total green, subtotals neutral - so the chart reads as a walk rather than as thirteen unrelated bars.
+	measure 'Waterfall Colour' =
+			VAR vKind = MAX(pocket_waterfall[kind])
+			RETURN
+			    SWITCH(
+			        vKind,
+			        "leak", "#FF5C7A",
+			        "total", "#3DD68C",
+			        "#454A82"
+			    )
+		lineageTag: d90f3bb5-e2ee-566d-bb0f-0ac38feed12b
+		displayFolder: Pocket Margin
+
+	/// Reddens customers holding the richest terms on the lowest value.
+	measure 'Mismatch Colour' =
+			VAR vFlag = MAX(pocket_by_customer[terms_outrank_value])
+			RETURN IF(vFlag = 1, "#FF5C7A", "#454A82")
+		lineageTag: 2b8b747c-a5c3-5fab-b929-d372dc4e8a69
+		displayFolder: Pocket Margin
+
+	measure 'Leakage Reference' = FORMAT(SUM(pocket_headline[off_invoice_leakage_pct]), "0.00%") & " of invoice revenue, across " & FORMAT(SUM(pocket_headline[orders]), "#,0") & " orders"
+		lineageTag: 478f4cf4-6fca-5c6e-be42-351bbbfd4412
+		displayFolder: Pocket Margin
+
+	measure 'Points Reference' = "invoice " & FORMAT(SUM(pocket_headline[invoice_margin_pct]), "0.0%") & "   pocket " & FORMAT(SUM(pocket_headline[pocket_margin_pct]), "0.0%")
+		lineageTag: bd728527-073a-525e-a3e3-520e516a5ca3
+		displayFolder: Pocket Margin
+
+	measure 'Band Reference' = FORMAT(SUM(pocket_headline[band_low_pct]), "0.0%") & " to " & FORMAT(SUM(pocket_headline[band_high_pct]), "0.0%") & " pocket margin across customers"
+		lineageTag: 962f881c-4b35-532a-84b8-04697f0f3b11
+		displayFolder: Pocket Margin
+
+	measure 'Opportunity Reference' = FORMAT(SUM(pocket_headline[opportunity_pct_of_margin]), "0.0%") & " of pocket margin, no price change"
+		lineageTag: dfa9687f-f2c7-57ab-bdbf-b65d27a86e63
+		displayFolder: Pocket Margin
+
+	/// The pocket-margin headline as a deterministic sentence.
+	measure 'Pocket Insight' =
+			VAR vInvoice = SUM(pocket_headline[invoice_revenue])
+			VAR vLeak = SUM(pocket_headline[off_invoice_leakage])
+			VAR vLeakPct = SUM(pocket_headline[off_invoice_leakage_pct])
+			VAR vPriceVar = SUM(pocket_headline[invoice_discount_pct])
+			VAR vInvMargin = SUM(pocket_headline[invoice_margin_pct])
+			VAR vPktMargin = SUM(pocket_headline[pocket_margin_pct])
+			VAR vBand = SUM(pocket_headline[band_width_pts])
+			VAR vCorr = SUM(pocket_headline[corr_revenue_leakage])
+			VAR vMismatch = SUM(pocket_headline[mismatched_customers])
+			VAR vOpp = SUM(pocket_headline[opportunity_to_median])
+			VAR vTop = MAX(pocket_headline[top_component])
+			RETURN
+			    "The lever that gets governed weekly - realised price against the "
+			        & "catalogue - moved revenue by "
+			        & FORMAT(ABS(vPriceVar), "0.00%") & ". The one nobody re-reads moved it by "
+			        & FORMAT(vLeakPct, "0.00%") & ", or " & FORMAT(vLeak, "$#,0")
+			        & ", and margin falls from " & FORMAT(vInvMargin, "0.0%")
+			        & " on the invoice to " & FORMAT(vPktMargin, "0.0%")
+			        & " in the bank. " & vTop & " is the largest single term. Pocket margin "
+			        & "spans " & FORMAT(vBand, "0.0") & " points across customers buying the "
+			        & "same catalogue, and leakage correlates "
+			        & FORMAT(vCorr, "0.000") & " with customer revenue - the terms are not "
+			        & "tracking the value they were granted for. " & FORMAT(vMismatch, "0")
+			        & " accounts hold the richest terms on the lowest value; bringing every "
+			        & "above-median account to the median rate returns " & FORMAT(vOpp, "$#,0")
+			        & " without touching a price."
+		lineageTag: 6d3ebd9c-f10c-5fdf-9ee4-c404ceb8caf3
+		displayFolder: Pocket Margin
+
+	measure 'Bridge Prior' = SUM(revenue_bridge[prior])
+		formatString: \$#,0
+		lineageTag: 5c611b69-9c95-554a-bb61-9bf6be38b90e
+		displayFolder: Revenue Bridge
+
+	measure 'Bridge Current' = SUM(revenue_bridge[current])
+		formatString: \$#,0
+		lineageTag: 0440d631-9586-5510-8036-b3cdf0279302
+		displayFolder: Revenue Bridge
+
+	/// The same average price applied to the change in pounds.
+	measure 'Volume Effect' = SUM(revenue_bridge[volume])
+		formatString: \$#,0
+		lineageTag: cb4f4581-74a8-5fa9-9411-a66d6195ae35
+		displayFolder: Revenue Bridge
+
+	/// Pounds moving between SKUs at the prior period's prices.
+	measure 'Mix Effect' = SUM(revenue_bridge[mix])
+		formatString: \$#,0
+		lineageTag: fc8725b1-f973-5bdb-8dd0-7456866b0748
+		displayFolder: Revenue Bridge
+
+	/// Price movement on what actually shipped. The three effects add to the change exactly - a test asserts it to the cent.
+	measure 'Rate Effect' = SUM(revenue_bridge[rate])
+		formatString: \$#,0
+		lineageTag: c2ef000b-a952-55cc-b259-f66a7434363d
+		displayFolder: Revenue Bridge
+
+	measure 'Protein Change' = SUM(revenue_bridge_by_protein[change])
+		formatString: \$#,0
+		lineageTag: 84d9e1ea-aef1-5e4c-954c-0da1bdb97174
+		displayFolder: Revenue Bridge
+
+	measure 'Protein Volume' = SUM(revenue_bridge_by_protein[volume])
+		formatString: \$#,0
+		lineageTag: 79b0731a-9a4f-54c5-8db8-6a46b2f0bd80
+		displayFolder: Revenue Bridge
+
+	measure 'Protein Mix' = SUM(revenue_bridge_by_protein[mix])
+		formatString: \$#,0
+		lineageTag: 4f47b51c-0231-5732-8b31-b5cb36ea892d
+		displayFolder: Revenue Bridge
+
+	measure 'Customer Share' = SUM(customer_concentration[share])
+		formatString: 0.0%
+		lineageTag: 2cbbce02-05a6-5ab9-b020-3c46cf4fbd66
+		displayFolder: Revenue Bridge
+
+	measure 'Cumulative Share' = SUM(customer_concentration[cumulative_share])
+		formatString: 0.0%
+		lineageTag: 06a3759a-f6c3-579a-8302-7422600488f5
+		displayFolder: Revenue Bridge
+
+	measure 'Customer Revenue' = SUM(customer_concentration[revenue])
+		formatString: \$#,0
+		lineageTag: 73bfebf1-658e-5b72-9189-a88da996d19a
+		displayFolder: Revenue Bridge
+
+	/// Revenue behind accounts already flagged High against their own reorder rhythm. Not a probability-weighted figure: there is no churn probability in this data and inventing one would put a decimal point on a guess.
+	measure 'Revenue At Risk' = SUM(bridge_headline[revenue_at_risk])
+		formatString: \$#,0
+		lineageTag: bb251b0e-5962-5bb3-9a86-a985a1ac3f73
+		displayFolder: Revenue Bridge
+
+	/// Herfindahl-Hirschman index on customer revenue share, read against the published 1,500 / 2,500 bands rather than a scale invented here.
+	measure 'HHI' = SUM(bridge_headline[hhi])
+		formatString: #,0
+		lineageTag: 890f6499-c7c6-5e19-b7ef-3b504e39b31a
+		displayFolder: Revenue Bridge
+
+	measure 'Revenue Change' = SUM(bridge_headline[revenue_change])
+		formatString: \$#,0
+		lineageTag: 12af14ff-42f8-520e-aaf1-002e79f22f81
+		displayFolder: Revenue Bridge
+
+	/// How far the weighted cost of off-invoice terms moved between the two halves. Positive means the book drifted towards accounts whose terms cost more - which no revenue report would have said.
+	measure 'Leakage Drift' = SUM(bridge_headline[leakage_drift_pts])
+		formatString: +0.000;-0.000;0.000
+		lineageTag: 4bc08a2a-c746-5a78-9c0e-ac18ea5476a8
+		displayFolder: Revenue Bridge
+
+	/// Green where the category grew, red where it shrank.
+	measure 'Effect Colour' =
+			VAR vHere = [Protein Change]
+			RETURN IF(vHere < 0, "#FF5C7A", "#3DD68C")
+		lineageTag: ce271d3c-dc9e-54a0-80d6-c986081527d9
+		displayFolder: Revenue Bridge
+
+	measure 'Bridge Reference' = FORMAT(SUM(bridge_headline[revenue_change_pct]), "+0.0%;-0.0%;0.0%") & " on revenue, " & FORMAT(SUM(bridge_headline[pocket_change_pct]), "+0.0%;-0.0%;0.0%") & " on pocket margin"
+		lineageTag: 66451aec-3d4e-5c92-aaec-5472c9bb04e8
+		displayFolder: Revenue Bridge
+
+	measure 'Concentration Reference' = FORMAT(SUM(bridge_headline[top10_share]), "0.0%") & " with the top ten, " & FORMAT(SUM(bridge_headline[customers_to_half_the_book]), "0") & " customers make half the book"
+		lineageTag: b14aa173-ca23-5577-b137-8d15d7c4869c
+		displayFolder: Revenue Bridge
+
+	measure 'Risk Reference' = FORMAT(SUM(bridge_headline[customers_at_risk]), "0") & " accounts flagged High   " & FORMAT(SUM(bridge_headline[revenue_at_risk_pct]), "0.0%") & " of the book"
+		lineageTag: 3abe5b3a-f0a8-5b06-bbd3-fae6fb8dc77b
+		displayFolder: Revenue Bridge
+
+	measure 'Drift Reference' = FORMAT(SUM(bridge_headline[leakage_rate_prior]), "0.00%") & " to " & FORMAT(SUM(bridge_headline[leakage_rate_current]), "0.00%") & " weighted cost of terms"
+		lineageTag: ba70f1a8-bbd6-561c-a7fc-6e17ccafc614
+		displayFolder: Revenue Bridge
+
+	/// The bridge and concentration headline as a deterministic sentence.
+	measure 'Bridge Insight' =
+			VAR vChange = SUM(bridge_headline[revenue_change])
+			VAR vChangePct = SUM(bridge_headline[revenue_change_pct])
+			VAR vVolume = SUM(bridge_headline[revenue_volume])
+			VAR vMix = SUM(bridge_headline[revenue_mix])
+			VAR vRate = SUM(bridge_headline[revenue_rate])
+			VAR vPocketPct = SUM(bridge_headline[pocket_change_pct])
+			VAR vDrift = SUM(bridge_headline[leakage_drift_pts])
+			VAR vWorst = MAX(bridge_headline[worst_protein])
+			VAR vWorstChange = SUM(bridge_headline[worst_protein_change])
+			VAR vHhi = SUM(bridge_headline[hhi])
+			VAR vBand = MAX(bridge_headline[hhi_band])
+			VAR vTop10 = SUM(bridge_headline[top10_share])
+			VAR vRisk = SUM(bridge_headline[revenue_at_risk])
+			VAR vRiskPct = SUM(bridge_headline[revenue_at_risk_pct])
+			RETURN
+			    "Revenue moved " & FORMAT(vChange, "+$#,0;-$#,0;$0") & " ("
+			        & FORMAT(vChangePct, "+0.0%;-0.0%;0.0%") & "): volume "
+			        & FORMAT(vVolume, "+$#,0;-$#,0;$0") & ", mix "
+			        & FORMAT(vMix, "+$#,0;-$#,0;$0") & ", rate "
+			        & FORMAT(vRate, "+$#,0;-$#,0;$0")
+			        & ". Pocket margin moved " & FORMAT(vPocketPct, "+0.0%;-0.0%;0.0%")
+			        & " - a different distance, because the weighted cost of off-invoice "
+			        & "terms drifted " & FORMAT(vDrift, "+0.000;-0.000;0.000")
+			        & " points and the book landed on accounts whose terms cost more. "
+			        & vWorst & " is the category that gave up the most at "
+			        & FORMAT(vWorstChange, "+$#,0;-$#,0;$0") & ". The book is "
+			        & vBand & " at an HHI of " & FORMAT(vHhi, "#,0") & ", with "
+			        & FORMAT(vTop10, "0.0%") & " of revenue on the top ten and "
+			        & FORMAT(vRisk, "$#,0") & " (" & FORMAT(vRiskPct, "0.0%")
+			        & ") behind accounts already overdue against their own rhythm."
+		lineageTag: 9c17d4c0-7db2-50b2-8af4-0de8bf4c4e03
+		displayFolder: Revenue Bridge
+
 	column Value
 		dataType: int64
 		isHidden

@@ -1,0 +1,60 @@
+/// Which off-invoice term costs most, ranked on money rather than on how often it fires.
+table leakage_by_component
+	lineageTag: e185763d-9c0f-5d86-930e-e6e26f49896a
+
+	column component
+		dataType: string
+		lineageTag: 80c33164-073b-584d-8330-beaeb7424813
+		summarizeBy: none
+		sourceColumn: component
+
+	column value
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 2c999516-ed4c-573e-ba3e-488685a03e2f
+		summarizeBy: none
+		sourceColumn: value
+
+	column pct_of_invoice
+		dataType: double
+		formatString: 0.00%
+		lineageTag: 16ab985a-0cf4-507c-9ff9-4e396a7e2e12
+		summarizeBy: none
+		sourceColumn: pct_of_invoice
+
+	column orders_affected
+		dataType: int64
+		formatString: #,0
+		lineageTag: e8a503d8-9baa-583f-a768-2fbe2b46b830
+		summarizeBy: none
+		sourceColumn: orders_affected
+
+	column share_of_leakage
+		dataType: double
+		formatString: 0.0%
+		lineageTag: f4302cd2-f1b1-5225-94b5-f03857422c29
+		summarizeBy: none
+		sourceColumn: share_of_leakage
+
+	column cumulative_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 8cb10e5c-9597-5dc1-943b-9fa1176be7c9
+		summarizeBy: none
+		sourceColumn: cumulative_share
+
+	column note
+		dataType: string
+		lineageTag: 59575536-2a29-598c-a83c-572210d187f9
+		summarizeBy: none
+		sourceColumn: note
+
+	partition leakage_by_component = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\leakage_by_component.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"component", type text}, {"value", type number}, {"pct_of_invoice", type number}, {"orders_affected", Int64.Type}, {"note", type text}, {"share_of_leakage", type number}, {"cumulative_share", type number}})
+				in
+				    Typed

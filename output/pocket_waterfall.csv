@@ -1,0 +1,8 @@
+step,kind,amount,note,order
+List revenue,start,3152588.5,The catalogue price applied to everything that shipped.,1
+Invoice price variance,leak,2402.12,"Realised price against the catalogue, running both ways. It is the only lever on this chart anyone manages weekly, and on this book it nets to a small premium - which is the finding, not a rounding error: the money is not leaving through the door everybody is watching.",2
+Invoice revenue,subtotal,3154990.62,Where every other report in this repo stops.,3
+Off-invoice terms,leak,-134581.67,"Volume rebate, co-op advertising, freight absorbed, cash discount and credit notes. None of them appear on an invoice line, which is why almost nobody measures them per customer.",4
+Pocket revenue,subtotal,3020408.95,What actually reached the bank.,5
+Cost of goods,leak,-2085061.2,,6
+Pocket margin,total,935347.75,The number the business is actually run on.,7

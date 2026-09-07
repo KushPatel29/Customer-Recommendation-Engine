@@ -1,0 +1,89 @@
+/// Price / volume / mix, on invoice revenue and again on pocket margin. The three effects reconcile to the change exactly - a test asserts it to the cent, because a bridge that does not reconcile is worse than no bridge.
+table revenue_bridge
+	lineageTag: aa6ea903-b5ba-55a0-a4b4-b24324eded74
+
+	column measure
+		dataType: string
+		lineageTag: b9640c1d-773a-5ec6-a369-c4d86d0636e3
+		summarizeBy: none
+		sourceColumn: measure
+
+	column prior
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 90740f89-a22c-5f59-8679-86490e4bbc23
+		summarizeBy: none
+		sourceColumn: prior
+
+	column current
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 2a698f56-58e1-5d50-953e-9f5e4ae979b0
+		summarizeBy: none
+		sourceColumn: current
+
+	column change
+		dataType: double
+		formatString: \$#,0
+		lineageTag: af30983d-51ff-5686-8348-6947b58de9a5
+		summarizeBy: none
+		sourceColumn: change
+
+	column volume
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 9858d11d-3a51-5e70-9d13-2eb3efbb249e
+		summarizeBy: none
+		sourceColumn: volume
+
+	column mix
+		dataType: double
+		formatString: \$#,0
+		lineageTag: c089a826-ac49-59d8-bb27-2cbbf3b995e6
+		summarizeBy: none
+		sourceColumn: mix
+
+	column rate
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 5f2a7342-a2b2-5aa7-9941-4f9c8fddfa3f
+		summarizeBy: none
+		sourceColumn: rate
+
+	column prior_qty
+		dataType: double
+		formatString: #,0
+		lineageTag: cbac83c0-94ca-5bc7-9e1a-9ba1942261f1
+		summarizeBy: none
+		sourceColumn: prior_qty
+
+	column current_qty
+		dataType: double
+		formatString: #,0
+		lineageTag: 84a539a7-be14-5964-ad3a-e5850aaf9de6
+		summarizeBy: none
+		sourceColumn: current_qty
+
+	column prior_avg_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: 77c1adcc-fa94-52de-b7ee-606e86df43b1
+		summarizeBy: none
+		sourceColumn: prior_avg_price
+
+	column current_avg_price
+		dataType: double
+		formatString: \$#,0.00
+		lineageTag: cd346265-e291-5adb-81fe-4b2a4f35b369
+		summarizeBy: none
+		sourceColumn: current_avg_price
+
+	partition revenue_bridge = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\revenue_bridge.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"measure", type text}, {"prior", type number}, {"current", type number}, {"change", type number}, {"volume", type number}, {"mix", type number}, {"rate", type number}, {"prior_qty", type number}, {"current_qty", type number}, {"prior_avg_price", type number}, {"current_avg_price", type number}})
+				in
+				    Typed

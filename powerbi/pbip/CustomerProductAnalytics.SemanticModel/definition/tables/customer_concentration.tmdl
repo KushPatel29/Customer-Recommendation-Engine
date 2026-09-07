@@ -1,0 +1,133 @@
+/// Revenue share, cumulative share and churn flag per customer. Revenue at risk is revenue behind accounts already measured as High against their OWN reorder rhythm - never revenue multiplied by an invented churn probability.
+table customer_concentration
+	lineageTag: 0d2348ae-275c-5571-9dff-f3021779b832
+
+	column customer_id
+		dataType: string
+		isHidden
+		lineageTag: b6dafffb-2f5e-5247-8f05-e04ef998b86b
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: 2e8772b9-3e3a-5ecc-aad7-62a4eaed6919
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column region
+		dataType: string
+		lineageTag: c88bc242-a410-536d-8cfe-006753f9ca2d
+		summarizeBy: none
+		sourceColumn: region
+
+	column rep
+		dataType: string
+		lineageTag: a96bd485-9614-5616-acf4-5f9c8d0faacb
+		summarizeBy: none
+		sourceColumn: rep
+
+	column persona
+		dataType: string
+		lineageTag: 23e3e4de-3338-5df3-985e-193a9014261d
+		summarizeBy: none
+		sourceColumn: persona
+
+	column churn_risk
+		dataType: string
+		lineageTag: bde455a1-f387-50a3-bbfd-3519d437c4fa
+		summarizeBy: none
+		sourceColumn: churn_risk
+
+	column rfm_segment
+		dataType: string
+		lineageTag: 65fbadac-57a4-5ef3-b9ed-f49f8f925749
+		summarizeBy: none
+		sourceColumn: rfm_segment
+
+	column rank
+		dataType: int64
+		formatString: 0
+		lineageTag: de3278c6-c770-5ef4-aedb-8d904b1528da
+		summarizeBy: none
+		sourceColumn: rank
+
+	column revenue
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 9c863709-49b6-5a68-8865-a531c4881814
+		summarizeBy: none
+		sourceColumn: revenue
+
+	column share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 78e42ef2-c05b-51e5-843c-4039fdc2e2ca
+		summarizeBy: none
+		sourceColumn: share
+
+	column cumulative_share
+		dataType: double
+		formatString: 0.0%
+		lineageTag: adcf97f2-b761-5ed9-8ae3-f9000e94beca
+		summarizeBy: none
+		sourceColumn: cumulative_share
+
+	column days_overdue
+		dataType: double
+		formatString: #,0
+		lineageTag: 3855bbff-94a0-5a88-bae1-72ce269bcf44
+		summarizeBy: none
+		sourceColumn: days_overdue
+
+	column median_reorder_days
+		dataType: double
+		formatString: #,0
+		lineageTag: 3195d007-be87-5f72-8e40-60f9506f53c4
+		summarizeBy: none
+		sourceColumn: median_reorder_days
+
+	column overdue_ratio
+		dataType: double
+		formatString: 0.0
+		lineageTag: 583d2c3d-7f12-5267-9bae-3f1687945408
+		summarizeBy: none
+		sourceColumn: overdue_ratio
+
+	column pocket_margin
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 9286cea2-07c7-58f4-ab0c-bb9ae9700721
+		summarizeBy: none
+		sourceColumn: pocket_margin
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 2f83c1b0-2f41-5d28-825e-ff046869694a
+		summarizeBy: none
+		sourceColumn: leakage_pct
+
+	column revenue_at_risk
+		dataType: double
+		formatString: \$#,0
+		lineageTag: c8abef7c-da28-5c4a-9889-2dcb6c8b0e52
+		summarizeBy: none
+		sourceColumn: revenue_at_risk
+
+	column revenue_watchlist
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 5ed035fa-6cf1-5639-94a1-aab249143eae
+		summarizeBy: none
+		sourceColumn: revenue_watchlist
+
+	partition customer_concentration = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\customer_concentration.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"revenue", type number}, {"share", type number}, {"cumulative_share", type number}, {"rank", Int64.Type}, {"customer_name", type text}, {"region", type text}, {"rep", type text}, {"persona", type text}, {"churn_risk", type text}, {"rfm_segment", type text}, {"days_overdue", type number}, {"median_reorder_days", type number}, {"pocket_margin", type number}, {"leakage_pct", type number}, {"revenue_at_risk", type number}, {"revenue_watchlist", type number}, {"overdue_ratio", type number}})
+				in
+				    Typed

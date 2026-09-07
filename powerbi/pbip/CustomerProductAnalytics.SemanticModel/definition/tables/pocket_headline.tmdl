@@ -1,0 +1,274 @@
+/// One row: the pocket-margin headline figures the cards read. A single row cannot be double-counted by a roll-up.
+table pocket_headline
+	lineageTag: 5ef1628c-2549-5e45-90f0-3a7887330e97
+
+	column orders
+		dataType: int64
+		formatString: #,0
+		lineageTag: 396171b3-b3a1-5abf-a83e-ec6ffc672d63
+		summarizeBy: none
+		sourceColumn: orders
+
+	column customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: ea277476-511a-5d10-9815-64b0924ff425
+		summarizeBy: none
+		sourceColumn: customers
+
+	column window_start
+		dataType: string
+		lineageTag: d664d345-8bd0-5956-a3dc-e833ba8234fb
+		summarizeBy: none
+		sourceColumn: window_start
+
+	column window_end
+		dataType: string
+		lineageTag: 01a1e5b8-619c-5cd8-930a-e5f99bb3e6da
+		summarizeBy: none
+		sourceColumn: window_end
+
+	column list_revenue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7899ba0b-8d3f-5c3a-8559-4ab565e71c97
+		summarizeBy: none
+		sourceColumn: list_revenue
+
+	column invoice_revenue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d65ef1bd-7e4c-5c25-9194-67d5065d38b2
+		summarizeBy: none
+		sourceColumn: invoice_revenue
+
+	column invoice_discount
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 95163f76-b747-5bad-81f9-a508a11a6e21
+		summarizeBy: none
+		sourceColumn: invoice_discount
+
+	column invoice_discount_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b1ee1ad6-6b64-5b47-b94e-5add69bb0e38
+		summarizeBy: none
+		sourceColumn: invoice_discount_pct
+
+	column off_invoice_leakage
+		dataType: double
+		formatString: #,0.00
+		lineageTag: f9f83ba3-6efe-52dc-add8-46030717d009
+		summarizeBy: none
+		sourceColumn: off_invoice_leakage
+
+	column off_invoice_leakage_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 885451ff-34df-57c9-b260-0338c194e036
+		summarizeBy: none
+		sourceColumn: off_invoice_leakage_pct
+
+	column leakage_vs_price_variance_multiple
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 33a251eb-9146-5503-8499-439f3fb445a4
+		summarizeBy: none
+		sourceColumn: leakage_vs_price_variance_multiple
+
+	column pocket_revenue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: fb6ff32b-90e8-5d67-b6d6-aef494139b35
+		summarizeBy: none
+		sourceColumn: pocket_revenue
+
+	column invoice_margin
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6f567154-9106-594d-ae29-44fdbadd1fc9
+		summarizeBy: none
+		sourceColumn: invoice_margin
+
+	column invoice_margin_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 65dc2e59-7a42-501d-8694-6cedff2e0e1c
+		summarizeBy: none
+		sourceColumn: invoice_margin_pct
+
+	column pocket_margin
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 249880bd-c5a7-5377-b919-0f71ce115842
+		summarizeBy: none
+		sourceColumn: pocket_margin
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 180a1f72-ce94-5919-8727-9957c7c42054
+		summarizeBy: none
+		sourceColumn: pocket_margin_pct
+
+	column margin_points_lost
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 38bca889-093e-5f22-a76d-44d107fd30a0
+		summarizeBy: none
+		sourceColumn: margin_points_lost
+
+	column band_low_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b35bb46e-ea33-5118-83d2-5a52ab0b7992
+		summarizeBy: none
+		sourceColumn: band_low_pct
+
+	column band_high_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 9340e3b3-b577-5c3f-af7d-2679b6662b9e
+		summarizeBy: none
+		sourceColumn: band_high_pct
+
+	column band_width_pts
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 6551b145-9442-53e6-8d20-740fa563cf78
+		summarizeBy: none
+		sourceColumn: band_width_pts
+
+	column leakage_low_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 10c5c20b-7664-54e1-94bb-20b71faeb241
+		summarizeBy: none
+		sourceColumn: leakage_low_pct
+
+	column leakage_high_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dd762282-8826-5162-866e-ce1429694d1b
+		summarizeBy: none
+		sourceColumn: leakage_high_pct
+
+	column corr_revenue_leakage
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a60c77d5-837f-5029-b2fa-8237fb468dca
+		summarizeBy: none
+		sourceColumn: corr_revenue_leakage
+
+	column top_component
+		dataType: string
+		lineageTag: d0f4cc96-8a40-51a6-9829-f5c0e28f423d
+		summarizeBy: none
+		sourceColumn: top_component
+
+	column top_component_value
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 4f094158-194c-532e-9e5a-64a5693cbfaf
+		summarizeBy: none
+		sourceColumn: top_component_value
+
+	column top_component_share
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a1a7f532-71f7-5aff-afca-e43c326eb721
+		summarizeBy: none
+		sourceColumn: top_component_share
+
+	column mismatched_customers
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2bf0fd4d-6aaf-5f4d-a19e-a60e4e10fa14
+		summarizeBy: none
+		sourceColumn: mismatched_customers
+
+	column mismatched_revenue
+		dataType: double
+		formatString: #,0.00
+		lineageTag: a5262424-5778-5b8c-95fe-2417cc648111
+		summarizeBy: none
+		sourceColumn: mismatched_revenue
+
+	column mismatched_leakage
+		dataType: double
+		formatString: #,0.00
+		lineageTag: bf82d7ca-2924-5133-a8cc-e95b8c482e55
+		summarizeBy: none
+		sourceColumn: mismatched_leakage
+
+	column opportunity_to_median
+		dataType: double
+		formatString: #,0.00
+		lineageTag: d9cca648-df2c-5600-af83-5fd455b06cea
+		summarizeBy: none
+		sourceColumn: opportunity_to_median
+
+	column opportunity_pct_of_margin
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 1057d1ef-f407-5f88-b0e5-28c9e8f618ca
+		summarizeBy: none
+		sourceColumn: opportunity_pct_of_margin
+
+	column smallest_band
+		dataType: string
+		lineageTag: a9931c07-26f7-56ac-b4d2-52d647d486e2
+		summarizeBy: none
+		sourceColumn: smallest_band
+
+	column smallest_band_orders
+		dataType: int64
+		formatString: #,0
+		lineageTag: bed06a8e-475a-5b37-aa4d-0c049250fa65
+		summarizeBy: none
+		sourceColumn: smallest_band_orders
+
+	column smallest_band_freight_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: b2274a00-b301-517b-9a9c-72ff0e5dd2cc
+		summarizeBy: none
+		sourceColumn: smallest_band_freight_pct
+
+	column smallest_band_margin_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 7dac5847-f77d-52f9-8b69-0a7fd27a3a7b
+		summarizeBy: none
+		sourceColumn: smallest_band_margin_pct
+
+	column largest_band
+		dataType: string
+		lineageTag: 9a0fe1ab-2062-5416-8257-6edfc4dc02e8
+		summarizeBy: none
+		sourceColumn: largest_band
+
+	column largest_band_freight_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: dddbefe0-f69e-59f0-aabd-19897c966c7d
+		summarizeBy: none
+		sourceColumn: largest_band_freight_pct
+
+	column largest_band_margin_pct
+		dataType: double
+		formatString: #,0.00
+		lineageTag: e3480a84-16ff-57d8-939e-a1a75a8ff217
+		summarizeBy: none
+		sourceColumn: largest_band_margin_pct
+
+	partition pocket_headline = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\pocket_margin_headline.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"orders", Int64.Type}, {"customers", Int64.Type}, {"window_start", type text}, {"window_end", type text}, {"list_revenue", type number}, {"invoice_revenue", type number}, {"invoice_discount", type number}, {"invoice_discount_pct", type number}, {"off_invoice_leakage", type number}, {"off_invoice_leakage_pct", type number}, {"leakage_vs_price_variance_multiple", type number}, {"pocket_revenue", type number}, {"invoice_margin", type number}, {"invoice_margin_pct", type number}, {"pocket_margin", type number}, {"pocket_margin_pct", type number}, {"margin_points_lost", type number}, {"band_low_pct", type number}, {"band_high_pct", type number}, {"band_width_pts", type number}, {"leakage_low_pct", type number}, {"leakage_high_pct", type number}, {"corr_revenue_leakage", type number}, {"top_component", type text}, {"top_component_value", type number}, {"top_component_share", type number}, {"mismatched_customers", Int64.Type}, {"mismatched_revenue", type number}, {"mismatched_leakage", type number}, {"opportunity_to_median", type number}, {"opportunity_pct_of_margin", type number}, {"smallest_band", type text}, {"smallest_band_orders", Int64.Type}, {"smallest_band_freight_pct", type number}, {"smallest_band_margin_pct", type number}, {"largest_band", type text}, {"largest_band_freight_pct", type number}, {"largest_band_margin_pct", type number}})
+				in
+				    Typed

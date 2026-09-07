@@ -1,0 +1,216 @@
+/// Per customer: invoice revenue, every off-invoice term, pocket margin and the leakage rate. The spread across this table is the pocket-price band - customers buying the same catalogue at near-identical invoice prices, worth very different amounts once the terms are settled.
+table pocket_by_customer
+	lineageTag: 6d588ad9-0fb6-5d84-8e7f-a7c1d926044d
+
+	column customer_id
+		dataType: string
+		isHidden
+		lineageTag: a882a876-ecd3-5f4a-a81b-df5fd4b29a2b
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column customer_name
+		dataType: string
+		lineageTag: 30997926-fb76-5bd1-b202-64f77df908be
+		summarizeBy: none
+		sourceColumn: customer_name
+
+	column persona
+		dataType: string
+		lineageTag: 96356166-c5ae-56af-a338-4af2069e4b0d
+		summarizeBy: none
+		sourceColumn: persona
+
+	column region
+		dataType: string
+		lineageTag: bb7aff8c-57ef-5c98-bd34-29e4403be94c
+		summarizeBy: none
+		sourceColumn: region
+
+	column rep
+		dataType: string
+		lineageTag: b18da431-b4ac-58c2-afef-521483efd110
+		summarizeBy: none
+		sourceColumn: rep
+
+	column freight_policy
+		dataType: string
+		lineageTag: 63d10257-3f2c-55fb-9c33-210fd870d501
+		summarizeBy: none
+		sourceColumn: freight_policy
+
+	column payment_terms
+		dataType: string
+		lineageTag: dd93c96a-0810-5cd9-b4df-a6700825cf20
+		summarizeBy: none
+		sourceColumn: payment_terms
+
+	column value_quartile
+		dataType: string
+		lineageTag: 8a2cfe64-bd8c-5eed-b4c0-10a15a69b762
+		summarizeBy: none
+		sourceColumn: value_quartile
+
+	column terms_quartile
+		dataType: string
+		lineageTag: 537995e5-0356-5a0b-a66f-5efa1ad1b81b
+		summarizeBy: none
+		sourceColumn: terms_quartile
+
+	column terms_outrank_value
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 0caa71ce-b0b1-53be-87da-7a28ddada8b9
+		summarizeBy: none
+		sourceColumn: terms_outrank_value
+
+	column orders
+		dataType: int64
+		formatString: #,0
+		lineageTag: 4b7105ab-7e70-5cb4-be38-22e7ef744be7
+		summarizeBy: none
+		sourceColumn: orders
+
+	column pounds
+		dataType: double
+		formatString: #,0
+		lineageTag: d36bfc61-db17-5929-8f8a-dc9c1af13d95
+		summarizeBy: none
+		sourceColumn: pounds
+
+	column list_revenue
+		dataType: double
+		formatString: \$#,0
+		lineageTag: b41be55c-3590-5598-a1a5-63c2aad62471
+		summarizeBy: none
+		sourceColumn: list_revenue
+
+	column invoice_revenue
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 08adfd0f-3005-5abb-884a-6ee8442558ce
+		summarizeBy: none
+		sourceColumn: invoice_revenue
+
+	column off_invoice_total
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 7edd5ee4-d593-5ce4-9b42-d0e145657935
+		summarizeBy: none
+		sourceColumn: off_invoice_total
+
+	column pocket_revenue
+		dataType: double
+		formatString: \$#,0
+		lineageTag: cadd8cd2-7da8-5fd1-8161-94ba662a0990
+		summarizeBy: none
+		sourceColumn: pocket_revenue
+
+	column cogs
+		dataType: double
+		formatString: \$#,0
+		lineageTag: a0f29b72-cd74-5202-910b-7aee216875f2
+		summarizeBy: none
+		sourceColumn: cogs
+
+	column invoice_margin
+		dataType: double
+		formatString: \$#,0
+		lineageTag: d4c16f91-3448-53b2-b945-fddbb3c63746
+		summarizeBy: none
+		sourceColumn: invoice_margin
+
+	column pocket_margin
+		dataType: double
+		formatString: \$#,0
+		lineageTag: a1b30905-2b91-53c6-b291-4091bdec5d60
+		summarizeBy: none
+		sourceColumn: pocket_margin
+
+	column rebate_accrued
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 6b055fa8-b9e3-5ebc-a2b5-7d9d7c6246fb
+		summarizeBy: none
+		sourceColumn: rebate_accrued
+
+	column coop_allowance
+		dataType: double
+		formatString: \$#,0
+		lineageTag: d0497c8c-3570-5062-8141-fd53817ea18e
+		summarizeBy: none
+		sourceColumn: coop_allowance
+
+	column freight_absorbed
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 3988cc1e-9c02-5a97-bc4f-7060ab8a7109
+		summarizeBy: none
+		sourceColumn: freight_absorbed
+
+	column cash_discount_taken
+		dataType: double
+		formatString: \$#,0
+		lineageTag: fe69c4cf-e399-5119-8066-b356a939a057
+		summarizeBy: none
+		sourceColumn: cash_discount_taken
+
+	column credit_notes
+		dataType: double
+		formatString: \$#,0
+		lineageTag: 92f87664-64eb-5319-8704-820a5c3ef806
+		summarizeBy: none
+		sourceColumn: credit_notes
+
+	column leakage_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 117f2510-45cf-5c5d-975a-fc0baf800645
+		summarizeBy: none
+		sourceColumn: leakage_pct
+
+	column invoice_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: df38b1e1-efe3-5507-8dd7-714cc1c42393
+		summarizeBy: none
+		sourceColumn: invoice_margin_pct
+
+	column pocket_margin_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 7ba29d0f-ff50-522b-b630-c0e3c6d1bf36
+		summarizeBy: none
+		sourceColumn: pocket_margin_pct
+
+	column avg_order_value
+		dataType: double
+		formatString: \$#,0
+		lineageTag: d731c57d-4928-5900-b5f0-7e553416a4c7
+		summarizeBy: none
+		sourceColumn: avg_order_value
+
+	column rebate_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 3ede7ee1-5fe0-5b14-b10c-d71e16b5005e
+		summarizeBy: none
+		sourceColumn: rebate_pct
+
+	column coop_allowance_pct
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 118f1f98-f21d-5796-b970-55dad5edcb80
+		summarizeBy: none
+		sourceColumn: coop_allowance_pct
+
+	partition pocket_by_customer = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\pocket_by_customer.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"customer_id", type text}, {"orders", Int64.Type}, {"pounds", type number}, {"list_revenue", type number}, {"invoice_revenue", type number}, {"off_invoice_total", type number}, {"pocket_revenue", type number}, {"cogs", type number}, {"invoice_margin", type number}, {"pocket_margin", type number}, {"rebate_accrued", type number}, {"coop_allowance", type number}, {"freight_absorbed", type number}, {"cash_discount_taken", type number}, {"credit_notes", type number}, {"leakage_pct", type number}, {"invoice_margin_pct", type number}, {"pocket_margin_pct", type number}, {"avg_order_value", type number}, {"customer_name", type text}, {"persona", type text}, {"region", type text}, {"rep", type text}, {"rebate_pct", type number}, {"freight_policy", type text}, {"payment_terms", type text}, {"coop_allowance_pct", type number}, {"value_quartile", type text}, {"terms_quartile", type text}, {"terms_outrank_value", Int64.Type}})
+				in
+				    Typed
