@@ -7,7 +7,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "MeridianTheme.json",
+      "name": "MeridianNocturne.json",
       "reportVersionAtImport": "5.61",
       "type": "RegisteredResources"
     }
@@ -32,6 +32,11 @@
         {
           "name": "MeridianTheme.json",
           "path": "MeridianTheme.json",
+          "type": "CustomTheme"
+        },
+        {
+          "name": "MeridianNocturne.json",
+          "path": "MeridianNocturne.json",
           "type": "CustomTheme"
         }
       ]

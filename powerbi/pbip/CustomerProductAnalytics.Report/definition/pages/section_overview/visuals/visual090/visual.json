@@ -1,37 +1,19 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "visual008",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.0.0/schema.json",
+  "name": "visual090",
   "position": {
-    "x": 20,
-    "y": 450,
-    "z": 8000,
-    "height": 250,
-    "width": 620,
-    "tabOrder": 8000
+    "x": 840,
+    "y": 536,
+    "z": 1090,
+    "height": 164,
+    "width": 420,
+    "tabOrder": 1090
   },
   "visual": {
-    "visualType": "treemap",
+    "visualType": "card",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Group": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_customer"
-                    }
-                  },
-                  "Property": "region"
-                }
-              },
-              "queryRef": "dim_customer.region",
-              "nativeQueryRef": "region",
-              "active": true
-            }
-          ]
-        },
         "Values": {
           "projections": [
             {
@@ -42,11 +24,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Total Revenue"
+                  "Property": "Commercial Insight"
                 }
               },
-              "queryRef": "_Measures.Total Revenue",
-              "nativeQueryRef": "Total Revenue"
+              "queryRef": "_Measures.Commercial Insight",
+              "nativeQueryRef": "Commercial Insight"
             }
           ]
         }
@@ -59,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Revenue by Region'"
+                  "Value": "'What the book is telling you'"
                 }
               }
             },
@@ -74,9 +56,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "objects": {
       "labels": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "wordWrap": [
         {
           "properties": {
             "show": {
@@ -89,23 +90,10 @@
           }
         }
       ],
-      "categoryAxis": [
+      "categoryLabels": [
         {
           "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"

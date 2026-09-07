@@ -2,11 +2,11 @@ table _Measures
 	lineageTag: 3c292cb7-b83b-4a4a-b806-8882ed9867c7
 
 	measure 'Total Revenue' = SUM(fact_sales[revenue])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: ce9f147f-f082-402b-a348-c22cf69a8ff8
 
 	measure 'Total Margin' = SUM(fact_sales[revenue]) - SUM(fact_sales[cost])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 5563405f-bf63-4e74-8d72-c0be38bf919d
 
 	measure 'Margin %' = DIVIDE([Total Margin], [Total Revenue])
@@ -18,7 +18,7 @@ table _Measures
 		lineageTag: e40178b8-ff51-4c5a-a60b-5e8e42239c12
 
 	measure 'Avg Order Value' = DIVIDE([Total Revenue], [Orders])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 09c7eda2-072c-463b-8fdd-fda4e134c86a
 
 	measure 'Customer Count' = COUNTROWS(dim_customer)
@@ -30,11 +30,11 @@ table _Measures
 		lineageTag: d6ee26d1-9d03-41bc-bc55-5460f99e1198
 
 	measure 'At-Risk Revenue' = CALCULATE([Total Revenue], dim_customer[rfm_segment] IN {"At Risk", "At Risk (was valuable)"})
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 78e51e40-95a9-4da8-bc95-cfbca8a3c03f
 
 	measure 'Avg CLV (12m)' = AVERAGE(dim_customer[clv_12m_runrate])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 61c6bf12-10db-43ce-906f-b5946a3b9422
 
 	measure 'High Churn-Risk Customers' = CALCULATE(COUNTROWS(dim_customer), dim_customer[churn_risk] = "High")
@@ -58,7 +58,7 @@ table _Measures
 		lineageTag: 2b022f90-e5f1-4527-804f-a34725caa24f
 
 	measure 'Avg Revenue per Customer' = DIVIDE([Total Revenue], [Active Customers])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 575743c8-b52a-4558-9059-c9811675a829
 
 	measure 'Revenue PM' =
@@ -85,11 +85,11 @@ table _Measures
 		lineageTag: 7475570e-a917-4bb9-8211-cd6f4339db48
 
 	measure 'Forecast Revenue (8w)' = SUM(fact_forecast[forecast_revenue])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: 86338e92-3a70-4d33-b9a1-408b1b6c058e
 
 	measure 'Pipeline Opportunity $' = SUM(cross_sell[est_revenue_opportunity])
-		formatString: #,0
+		formatString: \$#,0
 		lineageTag: bd1a1b6d-a747-4fd1-8476-b9402d5fe97b
 
 	measure Recommendations = COUNTROWS(cross_sell)
@@ -131,6 +131,93 @@ table _Measures
 	measure 'Customers Evaluated' = COUNTROWS(holdout_evaluation)
 		formatString: #,0
 		lineageTag: f4d9f494-9a72-4672-9e66-a0d6a3f7e46d
+
+	/// Uses the prior-month measure the model already had.
+	measure 'Revenue Reference' =
+			VAR Prior = [Revenue PM]
+			VAR Change = [Revenue MoM %]
+			RETURN
+			    IF(
+			        ISBLANK(Prior),
+			        "All months in scope",
+			        "Latest month " & IF(Change >= 0, "▲", "▼") & " "
+			            & FORMAT(ABS(Change), "0.0%")
+			            & " on " & FORMAT(DIVIDE(Prior, 1000000), "\$#,0.0") & "M prior"
+			    )
+		lineageTag: 4fbed6f7-f9b1-56ed-9185-e17da27911f5
+		displayFolder: Verdict
+
+	/// Percentage with its numerator and denominator.
+	measure 'Margin Reference' = "Margin " & FORMAT(DIVIDE([Total Margin], 1000000), "\$#,0.0") & "M" & " on " & FORMAT(DIVIDE([Total Revenue], 1000000), "\$#,0.0") & "M" & " revenue"
+		lineageTag: ce64e158-01cf-57af-8c36-857aef0e208a
+		displayFolder: Verdict
+
+	/// A churn count needs its base and its dollar exposure.
+	measure 'Churn Reference' = "of " & FORMAT([Customer Count], "#,0") & " customers   at-risk revenue " & FORMAT(DIVIDE([At-Risk Revenue], 1000000), "\$#,0.0") & "M"
+		lineageTag: cd649f91-43dd-5f6a-8fcd-04ed36ca0bbf
+		displayFolder: Verdict
+
+	/// Card subtitle for Orders.
+	measure 'Orders Reference' = "AOV " & FORMAT([Avg Order Value], "\$#,0") & "   repeat rate " & FORMAT([Avg Repeat Purchase Rate], "0.0%")
+		lineageTag: 17aff791-4a03-51dc-96eb-a280faa691d5
+		displayFolder: Verdict
+
+	/// Semantic: High risk is red whatever its revenue rank.
+	measure 'Churn Risk Colour' =
+			SWITCH(
+			    SELECTEDVALUE(dim_customer[churn_risk]),
+			    "High", "#FF5C7A",
+			    "Medium", "#F5A524",
+			    "#3DD68C"
+			)
+		lineageTag: 741d0ca1-de58-5378-b0b7-c4e14b8cc88d
+		displayFolder: Verdict
+
+	/// ABC is ordinal too: C-class carries the long-tail warning colour even when its revenue bar is small.
+	measure 'ABC Class Colour' =
+			SWITCH(
+			    SELECTEDVALUE(dim_product[abc_class]),
+			    "A", "#8B8BFF",
+			    "B", "#454A82",
+			    "#F5A524"
+			)
+		lineageTag: ab062926-8f93-5105-891f-54dd114eff2d
+		displayFolder: Verdict
+
+	/// Highlights the largest value on the axis and recedes the rest.
+	/// The bare ALLSELECTED() is what makes this work inside a conditional
+	/// format: it restores the VISUAL's filter context, so VALUES() is the
+	/// axis rather than the single data point. Iterating the column alone
+	/// leaves the point's own filter in place and every bar matches itself;
+	/// iterating the table walks rows, which is not the axis unless the
+	/// dimension happens to have one row per value.
+	measure 'Rep Revenue Colour' =
+			VAR Here = [Total Revenue]
+			VAR Extreme =
+			    CALCULATE(
+			        MAXX(VALUES(dim_customer[rep]), [Total Revenue]),
+			        ALLSELECTED()
+			    )
+			RETURN
+			    IF(Here = Extreme, "#3DD68C", "#454A82")
+		lineageTag: 94c7594a-0674-5c00-98bd-e6eb359cac9a
+		displayFolder: Verdict
+
+	/// Concentration and churn exposure in one line - the two things a commercial lead asks after seeing the revenue number.
+	measure 'Commercial Insight' =
+			VAR TopRep =
+			    MAXX(TOPN(1, VALUES(dim_customer[rep]), [Total Revenue], DESC), dim_customer[rep])
+			VAR TopRepRev = CALCULATE([Total Revenue], dim_customer[rep] = TopRep)
+			VAR TopShare = DIVIDE(TopRepRev, [Total Revenue])
+			RETURN
+			    "Revenue " & FORMAT(DIVIDE([Total Revenue], 1000000), "\$#,0.0") & "M" & " at "
+			        & FORMAT([Margin %], "0.0%") & " margin across " & FORMAT([Orders], "#,0")
+			        & " orders. " & TopRep & " carries " & FORMAT(TopShare, "0.0%")
+			        & " of it, and " & FORMAT([High Churn-Risk Customers], "#,0")
+			        & " customers holding " & FORMAT(DIVIDE([At-Risk Revenue], 1000000), "\$#,0.0") & "M"
+			        & " are flagged high churn risk."
+		lineageTag: 831776fe-8e49-5e82-b838-f844fa9c6193
+		displayFolder: Verdict
 
 	column Value
 		dataType: int64
