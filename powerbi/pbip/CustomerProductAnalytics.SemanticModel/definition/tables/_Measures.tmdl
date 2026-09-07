@@ -62,21 +62,21 @@ table _Measures
 		lineageTag: 575743c8-b52a-4558-9059-c9811675a829
 
 	measure 'Revenue PM' =
-			VAR d = MAX(fact_sales[order_date])
-			VAR mstart = DATE(YEAR(d), MONTH(d), 1)
+			VAR vD = MAX(fact_sales[order_date])
+			VAR vMStart = DATE(YEAR(vD), MONTH(vD), 1)
 			RETURN
 			    CALCULATE(
 			        [Total Revenue],
-			        FILTER(ALL(dim_month), dim_month[month_start] = EDATE(mstart, -1))
+			        FILTER(ALL(dim_month), dim_month[month_start] = EDATE(vMStart, -1))
 			    )
 		formatString: #,0
 		lineageTag: 54e87c7e-8785-4b0e-b574-f751a3789c3e
 
 	measure 'Revenue MoM %' =
-			VAR d = MAX(fact_sales[order_date])
-			VAR mstart = DATE(YEAR(d), MONTH(d), 1)
-			VAR cur = CALCULATE([Total Revenue], FILTER(ALL(dim_month), dim_month[month_start] = mstart))
-			RETURN DIVIDE(cur - [Revenue PM], [Revenue PM])
+			VAR vD = MAX(fact_sales[order_date])
+			VAR vMStart = DATE(YEAR(vD), MONTH(vD), 1)
+			VAR vCur = CALCULATE([Total Revenue], FILTER(ALL(dim_month), dim_month[month_start] = vMStart))
+			RETURN DIVIDE(vCur - [Revenue PM], [Revenue PM])
 		formatString: +0.0%;-0.0%;0.0%
 		lineageTag: 49dac373-c682-409b-a0f9-d9e6ceffcd6f
 
@@ -134,15 +134,15 @@ table _Measures
 
 	/// Uses the prior-month measure the model already had.
 	measure 'Revenue Reference' =
-			VAR Prior = [Revenue PM]
-			VAR Change = [Revenue MoM %]
+			VAR vPrior = [Revenue PM]
+			VAR vChange = [Revenue MoM %]
 			RETURN
 			    IF(
-			        ISBLANK(Prior),
+			        ISBLANK(vPrior),
 			        "All months in scope",
-			        "Latest month " & IF(Change >= 0, "▲", "▼") & " "
-			            & FORMAT(ABS(Change), "0.0%")
-			            & " on " & FORMAT(DIVIDE(Prior, 1000000), "\$#,0.0") & "M prior"
+			        "Latest month " & IF(vChange >= 0, "▲", "▼") & " "
+			            & FORMAT(ABS(vChange), "0.0%")
+			            & " on " & FORMAT(DIVIDE(vPrior, 1000000), "\$#,0.0") & "M prior"
 			    )
 		lineageTag: 4fbed6f7-f9b1-56ed-9185-e17da27911f5
 		displayFolder: Verdict
@@ -192,27 +192,27 @@ table _Measures
 	/// iterating the table walks rows, which is not the axis unless the
 	/// dimension happens to have one row per value.
 	measure 'Rep Revenue Colour' =
-			VAR Here = [Total Revenue]
-			VAR Extreme =
+			VAR vHere = [Total Revenue]
+			VAR vExtreme =
 			    CALCULATE(
 			        MAXX(VALUES(dim_customer[rep]), [Total Revenue]),
 			        ALLSELECTED()
 			    )
 			RETURN
-			    IF(Here = Extreme, "#3DD68C", "#454A82")
+			    IF(vHere = vExtreme, "#3DD68C", "#454A82")
 		lineageTag: 94c7594a-0674-5c00-98bd-e6eb359cac9a
 		displayFolder: Verdict
 
 	/// Concentration and churn exposure in one line - the two things a commercial lead asks after seeing the revenue number.
 	measure 'Commercial Insight' =
-			VAR TopRep =
+			VAR vTopRep =
 			    MAXX(TOPN(1, VALUES(dim_customer[rep]), [Total Revenue], DESC), dim_customer[rep])
-			VAR TopRepRev = CALCULATE([Total Revenue], dim_customer[rep] = TopRep)
-			VAR TopShare = DIVIDE(TopRepRev, [Total Revenue])
+			VAR vTopRepRev = CALCULATE([Total Revenue], dim_customer[rep] = vTopRep)
+			VAR vTopShare = DIVIDE(vTopRepRev, [Total Revenue])
 			RETURN
 			    "Revenue " & FORMAT(DIVIDE([Total Revenue], 1000000), "\$#,0.0") & "M" & " at "
 			        & FORMAT([Margin %], "0.0%") & " margin across " & FORMAT([Orders], "#,0")
-			        & " orders. " & TopRep & " carries " & FORMAT(TopShare, "0.0%")
+			        & " orders. " & vTopRep & " carries " & FORMAT(vTopShare, "0.0%")
 			        & " of it, and " & FORMAT([High Churn-Risk Customers], "#,0")
 			        & " customers holding " & FORMAT(DIVIDE([At-Risk Revenue], 1000000), "\$#,0.0") & "M"
 			        & " are flagged high churn risk."
