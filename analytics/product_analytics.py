@@ -20,10 +20,7 @@ Usage:
 import sys
 from pathlib import Path
 
-import matplotlib
 
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -39,6 +36,20 @@ DOCS.mkdir(exist_ok=True)
 
 NAVY, TEAL, ORANGE, PLUM = "#12436D", "#28A197", "#F46A25", "#801650"
 ABC_COLORS = {"A": NAVY, "B": TEAL, "C": "#9AA5B1"}
+
+
+def _plt():
+    """Import matplotlib only when something is actually being drawn.
+
+    Computing metrics should not require a plotting stack. The holdout
+    evaluation now rebuilds its features by calling the metric functions in this
+    module, and a module-level matplotlib import made that pull in Agg, colour
+    maps and font handling to produce a DataFrame.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    return plt
 
 
 def product_metrics(sales: pd.DataFrame) -> pd.DataFrame:
@@ -88,6 +99,7 @@ def product_metrics(sales: pd.DataFrame) -> pd.DataFrame:
 
 
 def plot_portfolio(prod: pd.DataFrame):
+    plt = _plt()
     fig, ax = plt.subplots(figsize=(9.5, 6.2))
     x, y = prod["revenue"] / 1000, prod["growth"] * 100
     size = 2200 * prod["margin_pct"]
@@ -117,6 +129,7 @@ def plot_portfolio(prod: pd.DataFrame):
 
 
 def plot_pareto(prod: pd.DataFrame):
+    plt = _plt()
     p = prod.sort_values("revenue", ascending=False).reset_index(drop=True)
     cum = p["revenue"].cumsum() / p["revenue"].sum()
     fig, ax = plt.subplots(figsize=(9.5, 4.6))

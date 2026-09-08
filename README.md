@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-313%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-317%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -15,7 +15,7 @@ the rep console: pick a customer, see what to pitch next, why, and what it's wor
 The most useful number in this repo is a loss.
 
 The two-stage learned ranker — the architecture every RecSys blog post says
-you should build — scored **80.0%** recall@10 on the holdout. Plain
+you should build — scored **81.2%** recall@10 on the holdout. Plain
 item-neighborhood collaborative filtering scored **84.9%**. So the plain
 model ships, the fancy one waits in an A/B slot for real traffic to give it
 a second opinion, and the evaluation that produced those numbers runs in CI
@@ -98,7 +98,7 @@ many hidden SKUs each recommender re-discovers in its top 10.
 | Recommender | Recall@10 (micro) | Catalog coverage |
 |---|---|---|
 | **Collaborative filtering (this engine)** | **84.9%** | **100% of SKUs surfaced** |
-| Two-stage: CF retrieval → gradient-boosted ranker | 80.0% | — |
+| Two-stage: CF retrieval → gradient-boosted ranker | 81.2% | — |
 | SVD latent factors (matrix factorization) | 79.4% | — |
 | Popularity baseline ("suggest the bestsellers") | 75.4% | ~26% by construction |
 
@@ -158,7 +158,7 @@ candidates come from a matrix that never saw them, and the ranker is scored
 graded on the other half, then swapped. It is never graded on labels it
 studied.
 
-It lost. 80.0% vs 84.9%. On a 38-SKU catalog the retrieval signal already
+It lost. 81.2% vs 84.9%. On a 38-SKU catalog the retrieval signal already
 saturates, and business features add no repurchase-prediction power on top.
 I kept the result, wrote it down, and shipped the simpler model — which is
 a better story than the one where the ranker wins, because it's the story
@@ -613,7 +613,7 @@ python analytics/pocket_margin.py              # pocket-price waterfall, band, c
 python analytics/revenue_bridge.py             # price/volume/mix + concentration
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 313 invariants
+pytest tests/ -v                               # 317 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -656,7 +656,7 @@ analytics/        customer/product analytics, forecasting, visuals
                   revenue_bridge.py — price/volume/mix on revenue and on pocket
                   margin, HHI concentration, revenue behind quiet accounts
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            313 invariants: engine, CF-beats-popularity gate, contracts,
+tests/            317 invariants: engine, CF-beats-popularity gate, contracts,
                   API, experimentation, pocket margin, revenue bridge,
                   semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)

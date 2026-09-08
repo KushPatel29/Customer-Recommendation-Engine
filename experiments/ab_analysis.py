@@ -9,7 +9,7 @@ The decision rule is pre-registered here, not improvised after peeking:
     (otherwise: keep A; a non-significant "win" is noise wearing a medal)
 
 The offline context that motivates this experiment: the two-stage ranker
-LOST the offline bake-off (80.0% vs CF's 84.9% hit-rate@10) but optimizes
+LOST the offline bake-off (81.2% vs CF's 84.9% recall@10) but optimizes
 margin-aware ordering that hit-rate can't see. Offline metrics pick the
 champion; online experiments are how a challenger with a different objective
 gets a fair hearing. That's the discipline this script encodes.

@@ -66,6 +66,7 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
 
     rows = []
     candidate_pools = {}   # per customer: stage-1 pool with labels, for the ranker
+    hidden_by_customer = {}  # what each customer had hidden, for fold-local features
     for cust in eligible:
         cust_skus = sorted(sales.loc[sales["customer_id"] == cust, "sku"].unique())
         n_hide = max(2, int(len(cust_skus) * HOLDOUT_FRAC))
@@ -85,6 +86,7 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
         labeled = pool[["customer_id", "sku", "score"]].copy()
         labeled["label"] = labeled["sku"].isin(hidden).astype(int)
         candidate_pools[cust] = labeled
+        hidden_by_customer[cust] = hidden
 
         rows.append({
             "customer_id": cust,
@@ -95,18 +97,52 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
             "cf_recs": ";".join(sorted(cf_recs)),
         })
     results = pd.DataFrame(rows)
-    results["ts_hits"] = two_stage_hits(candidate_pools, results)
+    results["ts_hits"] = two_stage_hits(candidate_pools, results, sales, hidden_by_customer)
     return results
 
 
-def two_stage_hits(candidate_pools: dict, results: pd.DataFrame) -> pd.Series:
-    """Score the two-stage system (retrieval -> learned ranker) with
-    customer-disjoint training: rank half A's candidates with a model trained
-    only on half B's labels, and vice versa — zero label leakage."""
+def _features_without_the_holdout(sales: pd.DataFrame,
+                                  hidden_by_customer: dict) -> tuple:
+    """Product and customer features computed with every hidden purchase gone.
+
+    This used to read output/product_analytics.csv and customer_analytics.csv,
+    which are built from the FULL sales file — the one containing the very
+    purchases the ranker is being asked to predict. A customer's recency,
+    frequency, monetary value, CLV and protein breadth all move when you add a
+    purchase, and so do a product's repeat rate, velocity and revenue share. The
+    labels were customer-disjoint, so there was no LABEL leakage; the features
+    leaked instead, which is harder to see and just as fatal to the number.
+
+    Removing the union of every customer's hidden SKUs, once, gives features no
+    fold can see through: no customer's own hidden purchases feed their
+    features, and no hidden purchase feeds any product's.
+    """
+    from analytics.customer_analytics import customer_metrics
+    from analytics.product_analytics import product_metrics
+
+    mask = pd.Series(False, index=sales.index)
+    for cust, hidden in hidden_by_customer.items():
+        mask |= (sales["customer_id"] == cust) & (sales["sku"].isin(hidden))
+    train = sales[~mask]
+    return product_metrics(train), customer_metrics(train)
+
+
+def two_stage_hits(candidate_pools: dict, results: pd.DataFrame,
+                   sales: pd.DataFrame, hidden_by_customer: dict) -> pd.Series:
+    """Score the two-stage system (retrieval -> learned ranker).
+
+    Customer-disjoint by label: rank half A's candidates with a model trained
+    only on half B's labels, and vice versa. And customer-disjoint by FEATURE
+    too, which it was not before — see _features_without_the_holdout.
+
+    What this still is not: a temporal split, and not a cold-start test. Every
+    scored customer is one the retrieval stage has seen other purchases from, so
+    the number measures basket completion for warm customers. That is stated
+    here because the alternative is letting the method's name imply more.
+    """
     from engine.ranker import rerank, train_ranker
 
-    products = pd.read_csv(ROOT / "output" / "product_analytics.csv")
-    customers = pd.read_csv(ROOT / "output" / "customer_analytics.csv")
+    products, customers = _features_without_the_holdout(sales, hidden_by_customer)
 
     custs = sorted(candidate_pools)
     halves = (set(custs[0::2]), set(custs[1::2]))
@@ -167,10 +203,10 @@ def main():
     n_skus = sales["sku"].nunique()
     cf_coverage = len(set(";".join(results["cf_recs"]).split(";"))) / n_skus
     print(f"customers evaluated: {len(results)}")
-    print(f"hit-rate@{K}  two-stage (CF -> ranker): {ts:.1%}")
-    print(f"hit-rate@{K}  collaborative filtering: {cf:.1%}")
-    print(f"hit-rate@{K}  SVD latent factors:      {svd:.1%}")
-    print(f"hit-rate@{K}  popularity baseline:     {pop:.1%}")
+    print(f"recall@{K}  two-stage (CF -> ranker): {ts:.1%}")
+    print(f"recall@{K}  collaborative filtering: {cf:.1%}")
+    print(f"recall@{K}  SVD latent factors:      {svd:.1%}")
+    print(f"recall@{K}  popularity baseline:     {pop:.1%}")
     print(f"CF lift over popularity: {cf / pop:.2f}x" if pop else "n/a")
     print(f"CF catalog coverage: {cf_coverage:.0%} of SKUs surfaced "
           f"(popularity by construction surfaces ~{K / n_skus:.0%})")

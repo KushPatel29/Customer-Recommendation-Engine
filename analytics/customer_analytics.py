@@ -22,10 +22,7 @@ Usage:
 import sys
 from pathlib import Path
 
-import matplotlib
 
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
@@ -45,6 +42,20 @@ NAVY, TEAL, ORANGE, PLUM, RED = "#12436D", "#28A197", "#F46A25", "#801650", "#C0
 
 
 # ------------------------------------------------------------------ RFM
+
+def _plt():
+    """Import matplotlib only when something is actually being drawn.
+
+    Computing metrics should not require a plotting stack. The holdout
+    evaluation now rebuilds its features by calling the metric functions in this
+    module, and a module-level matplotlib import made that pull in Agg, colour
+    maps and font handling to produce a DataFrame.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    return plt
+
 
 def rfm_segment(r: int, fm: float) -> str:
     """Standard R x FM segment map (R = recency quintile, FM = mean of
@@ -177,6 +188,7 @@ def cohort_retention(sales: pd.DataFrame) -> pd.DataFrame:
 # ------------------------------------------------------------ visuals
 
 def plot_rfm(cust: pd.DataFrame):
+    plt = _plt()
     order = (cust.groupby("rfm_segment")
              .agg(customers=("customer_id", "count"),
                   revenue=("total_revenue", "sum"))
@@ -196,6 +208,7 @@ def plot_rfm(cust: pd.DataFrame):
 
 
 def plot_cohorts(retention: pd.DataFrame):
+    plt = _plt()
     fig, ax = plt.subplots(figsize=(9, 5.2))
     im = ax.imshow(retention.values, cmap="Blues", vmin=0, vmax=1, aspect="auto")
     ax.set_xticks(range(retention.shape[1]), retention.columns)
