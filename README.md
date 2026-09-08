@@ -15,7 +15,7 @@ the rep console: pick a customer, see what to pitch next, why, and what it's wor
 The most useful number in this repo is a loss.
 
 The two-stage learned ranker — the architecture every RecSys blog post says
-you should build — scored **80.0%** hit-rate@10 on the holdout. Plain
+you should build — scored **80.0%** recall@10 on the holdout. Plain
 item-neighborhood collaborative filtering scored **84.9%**. So the plain
 model ships, the fancy one waits in an A/B slot for real traffic to give it
 a second opinion, and the evaluation that produced those numbers runs in CI
@@ -95,7 +95,7 @@ Recommendations you can't score are opinions. The holdout protocol
 25% of every customer's SKUs, rebuild the model without them, and count how
 many hidden SKUs each recommender re-discovers in its top 10.
 
-| Recommender | Hit-rate@10 | Catalog coverage |
+| Recommender | Recall@10 (micro) | Catalog coverage |
 |---|---|---|
 | **Collaborative filtering (this engine)** | **84.9%** | **100% of SKUs surfaced** |
 | Two-stage: CF retrieval → gradient-boosted ranker | 80.0% | — |
@@ -103,6 +103,24 @@ many hidden SKUs each recommender re-discovers in its top 10.
 | Popularity baseline ("suggest the bestsellers") | 75.4% | ~26% by construction |
 
 ![Holdout evaluation](docs/evaluation_chart.png)
+
+**What that percentage is, precisely.** It is micro-averaged **recall@10**:
+`sum(hidden SKUs recovered) / sum(hidden SKUs)` across all customers — 689 of
+812 for CF. It is *not* hit-rate@10 in the conventional sense, which is the
+fraction of customers with at least one relevant item in their top 10 and would
+be a higher, easier number. This README called it hit-rate@10 for months; a
+reviewer was right that the denominator names a different metric, and the label
+is the thing that changed here, not the result.
+
+**What the holdout does and does not test.** A quarter of each customer's basket
+is hidden and the model is rebuilt without it, so every customer being scored is
+one the model has *also* seen other purchases from. That measures completion for
+**warm** customers. It is not a cold-start test, and it is not temporal — nothing
+here holds out a *later* period to prove the model predicts the future rather
+than reconstructing the present. The learned ranker is evaluated differently
+again, customer-disjoint across two folds; calling the whole exercise
+"customer-disjoint" flattens that distinction, so it no longer does.
+
 
 The honest footnote: popularity is a *strong* baseline on a 38-SKU catalog,
 which is exactly why you measure instead of assuming. Coverage is the
@@ -148,7 +166,7 @@ where the evaluation did its job.
 
 ## Step 4 — losing offline earns you an A/B slot, not deletion
 
-Here's the tension that makes this interesting: hit-rate@10 measures *"did
+Here's the tension that makes this interesting: recall@10 measures *"did
 they buy it again?"* — it cannot measure *"did the margin-aware ordering
 make the business more money?"* The ranker optimizes something the offline
 metric is blind to. That's precisely the question online experiments exist
@@ -246,7 +264,7 @@ table you can slice by segment.
 | **Pocket Margin** | List price walked down to what reached the bank, what each customer is worth against what its terms cost, and cost to serve by drop size |
 | **Revenue Forecast** | The 8-week ML forecast alongside actuals, with the backtest-winner model named |
 | **Recommendations & Actions** | Cross-sell pipeline $ by segment and protein, and the who/what/why action table |
-| **Model Integrity** | The bake-off and backtest, live: hit-rate@10 per algorithm, WAPE per forecast model, the cohort retention triangle, and the highest-lift basket pairs |
+| **Model Integrity** | The bake-off and backtest, live: recall@10 per algorithm, WAPE per forecast model, the cohort retention triangle, and the highest-lift basket pairs |
 
 ![Sales Overview](powerbi/screenshots/01-sales-overview.png)
 
@@ -566,7 +584,7 @@ Choices a reviewer should read as intentional, not missing:
 - **No what-if sliders or decomposition trees on the dashboard.** A
   "churn-reduction %" slider that scales the forecast line up isn't
   scenario planning, it's multiplying by a number. The Model Integrity page
-  shows what the models actually earn (hit-rates, WAPE, retention curves);
+  shows what the models actually earn (recall@10, WAPE, retention curves);
   invented dials would undercut it.
 
 ## The synthetic data (and why it has structure)

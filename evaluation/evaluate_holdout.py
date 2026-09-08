@@ -5,7 +5,9 @@ Protocol (per eligible customer, one with >= 8 distinct SKUs):
   1. Hide 25% of their SKUs (all purchase lines for those SKUs removed).
   2. Rebuild the customer x SKU matrix on the remaining data only.
   3. Ask the engine for top-10 cross-sell recommendations.
-  4. Score hit-rate@10: how many hidden SKUs the engine re-discovered.
+  4. Score micro-averaged recall@10: sum(hidden SKUs recovered) / sum(hidden).
+     Not hit-rate@10 (the fraction of customers with at least one hit), which
+     is a different and more forgiving denominator.
 
 Compared against a popularity baseline (recommend the globally best-selling
 SKUs the customer doesn't own). If CF can't beat popularity, ship

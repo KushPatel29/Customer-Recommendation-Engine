@@ -99,7 +99,7 @@ def test_cf_beats_popularity_baseline(sales):
     results = evaluate(sales)
     cf = results["cf_hits"].sum() / results["hidden"].sum()
     pop = results["pop_hits"].sum() / results["hidden"].sum()
-    assert cf > pop, f"CF hit-rate {cf:.1%} does not beat popularity {pop:.1%}"
+    assert cf > pop, f"CF recall@10 {cf:.1%} does not beat popularity {pop:.1%}"
 
 
 def test_deterministic_outputs(sales):
