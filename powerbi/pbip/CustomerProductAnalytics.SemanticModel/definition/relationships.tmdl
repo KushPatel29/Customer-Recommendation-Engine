@@ -18,3 +18,18 @@ relationship e1000001-0000-4000-8000-000000000005
 	fromColumn: cross_sell.sku
 	toColumn: dim_product.sku
 
+
+/// pocket_by_customer and customer_concentration are per-customer aggregates
+/// that sat disconnected from dim_customer. Row-level security filters the
+/// customer dimension, and a filter cannot cross a relationship that does not
+/// exist — so a rep scoped to their own book still read every customer's pocket
+/// margin and every customer's share of revenue off these two tables. Relating
+/// them on customer_id puts them inside the same security boundary as the rest
+/// of the model, and makes customer slicers reach them as a side effect.
+relationship e1000001-0000-4000-8000-000000000006
+	fromColumn: pocket_by_customer.customer_id
+	toColumn: dim_customer.customer_id
+
+relationship e1000001-0000-4000-8000-000000000007
+	fromColumn: customer_concentration.customer_id
+	toColumn: dim_customer.customer_id

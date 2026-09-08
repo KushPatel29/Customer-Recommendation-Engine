@@ -24,6 +24,7 @@ MODEL = ROOT / "powerbi/pbip/CustomerProductAnalytics.SemanticModel/definition"
 ROLE = MODEL / "roles" / "Sales Rep.tmdl"
 MAPPING_TABLE = MODEL / "tables" / "security_mapping.tmdl"
 MAPPING_CSV = ROOT / "output" / "security_mapping.csv"
+RELATIONSHIPS = MODEL / "relationships.tmdl"
 
 
 def _role_text() -> str:
@@ -79,3 +80,30 @@ def test_the_mapping_covers_every_rep_and_holds_real_upns():
     for r in rows:
         assert "@" in r["upn"], f"{r['upn']!r} is not a sign-in identity"
         assert r["upn"] == r["upn"].lower(), "UPNs should be compared in one case"
+
+
+def test_per_customer_aggregates_sit_inside_the_security_boundary():
+    """A filter cannot cross a relationship that does not exist.
+
+    pocket_by_customer and customer_concentration are per-customer aggregates
+    that were disconnected from dim_customer. Row-level security filters the
+    dimension, so a rep scoped to their own book still read every customer's
+    pocket margin and every customer's revenue share off these two tables —
+    the numbers a rep is least entitled to see about accounts that are not
+    theirs.
+
+    Any table carrying customer_id has to be related to the dimension, or say
+    in the model why it is not.
+    """
+    rels = RELATIONSHIPS.read_text(encoding="utf-8")
+    for table in ("pocket_by_customer", "customer_concentration"):
+        tmdl = MODEL / "tables" / f"{table}.tmdl"
+        assert tmdl.is_file(), f"{table} is gone"
+        assert "column customer_id" in tmdl.read_text(encoding="utf-8"), (
+            f"{table} no longer carries customer_id"
+        )
+        assert f"fromColumn: {table}.customer_id" in rels, (
+            f"{table} is not related to dim_customer, so row-level security "
+            f"does not reach it and a rep sees every customer's figures"
+        )
+        assert "toColumn: dim_customer.customer_id" in rels
