@@ -14,6 +14,7 @@ annotation PBI_ProTooling = ["DevMode"]
 
 ref table fact_sales
 ref table dim_customer
+ref table security_mapping
 ref table dim_product
 ref table cross_sell
 ref table fact_forecast

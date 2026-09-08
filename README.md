@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-300%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-313%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -613,7 +613,7 @@ python analytics/pocket_margin.py              # pocket-price waterfall, band, c
 python analytics/revenue_bridge.py             # price/volume/mix + concentration
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 300 invariants
+pytest tests/ -v                               # 313 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -656,7 +656,7 @@ analytics/        customer/product analytics, forecasting, visuals
                   revenue_bridge.py — price/volume/mix on revenue and on pocket
                   margin, HHI concentration, revenue behind quiet accounts
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            300 invariants: engine, CF-beats-popularity gate, contracts,
+tests/            313 invariants: engine, CF-beats-popularity gate, contracts,
                   API, experimentation, pocket margin, revenue bridge,
                   semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)

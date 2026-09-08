@@ -1,0 +1,35 @@
+/// Sign-in identity -> the rep whose book that identity may see.
+///
+/// Row-level security compared dim_customer[rep] straight against
+/// USERPRINCIPALNAME(). rep holds names like "D. Tremblay"; a signed-in user's
+/// UPN is an email address, so the two are never equal and the Sales Rep role
+/// returned an empty report to every real user. A rep's identity and a rep's
+/// display name are different things; this table is the join between them.
+///
+/// Hidden: it exists for the security predicate, not for a reader to slice on.
+table security_mapping
+	isHidden
+	lineageTag: 3c9f5e12-8a47-4d6b-b0e3-7f1c2d84a905
+
+	column upn
+		dataType: string
+		lineageTag: 5e1a7b34-2c98-4f0d-8a61-9b3e6c05d712
+		summarizeBy: none
+		sourceColumn: upn
+
+	column rep
+		dataType: string
+		lineageTag: 8b4d0c67-1e35-42a9-9d78-4a6f2e91b038
+		summarizeBy: none
+		sourceColumn: rep
+
+	partition security_mapping = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataPath & "\output\security_mapping.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Selected = Table.SelectColumns(Promoted, {"upn", "rep"}),
+				    Typed = Table.TransformColumnTypes(Selected, {{"upn", type text}, {"rep", type text}})
+				in
+				    Typed

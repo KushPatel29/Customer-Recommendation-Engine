@@ -244,6 +244,30 @@ def build_action_list(cust: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
             .reset_index(drop=True))
 
 
+def security_mapping(cust: pd.DataFrame) -> pd.DataFrame:
+    """Sign-in identity -> the rep whose book that person may see.
+
+    Row-level security compared `dim_customer[rep]` directly against
+    USERPRINCIPALNAME(). `rep` holds names like "D. Tremblay"; a signed-in user's
+    UPN is an email address. The two are never equal, so the Sales Rep role
+    returned an empty report to every real user — the failure mode that looks
+    like "the data didn't load" rather than like a broken filter.
+
+    A rep's identity and a rep's display name are different things, and a model
+    that needs to join them needs a table saying so. This is that table.
+
+    The UPNs are synthetic, on a domain nobody owns, because the whole dataset
+    is. Swapping in a real directory is a change to this file only.
+    """
+    reps = sorted(r for r in cust["rep"].dropna().unique() if str(r).strip())
+    rows = []
+    for rep in reps:
+        # "D. Tremblay" -> d.tremblay@northgate-demo.invalid
+        local = str(rep).lower().replace(" ", "").replace("'", "")
+        rows.append({"upn": f"{local}@northgate-demo.invalid", "rep": rep})
+    return pd.DataFrame(rows, columns=["upn", "rep"])
+
+
 def main():
     sales = load_sales()
     cust = customer_metrics(sales)
@@ -252,6 +276,7 @@ def main():
     actions = build_action_list(cust, sales)
 
     cust.to_csv(OUT / "customer_analytics.csv", index=False)
+    security_mapping(cust).to_csv(OUT / "security_mapping.csv", index=False)
     (cust.groupby("rfm_segment")
      .agg(customers=("customer_id", "count"),
           revenue=("total_revenue", "sum"),
