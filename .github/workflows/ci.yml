@@ -31,7 +31,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install -r requirements.txt -r requirements-api.txt pytest
+        run: pip install -r requirements.txt -r requirements-api.txt pytest jsonschema
 
       - name: Run full pipeline (generate -> retrieve -> analytics -> evaluate -> rank)
         run: |
