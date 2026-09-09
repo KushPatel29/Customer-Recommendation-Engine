@@ -18,7 +18,6 @@ from __future__ import annotations
 import inspect
 from pathlib import Path
 
-import pandas as pd
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -55,8 +54,9 @@ def test_removing_a_purchase_actually_moves_the_features():
     """
     import sys
     sys.path.insert(0, str(ROOT))
-    from evaluation.evaluate_holdout import _features_without_the_holdout
     from recommend import load_sales
+
+    from evaluation.evaluate_holdout import _features_without_the_holdout
 
     sales = load_sales()
     customer = sales["customer_id"].value_counts().index[0]
