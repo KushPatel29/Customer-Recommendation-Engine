@@ -73,7 +73,7 @@ def test_that_check_can_actually_fail(sales):
             "quantity_lb is no longer an integer column, so the fill_value this "
             "test guards is no longer a mismatch -- rewrite the check"
         )
-        with pytest.raises(Exception):
+        with pytest.raises(CHANGE_WARNINGS):
             sales.pivot_table(
                 index="customer_id", columns="sku",
                 values="quantity_lb", aggfunc="sum", fill_value=0.0,
