@@ -54,6 +54,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card titled What the book is telling you. Shows Commercial Insight.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

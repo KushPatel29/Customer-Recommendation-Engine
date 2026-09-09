@@ -54,6 +54,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card titled What the terms are costing you. Shows Pocket Insight.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

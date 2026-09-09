@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled Where the margin actually goes. Plots Component Value by component.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

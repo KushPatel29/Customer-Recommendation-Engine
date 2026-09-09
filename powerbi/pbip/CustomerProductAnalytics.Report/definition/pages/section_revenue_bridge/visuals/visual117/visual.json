@@ -134,6 +134,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled The largest accounts, and which of them have gone quiet. Shows customer name, churn risk, Customer Revenue and Customer Share.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

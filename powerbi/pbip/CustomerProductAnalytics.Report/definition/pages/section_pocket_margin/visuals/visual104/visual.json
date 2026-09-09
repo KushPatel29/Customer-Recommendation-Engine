@@ -92,6 +92,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Column chart titled From the price list to the bank. Plots Waterfall Amount by step.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Scatter chart titled What a customer is worth, against what its terms cost. Plots Customer Leakage Rate and Customer Pocket Margin by customer name.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

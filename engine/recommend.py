@@ -90,8 +90,11 @@ def growth_targets(sales: pd.DataFrame, top_df: pd.DataFrame,
 def build_customer_sku_matrix(sales: pd.DataFrame) -> pd.DataFrame:
     """Customer x SKU matrix of log-damped quantities. Log damping stops one
     giant standing order from defining a customer's whole profile."""
+    # fill_value has to be an integer: quantity_lb is int64, and pandas 4 raises
+    # on a fill_value its column's dtype cannot hold rather than upcasting. The
+    # matrix is float either way -- np.log1p returns float64 on the next line.
     qty = sales.pivot_table(index="customer_id", columns="sku",
-                            values="quantity_lb", aggfunc="sum", fill_value=0.0)
+                            values="quantity_lb", aggfunc="sum", fill_value=0)
     return np.log1p(qty)
 
 

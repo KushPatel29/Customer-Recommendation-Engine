@@ -73,6 +73,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled Forecast Backtest: Avg WAPE by Model (lower is better). Plots Avg WAPE by model.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

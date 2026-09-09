@@ -144,6 +144,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Price, volume and mix - on revenue and on what it was worth. Shows measure, Bridge Prior, Volume Effect, Mix Effect, Rate Effect and Bridge Current.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

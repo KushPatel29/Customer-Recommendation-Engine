@@ -96,6 +96,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled Offline Bake-Off: Hit-Rate@10 by Algorithm (held-out baskets). Shows Hit Rate @10 (CF), Hit Rate @10 (Two-Stage), Hit Rate @10 (SVD) and Hit Rate @10 (Popularity).'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

@@ -96,6 +96,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Forecast Detail (model: backtest winner). Shows week, protein, Forecast Revenue (8w) and model.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

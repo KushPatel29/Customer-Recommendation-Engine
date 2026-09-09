@@ -92,6 +92,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Line chart titled How much of the book stands on how few customers. Plots Cumulative Share by rank.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

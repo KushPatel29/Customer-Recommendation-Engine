@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled Which categories moved. Plots Protein Change by protein.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

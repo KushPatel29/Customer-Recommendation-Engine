@@ -106,6 +106,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bar chart titled ...and why. Plots Protein Volume and Protein Mix by protein.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

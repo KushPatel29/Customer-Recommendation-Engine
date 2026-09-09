@@ -92,6 +92,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matrix titled Cohort Retention Triangle (% of cohort still ordering). Plots Retention Rate by cohort and months since first.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

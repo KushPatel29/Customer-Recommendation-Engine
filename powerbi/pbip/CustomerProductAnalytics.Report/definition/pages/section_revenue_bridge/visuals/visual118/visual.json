@@ -54,6 +54,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Card titled What moved, and what it is standing on. Shows Bridge Insight.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {

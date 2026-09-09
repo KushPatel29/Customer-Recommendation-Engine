@@ -124,6 +124,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Table titled Action List: Who to Call, What to Pitch, and Why. Shows customer name, rfm segment, churn risk, description, Pipeline Opportunity $ and because similar to.'"
+                }
+              }
+            }
+          }
+        }
       ]
     }
   }

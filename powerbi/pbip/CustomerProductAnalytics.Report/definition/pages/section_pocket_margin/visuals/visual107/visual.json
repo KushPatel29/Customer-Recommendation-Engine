@@ -110,6 +110,19 @@
             }
           }
         }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Column chart titled Small drops cost more to serve. Plots Freight Share by order band.'"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "objects": {
