@@ -310,9 +310,12 @@ pointing at a deleted bookmark does nothing.
 
 ![Model Integrity](powerbi/screenshots/09-model-integrity.png)
 
-Open `CustomerProductAnalytics.pbip` in Power BI Desktop and hit Refresh
-(run the pipeline first so `output/` is populated). Every page carries
-slicers and cross-filters, including the recommendation table.
+Open `CustomerProductAnalytics.pbip` in Power BI Desktop and use
+**Home > Refresh** (run the pipeline first so `output/` is populated). Every
+page carries slicers and cross-filters, including the recommendation table.
+In Desktop the navigation and filter buttons need **Ctrl+click** (a plain
+click only selects them, as their tooltips say); in the Power BI service a
+plain click works.
 
 The semantic model also carries two security roles, defined in TMDL
 ([`roles/`](powerbi/pbip/CustomerProductAnalytics.SemanticModel/definition/roles/)):
