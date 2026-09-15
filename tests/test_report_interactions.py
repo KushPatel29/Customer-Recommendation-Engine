@@ -128,7 +128,7 @@ def _links():
             for entry in vco.get("visualLink", []):
                 props = entry.get("properties", {})
 
-                def value(key):
+                def value(key, props=props):
                     return props.get(key, {}).get("expr", {}).get("Literal", {}).get("Value", "").strip("'")
 
                 yield page, name, value("type"), value("bookmark"), value("navigationSection")
