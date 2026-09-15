@@ -3,10 +3,10 @@
   "name": "visual027",
   "position": {
     "x": 20,
-    "y": 440,
+    "y": 468,
     "z": 27000,
-    "height": 260,
-    "width": 940,
+    "height": 236,
+    "width": 1240,
     "tabOrder": 27000
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_customer.customer_name",
-              "nativeQueryRef": "customer_name"
+              "nativeQueryRef": "customer_name",
+              "displayName": "Customer"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "dim_customer.rfm_segment",
-              "nativeQueryRef": "rfm_segment"
+              "nativeQueryRef": "rfm_segment",
+              "displayName": "RFM Segment"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "dim_customer.churn_risk",
-              "nativeQueryRef": "churn_risk"
+              "nativeQueryRef": "churn_risk",
+              "displayName": "Churn Risk"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "cross_sell.description",
-              "nativeQueryRef": "description"
+              "nativeQueryRef": "description",
+              "displayName": "Description"
             },
             {
               "field": {
@@ -97,7 +101,8 @@
                 }
               },
               "queryRef": "cross_sell.because_similar_to",
-              "nativeQueryRef": "because_similar_to"
+              "nativeQueryRef": "because_similar_to",
+              "displayName": "Because Similar To"
             }
           ]
         }
@@ -132,6 +137,107 @@
               "expr": {
                 "Literal": {
                   "Value": "'Table titled Action List: Who to Call, What to Pitch, and Why. Shows customer name, rfm segment, churn risk, description, Pipeline Opportunity $ and because similar to.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "229D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_customer.customer_name"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "205D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_customer.rfm_segment"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "113D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "dim_customer.churn_risk"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "205D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cross_sell.description"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "214D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Pipeline Opportunity $"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "229D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "cross_sell.because_similar_to"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

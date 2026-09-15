@@ -3,9 +3,9 @@
   "name": "visual067",
   "position": {
     "x": 680,
-    "y": 420,
+    "y": 450,
     "z": 67000,
-    "height": 280,
+    "height": 254,
     "width": 580,
     "tabOrder": 67000
   },
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "sku_affinity.description_a",
-              "nativeQueryRef": "description_a"
+              "nativeQueryRef": "description_a",
+              "displayName": "Description A"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "sku_affinity.description_b",
-              "nativeQueryRef": "description_b"
+              "nativeQueryRef": "description_b",
+              "displayName": "Description B"
             },
             {
               "field": {
@@ -55,7 +57,8 @@
                 }
               },
               "queryRef": "sku_affinity.orders_together",
-              "nativeQueryRef": "orders_together"
+              "nativeQueryRef": "orders_together",
+              "displayName": "Orders Together"
             },
             {
               "field": {
@@ -69,7 +72,8 @@
                 }
               },
               "queryRef": "sku_affinity.confidence_a_to_b",
-              "nativeQueryRef": "confidence_a_to_b"
+              "nativeQueryRef": "confidence_a_to_b",
+              "displayName": "Confidence A To B"
             },
             {
               "field": {
@@ -83,7 +87,8 @@
                 }
               },
               "queryRef": "sku_affinity.lift",
-              "nativeQueryRef": "lift"
+              "nativeQueryRef": "lift",
+              "displayName": "Lift"
             }
           ]
         }
@@ -142,6 +147,7 @@
           }
         }
       ]
-    }
+    },
+    "objects": {}
   }
 }

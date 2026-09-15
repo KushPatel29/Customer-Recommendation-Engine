@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Product Analytics - filters open",
+  "name": "p4FiltersOpen",
+  "options": {
+    "targetVisualNames": [
+      "p4FilterPanel",
+      "p4PanelBg",
+      "p4PanelTitle",
+      "p4PanelClose",
+      "visual020",
+      "p4PanelClear"
+    ],
+    "applyOnlyToTargetVisuals": true,
+    "suppressData": true,
+    "suppressActiveSection": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "section_product",
+    "sections": {
+      "section_product": {
+        "visualContainers": {
+          "p4PanelBg": {},
+          "p4PanelTitle": {},
+          "p4PanelClose": {},
+          "visual020": {},
+          "p4PanelClear": {}
+        },
+        "visualContainerGroups": {
+          "p4FilterPanel": {
+            "isHidden": false
+          }
+        }
+      }
+    }
+  }
+}

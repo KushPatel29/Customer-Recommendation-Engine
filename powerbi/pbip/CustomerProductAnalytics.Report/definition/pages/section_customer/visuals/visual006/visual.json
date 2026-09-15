@@ -3,9 +3,9 @@
   "name": "visual006",
   "position": {
     "x": 660,
-    "y": 150,
+    "y": 206,
     "z": 6000,
-    "height": 280,
+    "height": 253,
     "width": 300,
     "tabOrder": 6000
   },
@@ -96,32 +96,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

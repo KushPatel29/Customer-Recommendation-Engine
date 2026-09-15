@@ -3,9 +3,9 @@
   "name": "visual057",
   "position": {
     "x": 780,
-    "y": 450,
+    "y": 478,
     "z": 57000,
-    "height": 250,
+    "height": 226,
     "width": 480,
     "tabOrder": 57000
   },
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "fact_forecast.week",
-              "nativeQueryRef": "week"
+              "nativeQueryRef": "week",
+              "displayName": "Week"
             },
             {
               "field": {
@@ -41,7 +42,8 @@
                 }
               },
               "queryRef": "fact_forecast.protein",
-              "nativeQueryRef": "protein"
+              "nativeQueryRef": "protein",
+              "displayName": "Protein"
             },
             {
               "field": {
@@ -69,7 +71,8 @@
                 }
               },
               "queryRef": "fact_forecast.model",
-              "nativeQueryRef": "model"
+              "nativeQueryRef": "model",
+              "displayName": "Model"
             }
           ]
         }
@@ -104,6 +107,79 @@
               "expr": {
                 "Literal": {
                   "Value": "'Table titled Forecast Detail (model: backtest winner). Shows week, protein, Forecast Revenue (8w) and model.'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_forecast.week"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "72D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_forecast.protein"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "168D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Forecast Revenue (8w)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_forecast.model"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

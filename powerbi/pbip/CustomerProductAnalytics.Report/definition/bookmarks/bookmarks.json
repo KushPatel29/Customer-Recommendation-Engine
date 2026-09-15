@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "p1FiltersOpen"
+    },
+    {
+      "name": "p1FiltersClosed"
+    },
+    {
+      "name": "p2FiltersOpen"
+    },
+    {
+      "name": "p2FiltersClosed"
+    },
+    {
+      "name": "p3FiltersOpen"
+    },
+    {
+      "name": "p3FiltersClosed"
+    },
+    {
+      "name": "p4FiltersOpen"
+    },
+    {
+      "name": "p4FiltersClosed"
+    },
+    {
+      "name": "p8FiltersOpen"
+    },
+    {
+      "name": "p8FiltersClosed"
+    }
+  ]
+}

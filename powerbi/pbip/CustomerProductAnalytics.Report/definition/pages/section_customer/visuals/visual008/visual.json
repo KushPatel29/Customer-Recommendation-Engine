@@ -3,10 +3,10 @@
   "name": "visual008",
   "position": {
     "x": 20,
-    "y": 450,
+    "y": 478,
     "z": 8000,
-    "height": 250,
-    "width": 620,
+    "height": 226,
+    "width": 1240,
     "tabOrder": 8000
   },
   "visual": {
@@ -96,32 +96,6 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
                 }
               }
             }

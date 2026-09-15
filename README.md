@@ -5,8 +5,8 @@
 ![ML](https://img.shields.io/badge/ML-Collaborative%20Filtering-FF6F00)
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-7%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-613%20passing-3B8C6E)
+![Power BI](https://img.shields.io/badge/Power%20BI-9%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
+![Tests](https://img.shields.io/badge/tests-793%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -56,7 +56,7 @@ flowchart LR
     ENG --> CONTRACT2{{pandera<br/>output contract}}
     CONTRACT2 --> API[FastAPI service<br/>Docker image]
     CONTRACT2 --> UI[Streamlit<br/>rep console]
-    CONTRACT2 --> PBI[Power BI 7 pages<br/>dynamic RLS]
+    CONTRACT2 --> PBI[Power BI 9 pages<br/>dynamic RLS]
     CONTRACT2 --> CSV[action_list.csv]
 ```
 
@@ -245,7 +245,7 @@ streamlit run app/streamlit_app.py
 
 ![Streamlit rep console](docs/streamlit_console.png)
 
-### The dashboard (Power BI, seven pages, dynamic RLS)
+### The dashboard (Power BI, nine pages, dynamic RLS)
 
 Hand-authored as a Power BI Project (TMDL + PBIR) in
 [`powerbi/pbip/`](powerbi/pbip/), where the ML pipeline's outputs *are* the
@@ -265,6 +265,32 @@ table you can slice by segment.
 | **Revenue Forecast** | The 8-week ML forecast alongside actuals, with the backtest-winner model named |
 | **Recommendations & Actions** | Cross-sell pipeline $ by segment and protein, and the who/what/why action table |
 | **Model Integrity** | The bake-off and backtest, live: recall@10 per algorithm, WAPE per forecast model, the cohort retention triangle, and the highest-lift basket pairs |
+
+### How the report is built
+
+- **37 KPI tiles are SVG drawn by DAX measures** (`dataCategory: ImageUrl`),
+  each from the measure its card already showed, the card's reference line and,
+  where one exists, its status colour. Rates carry a progress rail.
+- **Every page opens with a header** stating the page, its place in the report
+  and the filters in effect, with Previous and Next page buttons.
+- **Slicers:** slicers with up to four short values are button slicers in the
+  header; the rest sit in a filter panel that two bookmarks open and close
+  without resetting a filter, while the header and the Filters button
+  (`Filters · 2`) keep the filter state on screen.
+- **Tables read as tables:** columns get plain headers (`Description A`, not
+  `description_a`) and widths that fill the visual, and each narrative card has
+  room for its whole sentence.
+- **Dark filter chrome:** the theme now styles the filter pane, filter cards and
+  dropdown lists, which had opened white.
+
+Microsoft's `powerbi-report-author validate` reports one finding: the Model
+Integrity bake-off compares four measures with no category axis, a layout the
+validator requires a category for and Desktop renders, and every page was
+rendered in Power BI Desktop for the screenshots below.
+[`tests/test_report_interactions.py`](tests/test_report_interactions.py) pins
+the ways these patterns fail silently: an unescaped `%` turns every SVG fill
+black, a bookmark that also captures data resets the filters, and a button
+pointing at a deleted bookmark does nothing.
 
 ![Sales Overview](powerbi/screenshots/01-sales-overview.png)
 

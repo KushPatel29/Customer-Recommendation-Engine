@@ -3,9 +3,9 @@
   "name": "visual104",
   "position": {
     "x": 20,
-    "y": 148,
+    "y": 202,
     "z": 1000,
-    "height": 240,
+    "height": 179,
     "width": 760,
     "tabOrder": 1000
   },
@@ -155,6 +155,13 @@
               "expr": {
                 "Literal": {
                   "Value": "1000D"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
