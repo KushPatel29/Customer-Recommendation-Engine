@@ -44,7 +44,8 @@ store: dict[str, pd.DataFrame] = {}
 
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    store["recs"] = pd.read_csv(OUT / "cross_sell_recommendations.csv")
+    rec_file = OUT / "cross_sell_recommendations.csv"
+    store["recs"] = pd.read_csv(rec_file) if rec_file.exists() else pd.DataFrame()
     store["customers"] = pd.read_csv(OUT / "customer_analytics.csv")
     store["affinity"] = pd.read_csv(OUT / "sku_affinity.csv")
     store["actions"] = pd.read_csv(OUT / "action_list.csv")
@@ -63,7 +64,7 @@ app = FastAPI(
     description="Serves collaborative-filtering cross-sell recommendations, "
                 "customer analytics, and basket-affinity insights for a B2B "
                 "protein distributor. Batch-scored, holdout-evaluated "
-                "(CF hit-rate@10 = 84.9% vs 75.4% popularity baseline).",
+                "(CF recall@10 = 84.9% vs 75.4% popularity baseline).",
     version="2.1.0",
     lifespan=lifespan,
 )
@@ -97,6 +98,8 @@ class CustomerRecommendations(BaseModel):
     customer_name: str
     model: str = "item-based collaborative filtering (batch-scored)"
     experiment_variant: str = "A"
+    serving_mode: str = "personalized_batch"
+    fallback_reason: str | None = None
     suppressed_skus: list[str] = []
     recommendations: list[Recommendation]
 
@@ -148,6 +151,8 @@ class Health(BaseModel):
     customers_scored: int
     recommendations_available: int
     affinity_pairs: int
+    champion_artifact_ready: bool
+    degraded_fallback_ready: bool
 
 
 # ---------------------------------------------------------------- endpoints
@@ -159,6 +164,8 @@ def health() -> Health:
         customers_scored=int(store["customers"]["customer_id"].nunique()),
         recommendations_available=len(store["recs"]),
         affinity_pairs=len(store["affinity"]),
+        champion_artifact_ready=not store["recs"].empty,
+        degraded_fallback_ready=not store["sales"].empty,
     )
 
 
@@ -199,16 +206,22 @@ def get_recommendations(
 ) -> CustomerRecommendations:
     variant = ab_variant(customer_id)
     recs = store["recs"] if variant == "A" else store["recs_b"]
-    match = recs[recs["customer_id"] == customer_id].sort_values("rank")
+    match = (recs[recs["customer_id"] == customer_id].sort_values("rank")
+             if recs is not None and not recs.empty else pd.DataFrame())
     if match.empty:
         # distinguish "unknown customer" from "known but fully penetrated"
         if customer_id not in set(store["customers"]["customer_id"]):
             raise HTTPException(404, f"unknown customer_id {customer_id!r}")
+        fallback = _safe_default(customer_id, limit)
         return CustomerRecommendations(
             customer_id=customer_id,
             customer_name=_name_of(customer_id),
+            model="regional-popularity safe default",
             experiment_variant=variant,
-            recommendations=[],
+            serving_mode="degraded_fallback",
+            fallback_reason=("personalized artifact unavailable or no eligible personalized "
+                             "candidates remained"),
+            recommendations=fallback,
         )
 
     # serve-time suppressor: anything bought THIS session leaves the list
@@ -281,3 +294,41 @@ def _name_of(customer_id: str) -> str:
     df = store["customers"]
     m = df[df["customer_id"] == customer_id]
     return str(m.iloc[0]["customer_name"]) if not m.empty else customer_id
+
+
+def _safe_default(customer_id: str, limit: int) -> list[Recommendation]:
+    """Regional-popularity fallback with the same ownership safety boundary.
+
+    The fallback is deliberately conservative: it excludes already-purchased
+    products, carries an explicit reason code and assigns no invented dollar
+    opportunity. If identity or eligibility cannot be established, the normal
+    endpoint path fails closed before reaching this function.
+    """
+    customer = store["customers"].loc[
+        store["customers"]["customer_id"] == customer_id
+    ].iloc[0]
+    sales = store["sales"]
+    history = sales[sales["customer_id"] == customer_id]
+    owned = set(history["sku"])
+    regional = sales[sales["region"] == customer["region"]]
+    ranked = (
+        regional.groupby(["sku", "protein", "description"], as_index=False)["quantity_lb"]
+        .sum()
+        .sort_values(["quantity_lb", "sku"], ascending=[False, True])
+    )
+    ranked = ranked[~ranked["sku"].isin(owned)].head(limit)
+    if ranked.empty:
+        return []
+    max_volume = float(ranked["quantity_lb"].max()) or 1.0
+    return [
+        Recommendation(
+            rank=index,
+            sku=str(row.sku),
+            protein=str(row.protein),
+            description=str(row.description),
+            score=round(float(row.quantity_lb) / max_volume, 6),
+            est_revenue_opportunity=0.0,
+            because_similar_to="Safe default: regional demand; personalized artifact unavailable",
+        )
+        for index, row in enumerate(ranked.itertuples(index=False), start=1)
+    ]

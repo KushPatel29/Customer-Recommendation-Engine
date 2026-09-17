@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-9%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-802%20passing-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-814%20passing-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -23,6 +23,36 @@ on every push so neither of us can quietly forget the result.
 
 This README is the story of how the repo ended up that way. If you just
 want to run it, jump to [Run it](#run-it-60-seconds-no-setup).
+
+## The release decision, not just the model score
+
+The live app now opens on a **Recommendation Product Decision Room**. It
+turns the recommender into an approval-ready product decision with three
+separate evidence lanes:
+
+- **Offline relevance:** 84.9% recall@10 versus 75.4% for popularity on the
+  defined warm-customer basket holdout.
+- **Product quality and harms:** 100% catalog coverage plus novelty,
+  intra-list diversity, protein-mix calibration and diagnostics by history
+  density, region, RFM segment, popularity band and product family. The
+  weakest reportable slice is sparse-history warm customers at 67.6%; that is
+  visible, not averaged away.
+- **Serving and experimentation:** 100% of scored items pass catalog,
+  ownership, reason and opportunity controls. A 60-request local warm-path
+  benchmark records p50/p95/p99 against a declared service contract, and a
+  regional-popularity fallback excludes owned items and invents no dollar
+  opportunity. The online plan pre-registers customer-level assignment, SRM,
+  outcome and trust guardrails before promotion.
+
+The resulting [release memo](output/recommendation_release_memo.md),
+[machine-readable packet](output/recommendation_release_packet.json),
+[slice evidence](output/recommendation_slice_evaluation.csv) and
+[eligibility audit](output/recommendation_eligibility_audit.csv) are rebuilt
+from the committed synthetic data. The decision is **conditionally approve a
+human-reviewed pilot**—not “ship because recall is high,” and never a claim of
+realized sales lift.
+
+![Recommendation Product Decision Room](docs/recommendation_decision_room.png)
 
 ## Where this started
 
@@ -51,6 +81,7 @@ flowchart LR
     ENG --> EVAL[holdout bake-off<br/>two-stage vs CF vs SVD vs pop]
     RANK --> EVAL
     EVAL --> MLF[(MLflow<br/>experiment tracking)]
+    EVAL --> DEC[governed release pack<br/>objectives + slices + SLO]
     RANK -.variant B.-> API
     API --> AB[experiments/<br/>A/B chi-square]
     ENG --> CONTRACT2{{pandera<br/>output contract}}
@@ -565,7 +596,7 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   `mypy` over `api/`, `engine/`, `contracts/` as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   before a commit leaves the machine.
-- **119 tests**: engine invariants (never recommend what's owned, symmetric
+- **814 tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
   gate, the data contracts, the API contract tests, the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
@@ -637,12 +668,13 @@ python analytics/customer_analytics.py         # RFM, CLV, churn, cohorts, actio
 python analytics/product_analytics.py          # ABC, portfolio quadrant, repeat rates
 python evaluation/evaluate_holdout.py          # the four-model bake-off + MLflow logging
                                                # (needs the analytics outputs — order matters)
+python decisioning/build_recommendation_release.py  # objectives, slices, latency, release pack
 python analytics/revenue_forecast.py           # rolling-origin forecast backtest
 python analytics/pocket_margin.py              # pocket-price waterfall, band, cost to serve
 python analytics/revenue_bridge.py             # price/volume/mix + concentration
 python analytics/make_visuals.py               # model visuals
 python contracts/schemas.py                    # enforce the data contracts
-pytest tests/ -v                               # 440 invariants
+pytest tests/ -v                               # 814 invariants
 # optional serving layer:
 pip install -r requirements-api.txt
 uvicorn api.main:app          # http://127.0.0.1:8000/docs
@@ -677,7 +709,8 @@ evaluation/       holdout protocol: two-stage vs CF vs SVD vs popularity,
                   customer-disjoint ranker eval + MLflow logging
 experiments/      A/B analysis: chi-square with a pre-registered promotion rule
 api/              FastAPI service (batch-scored recs + live cold-start)
-app/              Streamlit rep console
+decisioning/      release scorecard, slice evidence, latency/SLO and signed packet
+app/              Streamlit product decision room + rep console
 contracts/        pandera data contracts (source + output schemas)
 analytics/        customer/product analytics, forecasting, visuals
                   pocket_margin.py — the waterfall from list price to what
@@ -685,7 +718,7 @@ analytics/        customer/product analytics, forecasting, visuals
                   revenue_bridge.py — price/volume/mix on revenue and on pocket
                   margin, HHI concentration, revenue behind quiet accounts
 powerbi/          PBIP (TMDL + PBIR) with dynamic RLS roles, screenshots
-tests/            440 invariants: engine, CF-beats-popularity gate, contracts,
+tests/            814 invariants: engine, CF-beats-popularity gate, contracts,
                   API, experimentation, pocket margin, revenue bridge,
                   semantic-model bindings
 Dockerfile        self-contained rec-service image (CI-built + smoke-tested)

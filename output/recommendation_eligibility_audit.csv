@@ -1,0 +1,792 @@
+customer_id,rank,sku,description,protein,because_similar_to,est_revenue_opportunity,catalog_present,not_previously_purchased,reason_present,opportunity_positive,eligible,eligibility_decision
+CUST-001,1,SKU-012,Back Ribs,Pork,Whistler Izakaya 018,524.54,True,True,True,True,True,SERVE
+CUST-001,2,SKU-036,Lamb Leg BRT,Lamb,Whistler Izakaya 018,558.8,True,True,True,True,True,SERVE
+CUST-001,3,SKU-008,Beef Bones,Beef,Whistler Izakaya 018,99.05,True,True,True,True,True,SERVE
+CUST-002,1,SKU-029,Genoa Salami,Deli,Lakeside Grocer 013,1072.08,True,True,True,True,True,SERVE
+CUST-002,2,SKU-031,Duck Rillette,Deli,Lakeside Grocer 013,1054.41,True,True,True,True,True,SERVE
+CUST-002,3,SKU-003,Tenderloin,Beef,Lakeside Grocer 013,2761.05,True,True,True,True,True,SERVE
+CUST-002,4,SKU-002,Ribeye AAA,Beef,Lakeside Grocer 013,2034.17,True,True,True,True,True,SERVE
+CUST-002,5,SKU-004,Brisket,Beef,Lakeside Grocer 013,621.64,True,True,True,True,True,SERVE
+CUST-002,6,SKU-005,Ground Chuck,Beef,Lakeside Grocer 013,434.74,True,True,True,True,True,SERVE
+CUST-002,7,SKU-036,Lamb Leg BRT,Lamb,Lakeside Grocer 013,945.15,True,True,True,True,True,SERVE
+CUST-002,8,SKU-012,Back Ribs,Pork,Lakeside Grocer 013,515.07,True,True,True,True,True,SERVE
+CUST-002,9,SKU-037,Lamb Shank,Lamb,Lakeside Grocer 013,404.45,True,True,True,True,True,SERVE
+CUST-002,10,SKU-006,Short Ribs,Beef,Lakeside Grocer 013,452.7,True,True,True,True,True,SERVE
+CUST-003,1,SKU-033,Coppa Sliced,Deli,Foothill Grocer 058,394.41,True,True,True,True,True,SERVE
+CUST-003,2,SKU-030,Smoked Speck,Deli,Foothill Grocer 058,255.34,True,True,True,True,True,SERVE
+CUST-003,3,SKU-021,Atlantic Salmon Fillet,Seafood,Foothill Grocer 058,290.41,True,True,True,True,True,SERVE
+CUST-003,4,SKU-027,Uni Tray,Seafood,Quarry Grocer 025,501.72,True,True,True,True,True,SERVE
+CUST-003,5,SKU-028,Octopus Tentacle,Seafood,Quarry Grocer 025,129.4,True,True,True,True,True,SERVE
+CUST-003,6,SKU-026,Spot Prawns,Seafood,Vista Pantry 034,92.79,True,True,True,True,True,SERVE
+CUST-004,1,SKU-031,Duck Rillette,Deli,Grove Charcuterie 047,1475.97,True,True,True,True,True,SERVE
+CUST-004,2,SKU-037,Lamb Shank,Lamb,Grove Charcuterie 047,562.88,True,True,True,True,True,SERVE
+CUST-004,3,SKU-007,Flank Steak,Beef,Grove Charcuterie 047,466.9,True,True,True,True,True,SERVE
+CUST-004,4,SKU-004,Brisket,Beef,Grove Charcuterie 047,307.73,True,True,True,True,True,SERVE
+CUST-004,5,SKU-006,Short Ribs,Beef,Grove Charcuterie 047,345.6,True,True,True,True,True,SERVE
+CUST-004,6,SKU-020,Quail 4-Pack,Poultry,Grove Charcuterie 047,336.56,True,True,True,True,True,SERVE
+CUST-004,7,SKU-018,Duck Breast,Poultry,Grove Charcuterie 047,463.22,True,True,True,True,True,SERVE
+CUST-004,8,SKU-003,Tenderloin,Beef,Grove Charcuterie 047,772.02,True,True,True,True,True,SERVE
+CUST-004,9,SKU-038,Ground Lamb,Lamb,Grove Charcuterie 047,223.93,True,True,True,True,True,SERVE
+CUST-004,10,SKU-005,Ground Chuck,Beef,Grove Charcuterie 047,134.83,True,True,True,True,True,SERVE
+CUST-005,1,SKU-003,Tenderloin,Beef,Inlet Izakaya 099,1215.18,True,True,True,True,True,SERVE
+CUST-005,2,SKU-007,Flank Steak,Beef,Inlet Izakaya 099,373.39,True,True,True,True,True,SERVE
+CUST-005,3,SKU-010,Belly Skin-On,Pork,Inlet Izakaya 099,195.43,True,True,True,True,True,SERVE
+CUST-005,4,SKU-005,Ground Chuck,Beef,Inlet Izakaya 099,141.88,True,True,True,True,True,SERVE
+CUST-005,5,SKU-006,Short Ribs,Beef,Inlet Izakaya 099,152.5,True,True,True,True,True,SERVE
+CUST-005,6,SKU-002,Ribeye AAA,Beef,Quarry Omakase 015,236.3,True,True,True,True,True,SERVE
+CUST-005,7,SKU-035,Lamb Rack Frenched,Lamb,Quarry Omakase 015,239.11,True,True,True,True,True,SERVE
+CUST-005,8,SKU-013,Prosciutto Leg,Pork,Quarry Omakase 015,97.63,True,True,True,True,True,SERVE
+CUST-005,9,SKU-009,Berkshire Loin,Pork,Quarry Omakase 015,44.56,True,True,True,True,True,SERVE
+CUST-005,10,SKU-030,Smoked Speck,Deli,Aurora Kaiseki 001,65.38,True,True,True,True,True,SERVE
+CUST-006,1,SKU-014,Chorizo Sausage,Pork,Vista Grill 078,384.35,True,True,True,True,True,SERVE
+CUST-006,2,SKU-016,Chicken Thigh BL,Poultry,Vista Grill 078,222.83,True,True,True,True,True,SERVE
+CUST-006,3,SKU-028,Octopus Tentacle,Seafood,Vista Grill 078,675.69,True,True,True,True,True,SERVE
+CUST-006,4,SKU-022,Sablefish Fillet,Seafood,Vista Grill 078,754.3,True,True,True,True,True,SERVE
+CUST-006,5,SKU-032,Pate de Campagne,Deli,Vista Grill 078,245.5,True,True,True,True,True,SERVE
+CUST-006,6,SKU-021,Atlantic Salmon Fillet,Seafood,Vista Grill 078,367.96,True,True,True,True,True,SERVE
+CUST-006,7,SKU-030,Smoked Speck,Deli,Vista Grill 078,292.63,True,True,True,True,True,SERVE
+CUST-006,8,SKU-029,Genoa Salami,Deli,Vista Grill 078,221.62,True,True,True,True,True,SERVE
+CUST-006,9,SKU-023,Ahi Tuna Saku,Seafood,Grove Grill 062,415.36,True,True,True,True,True,SERVE
+CUST-006,10,SKU-034,Bresaola,Deli,Grove Grill 062,236.11,True,True,True,True,True,SERVE
+CUST-007,1,SKU-019,Turkey Breast Roast,Poultry,Inlet Izakaya 099,154.28,True,True,True,True,True,SERVE
+CUST-007,2,SKU-017,Whole Duck,Poultry,Inlet Izakaya 099,103.26,True,True,True,True,True,SERVE
+CUST-007,3,SKU-003,Tenderloin,Beef,Inlet Izakaya 099,233.81,True,True,True,True,True,SERVE
+CUST-007,4,SKU-014,Chorizo Sausage,Pork,Inlet Izakaya 099,56.1,True,True,True,True,True,SERVE
+CUST-007,5,SKU-002,Ribeye AAA,Beef,Willow Izakaya 089,125.63,True,True,True,True,True,SERVE
+CUST-007,6,SKU-036,Lamb Leg BRT,Lamb,Willow Izakaya 089,68.84,True,True,True,True,True,SERVE
+CUST-007,7,SKU-034,Bresaola,Deli,Inlet Izakaya 099,94.1,True,True,True,True,True,SERVE
+CUST-007,8,SKU-006,Short Ribs,Beef,Inlet Izakaya 099,55.37,True,True,True,True,True,SERVE
+CUST-007,9,SKU-037,Lamb Shank,Lamb,Inlet Izakaya 099,44.52,True,True,True,True,True,SERVE
+CUST-007,10,SKU-033,Coppa Sliced,Deli,Inlet Izakaya 099,68.4,True,True,True,True,True,SERVE
+CUST-008,1,SKU-037,Lamb Shank,Lamb,Dockside Prime 065,1049.1,True,True,True,True,True,SERVE
+CUST-008,2,SKU-009,Berkshire Loin,Pork,Dockside Prime 065,584.83,True,True,True,True,True,SERVE
+CUST-008,3,SKU-013,Prosciutto Leg,Pork,Dockside Prime 065,801.18,True,True,True,True,True,SERVE
+CUST-008,4,SKU-028,Octopus Tentacle,Seafood,Dockside Prime 065,592.39,True,True,True,True,True,SERVE
+CUST-008,5,SKU-021,Atlantic Salmon Fillet,Seafood,Dockside Prime 065,469.78,True,True,True,True,True,SERVE
+CUST-008,6,SKU-010,Belly Skin-On,Pork,Vista Grill 078,210.03,True,True,True,True,True,SERVE
+CUST-008,7,SKU-019,Turkey Breast Roast,Poultry,Dockside Prime 065,211.35,True,True,True,True,True,SERVE
+CUST-008,8,SKU-027,Uni Tray,Seafood,Vista Grill 078,786.84,True,True,True,True,True,SERVE
+CUST-008,9,SKU-031,Duck Rillette,Deli,Dockside Prime 065,171.68,True,True,True,True,True,SERVE
+CUST-008,10,SKU-023,Ahi Tuna Saku,Seafood,Dockside Prime 065,363.99,True,True,True,True,True,SERVE
+CUST-009,1,SKU-026,Spot Prawns,Seafood,Canyon Charcuterie 064,505.41,True,True,True,True,True,SERVE
+CUST-010,1,SKU-017,Whole Duck,Poultry,Cedar Steakhouse 049,731.85,True,True,True,True,True,SERVE
+CUST-010,2,SKU-022,Sablefish Fillet,Seafood,Cedar Steakhouse 049,932.26,True,True,True,True,True,SERVE
+CUST-010,3,SKU-029,Genoa Salami,Deli,Cedar Steakhouse 049,354.83,True,True,True,True,True,SERVE
+CUST-010,4,SKU-030,Smoked Speck,Deli,Cedar Steakhouse 049,428.99,True,True,True,True,True,SERVE
+CUST-010,5,SKU-021,Atlantic Salmon Fillet,Seafood,Cedar Steakhouse 049,494.55,True,True,True,True,True,SERVE
+CUST-010,6,SKU-031,Duck Rillette,Deli,Cedar Steakhouse 049,362.87,True,True,True,True,True,SERVE
+CUST-010,7,SKU-025,Scallops U10,Seafood,Cedar Steakhouse 049,754.42,True,True,True,True,True,SERVE
+CUST-011,1,SKU-011,Shoulder Butt,Pork,Canyon Cellar 039,175.28,True,True,True,True,True,SERVE
+CUST-011,2,SKU-020,Quail 4-Pack,Poultry,Canyon Cellar 039,348.11,True,True,True,True,True,SERVE
+CUST-011,3,SKU-018,Duck Breast,Poultry,Pacific Salumeria 077,496.56,True,True,True,True,True,SERVE
+CUST-011,4,SKU-001,Striploin AAA,Beef,Canyon Cellar 039,471.56,True,True,True,True,True,SERVE
+CUST-011,5,SKU-005,Ground Chuck,Beef,Canyon Cellar 039,124.03,True,True,True,True,True,SERVE
+CUST-011,6,SKU-008,Beef Bones,Beef,Canyon Cellar 039,53.34,True,True,True,True,True,SERVE
+CUST-011,7,SKU-002,Ribeye AAA,Beef,Canyon Cellar 039,301.86,True,True,True,True,True,SERVE
+CUST-011,8,SKU-027,Uni Tray,Seafood,Pacific Salumeria 077,412.66,True,True,True,True,True,SERVE
+CUST-011,9,SKU-025,Scallops U10,Seafood,Canyon Cellar 039,267.26,True,True,True,True,True,SERVE
+CUST-011,10,SKU-021,Atlantic Salmon Fillet,Seafood,Pacific Salumeria 077,127.25,True,True,True,True,True,SERVE
+CUST-012,1,SKU-036,Lamb Leg BRT,Lamb,Harbour Steakhouse 044,2548.68,True,True,True,True,True,SERVE
+CUST-012,2,SKU-009,Berkshire Loin,Pork,Harbour Steakhouse 044,756.29,True,True,True,True,True,SERVE
+CUST-012,3,SKU-014,Chorizo Sausage,Pork,Harbour Steakhouse 044,649.53,True,True,True,True,True,SERVE
+CUST-012,4,SKU-018,Duck Breast,Poultry,Harbour Steakhouse 044,1026.82,True,True,True,True,True,SERVE
+CUST-012,5,SKU-019,Turkey Breast Roast,Poultry,Harbour Steakhouse 044,539.67,True,True,True,True,True,SERVE
+CUST-012,6,SKU-022,Sablefish Fillet,Seafood,Harbour Steakhouse 044,1162.06,True,True,True,True,True,SERVE
+CUST-012,7,SKU-021,Atlantic Salmon Fillet,Seafood,Harbour Steakhouse 044,696.66,True,True,True,True,True,SERVE
+CUST-012,8,SKU-017,Whole Duck,Poultry,Harbour Steakhouse 044,440.9,True,True,True,True,True,SERVE
+CUST-012,9,SKU-016,Chicken Thigh BL,Poultry,Harbour Steakhouse 044,226.54,True,True,True,True,True,SERVE
+CUST-012,10,SKU-027,Uni Tray,Seafood,Dockside Grill 061,1585.9,True,True,True,True,True,SERVE
+CUST-013,1,SKU-024,Hamachi Loin,Seafood,Orchard Foods 009,196.16,True,True,True,True,True,SERVE
+CUST-013,2,SKU-026,Spot Prawns,Seafood,Bluffs Steakhouse 098,100.16,True,True,True,True,True,SERVE
+CUST-014,1,SKU-013,Prosciutto Leg,Pork,Juniper Salumeria 027,413.02,True,True,True,True,True,SERVE
+CUST-014,2,SKU-019,Turkey Breast Roast,Poultry,Juniper Salumeria 027,244.36,True,True,True,True,True,SERVE
+CUST-014,3,SKU-020,Quail 4-Pack,Poultry,Juniper Salumeria 027,295.48,True,True,True,True,True,SERVE
+CUST-014,4,SKU-017,Whole Duck,Poultry,Juniper Salumeria 027,229.11,True,True,True,True,True,SERVE
+CUST-014,5,SKU-004,Brisket,Beef,Union Fresh Mart 111,182.44,True,True,True,True,True,SERVE
+CUST-014,6,SKU-034,Bresaola,Deli,Juniper Salumeria 027,389.59,True,True,True,True,True,SERVE
+CUST-014,7,SKU-010,Belly Skin-On,Pork,Juniper Salumeria 027,146.11,True,True,True,True,True,SERVE
+CUST-014,8,SKU-001,Striploin AAA,Beef,Juniper Salumeria 027,336.62,True,True,True,True,True,SERVE
+CUST-014,9,SKU-018,Duck Breast,Poultry,Union Fresh Mart 111,278.44,True,True,True,True,True,SERVE
+CUST-014,10,SKU-031,Duck Rillette,Deli,Juniper Salumeria 027,197.14,True,True,True,True,True,SERVE
+CUST-015,1,SKU-030,Smoked Speck,Deli,Whistler Izakaya 018,970.84,True,True,True,True,True,SERVE
+CUST-016,1,SKU-009,Berkshire Loin,Pork,Whistler Provisions 063,1035.62,True,True,True,True,True,SERVE
+CUST-016,2,SKU-008,Beef Bones,Beef,Whistler Provisions 063,233.34,True,True,True,True,True,SERVE
+CUST-016,3,SKU-002,Ribeye AAA,Beef,Whistler Provisions 063,1511.92,True,True,True,True,True,SERVE
+CUST-016,4,SKU-005,Ground Chuck,Beef,Whistler Provisions 063,253.41,True,True,True,True,True,SERVE
+CUST-016,5,SKU-025,Scallops U10,Seafood,Whistler Provisions 063,1146.48,True,True,True,True,True,SERVE
+CUST-016,6,SKU-021,Atlantic Salmon Fillet,Seafood,Whistler Provisions 063,543.72,True,True,True,True,True,SERVE
+CUST-016,7,SKU-023,Ahi Tuna Saku,Seafood,Whistler Provisions 063,817.79,True,True,True,True,True,SERVE
+CUST-016,8,SKU-022,Sablefish Fillet,Seafood,Whistler Provisions 063,620.51,True,True,True,True,True,SERVE
+CUST-016,9,SKU-027,Uni Tray,Seafood,Whistler Provisions 063,1206.46,True,True,True,True,True,SERVE
+CUST-016,10,SKU-028,Octopus Tentacle,Seafood,Harbour Cellar 119,476.19,True,True,True,True,True,SERVE
+CUST-019,1,SKU-002,Ribeye AAA,Beef,Aurora Kaiseki 001,461.92,True,True,True,True,True,SERVE
+CUST-019,2,SKU-005,Ground Chuck,Beef,Aurora Kaiseki 001,108.79,True,True,True,True,True,SERVE
+CUST-019,3,SKU-006,Short Ribs,Beef,Aurora Kaiseki 001,125.8,True,True,True,True,True,SERVE
+CUST-019,4,SKU-029,Genoa Salami,Deli,Aurora Kaiseki 001,98.75,True,True,True,True,True,SERVE
+CUST-019,5,SKU-038,Ground Lamb,Lamb,Aurora Kaiseki 001,83.95,True,True,True,True,True,SERVE
+CUST-019,6,SKU-033,Coppa Sliced,Deli,Aurora Kaiseki 001,123.63,True,True,True,True,True,SERVE
+CUST-019,7,SKU-032,Pate de Campagne,Deli,Aurora Kaiseki 001,57.72,True,True,True,True,True,SERVE
+CUST-019,8,SKU-037,Lamb Shank,Lamb,Aurora Kaiseki 001,61.93,True,True,True,True,True,SERVE
+CUST-019,9,SKU-008,Beef Bones,Beef,Inlet Izakaya 099,15.36,True,True,True,True,True,SERVE
+CUST-019,10,SKU-011,Shoulder Butt,Pork,Aurora Kaiseki 001,26.17,True,True,True,True,True,SERVE
+CUST-020,1,SKU-013,Prosciutto Leg,Pork,Dockside Fresh Mart 073,1116.3,True,True,True,True,True,SERVE
+CUST-020,2,SKU-014,Chorizo Sausage,Pork,Dockside Fresh Mart 073,573.59,True,True,True,True,True,SERVE
+CUST-020,3,SKU-011,Shoulder Butt,Pork,Dockside Fresh Mart 073,315.1,True,True,True,True,True,SERVE
+CUST-020,4,SKU-016,Chicken Thigh BL,Poultry,Dockside Fresh Mart 073,300.5,True,True,True,True,True,SERVE
+CUST-020,5,SKU-015,Chicken Breast,Poultry,Dockside Fresh Mart 073,231.37,True,True,True,True,True,SERVE
+CUST-020,6,SKU-038,Ground Lamb,Lamb,Dockside Fresh Mart 073,310.32,True,True,True,True,True,SERVE
+CUST-020,7,SKU-006,Short Ribs,Beef,Dockside Fresh Mart 073,345.45,True,True,True,True,True,SERVE
+CUST-020,8,SKU-003,Tenderloin,Beef,Harbour Cellar 119,929.94,True,True,True,True,True,SERVE
+CUST-020,9,SKU-005,Ground Chuck,Beef,Dockside Fresh Mart 073,171.12,True,True,True,True,True,SERVE
+CUST-020,10,SKU-036,Lamb Leg BRT,Lamb,Dockside Fresh Mart 073,379.92,True,True,True,True,True,SERVE
+CUST-022,1,SKU-026,Spot Prawns,Seafood,Timber Tavern 104,314.52,True,True,True,True,True,SERVE
+CUST-023,1,SKU-005,Ground Chuck,Beef,Canyon Foods 017,258.13,True,True,True,True,True,SERVE
+CUST-023,2,SKU-010,Belly Skin-On,Pork,Canyon Foods 017,274.24,True,True,True,True,True,SERVE
+CUST-023,3,SKU-031,Duck Rillette,Deli,Canyon Foods 017,419.12,True,True,True,True,True,SERVE
+CUST-023,4,SKU-012,Back Ribs,Pork,Canyon Foods 017,235.83,True,True,True,True,True,SERVE
+CUST-023,5,SKU-014,Chorizo Sausage,Pork,Canyon Foods 017,213.16,True,True,True,True,True,SERVE
+CUST-023,6,SKU-032,Pate de Campagne,Deli,Canyon Foods 017,224.15,True,True,True,True,True,SERVE
+CUST-023,7,SKU-036,Lamb Leg BRT,Lamb,Canyon Foods 017,206.72,True,True,True,True,True,SERVE
+CUST-023,8,SKU-027,Uni Tray,Seafood,Canyon Foods 017,601.59,True,True,True,True,True,SERVE
+CUST-023,9,SKU-029,Genoa Salami,Deli,Canyon Foods 017,120.63,True,True,True,True,True,SERVE
+CUST-023,10,SKU-024,Hamachi Loin,Seafood,Canyon Foods 017,273.07,True,True,True,True,True,SERVE
+CUST-024,1,SKU-022,Sablefish Fillet,Seafood,Granville Foods 043,1207.9,True,True,True,True,True,SERVE
+CUST-024,2,SKU-024,Hamachi Loin,Seafood,Elmwood Charcuterie 030,744.42,True,True,True,True,True,SERVE
+CUST-024,3,SKU-023,Ahi Tuna Saku,Seafood,Elmwood Charcuterie 030,648.92,True,True,True,True,True,SERVE
+CUST-025,1,SKU-024,Hamachi Loin,Seafood,Orchard Foods 009,138.56,True,True,True,True,True,SERVE
+CUST-025,2,SKU-026,Spot Prawns,Seafood,Granville Foods 043,78.67,True,True,True,True,True,SERVE
+CUST-026,1,SKU-011,Shoulder Butt,Pork,Aurora Kaiseki 001,632.16,True,True,True,True,True,SERVE
+CUST-026,2,SKU-032,Pate de Campagne,Deli,Aurora Kaiseki 001,1084.71,True,True,True,True,True,SERVE
+CUST-026,3,SKU-012,Back Ribs,Pork,Quarry Deli 117,648.61,True,True,True,True,True,SERVE
+CUST-026,4,SKU-005,Ground Chuck,Beef,Aurora Kaiseki 001,465.19,True,True,True,True,True,SERVE
+CUST-026,5,SKU-021,Atlantic Salmon Fillet,Seafood,Aurora Kaiseki 001,1118.77,True,True,True,True,True,SERVE
+CUST-026,6,SKU-020,Quail 4-Pack,Poultry,Aurora Kaiseki 001,799.19,True,True,True,True,True,SERVE
+CUST-026,7,SKU-037,Lamb Shank,Lamb,Aurora Kaiseki 001,498.83,True,True,True,True,True,SERVE
+CUST-026,8,SKU-008,Beef Bones,Beef,Quarry Deli 117,128.09,True,True,True,True,True,SERVE
+CUST-026,9,SKU-036,Lamb Leg BRT,Lamb,Quarry Deli 117,579.22,True,True,True,True,True,SERVE
+CUST-026,10,SKU-022,Sablefish Fillet,Seafood,Aurora Kaiseki 001,696.85,True,True,True,True,True,SERVE
+CUST-027,1,SKU-014,Chorizo Sausage,Pork,Sterling Provisions 112,444.08,True,True,True,True,True,SERVE
+CUST-027,2,SKU-018,Duck Breast,Poultry,Sterling Provisions 112,604.69,True,True,True,True,True,SERVE
+CUST-027,3,SKU-003,Tenderloin,Beef,Riverbend Charcuterie 110,1009.16,True,True,True,True,True,SERVE
+CUST-027,4,SKU-037,Lamb Shank,Lamb,Riverbend Charcuterie 110,271.26,True,True,True,True,True,SERVE
+CUST-027,5,SKU-008,Beef Bones,Beef,Riverbend Charcuterie 110,73.91,True,True,True,True,True,SERVE
+CUST-027,6,SKU-038,Ground Lamb,Lamb,Sterling Provisions 112,237.35,True,True,True,True,True,SERVE
+CUST-027,7,SKU-004,Brisket,Beef,Riverbend Charcuterie 110,200.53,True,True,True,True,True,SERVE
+CUST-027,8,SKU-007,Flank Steak,Beef,Pacific Salumeria 077,296.38,True,True,True,True,True,SERVE
+CUST-027,9,SKU-025,Scallops U10,Seafood,Riverbend Charcuterie 110,523.5,True,True,True,True,True,SERVE
+CUST-027,10,SKU-035,Lamb Rack Frenched,Lamb,Sterling Provisions 112,430.89,True,True,True,True,True,SERVE
+CUST-028,1,SKU-007,Flank Steak,Beef,Elmwood Grocer 048,702.76,True,True,True,True,True,SERVE
+CUST-028,2,SKU-002,Ribeye AAA,Beef,Elmwood Grocer 048,1300.21,True,True,True,True,True,SERVE
+CUST-028,3,SKU-003,Tenderloin,Beef,Elmwood Grocer 048,1081.2,True,True,True,True,True,SERVE
+CUST-028,4,SKU-032,Pate de Campagne,Deli,Elmwood Grocer 048,296.06,True,True,True,True,True,SERVE
+CUST-028,5,SKU-038,Ground Lamb,Lamb,Elmwood Grocer 048,169.41,True,True,True,True,True,SERVE
+CUST-028,6,SKU-027,Uni Tray,Seafood,Elmwood Grocer 048,727.6,True,True,True,True,True,SERVE
+CUST-028,7,SKU-033,Coppa Sliced,Deli,Elmwood Grocer 048,231.61,True,True,True,True,True,SERVE
+CUST-028,8,SKU-034,Bresaola,Deli,Elmwood Grocer 048,275.6,True,True,True,True,True,SERVE
+CUST-028,9,SKU-028,Octopus Tentacle,Seafood,Elmwood Grocer 048,133.88,True,True,True,True,True,SERVE
+CUST-028,10,SKU-029,Genoa Salami,Deli,Vista Pantry 034,50.78,True,True,True,True,True,SERVE
+CUST-029,1,SKU-005,Ground Chuck,Beef,Aurora Prime 092,308.5,True,True,True,True,True,SERVE
+CUST-029,2,SKU-038,Ground Lamb,Lamb,Aurora Prime 092,343.43,True,True,True,True,True,SERVE
+CUST-029,3,SKU-007,Flank Steak,Beef,Aurora Prime 092,396.8,True,True,True,True,True,SERVE
+CUST-029,4,SKU-015,Chicken Breast,Poultry,Aurora Prime 092,156.89,True,True,True,True,True,SERVE
+CUST-029,5,SKU-014,Chorizo Sausage,Pork,Aurora Steakhouse 041,128.05,True,True,True,True,True,SERVE
+CUST-029,6,SKU-013,Prosciutto Leg,Pork,Aurora Steakhouse 041,221.01,True,True,True,True,True,SERVE
+CUST-029,7,SKU-018,Duck Breast,Poultry,Aurora Prime 092,230.98,True,True,True,True,True,SERVE
+CUST-029,8,SKU-017,Whole Duck,Poultry,Aurora Prime 092,127.52,True,True,True,True,True,SERVE
+CUST-029,9,SKU-033,Coppa Sliced,Deli,Aurora Prime 092,135.45,True,True,True,True,True,SERVE
+CUST-029,10,SKU-021,Atlantic Salmon Fillet,Seafood,Willow Prime 097,128.41,True,True,True,True,True,SERVE
+CUST-031,1,SKU-015,Chicken Breast,Poultry,Quarry Omakase 015,206.76,True,True,True,True,True,SERVE
+CUST-031,2,SKU-029,Genoa Salami,Deli,Quarry Omakase 015,182.07,True,True,True,True,True,SERVE
+CUST-031,3,SKU-014,Chorizo Sausage,Pork,Quarry Omakase 015,114.17,True,True,True,True,True,SERVE
+CUST-031,4,SKU-030,Smoked Speck,Deli,Whistler Izakaya 018,140.41,True,True,True,True,True,SERVE
+CUST-031,5,SKU-036,Lamb Leg BRT,Lamb,Quarry Omakase 015,121.7,True,True,True,True,True,SERVE
+CUST-032,1,SKU-023,Ahi Tuna Saku,Seafood,Inlet Izakaya 099,2754.81,True,True,True,True,True,SERVE
+CUST-032,2,SKU-024,Hamachi Loin,Seafood,Inlet Izakaya 099,2110.32,True,True,True,True,True,SERVE
+CUST-032,3,SKU-020,Quail 4-Pack,Poultry,Inlet Izakaya 099,207.19,True,True,True,True,True,SERVE
+CUST-032,4,SKU-016,Chicken Thigh BL,Poultry,Inlet Izakaya 099,89.78,True,True,True,True,True,SERVE
+CUST-032,5,SKU-008,Beef Bones,Beef,Inlet Izakaya 099,43.84,True,True,True,True,True,SERVE
+CUST-032,6,SKU-005,Ground Chuck,Beef,Inlet Izakaya 099,81.25,True,True,True,True,True,SERVE
+CUST-032,7,SKU-018,Duck Breast,Poultry,Inlet Izakaya 099,206.91,True,True,True,True,True,SERVE
+CUST-032,8,SKU-019,Turkey Breast Roast,Poultry,Inlet Izakaya 099,82.27,True,True,True,True,True,SERVE
+CUST-032,9,SKU-033,Coppa Sliced,Deli,Inlet Izakaya 099,134.85,True,True,True,True,True,SERVE
+CUST-032,10,SKU-015,Chicken Breast,Poultry,Inlet Izakaya 099,50.49,True,True,True,True,True,SERVE
+CUST-033,1,SKU-031,Duck Rillette,Deli,Bluffs Cellar 011,906.81,True,True,True,True,True,SERVE
+CUST-033,2,SKU-018,Duck Breast,Poultry,Nordic Charcuterie 106,570.36,True,True,True,True,True,SERVE
+CUST-033,3,SKU-016,Chicken Thigh BL,Poultry,Bluffs Cellar 011,180.21,True,True,True,True,True,SERVE
+CUST-033,4,SKU-038,Ground Lamb,Lamb,Bluffs Cellar 011,266.77,True,True,True,True,True,SERVE
+CUST-033,5,SKU-015,Chicken Breast,Poultry,Bluffs Cellar 011,185.05,True,True,True,True,True,SERVE
+CUST-033,6,SKU-019,Turkey Breast Roast,Poultry,Bluffs Cellar 011,243.3,True,True,True,True,True,SERVE
+CUST-033,7,SKU-011,Shoulder Butt,Pork,Nordic Charcuterie 106,110.56,True,True,True,True,True,SERVE
+CUST-033,8,SKU-037,Lamb Shank,Lamb,Bluffs Cellar 011,198.35,True,True,True,True,True,SERVE
+CUST-033,9,SKU-035,Lamb Rack Frenched,Lamb,Bluffs Cellar 011,519.35,True,True,True,True,True,SERVE
+CUST-033,10,SKU-020,Quail 4-Pack,Poultry,Nordic Charcuterie 106,212.31,True,True,True,True,True,SERVE
+CUST-034,1,SKU-021,Atlantic Salmon Fillet,Seafood,Orchard Foods 009,487.17,True,True,True,True,True,SERVE
+CUST-034,2,SKU-025,Scallops U10,Seafood,Orchard Foods 009,747.05,True,True,True,True,True,SERVE
+CUST-034,3,SKU-028,Octopus Tentacle,Seafood,Orchard Foods 009,414.55,True,True,True,True,True,SERVE
+CUST-035,1,SKU-001,Striploin AAA,Beef,Zenith Foods 022,1009.24,True,True,True,True,True,SERVE
+CUST-035,2,SKU-015,Chicken Breast,Poultry,Zenith Foods 022,320.42,True,True,True,True,True,SERVE
+CUST-035,3,SKU-019,Turkey Breast Roast,Poultry,Zenith Foods 022,417.13,True,True,True,True,True,SERVE
+CUST-035,4,SKU-003,Tenderloin,Beef,Zenith Foods 022,1380.26,True,True,True,True,True,SERVE
+CUST-035,5,SKU-004,Brisket,Beef,Zenith Foods 022,318.84,True,True,True,True,True,SERVE
+CUST-035,6,SKU-006,Short Ribs,Beef,Zenith Foods 022,340.12,True,True,True,True,True,SERVE
+CUST-035,7,SKU-038,Ground Lamb,Lamb,Zenith Foods 022,257.6,True,True,True,True,True,SERVE
+CUST-035,8,SKU-036,Lamb Leg BRT,Lamb,Zenith Foods 022,351.49,True,True,True,True,True,SERVE
+CUST-035,9,SKU-030,Smoked Speck,Deli,Zenith Foods 022,283.83,True,True,True,True,True,SERVE
+CUST-035,10,SKU-033,Coppa Sliced,Deli,Zenith Foods 022,320.49,True,True,True,True,True,SERVE
+CUST-036,1,SKU-018,Duck Breast,Poultry,Quarry Omakase 015,825.54,True,True,True,True,True,SERVE
+CUST-036,2,SKU-033,Coppa Sliced,Deli,Quarry Omakase 015,412.41,True,True,True,True,True,SERVE
+CUST-036,3,SKU-009,Berkshire Loin,Pork,Quarry Omakase 015,178.77,True,True,True,True,True,SERVE
+CUST-036,4,SKU-013,Prosciutto Leg,Pork,Quarry Omakase 015,314.09,True,True,True,True,True,SERVE
+CUST-036,5,SKU-014,Chorizo Sausage,Pork,Quarry Omakase 015,124.28,True,True,True,True,True,SERVE
+CUST-036,6,SKU-032,Pate de Campagne,Deli,Quarry Omakase 015,119.55,True,True,True,True,True,SERVE
+CUST-037,1,SKU-038,Ground Lamb,Lamb,Elmwood Grocer 048,457.97,True,True,True,True,True,SERVE
+CUST-037,2,SKU-032,Pate de Campagne,Deli,Elmwood Grocer 048,343.58,True,True,True,True,True,SERVE
+CUST-037,3,SKU-034,Bresaola,Deli,Elmwood Grocer 048,620.74,True,True,True,True,True,SERVE
+CUST-037,4,SKU-029,Genoa Salami,Deli,Vista Pantry 034,284.62,True,True,True,True,True,SERVE
+CUST-037,5,SKU-022,Sablefish Fillet,Seafood,Elmwood Grocer 048,546.45,True,True,True,True,True,SERVE
+CUST-037,6,SKU-028,Octopus Tentacle,Seafood,Elmwood Grocer 048,315.29,True,True,True,True,True,SERVE
+CUST-037,7,SKU-027,Uni Tray,Seafood,Elmwood Grocer 048,668.57,True,True,True,True,True,SERVE
+CUST-037,8,SKU-024,Hamachi Loin,Seafood,Elmwood Grocer 048,266.27,True,True,True,True,True,SERVE
+CUST-037,9,SKU-025,Scallops U10,Seafood,Quarry Grocer 025,235.55,True,True,True,True,True,SERVE
+CUST-039,1,SKU-004,Brisket,Beef,Willow Provisions 021,643.23,True,True,True,True,True,SERVE
+CUST-039,2,SKU-018,Duck Breast,Poultry,Willow Provisions 021,1150.85,True,True,True,True,True,SERVE
+CUST-039,3,SKU-006,Short Ribs,Beef,Willow Provisions 021,731.08,True,True,True,True,True,SERVE
+CUST-039,4,SKU-019,Turkey Breast Roast,Poultry,Willow Provisions 021,478.05,True,True,True,True,True,SERVE
+CUST-039,5,SKU-027,Uni Tray,Seafood,Willow Provisions 021,1260.26,True,True,True,True,True,SERVE
+CUST-039,6,SKU-021,Atlantic Salmon Fillet,Seafood,Willow Provisions 021,389.95,True,True,True,True,True,SERVE
+CUST-039,7,SKU-028,Octopus Tentacle,Seafood,Willow Provisions 021,419.0,True,True,True,True,True,SERVE
+CUST-039,8,SKU-024,Hamachi Loin,Seafood,Willow Provisions 021,606.04,True,True,True,True,True,SERVE
+CUST-039,9,SKU-026,Spot Prawns,Seafood,Willow Provisions 021,362.64,True,True,True,True,True,SERVE
+CUST-040,1,SKU-015,Chicken Breast,Poultry,Highline Grocer 057,391.06,True,True,True,True,True,SERVE
+CUST-040,2,SKU-018,Duck Breast,Poultry,Highline Grocer 057,912.49,True,True,True,True,True,SERVE
+CUST-040,3,SKU-013,Prosciutto Leg,Pork,Highline Grocer 057,633.14,True,True,True,True,True,SERVE
+CUST-040,4,SKU-010,Belly Skin-On,Pork,Highline Grocer 057,300.97,True,True,True,True,True,SERVE
+CUST-040,5,SKU-037,Lamb Shank,Lamb,Highline Grocer 057,403.0,True,True,True,True,True,SERVE
+CUST-040,6,SKU-003,Tenderloin,Beef,Highline Grocer 057,1139.82,True,True,True,True,True,SERVE
+CUST-040,7,SKU-034,Bresaola,Deli,Highline Grocer 057,610.15,True,True,True,True,True,SERVE
+CUST-040,8,SKU-033,Coppa Sliced,Deli,Highline Grocer 057,491.86,True,True,True,True,True,SERVE
+CUST-040,9,SKU-035,Lamb Rack Frenched,Lamb,Highline Grocer 057,859.34,True,True,True,True,True,SERVE
+CUST-040,10,SKU-006,Short Ribs,Beef,Highline Grocer 057,250.66,True,True,True,True,True,SERVE
+CUST-041,1,SKU-020,Quail 4-Pack,Poultry,Willow Prime 097,264.91,True,True,True,True,True,SERVE
+CUST-041,2,SKU-027,Uni Tray,Seafood,Quarry Tavern 085,740.68,True,True,True,True,True,SERVE
+CUST-041,3,SKU-026,Spot Prawns,Seafood,Willow Prime 097,183.96,True,True,True,True,True,SERVE
+CUST-041,4,SKU-028,Octopus Tentacle,Seafood,Quarry Tavern 085,159.08,True,True,True,True,True,SERVE
+CUST-041,5,SKU-033,Coppa Sliced,Deli,Quarry Tavern 085,125.67,True,True,True,True,True,SERVE
+CUST-041,6,SKU-025,Scallops U10,Seafood,Quarry Tavern 085,224.63,True,True,True,True,True,SERVE
+CUST-041,7,SKU-031,Duck Rillette,Deli,Aurora Prime 092,69.35,True,True,True,True,True,SERVE
+CUST-041,8,SKU-029,Genoa Salami,Deli,Quarry Tavern 085,60.69,True,True,True,True,True,SERVE
+CUST-041,9,SKU-023,Ahi Tuna Saku,Seafood,Willow Prime 097,144.83,True,True,True,True,True,SERVE
+CUST-041,10,SKU-021,Atlantic Salmon Fillet,Seafood,Willow Prime 097,76.58,True,True,True,True,True,SERVE
+CUST-042,1,SKU-005,Ground Chuck,Beef,Whistler Izakaya 018,490.75,True,True,True,True,True,SERVE
+CUST-042,2,SKU-003,Tenderloin,Beef,Whistler Izakaya 018,1293.15,True,True,True,True,True,SERVE
+CUST-042,3,SKU-015,Chicken Breast,Poultry,Whistler Izakaya 018,195.47,True,True,True,True,True,SERVE
+CUST-042,4,SKU-031,Duck Rillette,Deli,Whistler Izakaya 018,316.75,True,True,True,True,True,SERVE
+CUST-042,5,SKU-011,Shoulder Butt,Pork,Whistler Izakaya 018,111.09,True,True,True,True,True,SERVE
+CUST-042,6,SKU-034,Bresaola,Deli,Whistler Izakaya 018,314.89,True,True,True,True,True,SERVE
+CUST-042,7,SKU-029,Genoa Salami,Deli,Whistler Izakaya 018,124.16,True,True,True,True,True,SERVE
+CUST-043,1,SKU-023,Ahi Tuna Saku,Seafood,Quarry Grocer 025,586.17,True,True,True,True,True,SERVE
+CUST-043,2,SKU-024,Hamachi Loin,Seafood,Orchard Foods 009,253.92,True,True,True,True,True,SERVE
+CUST-044,1,SKU-027,Uni Tray,Seafood,Cedar Steakhouse 049,1511.95,True,True,True,True,True,SERVE
+CUST-044,2,SKU-034,Bresaola,Deli,Cedar Steakhouse 049,320.96,True,True,True,True,True,SERVE
+CUST-045,1,SKU-015,Chicken Breast,Poultry,Cedar Steakhouse 049,460.43,True,True,True,True,True,SERVE
+CUST-045,2,SKU-031,Duck Rillette,Deli,Cedar Steakhouse 049,552.7,True,True,True,True,True,SERVE
+CUST-045,3,SKU-033,Coppa Sliced,Deli,Cedar Steakhouse 049,470.43,True,True,True,True,True,SERVE
+CUST-046,1,SKU-017,Whole Duck,Poultry,Quarry Omakase 015,1004.27,True,True,True,True,True,SERVE
+CUST-046,2,SKU-011,Shoulder Butt,Pork,Quarry Omakase 015,387.84,True,True,True,True,True,SERVE
+CUST-046,3,SKU-008,Beef Bones,Beef,Quarry Omakase 015,165.95,True,True,True,True,True,SERVE
+CUST-047,1,SKU-027,Uni Tray,Seafood,Willow Provisions 021,2476.31,True,True,True,True,True,SERVE
+CUST-048,1,SKU-029,Genoa Salami,Deli,Cedar Steakhouse 049,930.24,True,True,True,True,True,SERVE
+CUST-048,2,SKU-021,Atlantic Salmon Fillet,Seafood,Cedar Steakhouse 049,648.41,True,True,True,True,True,SERVE
+CUST-048,3,SKU-025,Scallops U10,Seafood,Cedar Steakhouse 049,991.05,True,True,True,True,True,SERVE
+CUST-050,1,SKU-005,Ground Chuck,Beef,Yardley Foods 056,1010.34,True,True,True,True,True,SERVE
+CUST-050,2,SKU-038,Ground Lamb,Lamb,Yardley Foods 056,1255.53,True,True,True,True,True,SERVE
+CUST-050,3,SKU-001,Striploin AAA,Beef,Yardley Foods 056,2660.32,True,True,True,True,True,SERVE
+CUST-050,4,SKU-033,Coppa Sliced,Deli,Yardley Foods 056,985.85,True,True,True,True,True,SERVE
+CUST-050,5,SKU-030,Smoked Speck,Deli,Yardley Foods 056,860.57,True,True,True,True,True,SERVE
+CUST-050,6,SKU-028,Octopus Tentacle,Seafood,Grove Grill 062,1064.24,True,True,True,True,True,SERVE
+CUST-050,7,SKU-034,Bresaola,Deli,Yardley Foods 056,987.36,True,True,True,True,True,SERVE
+CUST-050,8,SKU-029,Genoa Salami,Deli,Yardley Foods 056,543.46,True,True,True,True,True,SERVE
+CUST-050,9,SKU-022,Sablefish Fillet,Seafood,Yardley Foods 056,854.1,True,True,True,True,True,SERVE
+CUST-050,10,SKU-024,Hamachi Loin,Seafood,Yardley Foods 056,712.86,True,True,True,True,True,SERVE
+CUST-051,1,SKU-016,Chicken Thigh BL,Poultry,Lakeside Fresh Mart 024,370.26,True,True,True,True,True,SERVE
+CUST-051,2,SKU-011,Shoulder Butt,Pork,Lakeside Fresh Mart 024,302.92,True,True,True,True,True,SERVE
+CUST-051,3,SKU-012,Back Ribs,Pork,Lakeside Fresh Mart 024,425.4,True,True,True,True,True,SERVE
+CUST-051,4,SKU-014,Chorizo Sausage,Pork,Lakeside Fresh Mart 024,417.52,True,True,True,True,True,SERVE
+CUST-051,5,SKU-002,Ribeye AAA,Beef,Lakeside Fresh Mart 024,1154.15,True,True,True,True,True,SERVE
+CUST-051,6,SKU-036,Lamb Leg BRT,Lamb,Lakeside Fresh Mart 024,592.23,True,True,True,True,True,SERVE
+CUST-051,7,SKU-030,Smoked Speck,Deli,Lakeside Fresh Mart 024,571.74,True,True,True,True,True,SERVE
+CUST-051,8,SKU-033,Coppa Sliced,Deli,Lakeside Fresh Mart 024,522.84,True,True,True,True,True,SERVE
+CUST-051,9,SKU-035,Lamb Rack Frenched,Lamb,Lakeside Fresh Mart 024,788.57,True,True,True,True,True,SERVE
+CUST-051,10,SKU-038,Ground Lamb,Lamb,Lakeside Fresh Mart 024,261.02,True,True,True,True,True,SERVE
+CUST-052,1,SKU-003,Tenderloin,Beef,Pacific Steakhouse 072,1882.44,True,True,True,True,True,SERVE
+CUST-052,2,SKU-005,Ground Chuck,Beef,Pacific Steakhouse 072,265.88,True,True,True,True,True,SERVE
+CUST-052,3,SKU-037,Lamb Shank,Lamb,Pacific Steakhouse 072,401.32,True,True,True,True,True,SERVE
+CUST-052,4,SKU-008,Beef Bones,Beef,Pacific Steakhouse 072,99.49,True,True,True,True,True,SERVE
+CUST-052,5,SKU-006,Short Ribs,Beef,Pacific Steakhouse 072,396.92,True,True,True,True,True,SERVE
+CUST-052,6,SKU-011,Shoulder Butt,Pork,Willow Prime 097,112.89,True,True,True,True,True,SERVE
+CUST-052,7,SKU-018,Duck Breast,Poultry,Willow Prime 097,321.77,True,True,True,True,True,SERVE
+CUST-052,8,SKU-014,Chorizo Sausage,Pork,Pacific Steakhouse 072,145.23,True,True,True,True,True,SERVE
+CUST-052,9,SKU-015,Chicken Breast,Poultry,Pacific Steakhouse 072,115.38,True,True,True,True,True,SERVE
+CUST-052,10,SKU-009,Berkshire Loin,Pork,Willow Prime 097,94.08,True,True,True,True,True,SERVE
+CUST-053,1,SKU-001,Striploin AAA,Beef,Bluffs Provisions 038,1056.65,True,True,True,True,True,SERVE
+CUST-053,2,SKU-003,Tenderloin,Beef,Bluffs Provisions 038,1010.9,True,True,True,True,True,SERVE
+CUST-053,3,SKU-019,Turkey Breast Roast,Poultry,Bluffs Provisions 038,192.05,True,True,True,True,True,SERVE
+CUST-053,4,SKU-027,Uni Tray,Seafood,Bluffs Provisions 038,734.21,True,True,True,True,True,SERVE
+CUST-053,5,SKU-026,Spot Prawns,Seafood,Bluffs Provisions 038,286.87,True,True,True,True,True,SERVE
+CUST-053,6,SKU-023,Ahi Tuna Saku,Seafood,Bluffs Provisions 038,292.91,True,True,True,True,True,SERVE
+CUST-053,7,SKU-028,Octopus Tentacle,Seafood,Bluffs Provisions 038,181.52,True,True,True,True,True,SERVE
+CUST-053,8,SKU-022,Sablefish Fillet,Seafood,Bluffs Provisions 038,159.85,True,True,True,True,True,SERVE
+CUST-054,1,SKU-018,Duck Breast,Poultry,Highline Grocer 057,622.66,True,True,True,True,True,SERVE
+CUST-054,2,SKU-034,Bresaola,Deli,Highline Grocer 057,683.84,True,True,True,True,True,SERVE
+CUST-054,3,SKU-020,Quail 4-Pack,Poultry,Highline Grocer 057,265.27,True,True,True,True,True,SERVE
+CUST-054,4,SKU-013,Prosciutto Leg,Pork,Highline Grocer 057,334.84,True,True,True,True,True,SERVE
+CUST-054,5,SKU-032,Pate de Campagne,Deli,Highline Grocer 057,202.66,True,True,True,True,True,SERVE
+CUST-054,6,SKU-005,Ground Chuck,Beef,Highline Grocer 057,105.66,True,True,True,True,True,SERVE
+CUST-054,7,SKU-030,Smoked Speck,Deli,Quarry Grocer 025,218.61,True,True,True,True,True,SERVE
+CUST-054,8,SKU-003,Tenderloin,Beef,Highline Grocer 057,509.43,True,True,True,True,True,SERVE
+CUST-054,9,SKU-011,Shoulder Butt,Pork,Highline Grocer 057,72.86,True,True,True,True,True,SERVE
+CUST-054,10,SKU-037,Lamb Shank,Lamb,Highline Grocer 057,139.79,True,True,True,True,True,SERVE
+CUST-055,1,SKU-007,Flank Steak,Beef,Whistler Izakaya 018,385.79,True,True,True,True,True,SERVE
+CUST-055,2,SKU-002,Ribeye AAA,Beef,Whistler Izakaya 018,691.45,True,True,True,True,True,SERVE
+CUST-055,3,SKU-019,Turkey Breast Roast,Poultry,Whistler Izakaya 018,227.3,True,True,True,True,True,SERVE
+CUST-055,4,SKU-037,Lamb Shank,Lamb,Whistler Izakaya 018,168.31,True,True,True,True,True,SERVE
+CUST-055,5,SKU-001,Striploin AAA,Beef,Whistler Izakaya 018,330.47,True,True,True,True,True,SERVE
+CUST-055,6,SKU-031,Duck Rillette,Deli,Whistler Izakaya 018,191.64,True,True,True,True,True,SERVE
+CUST-055,7,SKU-034,Bresaola,Deli,Whistler Izakaya 018,271.4,True,True,True,True,True,SERVE
+CUST-055,8,SKU-014,Chorizo Sausage,Pork,Whistler Izakaya 018,84.25,True,True,True,True,True,SERVE
+CUST-055,9,SKU-012,Back Ribs,Pork,Whistler Izakaya 018,71.14,True,True,True,True,True,SERVE
+CUST-055,10,SKU-032,Pate de Campagne,Deli,Whistler Izakaya 018,77.17,True,True,True,True,True,SERVE
+CUST-056,1,SKU-036,Lamb Leg BRT,Lamb,Canyon Foods 017,1028.74,True,True,True,True,True,SERVE
+CUST-056,2,SKU-028,Octopus Tentacle,Seafood,Canyon Foods 017,1432.56,True,True,True,True,True,SERVE
+CUST-057,1,SKU-030,Smoked Speck,Deli,Vista Pantry 034,1212.52,True,True,True,True,True,SERVE
+CUST-057,2,SKU-025,Scallops U10,Seafood,Canyon Foods 017,684.92,True,True,True,True,True,SERVE
+CUST-057,3,SKU-028,Octopus Tentacle,Seafood,Canyon Foods 017,407.9,True,True,True,True,True,SERVE
+CUST-058,1,SKU-023,Ahi Tuna Saku,Seafood,Whistler Provisions 063,645.22,True,True,True,True,True,SERVE
+CUST-058,2,SKU-027,Uni Tray,Seafood,Whistler Provisions 063,913.86,True,True,True,True,True,SERVE
+CUST-058,3,SKU-022,Sablefish Fillet,Seafood,Whistler Provisions 063,430.64,True,True,True,True,True,SERVE
+CUST-058,4,SKU-028,Octopus Tentacle,Seafood,Orchard Foods 009,156.38,True,True,True,True,True,SERVE
+CUST-058,5,SKU-026,Spot Prawns,Seafood,Whistler Provisions 063,142.68,True,True,True,True,True,SERVE
+CUST-059,1,SKU-037,Lamb Shank,Lamb,Grove Grill 062,950.79,True,True,True,True,True,SERVE
+CUST-059,2,SKU-012,Back Ribs,Pork,Grove Grill 062,390.21,True,True,True,True,True,SERVE
+CUST-059,3,SKU-020,Quail 4-Pack,Poultry,Grove Grill 062,514.67,True,True,True,True,True,SERVE
+CUST-059,4,SKU-028,Octopus Tentacle,Seafood,Grove Grill 062,695.24,True,True,True,True,True,SERVE
+CUST-059,5,SKU-022,Sablefish Fillet,Seafood,Grove Grill 062,660.11,True,True,True,True,True,SERVE
+CUST-059,6,SKU-032,Pate de Campagne,Deli,Grove Grill 062,237.05,True,True,True,True,True,SERVE
+CUST-059,7,SKU-031,Duck Rillette,Deli,Grove Grill 062,218.47,True,True,True,True,True,SERVE
+CUST-059,8,SKU-029,Genoa Salami,Deli,Grove Grill 062,192.25,True,True,True,True,True,SERVE
+CUST-059,9,SKU-033,Coppa Sliced,Deli,Grove Grill 062,238.6,True,True,True,True,True,SERVE
+CUST-060,1,SKU-018,Duck Breast,Poultry,Harbour Steakhouse 044,399.22,True,True,True,True,True,SERVE
+CUST-060,2,SKU-016,Chicken Thigh BL,Poultry,Harbour Steakhouse 044,125.65,True,True,True,True,True,SERVE
+CUST-060,3,SKU-027,Uni Tray,Seafood,Dockside Grill 061,778.31,True,True,True,True,True,SERVE
+CUST-060,4,SKU-029,Genoa Salami,Deli,Harbour Steakhouse 044,148.44,True,True,True,True,True,SERVE
+CUST-060,5,SKU-019,Turkey Breast Roast,Poultry,Harbour Steakhouse 044,127.34,True,True,True,True,True,SERVE
+CUST-060,6,SKU-026,Spot Prawns,Seafood,Harbour Steakhouse 044,288.49,True,True,True,True,True,SERVE
+CUST-060,7,SKU-020,Quail 4-Pack,Poultry,Harbour Steakhouse 044,128.2,True,True,True,True,True,SERVE
+CUST-060,8,SKU-030,Smoked Speck,Deli,Harbour Steakhouse 044,114.9,True,True,True,True,True,SERVE
+CUST-060,9,SKU-028,Octopus Tentacle,Seafood,Harbour Steakhouse 044,160.63,True,True,True,True,True,SERVE
+CUST-060,10,SKU-023,Ahi Tuna Saku,Seafood,Harbour Steakhouse 044,146.17,True,True,True,True,True,SERVE
+CUST-061,1,SKU-017,Whole Duck,Poultry,Timber Tavern 104,779.76,True,True,True,True,True,SERVE
+CUST-061,2,SKU-032,Pate de Campagne,Deli,Timber Tavern 104,487.92,True,True,True,True,True,SERVE
+CUST-061,3,SKU-031,Duck Rillette,Deli,Timber Tavern 104,391.37,True,True,True,True,True,SERVE
+CUST-061,4,SKU-034,Bresaola,Deli,Timber Tavern 104,523.24,True,True,True,True,True,SERVE
+CUST-063,1,SKU-028,Octopus Tentacle,Seafood,Willow Provisions 021,937.37,True,True,True,True,True,SERVE
+CUST-065,1,SKU-010,Belly Skin-On,Pork,Harbour Steakhouse 044,476.83,True,True,True,True,True,SERVE
+CUST-065,2,SKU-032,Pate de Campagne,Deli,Harbour Steakhouse 044,412.81,True,True,True,True,True,SERVE
+CUST-065,3,SKU-027,Uni Tray,Seafood,Nordic Tavern 070,1568.86,True,True,True,True,True,SERVE
+CUST-065,4,SKU-024,Hamachi Loin,Seafood,Harbour Steakhouse 044,542.95,True,True,True,True,True,SERVE
+CUST-065,5,SKU-033,Coppa Sliced,Deli,Harbour Steakhouse 044,256.31,True,True,True,True,True,SERVE
+CUST-065,6,SKU-034,Bresaola,Deli,Nordic Tavern 070,262.95,True,True,True,True,True,SERVE
+CUST-066,1,SKU-010,Belly Skin-On,Pork,Quarry Tavern 085,391.23,True,True,True,True,True,SERVE
+CUST-066,2,SKU-009,Berkshire Loin,Pork,Quarry Tavern 085,411.92,True,True,True,True,True,SERVE
+CUST-066,3,SKU-020,Quail 4-Pack,Poultry,Cedar Steakhouse 049,428.19,True,True,True,True,True,SERVE
+CUST-066,4,SKU-030,Smoked Speck,Deli,Quarry Tavern 085,248.02,True,True,True,True,True,SERVE
+CUST-066,5,SKU-031,Duck Rillette,Deli,Cedar Steakhouse 049,203.46,True,True,True,True,True,SERVE
+CUST-066,6,SKU-026,Spot Prawns,Seafood,Cedar Steakhouse 049,362.96,True,True,True,True,True,SERVE
+CUST-066,7,SKU-032,Pate de Campagne,Deli,Cedar Steakhouse 049,144.54,True,True,True,True,True,SERVE
+CUST-066,8,SKU-025,Scallops U10,Seafood,Quarry Tavern 085,473.77,True,True,True,True,True,SERVE
+CUST-066,9,SKU-023,Ahi Tuna Saku,Seafood,Cedar Steakhouse 049,338.31,True,True,True,True,True,SERVE
+CUST-066,10,SKU-029,Genoa Salami,Deli,Quarry Tavern 085,91.78,True,True,True,True,True,SERVE
+CUST-067,1,SKU-020,Quail 4-Pack,Poultry,Inlet Izakaya 099,498.69,True,True,True,True,True,SERVE
+CUST-067,2,SKU-001,Striploin AAA,Beef,Inlet Izakaya 099,513.26,True,True,True,True,True,SERVE
+CUST-067,3,SKU-004,Brisket,Beef,Inlet Izakaya 099,127.68,True,True,True,True,True,SERVE
+CUST-067,4,SKU-006,Short Ribs,Beef,Inlet Izakaya 099,149.97,True,True,True,True,True,SERVE
+CUST-067,5,SKU-011,Shoulder Butt,Pork,Quarry Omakase 015,61.51,True,True,True,True,True,SERVE
+CUST-067,6,SKU-009,Berkshire Loin,Pork,Quarry Omakase 015,95.26,True,True,True,True,True,SERVE
+CUST-067,7,SKU-002,Ribeye AAA,Beef,Quarry Omakase 015,233.13,True,True,True,True,True,SERVE
+CUST-067,8,SKU-035,Lamb Rack Frenched,Lamb,Quarry Omakase 015,251.18,True,True,True,True,True,SERVE
+CUST-067,9,SKU-036,Lamb Leg BRT,Lamb,Quarry Omakase 015,58.24,True,True,True,True,True,SERVE
+CUST-068,1,SKU-005,Ground Chuck,Beef,Quarry Omakase 015,865.52,True,True,True,True,True,SERVE
+CUST-068,2,SKU-002,Ribeye AAA,Beef,Quarry Omakase 015,3312.66,True,True,True,True,True,SERVE
+CUST-068,3,SKU-004,Brisket,Beef,Quarry Omakase 015,1014.82,True,True,True,True,True,SERVE
+CUST-068,4,SKU-014,Chorizo Sausage,Pork,Quarry Omakase 015,832.51,True,True,True,True,True,SERVE
+CUST-068,5,SKU-017,Whole Duck,Poultry,Quarry Omakase 015,1050.29,True,True,True,True,True,SERVE
+CUST-068,6,SKU-012,Back Ribs,Pork,Quarry Omakase 015,709.09,True,True,True,True,True,SERVE
+CUST-068,7,SKU-032,Pate de Campagne,Deli,Quarry Omakase 015,775.57,True,True,True,True,True,SERVE
+CUST-068,8,SKU-023,Ahi Tuna Saku,Seafood,Quarry Omakase 015,1446.84,True,True,True,True,True,SERVE
+CUST-068,9,SKU-033,Coppa Sliced,Deli,Quarry Omakase 015,768.85,True,True,True,True,True,SERVE
+CUST-068,10,SKU-029,Genoa Salami,Deli,Quarry Omakase 015,529.06,True,True,True,True,True,SERVE
+CUST-069,1,SKU-014,Chorizo Sausage,Pork,Sterling Provisions 112,348.13,True,True,True,True,True,SERVE
+CUST-069,2,SKU-010,Belly Skin-On,Pork,Aurora Prime 092,282.37,True,True,True,True,True,SERVE
+CUST-069,3,SKU-006,Short Ribs,Beef,Aurora Prime 092,422.53,True,True,True,True,True,SERVE
+CUST-069,4,SKU-003,Tenderloin,Beef,Aurora Prime 092,1188.43,True,True,True,True,True,SERVE
+CUST-069,5,SKU-029,Genoa Salami,Deli,Sterling Provisions 112,399.33,True,True,True,True,True,SERVE
+CUST-069,6,SKU-019,Turkey Breast Roast,Poultry,Aurora Prime 092,341.64,True,True,True,True,True,SERVE
+CUST-069,7,SKU-005,Ground Chuck,Beef,Aurora Prime 092,204.06,True,True,True,True,True,SERVE
+CUST-069,8,SKU-032,Pate de Campagne,Deli,Sterling Provisions 112,304.49,True,True,True,True,True,SERVE
+CUST-069,9,SKU-017,Whole Duck,Poultry,Aurora Prime 092,327.27,True,True,True,True,True,SERVE
+CUST-069,10,SKU-011,Shoulder Butt,Pork,Aurora Prime 092,153.7,True,True,True,True,True,SERVE
+CUST-070,1,SKU-024,Hamachi Loin,Seafood,Bluffs Steakhouse 098,803.57,True,True,True,True,True,SERVE
+CUST-071,1,SKU-009,Berkshire Loin,Pork,Granville Foods 043,571.16,True,True,True,True,True,SERVE
+CUST-071,2,SKU-013,Prosciutto Leg,Pork,Granville Foods 043,987.27,True,True,True,True,True,SERVE
+CUST-071,3,SKU-001,Striploin AAA,Beef,Granville Foods 043,1003.6,True,True,True,True,True,SERVE
+CUST-071,4,SKU-008,Beef Bones,Beef,Granville Foods 043,115.19,True,True,True,True,True,SERVE
+CUST-071,5,SKU-031,Duck Rillette,Deli,Granville Foods 043,487.34,True,True,True,True,True,SERVE
+CUST-071,6,SKU-038,Ground Lamb,Lamb,Granville Foods 043,278.76,True,True,True,True,True,SERVE
+CUST-071,7,SKU-037,Lamb Shank,Lamb,Granville Foods 043,258.98,True,True,True,True,True,SERVE
+CUST-071,8,SKU-035,Lamb Rack Frenched,Lamb,Granville Foods 043,712.22,True,True,True,True,True,SERVE
+CUST-071,9,SKU-029,Genoa Salami,Deli,Granville Foods 043,235.04,True,True,True,True,True,SERVE
+CUST-071,10,SKU-034,Bresaola,Deli,Granville Foods 043,377.96,True,True,True,True,True,SERVE
+CUST-072,1,SKU-011,Shoulder Butt,Pork,Harbour Steakhouse 044,382.54,True,True,True,True,True,SERVE
+CUST-072,2,SKU-009,Berkshire Loin,Pork,Harbour Steakhouse 044,593.81,True,True,True,True,True,SERVE
+CUST-072,3,SKU-018,Duck Breast,Poultry,Harbour Steakhouse 044,915.16,True,True,True,True,True,SERVE
+CUST-072,4,SKU-032,Pate de Campagne,Deli,Harbour Steakhouse 044,473.41,True,True,True,True,True,SERVE
+CUST-072,5,SKU-019,Turkey Breast Roast,Poultry,Harbour Steakhouse 044,441.69,True,True,True,True,True,SERVE
+CUST-072,6,SKU-025,Scallops U10,Seafood,Harbour Steakhouse 044,1142.94,True,True,True,True,True,SERVE
+CUST-072,7,SKU-021,Atlantic Salmon Fillet,Seafood,Harbour Steakhouse 044,398.49,True,True,True,True,True,SERVE
+CUST-072,8,SKU-026,Spot Prawns,Seafood,Harbour Steakhouse 044,478.2,True,True,True,True,True,SERVE
+CUST-072,9,SKU-022,Sablefish Fillet,Seafood,Harbour Steakhouse 044,451.77,True,True,True,True,True,SERVE
+CUST-072,10,SKU-027,Uni Tray,Seafood,Cedar Steakhouse 049,835.48,True,True,True,True,True,SERVE
+CUST-073,1,SKU-008,Beef Bones,Beef,Canyon Charcuterie 064,301.01,True,True,True,True,True,SERVE
+CUST-073,2,SKU-020,Quail 4-Pack,Poultry,Canyon Charcuterie 064,1165.76,True,True,True,True,True,SERVE
+CUST-073,3,SKU-003,Tenderloin,Beef,Canyon Charcuterie 064,2547.05,True,True,True,True,True,SERVE
+CUST-073,4,SKU-022,Sablefish Fillet,Seafood,Canyon Charcuterie 064,596.39,True,True,True,True,True,SERVE
+CUST-073,5,SKU-026,Spot Prawns,Seafood,Canyon Charcuterie 064,408.7,True,True,True,True,True,SERVE
+CUST-074,1,SKU-007,Flank Steak,Beef,Nordic Tavern 070,2430.34,True,True,True,True,True,SERVE
+CUST-074,2,SKU-018,Duck Breast,Poultry,Nordic Tavern 070,902.41,True,True,True,True,True,SERVE
+CUST-074,3,SKU-019,Turkey Breast Roast,Poultry,Nordic Tavern 070,338.47,True,True,True,True,True,SERVE
+CUST-074,4,SKU-010,Belly Skin-On,Pork,Nordic Tavern 070,231.11,True,True,True,True,True,SERVE
+CUST-074,5,SKU-028,Octopus Tentacle,Seafood,Nordic Tavern 070,594.32,True,True,True,True,True,SERVE
+CUST-074,6,SKU-032,Pate de Campagne,Deli,Nordic Tavern 070,150.29,True,True,True,True,True,SERVE
+CUST-074,7,SKU-030,Smoked Speck,Deli,Nordic Tavern 070,221.1,True,True,True,True,True,SERVE
+CUST-074,8,SKU-024,Hamachi Loin,Seafood,Bluffs Steakhouse 098,162.22,True,True,True,True,True,SERVE
+CUST-075,1,SKU-001,Striploin AAA,Beef,Quarry Omakase 015,2482.52,True,True,True,True,True,SERVE
+CUST-075,2,SKU-010,Belly Skin-On,Pork,Quarry Omakase 015,475.95,True,True,True,True,True,SERVE
+CUST-075,3,SKU-016,Chicken Thigh BL,Poultry,Quarry Omakase 015,337.09,True,True,True,True,True,SERVE
+CUST-075,4,SKU-038,Ground Lamb,Lamb,Quarry Omakase 015,437.61,True,True,True,True,True,SERVE
+CUST-075,5,SKU-032,Pate de Campagne,Deli,Quarry Omakase 015,396.3,True,True,True,True,True,SERVE
+CUST-075,6,SKU-014,Chorizo Sausage,Pork,Quarry Omakase 015,301.41,True,True,True,True,True,SERVE
+CUST-076,1,SKU-020,Quail 4-Pack,Poultry,Summit Sushi 120,198.03,True,True,True,True,True,SERVE
+CUST-076,2,SKU-019,Turkey Breast Roast,Poultry,Granville Ocean Bar 107,102.49,True,True,True,True,True,SERVE
+CUST-076,3,SKU-033,Coppa Sliced,Deli,Granville Ocean Bar 107,144.76,True,True,True,True,True,SERVE
+CUST-076,4,SKU-016,Chicken Thigh BL,Poultry,Granville Ocean Bar 107,50.32,True,True,True,True,True,SERVE
+CUST-076,5,SKU-006,Short Ribs,Beef,Zenith Ocean Bar 031,94.22,True,True,True,True,True,SERVE
+CUST-076,6,SKU-031,Duck Rillette,Deli,Granville Ocean Bar 107,96.52,True,True,True,True,True,SERVE
+CUST-076,7,SKU-034,Bresaola,Deli,Zenith Ocean Bar 031,137.96,True,True,True,True,True,SERVE
+CUST-076,8,SKU-002,Ribeye AAA,Beef,Granville Ocean Bar 107,139.36,True,True,True,True,True,SERVE
+CUST-076,9,SKU-004,Brisket,Beef,Zenith Ocean Bar 031,44.58,True,True,True,True,True,SERVE
+CUST-076,10,SKU-038,Ground Lamb,Lamb,Granville Ocean Bar 107,46.03,True,True,True,True,True,SERVE
+CUST-078,1,SKU-023,Ahi Tuna Saku,Seafood,Nordic Tavern 070,573.71,True,True,True,True,True,SERVE
+CUST-078,2,SKU-024,Hamachi Loin,Seafood,Grove Grill 062,550.77,True,True,True,True,True,SERVE
+CUST-078,3,SKU-034,Bresaola,Deli,Nordic Tavern 070,353.14,True,True,True,True,True,SERVE
+CUST-079,1,SKU-010,Belly Skin-On,Pork,Cedar Kaiseki 086,193.24,True,True,True,True,True,SERVE
+CUST-079,2,SKU-019,Turkey Breast Roast,Poultry,Canyon Izakaya 046,198.13,True,True,True,True,True,SERVE
+CUST-079,3,SKU-003,Tenderloin,Beef,Cedar Kaiseki 086,534.78,True,True,True,True,True,SERVE
+CUST-079,4,SKU-032,Pate de Campagne,Deli,Cedar Kaiseki 086,148.16,True,True,True,True,True,SERVE
+CUST-079,5,SKU-035,Lamb Rack Frenched,Lamb,Canyon Izakaya 046,312.01,True,True,True,True,True,SERVE
+CUST-079,6,SKU-031,Duck Rillette,Deli,Cedar Kaiseki 086,126.25,True,True,True,True,True,SERVE
+CUST-079,7,SKU-029,Genoa Salami,Deli,Cedar Kaiseki 086,100.6,True,True,True,True,True,SERVE
+CUST-079,8,SKU-038,Ground Lamb,Lamb,Canyon Izakaya 046,87.6,True,True,True,True,True,SERVE
+CUST-080,1,SKU-033,Coppa Sliced,Deli,Aurora Deli 016,1322.41,True,True,True,True,True,SERVE
+CUST-080,2,SKU-013,Prosciutto Leg,Pork,Aurora Deli 016,637.79,True,True,True,True,True,SERVE
+CUST-080,3,SKU-011,Shoulder Butt,Pork,Aurora Deli 016,205.41,True,True,True,True,True,SERVE
+CUST-080,4,SKU-010,Belly Skin-On,Pork,Aurora Deli 016,267.05,True,True,True,True,True,SERVE
+CUST-080,5,SKU-015,Chicken Breast,Poultry,Aurora Deli 016,232.88,True,True,True,True,True,SERVE
+CUST-080,6,SKU-037,Lamb Shank,Lamb,Aurora Deli 016,328.48,True,True,True,True,True,SERVE
+CUST-080,7,SKU-008,Beef Bones,Beef,Cedar Charcuterie 105,82.09,True,True,True,True,True,SERVE
+CUST-080,8,SKU-009,Berkshire Loin,Pork,Cedar Charcuterie 105,225.96,True,True,True,True,True,SERVE
+CUST-080,9,SKU-001,Striploin AAA,Beef,Aurora Deli 016,426.4,True,True,True,True,True,SERVE
+CUST-080,10,SKU-006,Short Ribs,Beef,Aurora Deli 016,214.39,True,True,True,True,True,SERVE
+CUST-081,1,SKU-035,Lamb Rack Frenched,Lamb,Canyon Foods 017,1441.48,True,True,True,True,True,SERVE
+CUST-081,2,SKU-027,Uni Tray,Seafood,Canyon Foods 017,1685.24,True,True,True,True,True,SERVE
+CUST-081,3,SKU-028,Octopus Tentacle,Seafood,Canyon Foods 017,492.25,True,True,True,True,True,SERVE
+CUST-081,4,SKU-022,Sablefish Fillet,Seafood,Canyon Foods 017,432.14,True,True,True,True,True,SERVE
+CUST-082,1,SKU-012,Back Ribs,Pork,Bluffs Provisions 038,1030.8,True,True,True,True,True,SERVE
+CUST-082,2,SKU-003,Tenderloin,Beef,Bluffs Provisions 038,2106.0,True,True,True,True,True,SERVE
+CUST-082,3,SKU-019,Turkey Breast Roast,Poultry,Bluffs Provisions 038,490.97,True,True,True,True,True,SERVE
+CUST-082,4,SKU-028,Octopus Tentacle,Seafood,Bluffs Provisions 038,672.67,True,True,True,True,True,SERVE
+CUST-082,5,SKU-023,Ahi Tuna Saku,Seafood,Bluffs Provisions 038,790.98,True,True,True,True,True,SERVE
+CUST-082,6,SKU-022,Sablefish Fillet,Seafood,Bluffs Provisions 038,497.53,True,True,True,True,True,SERVE
+CUST-083,1,SKU-012,Back Ribs,Pork,Union Fresh Mart 116,222.7,True,True,True,True,True,SERVE
+CUST-083,2,SKU-029,Genoa Salami,Deli,Aurora Deli 016,263.46,True,True,True,True,True,SERVE
+CUST-083,3,SKU-017,Whole Duck,Poultry,Union Fresh Mart 116,232.54,True,True,True,True,True,SERVE
+CUST-083,4,SKU-015,Chicken Breast,Poultry,Union Fresh Mart 116,128.22,True,True,True,True,True,SERVE
+CUST-083,5,SKU-011,Shoulder Butt,Pork,Union Fresh Mart 116,85.52,True,True,True,True,True,SERVE
+CUST-083,6,SKU-001,Striploin AAA,Beef,Union Fresh Mart 116,339.15,True,True,True,True,True,SERVE
+CUST-083,7,SKU-013,Prosciutto Leg,Pork,Union Fresh Mart 116,245.06,True,True,True,True,True,SERVE
+CUST-083,8,SKU-018,Duck Breast,Poultry,Union Fresh Mart 116,260.47,True,True,True,True,True,SERVE
+CUST-083,9,SKU-010,Belly Skin-On,Pork,Aurora Deli 016,102.25,True,True,True,True,True,SERVE
+CUST-083,10,SKU-033,Coppa Sliced,Deli,Aurora Deli 016,196.24,True,True,True,True,True,SERVE
+CUST-084,1,SKU-008,Beef Bones,Beef,Orchard Foods 009,477.61,True,True,True,True,True,SERVE
+CUST-084,2,SKU-014,Chorizo Sausage,Pork,Orchard Foods 009,1092.66,True,True,True,True,True,SERVE
+CUST-084,3,SKU-034,Bresaola,Deli,Orchard Foods 009,2122.18,True,True,True,True,True,SERVE
+CUST-084,4,SKU-026,Spot Prawns,Seafood,Timber Tavern 104,929.81,True,True,True,True,True,SERVE
+CUST-085,1,SKU-020,Quail 4-Pack,Poultry,Vista Grill 078,493.97,True,True,True,True,True,SERVE
+CUST-085,2,SKU-032,Pate de Campagne,Deli,Vista Grill 078,269.66,True,True,True,True,True,SERVE
+CUST-085,3,SKU-022,Sablefish Fillet,Seafood,Vista Grill 078,604.19,True,True,True,True,True,SERVE
+CUST-085,4,SKU-026,Spot Prawns,Seafood,Vista Grill 078,530.68,True,True,True,True,True,SERVE
+CUST-085,5,SKU-021,Atlantic Salmon Fillet,Seafood,Vista Grill 078,368.25,True,True,True,True,True,SERVE
+CUST-085,6,SKU-031,Duck Rillette,Deli,Vista Grill 078,248.79,True,True,True,True,True,SERVE
+CUST-085,7,SKU-023,Ahi Tuna Saku,Seafood,Nordic Tavern 070,374.69,True,True,True,True,True,SERVE
+CUST-085,8,SKU-024,Hamachi Loin,Seafood,Bluffs Steakhouse 098,404.66,True,True,True,True,True,SERVE
+CUST-086,1,SKU-019,Turkey Breast Roast,Poultry,Aurora Kaiseki 001,248.9,True,True,True,True,True,SERVE
+CUST-086,2,SKU-016,Chicken Thigh BL,Poultry,Aurora Kaiseki 001,129.3,True,True,True,True,True,SERVE
+CUST-086,3,SKU-012,Back Ribs,Pork,Canyon Izakaya 046,106.65,True,True,True,True,True,SERVE
+CUST-086,4,SKU-013,Prosciutto Leg,Pork,Aurora Kaiseki 001,198.45,True,True,True,True,True,SERVE
+CUST-086,5,SKU-008,Beef Bones,Beef,Whistler Izakaya 018,36.48,True,True,True,True,True,SERVE
+CUST-086,6,SKU-036,Lamb Leg BRT,Lamb,Canyon Izakaya 046,158.06,True,True,True,True,True,SERVE
+CUST-086,7,SKU-035,Lamb Rack Frenched,Lamb,Aurora Kaiseki 001,299.41,True,True,True,True,True,SERVE
+CUST-086,8,SKU-038,Ground Lamb,Lamb,Aurora Kaiseki 001,81.5,True,True,True,True,True,SERVE
+CUST-086,9,SKU-011,Shoulder Butt,Pork,Aurora Kaiseki 001,41.31,True,True,True,True,True,SERVE
+CUST-087,1,SKU-015,Chicken Breast,Poultry,Vista Pantry 034,529.56,True,True,True,True,True,SERVE
+CUST-087,2,SKU-016,Chicken Thigh BL,Poultry,Vista Pantry 034,275.18,True,True,True,True,True,SERVE
+CUST-087,3,SKU-030,Smoked Speck,Deli,Vista Pantry 034,301.42,True,True,True,True,True,SERVE
+CUST-087,4,SKU-035,Lamb Rack Frenched,Lamb,Vista Pantry 034,607.66,True,True,True,True,True,SERVE
+CUST-087,5,SKU-023,Ahi Tuna Saku,Seafood,Vista Pantry 034,394.4,True,True,True,True,True,SERVE
+CUST-087,6,SKU-021,Atlantic Salmon Fillet,Seafood,Foothill Grocer 058,169.29,True,True,True,True,True,SERVE
+CUST-087,7,SKU-025,Scallops U10,Seafood,Foothill Grocer 058,283.51,True,True,True,True,True,SERVE
+CUST-087,8,SKU-027,Uni Tray,Seafood,Vista Pantry 034,334.12,True,True,True,True,True,SERVE
+CUST-087,9,SKU-026,Spot Prawns,Seafood,Vista Pantry 034,81.55,True,True,True,True,True,SERVE
+CUST-087,10,SKU-028,Octopus Tentacle,Seafood,Bluffs Pantry 091,71.47,True,True,True,True,True,SERVE
+CUST-088,1,SKU-032,Pate de Campagne,Deli,Dockside Fresh Mart 073,765.5,True,True,True,True,True,SERVE
+CUST-088,2,SKU-010,Belly Skin-On,Pork,Dockside Fresh Mart 073,475.88,True,True,True,True,True,SERVE
+CUST-088,3,SKU-014,Chorizo Sausage,Pork,Dockside Fresh Mart 073,516.72,True,True,True,True,True,SERVE
+CUST-088,4,SKU-013,Prosciutto Leg,Pork,Dockside Fresh Mart 073,865.1,True,True,True,True,True,SERVE
+CUST-088,5,SKU-017,Whole Duck,Poultry,Dockside Fresh Mart 073,596.73,True,True,True,True,True,SERVE
+CUST-088,6,SKU-006,Short Ribs,Beef,Dockside Fresh Mart 073,547.33,True,True,True,True,True,SERVE
+CUST-088,7,SKU-016,Chicken Thigh BL,Poultry,Dockside Fresh Mart 073,275.11,True,True,True,True,True,SERVE
+CUST-088,8,SKU-005,Ground Chuck,Beef,Dockside Fresh Mart 073,276.42,True,True,True,True,True,SERVE
+CUST-088,9,SKU-004,Brisket,Beef,Dockside Fresh Mart 073,388.0,True,True,True,True,True,SERVE
+CUST-088,10,SKU-015,Chicken Breast,Poultry,Dockside Fresh Mart 073,248.62,True,True,True,True,True,SERVE
+CUST-089,1,SKU-007,Flank Steak,Beef,Whistler Izakaya 018,432.21,True,True,True,True,True,SERVE
+CUST-089,2,SKU-020,Quail 4-Pack,Poultry,Whistler Izakaya 018,353.04,True,True,True,True,True,SERVE
+CUST-089,3,SKU-017,Whole Duck,Poultry,Whistler Izakaya 018,273.78,True,True,True,True,True,SERVE
+CUST-089,4,SKU-032,Pate de Campagne,Deli,Whistler Izakaya 018,95.68,True,True,True,True,True,SERVE
+CUST-089,5,SKU-012,Back Ribs,Pork,Whistler Izakaya 018,70.92,True,True,True,True,True,SERVE
+CUST-089,6,SKU-009,Berkshire Loin,Pork,Whistler Izakaya 018,59.67,True,True,True,True,True,SERVE
+CUST-090,1,SKU-017,Whole Duck,Poultry,Highline Izakaya 055,208.36,True,True,True,True,True,SERVE
+CUST-090,2,SKU-007,Flank Steak,Beef,Grove Omakase 108,235.47,True,True,True,True,True,SERVE
+CUST-090,3,SKU-004,Brisket,Beef,Highline Izakaya 055,145.76,True,True,True,True,True,SERVE
+CUST-090,4,SKU-001,Striploin AAA,Beef,Willow Izakaya 089,335.92,True,True,True,True,True,SERVE
+CUST-090,5,SKU-011,Shoulder Butt,Pork,Highline Izakaya 055,72.53,True,True,True,True,True,SERVE
+CUST-090,6,SKU-020,Quail 4-Pack,Poultry,Highline Izakaya 055,155.98,True,True,True,True,True,SERVE
+CUST-090,7,SKU-033,Coppa Sliced,Deli,Highline Izakaya 055,202.0,True,True,True,True,True,SERVE
+CUST-090,8,SKU-032,Pate de Campagne,Deli,Grove Omakase 108,95.36,True,True,True,True,True,SERVE
+CUST-090,9,SKU-038,Ground Lamb,Lamb,Highline Izakaya 055,84.94,True,True,True,True,True,SERVE
+CUST-090,10,SKU-014,Chorizo Sausage,Pork,Willow Izakaya 089,69.66,True,True,True,True,True,SERVE
+CUST-091,1,SKU-027,Uni Tray,Seafood,Zenith Fresh Mart 115,1612.16,True,True,True,True,True,SERVE
+CUST-091,2,SKU-025,Scallops U10,Seafood,Lakeside Grocer 013,635.94,True,True,True,True,True,SERVE
+CUST-091,3,SKU-024,Hamachi Loin,Seafood,Zenith Fresh Mart 115,195.92,True,True,True,True,True,SERVE
+CUST-091,4,SKU-026,Spot Prawns,Seafood,Bluffs Steakhouse 098,88.32,True,True,True,True,True,SERVE
+CUST-092,1,SKU-013,Prosciutto Leg,Pork,Willow Prime 097,738.54,True,True,True,True,True,SERVE
+CUST-092,2,SKU-014,Chorizo Sausage,Pork,Willow Prime 097,288.28,True,True,True,True,True,SERVE
+CUST-092,3,SKU-021,Atlantic Salmon Fillet,Seafood,Willow Prime 097,316.13,True,True,True,True,True,SERVE
+CUST-092,4,SKU-028,Octopus Tentacle,Seafood,Nordic Tavern 070,296.41,True,True,True,True,True,SERVE
+CUST-092,5,SKU-029,Genoa Salami,Deli,Willow Prime 097,147.29,True,True,True,True,True,SERVE
+CUST-092,6,SKU-030,Smoked Speck,Deli,Nordic Tavern 070,184.73,True,True,True,True,True,SERVE
+CUST-092,7,SKU-023,Ahi Tuna Saku,Seafood,Willow Prime 097,305.88,True,True,True,True,True,SERVE
+CUST-092,8,SKU-032,Pate de Campagne,Deli,Nordic Tavern 070,105.86,True,True,True,True,True,SERVE
+CUST-092,9,SKU-025,Scallops U10,Seafood,Nordic Tavern 070,351.94,True,True,True,True,True,SERVE
+CUST-092,10,SKU-024,Hamachi Loin,Seafood,Timber Tavern 104,116.33,True,True,True,True,True,SERVE
+CUST-093,1,SKU-004,Brisket,Beef,Pacific Salumeria 077,619.02,True,True,True,True,True,SERVE
+CUST-093,2,SKU-001,Striploin AAA,Beef,Pacific Salumeria 077,1221.22,True,True,True,True,True,SERVE
+CUST-093,3,SKU-007,Flank Steak,Beef,Pacific Salumeria 077,756.21,True,True,True,True,True,SERVE
+CUST-093,4,SKU-025,Scallops U10,Seafood,Pacific Salumeria 077,1134.02,True,True,True,True,True,SERVE
+CUST-093,5,SKU-024,Hamachi Loin,Seafood,Pacific Salumeria 077,695.07,True,True,True,True,True,SERVE
+CUST-094,1,SKU-017,Whole Duck,Poultry,Bluffs Izakaya 067,198.34,True,True,True,True,True,SERVE
+CUST-094,2,SKU-005,Ground Chuck,Beef,Bluffs Izakaya 067,100.71,True,True,True,True,True,SERVE
+CUST-094,3,SKU-003,Tenderloin,Beef,Bluffs Izakaya 067,500.06,True,True,True,True,True,SERVE
+CUST-094,4,SKU-004,Brisket,Beef,Inlet Izakaya 099,116.25,True,True,True,True,True,SERVE
+CUST-094,5,SKU-002,Ribeye AAA,Beef,Whistler Izakaya 018,323.4,True,True,True,True,True,SERVE
+CUST-094,6,SKU-001,Striploin AAA,Beef,Inlet Izakaya 099,263.81,True,True,True,True,True,SERVE
+CUST-094,7,SKU-034,Bresaola,Deli,Bluffs Izakaya 067,234.35,True,True,True,True,True,SERVE
+CUST-094,8,SKU-032,Pate de Campagne,Deli,Bluffs Izakaya 067,96.53,True,True,True,True,True,SERVE
+CUST-094,9,SKU-038,Ground Lamb,Lamb,Bluffs Izakaya 067,96.95,True,True,True,True,True,SERVE
+CUST-094,10,SKU-006,Short Ribs,Beef,Inlet Izakaya 099,105.83,True,True,True,True,True,SERVE
+CUST-095,1,SKU-013,Prosciutto Leg,Pork,Sterling Fresh Mart 081,1310.82,True,True,True,True,True,SERVE
+CUST-095,2,SKU-001,Striploin AAA,Beef,Sterling Fresh Mart 081,1501.04,True,True,True,True,True,SERVE
+CUST-095,3,SKU-033,Coppa Sliced,Deli,Sterling Fresh Mart 081,826.45,True,True,True,True,True,SERVE
+CUST-095,4,SKU-006,Short Ribs,Beef,Sterling Fresh Mart 081,427.05,True,True,True,True,True,SERVE
+CUST-095,5,SKU-034,Bresaola,Deli,Sterling Fresh Mart 081,654.08,True,True,True,True,True,SERVE
+CUST-095,6,SKU-035,Lamb Rack Frenched,Lamb,Foothill Grocer 058,812.23,True,True,True,True,True,SERVE
+CUST-095,7,SKU-025,Scallops U10,Seafood,Sterling Fresh Mart 081,348.3,True,True,True,True,True,SERVE
+CUST-095,8,SKU-022,Sablefish Fillet,Seafood,Vista Pantry 034,224.93,True,True,True,True,True,SERVE
+CUST-095,9,SKU-028,Octopus Tentacle,Seafood,Grove Charcuterie 047,157.7,True,True,True,True,True,SERVE
+CUST-095,10,SKU-026,Spot Prawns,Seafood,Sterling Fresh Mart 081,133.99,True,True,True,True,True,SERVE
+CUST-096,1,SKU-009,Berkshire Loin,Pork,Lakeside Charcuterie 093,463.85,True,True,True,True,True,SERVE
+CUST-096,2,SKU-013,Prosciutto Leg,Pork,Lakeside Charcuterie 093,571.33,True,True,True,True,True,SERVE
+CUST-096,3,SKU-011,Shoulder Butt,Pork,Lakeside Charcuterie 093,126.6,True,True,True,True,True,SERVE
+CUST-096,4,SKU-017,Whole Duck,Poultry,Lakeside Charcuterie 093,254.3,True,True,True,True,True,SERVE
+CUST-096,5,SKU-005,Ground Chuck,Beef,Lakeside Charcuterie 093,138.69,True,True,True,True,True,SERVE
+CUST-096,6,SKU-015,Chicken Breast,Poultry,Lakeside Charcuterie 093,148.57,True,True,True,True,True,SERVE
+CUST-096,7,SKU-010,Belly Skin-On,Pork,Lakeside Charcuterie 093,147.99,True,True,True,True,True,SERVE
+CUST-096,8,SKU-016,Chicken Thigh BL,Poultry,Lakeside Charcuterie 093,111.11,True,True,True,True,True,SERVE
+CUST-096,9,SKU-038,Ground Lamb,Lamb,Lakeside Charcuterie 093,164.55,True,True,True,True,True,SERVE
+CUST-096,10,SKU-008,Beef Bones,Beef,Lakeside Charcuterie 093,48.35,True,True,True,True,True,SERVE
+CUST-097,1,SKU-019,Turkey Breast Roast,Poultry,Nordic Tavern 070,437.12,True,True,True,True,True,SERVE
+CUST-097,2,SKU-028,Octopus Tentacle,Seafood,Nordic Tavern 070,413.33,True,True,True,True,True,SERVE
+CUST-097,3,SKU-031,Duck Rillette,Deli,Nordic Tavern 070,203.85,True,True,True,True,True,SERVE
+CUST-097,4,SKU-032,Pate de Campagne,Deli,Nordic Tavern 070,128.99,True,True,True,True,True,SERVE
+CUST-097,5,SKU-025,Scallops U10,Seafood,Nordic Tavern 070,393.64,True,True,True,True,True,SERVE
+CUST-097,6,SKU-030,Smoked Speck,Deli,Nordic Tavern 070,136.02,True,True,True,True,True,SERVE
+CUST-097,7,SKU-033,Coppa Sliced,Deli,Nordic Tavern 070,151.85,True,True,True,True,True,SERVE
+CUST-097,8,SKU-024,Hamachi Loin,Seafood,Harbour Steakhouse 044,98.55,True,True,True,True,True,SERVE
+CUST-099,1,SKU-002,Ribeye AAA,Beef,Quarry Omakase 015,628.08,True,True,True,True,True,SERVE
+CUST-099,2,SKU-032,Pate de Campagne,Deli,Quarry Omakase 015,177.24,True,True,True,True,True,SERVE
+CUST-099,3,SKU-009,Berkshire Loin,Pork,Quarry Omakase 015,131.09,True,True,True,True,True,SERVE
+CUST-099,4,SKU-035,Lamb Rack Frenched,Lamb,Quarry Omakase 015,429.34,True,True,True,True,True,SERVE
+CUST-099,5,SKU-013,Prosciutto Leg,Pork,Quarry Omakase 015,138.27,True,True,True,True,True,SERVE
+CUST-099,6,SKU-030,Smoked Speck,Deli,Bluffs Izakaya 067,115.28,True,True,True,True,True,SERVE
+CUST-099,7,SKU-011,Shoulder Butt,Pork,Quarry Omakase 015,42.5,True,True,True,True,True,SERVE
+CUST-099,8,SKU-036,Lamb Leg BRT,Lamb,Quarry Omakase 015,62.69,True,True,True,True,True,SERVE
+CUST-100,1,SKU-030,Smoked Speck,Deli,Aurora Deli 016,1307.91,True,True,True,True,True,SERVE
+CUST-100,2,SKU-014,Chorizo Sausage,Pork,Aurora Deli 016,484.94,True,True,True,True,True,SERVE
+CUST-100,3,SKU-017,Whole Duck,Poultry,Aurora Deli 016,466.21,True,True,True,True,True,SERVE
+CUST-100,4,SKU-012,Back Ribs,Pork,Aurora Deli 016,300.65,True,True,True,True,True,SERVE
+CUST-100,5,SKU-006,Short Ribs,Beef,Aurora Deli 016,436.39,True,True,True,True,True,SERVE
+CUST-100,6,SKU-009,Berkshire Loin,Pork,Sterling Provisions 112,291.58,True,True,True,True,True,SERVE
+CUST-100,7,SKU-015,Chicken Breast,Poultry,Aurora Deli 016,230.93,True,True,True,True,True,SERVE
+CUST-100,8,SKU-011,Shoulder Butt,Pork,Aurora Deli 016,176.04,True,True,True,True,True,SERVE
+CUST-100,9,SKU-037,Lamb Shank,Lamb,Aurora Deli 016,280.11,True,True,True,True,True,SERVE
+CUST-100,10,SKU-020,Quail 4-Pack,Poultry,Aurora Deli 016,306.73,True,True,True,True,True,SERVE
+CUST-101,1,SKU-019,Turkey Breast Roast,Poultry,Union Sushi 042,239.8,True,True,True,True,True,SERVE
+CUST-101,2,SKU-018,Duck Breast,Poultry,Union Sushi 042,405.12,True,True,True,True,True,SERVE
+CUST-101,3,SKU-006,Short Ribs,Beef,Union Sushi 042,246.29,True,True,True,True,True,SERVE
+CUST-101,4,SKU-005,Ground Chuck,Beef,Quarry Omakase 015,120.3,True,True,True,True,True,SERVE
+CUST-101,5,SKU-031,Duck Rillette,Deli,Quarry Omakase 015,169.9,True,True,True,True,True,SERVE
+CUST-101,6,SKU-034,Bresaola,Deli,Quarry Omakase 015,247.59,True,True,True,True,True,SERVE
+CUST-101,7,SKU-003,Tenderloin,Beef,Quarry Omakase 015,334.48,True,True,True,True,True,SERVE
+CUST-101,8,SKU-009,Berkshire Loin,Pork,Union Sushi 042,72.13,True,True,True,True,True,SERVE
+CUST-101,9,SKU-010,Belly Skin-On,Pork,Union Sushi 042,62.49,True,True,True,True,True,SERVE
+CUST-101,10,SKU-014,Chorizo Sausage,Pork,Union Sushi 042,63.67,True,True,True,True,True,SERVE
+CUST-102,1,SKU-035,Lamb Rack Frenched,Lamb,Canyon Foods 017,2596.13,True,True,True,True,True,SERVE
+CUST-102,2,SKU-036,Lamb Leg BRT,Lamb,Canyon Foods 017,1057.39,True,True,True,True,True,SERVE
+CUST-102,3,SKU-032,Pate de Campagne,Deli,Canyon Foods 017,514.07,True,True,True,True,True,SERVE
+CUST-102,4,SKU-030,Smoked Speck,Deli,Canyon Foods 017,620.2,True,True,True,True,True,SERVE
+CUST-102,5,SKU-022,Sablefish Fillet,Seafood,Canyon Foods 017,928.28,True,True,True,True,True,SERVE
+CUST-102,6,SKU-026,Spot Prawns,Seafood,Canyon Foods 017,242.29,True,True,True,True,True,SERVE
+CUST-103,1,SKU-020,Quail 4-Pack,Poultry,Grove Grill 062,842.53,True,True,True,True,True,SERVE
+CUST-103,2,SKU-009,Berkshire Loin,Pork,Grove Grill 062,500.98,True,True,True,True,True,SERVE
+CUST-103,3,SKU-028,Octopus Tentacle,Seafood,Grove Grill 062,560.14,True,True,True,True,True,SERVE
+CUST-103,4,SKU-031,Duck Rillette,Deli,Grove Grill 062,277.41,True,True,True,True,True,SERVE
+CUST-103,5,SKU-029,Genoa Salami,Deli,Grove Grill 062,237.98,True,True,True,True,True,SERVE
+CUST-103,6,SKU-025,Scallops U10,Seafood,Grove Grill 062,608.53,True,True,True,True,True,SERVE
+CUST-103,7,SKU-022,Sablefish Fillet,Seafood,Grove Grill 062,422.06,True,True,True,True,True,SERVE
+CUST-103,8,SKU-030,Smoked Speck,Deli,Grove Grill 062,222.95,True,True,True,True,True,SERVE
+CUST-103,9,SKU-034,Bresaola,Deli,Grove Grill 062,243.29,True,True,True,True,True,SERVE
+CUST-105,1,SKU-013,Prosciutto Leg,Pork,Bluffs Provisions 038,1702.75,True,True,True,True,True,SERVE
+CUST-105,2,SKU-017,Whole Duck,Poultry,Bluffs Provisions 038,854.84,True,True,True,True,True,SERVE
+CUST-105,3,SKU-016,Chicken Thigh BL,Poultry,Bluffs Provisions 038,314.8,True,True,True,True,True,SERVE
+CUST-105,4,SKU-038,Ground Lamb,Lamb,Bluffs Provisions 038,442.44,True,True,True,True,True,SERVE
+CUST-105,5,SKU-018,Duck Breast,Poultry,Bluffs Provisions 038,639.56,True,True,True,True,True,SERVE
+CUST-105,6,SKU-002,Ribeye AAA,Beef,Bluffs Provisions 038,838.39,True,True,True,True,True,SERVE
+CUST-105,7,SKU-004,Brisket,Beef,Bluffs Provisions 038,261.03,True,True,True,True,True,SERVE
+CUST-105,8,SKU-020,Quail 4-Pack,Poultry,Bluffs Provisions 038,354.6,True,True,True,True,True,SERVE
+CUST-105,9,SKU-025,Scallops U10,Seafood,Bluffs Provisions 038,696.94,True,True,True,True,True,SERVE
+CUST-105,10,SKU-021,Atlantic Salmon Fillet,Seafood,Bluffs Provisions 038,318.6,True,True,True,True,True,SERVE
+CUST-106,1,SKU-023,Ahi Tuna Saku,Seafood,Quarry Deli 117,770.87,True,True,True,True,True,SERVE
+CUST-107,1,SKU-034,Bresaola,Deli,Grove Omakase 108,337.09,True,True,True,True,True,SERVE
+CUST-107,2,SKU-020,Quail 4-Pack,Poultry,Grove Omakase 108,203.18,True,True,True,True,True,SERVE
+CUST-107,3,SKU-004,Brisket,Beef,Grove Omakase 108,125.15,True,True,True,True,True,SERVE
+CUST-107,4,SKU-003,Tenderloin,Beef,Aurora Kaiseki 001,416.8,True,True,True,True,True,SERVE
+CUST-107,5,SKU-014,Chorizo Sausage,Pork,Grove Omakase 108,100.07,True,True,True,True,True,SERVE
+CUST-107,6,SKU-006,Short Ribs,Beef,Grove Omakase 108,143.09,True,True,True,True,True,SERVE
+CUST-107,7,SKU-035,Lamb Rack Frenched,Lamb,Aurora Kaiseki 001,238.52,True,True,True,True,True,SERVE
+CUST-107,8,SKU-012,Back Ribs,Pork,Meridian Ocean Bar 036,44.38,True,True,True,True,True,SERVE
+CUST-107,9,SKU-029,Genoa Salami,Deli,Aurora Kaiseki 001,62.48,True,True,True,True,True,SERVE
+CUST-107,10,SKU-013,Prosciutto Leg,Pork,Grove Omakase 108,82.52,True,True,True,True,True,SERVE
+CUST-108,1,SKU-033,Coppa Sliced,Deli,Willow Izakaya 089,402.34,True,True,True,True,True,SERVE
+CUST-108,2,SKU-009,Berkshire Loin,Pork,Aurora Kaiseki 001,148.84,True,True,True,True,True,SERVE
+CUST-108,3,SKU-003,Tenderloin,Beef,Willow Izakaya 089,467.45,True,True,True,True,True,SERVE
+CUST-108,4,SKU-031,Duck Rillette,Deli,Willow Izakaya 089,149.57,True,True,True,True,True,SERVE
+CUST-108,5,SKU-029,Genoa Salami,Deli,Willow Izakaya 089,114.0,True,True,True,True,True,SERVE
+CUST-108,6,SKU-037,Lamb Shank,Lamb,Willow Izakaya 089,101.56,True,True,True,True,True,SERVE
+CUST-108,7,SKU-035,Lamb Rack Frenched,Lamb,Willow Izakaya 089,255.56,True,True,True,True,True,SERVE
+CUST-108,8,SKU-012,Back Ribs,Pork,Whistler Izakaya 018,48.69,True,True,True,True,True,SERVE
+CUST-109,1,SKU-003,Tenderloin,Beef,Zenith Fresh Mart 115,2866.46,True,True,True,True,True,SERVE
+CUST-109,2,SKU-017,Whole Duck,Poultry,Zenith Fresh Mart 115,942.48,True,True,True,True,True,SERVE
+CUST-109,3,SKU-031,Duck Rillette,Deli,Zenith Fresh Mart 115,909.38,True,True,True,True,True,SERVE
+CUST-109,4,SKU-012,Back Ribs,Pork,Zenith Fresh Mart 115,519.25,True,True,True,True,True,SERVE
+CUST-109,5,SKU-029,Genoa Salami,Deli,Zenith Fresh Mart 115,736.82,True,True,True,True,True,SERVE
+CUST-109,6,SKU-038,Ground Lamb,Lamb,Zenith Fresh Mart 115,520.26,True,True,True,True,True,SERVE
+CUST-109,7,SKU-019,Turkey Breast Roast,Poultry,Zenith Fresh Mart 115,495.15,True,True,True,True,True,SERVE
+CUST-109,8,SKU-035,Lamb Rack Frenched,Lamb,Zenith Fresh Mart 115,1371.5,True,True,True,True,True,SERVE
+CUST-109,9,SKU-004,Brisket,Beef,Zenith Fresh Mart 115,406.66,True,True,True,True,True,SERVE
+CUST-109,10,SKU-007,Flank Steak,Beef,Zenith Fresh Mart 115,601.53,True,True,True,True,True,SERVE
+CUST-110,1,SKU-007,Flank Steak,Beef,Pacific Salumeria 077,955.26,True,True,True,True,True,SERVE
+CUST-110,2,SKU-035,Lamb Rack Frenched,Lamb,Pacific Salumeria 077,1656.85,True,True,True,True,True,SERVE
+CUST-110,3,SKU-027,Uni Tray,Seafood,Pacific Salumeria 077,1395.39,True,True,True,True,True,SERVE
+CUST-110,4,SKU-024,Hamachi Loin,Seafood,Pacific Salumeria 077,734.94,True,True,True,True,True,SERVE
+CUST-111,1,SKU-002,Ribeye AAA,Beef,Elmwood Grocer 048,2566.54,True,True,True,True,True,SERVE
+CUST-111,2,SKU-029,Genoa Salami,Deli,Canyon Foods 017,656.07,True,True,True,True,True,SERVE
+CUST-111,3,SKU-035,Lamb Rack Frenched,Lamb,Elmwood Grocer 048,1350.31,True,True,True,True,True,SERVE
+CUST-111,4,SKU-023,Ahi Tuna Saku,Seafood,Elmwood Grocer 048,654.72,True,True,True,True,True,SERVE
+CUST-111,5,SKU-021,Atlantic Salmon Fillet,Seafood,Canyon Foods 017,301.38,True,True,True,True,True,SERVE
+CUST-111,6,SKU-025,Scallops U10,Seafood,Canyon Foods 017,526.04,True,True,True,True,True,SERVE
+CUST-112,1,SKU-011,Shoulder Butt,Pork,Lakeside Charcuterie 093,150.95,True,True,True,True,True,SERVE
+CUST-112,2,SKU-037,Lamb Shank,Lamb,Lakeside Charcuterie 093,259.84,True,True,True,True,True,SERVE
+CUST-112,3,SKU-002,Ribeye AAA,Beef,Lakeside Charcuterie 093,365.15,True,True,True,True,True,SERVE
+CUST-112,4,SKU-007,Flank Steak,Beef,Grove Charcuterie 047,152.16,True,True,True,True,True,SERVE
+CUST-112,5,SKU-004,Brisket,Beef,Grove Charcuterie 047,80.72,True,True,True,True,True,SERVE
+CUST-112,6,SKU-003,Tenderloin,Beef,Lakeside Charcuterie 093,237.09,True,True,True,True,True,SERVE
+CUST-112,7,SKU-026,Spot Prawns,Seafood,Lakeside Charcuterie 093,153.55,True,True,True,True,True,SERVE
+CUST-112,8,SKU-008,Beef Bones,Beef,Lakeside Charcuterie 093,18.29,True,True,True,True,True,SERVE
+CUST-112,9,SKU-001,Striploin AAA,Beef,Grove Charcuterie 047,106.71,True,True,True,True,True,SERVE
+CUST-112,10,SKU-024,Hamachi Loin,Seafood,Grove Charcuterie 047,145.1,True,True,True,True,True,SERVE
+CUST-113,1,SKU-018,Duck Breast,Poultry,Granville Foods 043,1612.32,True,True,True,True,True,SERVE
+CUST-113,2,SKU-007,Flank Steak,Beef,Granville Foods 043,1034.22,True,True,True,True,True,SERVE
+CUST-113,3,SKU-013,Prosciutto Leg,Pork,Granville Foods 043,1017.4,True,True,True,True,True,SERVE
+CUST-113,4,SKU-009,Berkshire Loin,Pork,Granville Foods 043,525.08,True,True,True,True,True,SERVE
+CUST-113,5,SKU-032,Pate de Campagne,Deli,Granville Foods 043,577.87,True,True,True,True,True,SERVE
+CUST-113,6,SKU-029,Genoa Salami,Deli,Granville Foods 043,533.16,True,True,True,True,True,SERVE
+CUST-113,7,SKU-033,Coppa Sliced,Deli,Granville Foods 043,697.35,True,True,True,True,True,SERVE
+CUST-113,8,SKU-037,Lamb Shank,Lamb,Granville Foods 043,256.49,True,True,True,True,True,SERVE
+CUST-113,9,SKU-035,Lamb Rack Frenched,Lamb,Granville Foods 043,522.24,True,True,True,True,True,SERVE
+CUST-113,10,SKU-021,Atlantic Salmon Fillet,Seafood,Granville Foods 043,160.73,True,True,True,True,True,SERVE
+CUST-114,1,SKU-001,Striploin AAA,Beef,Vista Grill 078,2896.21,True,True,True,True,True,SERVE
+CUST-114,2,SKU-014,Chorizo Sausage,Pork,Vista Grill 078,919.04,True,True,True,True,True,SERVE
+CUST-114,3,SKU-012,Back Ribs,Pork,Vista Grill 078,751.04,True,True,True,True,True,SERVE
+CUST-114,4,SKU-015,Chicken Breast,Poultry,Vista Grill 078,506.79,True,True,True,True,True,SERVE
+CUST-114,5,SKU-032,Pate de Campagne,Deli,Vista Grill 078,701.33,True,True,True,True,True,SERVE
+CUST-114,6,SKU-029,Genoa Salami,Deli,Vista Grill 078,428.54,True,True,True,True,True,SERVE
+CUST-114,7,SKU-025,Scallops U10,Seafood,Vista Grill 078,983.94,True,True,True,True,True,SERVE
+CUST-114,8,SKU-024,Hamachi Loin,Seafood,Bluffs Steakhouse 098,741.8,True,True,True,True,True,SERVE
+CUST-115,1,SKU-025,Scallops U10,Seafood,Lakeside Grocer 013,827.86,True,True,True,True,True,SERVE
+CUST-115,2,SKU-026,Spot Prawns,Seafood,Bluffs Steakhouse 098,316.93,True,True,True,True,True,SERVE
+CUST-116,1,SKU-010,Belly Skin-On,Pork,Vista Pantry 034,758.66,True,True,True,True,True,SERVE
+CUST-116,2,SKU-003,Tenderloin,Beef,Vista Pantry 034,2734.72,True,True,True,True,True,SERVE
+CUST-116,3,SKU-006,Short Ribs,Beef,Vista Pantry 034,785.37,True,True,True,True,True,SERVE
+CUST-116,4,SKU-033,Coppa Sliced,Deli,Vista Pantry 034,737.72,True,True,True,True,True,SERVE
+CUST-116,5,SKU-029,Genoa Salami,Deli,Vista Pantry 034,495.71,True,True,True,True,True,SERVE
+CUST-116,6,SKU-038,Ground Lamb,Lamb,Vista Pantry 034,431.45,True,True,True,True,True,SERVE
+CUST-116,7,SKU-022,Sablefish Fillet,Seafood,Vista Pantry 034,352.12,True,True,True,True,True,SERVE
+CUST-116,8,SKU-025,Scallops U10,Seafood,Willow Provisions 021,271.87,True,True,True,True,True,SERVE
+CUST-116,9,SKU-028,Octopus Tentacle,Seafood,Willow Provisions 021,136.95,True,True,True,True,True,SERVE
+CUST-116,10,SKU-026,Spot Prawns,Seafood,Vista Pantry 034,103.86,True,True,True,True,True,SERVE
+CUST-118,1,SKU-031,Duck Rillette,Deli,Zenith Fresh Mart 115,354.83,True,True,True,True,True,SERVE
+CUST-118,2,SKU-023,Ahi Tuna Saku,Seafood,Zenith Fresh Mart 115,624.3,True,True,True,True,True,SERVE
+CUST-118,3,SKU-028,Octopus Tentacle,Seafood,Zenith Fresh Mart 115,416.34,True,True,True,True,True,SERVE
+CUST-118,4,SKU-033,Coppa Sliced,Deli,Zenith Fresh Mart 115,328.43,True,True,True,True,True,SERVE
+CUST-118,5,SKU-030,Smoked Speck,Deli,Zenith Fresh Mart 115,231.91,True,True,True,True,True,SERVE
+CUST-118,6,SKU-026,Spot Prawns,Seafood,Bluffs Steakhouse 098,80.68,True,True,True,True,True,SERVE
+CUST-118,7,SKU-024,Hamachi Loin,Seafood,Zenith Fresh Mart 115,65.75,True,True,True,True,True,SERVE
+CUST-119,1,SKU-036,Lamb Leg BRT,Lamb,Pacific Salumeria 077,1450.98,True,True,True,True,True,SERVE
+CUST-120,1,SKU-015,Chicken Breast,Poultry,Canyon Sushi 076,85.59,True,True,True,True,True,SERVE
+CUST-120,2,SKU-019,Turkey Breast Roast,Poultry,Granville Ocean Bar 107,90.32,True,True,True,True,True,SERVE
+CUST-120,3,SKU-002,Ribeye AAA,Beef,Granville Ocean Bar 107,231.13,True,True,True,True,True,SERVE
+CUST-120,4,SKU-037,Lamb Shank,Lamb,Canyon Sushi 076,86.08,True,True,True,True,True,SERVE
+CUST-120,5,SKU-012,Back Ribs,Pork,Canyon Sushi 076,61.21,True,True,True,True,True,SERVE
+CUST-120,6,SKU-006,Short Ribs,Beef,Highline Izakaya 055,93.15,True,True,True,True,True,SERVE
+CUST-120,7,SKU-033,Coppa Sliced,Deli,Granville Ocean Bar 107,112.42,True,True,True,True,True,SERVE
+CUST-120,8,SKU-001,Striploin AAA,Beef,Canyon Sushi 076,133.86,True,True,True,True,True,SERVE
+CUST-120,9,SKU-007,Flank Steak,Beef,Canyon Sushi 076,81.34,True,True,True,True,True,SERVE
+CUST-120,10,SKU-010,Belly Skin-On,Pork,Granville Ocean Bar 107,44.22,True,True,True,True,True,SERVE

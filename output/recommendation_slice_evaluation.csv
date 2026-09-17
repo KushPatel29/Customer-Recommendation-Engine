@@ -1,0 +1,25 @@
+dimension,slice,customers,hidden_items,recall_at_10,evidence_status
+history_density,dense warm,40,346,0.965318,REPORT
+history_density,medium warm,40,284,0.816901,REPORT
+history_density,sparse warm,40,182,0.675824,REPORT
+popularity_band,head,106,285,0.926316,REPORT
+popularity_band,mid,113,280,0.842857,REPORT
+popularity_band,tail,106,247,0.765182,REPORT
+protein,Beef,91,178,0.926966,REPORT
+protein,Deli,76,115,0.730435,REPORT
+protein,Lamb,74,97,0.824742,REPORT
+protein,Pork,88,134,0.947761,REPORT
+protein,Poultry,88,137,0.927007,REPORT
+protein,Seafood,84,151,0.701987,REPORT
+region,Alberta,27,181,0.839779,REPORT
+region,BC Interior,38,236,0.838983,REPORT
+region,BC Lower Mainland,21,157,0.872611,REPORT
+region,Ontario,34,238,0.848739,REPORT
+rfm_segment,At Risk,17,115,0.808696,REPORT
+rfm_segment,At Risk (was valuable),7,54,0.87037,REPORT
+rfm_segment,Champions,30,255,0.94902,REPORT
+rfm_segment,Hibernating,23,102,0.705882,REPORT
+rfm_segment,Loyal,8,62,0.887097,REPORT
+rfm_segment,Needs Attention,11,66,0.757576,REPORT
+rfm_segment,New / Promising,13,71,0.732394,REPORT
+rfm_segment,Potential Loyalist,11,87,0.896552,REPORT

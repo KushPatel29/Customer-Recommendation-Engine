@@ -42,6 +42,7 @@ jobs:
           python analytics/product_analytics.py
           python evaluation/evaluate_holdout.py
           python engine/ranker.py
+          python decisioning/build_recommendation_release.py
           python analytics/revenue_forecast.py
           python analytics/pocket_margin.py
           python analytics/revenue_bridge.py

@@ -1,0 +1,25 @@
+{
+  "service": "customer-recommendation-api",
+  "scope": "single-process portfolio deployment with precomputed champion scores",
+  "targets_ms": {
+    "p50": 50,
+    "p95": 150,
+    "p99": 300
+  },
+  "timeout_ms": 500,
+  "availability_target": 0.995,
+  "degraded_mode": "regional-popularity safe default, exclude owned SKUs, preserve reason code",
+  "fail_closed_conditions": [
+    "customer identity is unknown",
+    "catalog eligibility cannot be established",
+    "all candidate items are owned or suppressed"
+  ],
+  "latest_benchmark": {
+    "p50_ms": 6.583,
+    "p95_ms": 8.65,
+    "p99_ms": 9.255,
+    "requests": 60,
+    "environment": "FastAPI TestClient, local in-process, warm artifacts",
+    "all_targets_met": true
+  }
+}

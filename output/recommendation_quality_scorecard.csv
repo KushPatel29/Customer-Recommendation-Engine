@@ -1,0 +1,8 @@
+objective,metric,value,release_threshold,status,measurement_basis
+relevance,Recall@10,0.8485221674876847,>= 0.80,PASS,warm-customer basket holdout
+relevance,Lift over popularity,1.1258169934640523,> 1.00x,PASS,same holdout and denominator
+reach,Catalog coverage,1.0,>= 0.80,PASS,share of catalog served at least once
+discovery,Mean novelty (bits),5.26020660190243,>= 4.00,PASS,self-information under purchase-volume popularity
+choice,Intra-list diversity,0.7158492063492063,>= 0.55,PASS,share of slate pairs from different protein families
+trust,Protein calibration error,0.6696855095799294,<= 0.45,REVIEW,lower is closer to the customer's historical mix
+safety,Eligibility pass rate,1.0,= 1.00,PASS,"catalog, ownership, reason and opportunity controls"

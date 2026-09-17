@@ -94,7 +94,10 @@ def evaluate(sales: pd.DataFrame) -> pd.DataFrame:
             "cf_hits": len(cf_recs & hidden),
             "svd_hits": len(svd_recs & hidden),
             "pop_hits": len(pop_recs & hidden),
+            "hidden_skus": ";".join(sorted(hidden)),
             "cf_recs": ";".join(sorted(cf_recs)),
+            "svd_recs": ";".join(sorted(svd_recs)),
+            "pop_recs": ";".join(sorted(pop_recs)),
         })
     results = pd.DataFrame(rows)
     results["ts_hits"] = two_stage_hits(candidate_pools, results, sales, hidden_by_customer)

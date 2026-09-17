@@ -1,0 +1,31 @@
+{
+  "experiment_id": "REC-PILOT-2026-001",
+  "decision": "Does the challenger improve incremental purchased opportunity without harming trust?",
+  "unit_of_randomization": "customer_id",
+  "assignment": "deterministic 50/50 hash; sticky across sessions",
+  "primary_metric": "purchase conversion per eligible recommendation impression",
+  "secondary_metrics": [
+    "realized gross margin per impression",
+    "catalog coverage",
+    "new-category adoption rate"
+  ],
+  "guardrails": [
+    "unavailable-item impression rate = 0",
+    "already-owned-item impression rate = 0",
+    "opt-out and complaint rate non-inferior",
+    "p95 recommendation response <= 150 ms"
+  ],
+  "quality_checks": {
+    "sample_ratio_mismatch": "chi-square p >= 0.01 before outcome readout",
+    "minimum_exposure": "at least 1,000 eligible impressions per variant and powered analysis",
+    "novelty_effect": "report new-category adoption separately from repeat-category purchases",
+    "multiple_looks": "one pre-registered final read; no peeking-based promotion"
+  },
+  "promotion_rule": "Positive primary lift with p < 0.05, all guardrails pass, and no material slice harm.",
+  "business_boundary": "Offline recall authorizes a controlled pilot; only randomized online evidence can support a commercial-lift claim.",
+  "owner": "Product Analytics Lead",
+  "approvers": [
+    "Sales Operations Owner",
+    "Commercial Finance Partner"
+  ]
+}

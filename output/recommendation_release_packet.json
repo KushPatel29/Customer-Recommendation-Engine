@@ -1,0 +1,35 @@
+{
+  "release_id": "REC-REL-2026-001",
+  "release_status": "CONDITIONALLY APPROVE PILOT",
+  "approved_scope": "synthetic-data rep-assist pilot; human review required before outreach",
+  "model": "item-neighborhood collaborative filtering champion",
+  "offline_recall_at_10": 0.848522,
+  "popularity_recall_at_10": 0.753695,
+  "catalog_coverage": 1.0,
+  "eligibility_pass_rate": 1.0,
+  "minimum_reportable_slice_recall": 0.675824,
+  "latency_evidence": {
+    "p50_ms": 6.583,
+    "p95_ms": 8.65,
+    "p99_ms": 9.255,
+    "requests": 60,
+    "environment": "FastAPI TestClient, local in-process, warm artifacts",
+    "all_targets_met": true
+  },
+  "blockers": [],
+  "decision_owner": "Product Analytics Lead",
+  "approval_authorities": [
+    "Sales Operations Owner",
+    "Commercial Finance Partner"
+  ],
+  "required_next_action": "Run REC-PILOT-2026-001 before making any sales-lift claim.",
+  "evidence_boundary": "All data and traffic in this repository are synthetic. Offline metrics measure warm-customer basket recovery, not incremental sales.",
+  "artifacts": [
+    "recommendation_quality_scorecard.csv",
+    "recommendation_slice_evaluation.csv",
+    "recommendation_eligibility_audit.csv",
+    "recommendation_experiment_plan.json",
+    "serving_slo.json"
+  ],
+  "sha256": "ad00965d8337600dcc0dbc9eedb5da7ecdec6ba666a25d2773d24cba8103f93b"
+}
