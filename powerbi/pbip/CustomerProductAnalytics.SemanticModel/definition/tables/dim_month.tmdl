@@ -21,7 +21,16 @@ table dim_month
 		mode: import
 		source =
 				let
-				    Months = List.Transform({0..12}, each Date.AddMonths(#date(2025, 7, 1), _)),
+				    // Derived from the orders, never typed in. A calendar pinned to a range
+				    // survives exactly until the seed moves; the healthcare report lost a year of
+				    // cash to a (Blank) month that way, with every total still right.
+				    Source = Csv.Document(File.Contents(DataPath & "\data\sales_lines.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Ordered = List.RemoveNulls(List.Transform(Table.Column(Promoted, "order_date"), each try Date.From(_) otherwise null)),
+				    First = Date.StartOfMonth(List.Min(Ordered)),
+				    Last = Date.StartOfMonth(List.Max(Ordered)),
+				    Span = (Date.Year(Last) - Date.Year(First)) * 12 + Date.Month(Last) - Date.Month(First),
+				    Months = List.Transform({0..Span}, each Date.AddMonths(First, _)),
 				    ToTable = Table.FromList(Months, Splitter.SplitByNothing(), {"month_start"}),
 				    Typed = Table.TransformColumnTypes(ToTable, {{"month_start", type date}}),
 				    AddedLabel = Table.AddColumn(Typed, "month", each Date.ToText([month_start], "yyyy-MM"), type text),

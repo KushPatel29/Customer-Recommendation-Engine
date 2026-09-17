@@ -32,6 +32,10 @@ DERIVED_RES = [
     re.compile(r'Table\.UnpivotOtherColumns\([^,]+,\s*\{[^}]*\},\s*"([^"]+)",\s*"([^"]+)"\)'),
     re.compile(r'Table\.RenameColumns\([^,]+,\s*\{(.+?)\}\s*\)', re.S),
     re.compile(r'Table\.Group\([^,]+,\s*\{[^}]*\},\s*\{\{"([^"]+)"'),
+    # A calendar derived from a fact file READS that file and CREATES its own
+    # columns from a list. Without this the month table reads as typing columns
+    # the sales CSV has never had - which is true, and not a defect.
+    re.compile(r'Table\.FromList\([^,]+,\s*[^,]+,\s*\{"([^"]+)"\}'),
 ]
 RENAME_PAIR_RE = re.compile(r'\{"[^"]+",\s*"([^"]+)"\}')
 
@@ -46,6 +50,7 @@ def derived_columns(text):
     for block in DERIVED_RES[2].findall(text):
         out.update(RENAME_PAIR_RE.findall(block))
     out.update(DERIVED_RES[3].findall(text))
+    out.update(DERIVED_RES[4].findall(text))
     return out
 # A partition body is Power Query, not DAX: its square brackets are record
 # syntax and must not be read as measure references.
