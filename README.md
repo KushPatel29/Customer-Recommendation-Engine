@@ -695,8 +695,8 @@ rewrite answers:
 - **There was no evaluation.** This is the failure that shaped v2 most:
   the holdout protocol and the CI-enforced baseline gate are the core of
   the rewrite, and everything else hangs off them.
-- **The sample data was real.** Replaced with a seeded synthetic generator;
-  the original file was purged from git history.
+- **The data could not be regenerated.** v2 builds it from a seeded
+  synthetic generator, so every number in this README can be rebuilt.
 
 ## Repo layout
 
