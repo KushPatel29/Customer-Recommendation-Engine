@@ -213,12 +213,17 @@ def get_recommendations(
         if customer_id not in set(store["customers"]["customer_id"]):
             raise HTTPException(404, f"unknown customer_id {customer_id!r}")
         fallback = _safe_default(customer_id, limit)
+        suppressed = sorted(store["session_purchases"].get(customer_id, set()))
+        log_telemetry({"event_type": "impression", "customer_id": customer_id,
+                       "variant": variant, "serving_mode": "degraded_fallback",
+                       "skus": [r.sku for r in fallback]})
         return CustomerRecommendations(
             customer_id=customer_id,
             customer_name=_name_of(customer_id),
             model="regional-popularity safe default",
             experiment_variant=variant,
             serving_mode="degraded_fallback",
+            suppressed_skus=suppressed,
             fallback_reason=("personalized artifact unavailable or no eligible personalized "
                              "candidates remained"),
             recommendations=fallback,
@@ -237,7 +242,8 @@ def get_recommendations(
         .fillna({"because_similar_to": ""}).to_dict("records")
     ]
     log_telemetry({"event_type": "impression", "customer_id": customer_id,
-                   "variant": variant, "skus": [r.sku for r in served]})
+                   "variant": variant, "serving_mode": "personalized_batch",
+                   "skus": [r.sku for r in served]})
     return CustomerRecommendations(
         customer_id=customer_id,
         customer_name=str(match.iloc[0]["customer_name"]) if len(match) else _name_of(customer_id),
@@ -256,6 +262,8 @@ def track_event(event: TrackedEvent) -> dict:
     next recommendation call already excludes the bought SKU."""
     if event.customer_id not in set(store["customers"]["customer_id"]):
         raise HTTPException(404, f"unknown customer_id {event.customer_id!r}")
+    if event.sku not in set(store["sales"]["sku"]):
+        raise HTTPException(404, f"unknown sku {event.sku!r}")
     log_telemetry({"event_type": event.event_type,
                    "customer_id": event.customer_id,
                    "variant": ab_variant(event.customer_id),
@@ -309,7 +317,7 @@ def _safe_default(customer_id: str, limit: int) -> list[Recommendation]:
     ].iloc[0]
     sales = store["sales"]
     history = sales[sales["customer_id"] == customer_id]
-    owned = set(history["sku"])
+    owned = set(history["sku"]) | store["session_purchases"].get(customer_id, set())
     regional = sales[sales["region"] == customer["region"]]
     ranked = (
         regional.groupby(["sku", "protein", "description"], as_index=False)["quantity_lb"]

@@ -1,12 +1,16 @@
 """
 A/B analysis — did variant B actually earn a promotion?
 
-Reads the API's telemetry log (impressions + purchases per variant), builds
-the conversion contingency table, and runs a chi-square test of independence.
-The decision rule is pre-registered here, not improvised after peeking:
+Reads the API's telemetry at its customer randomization grain. Repeated requests
+and purchases cannot create extra independent observations. Only a purchase of
+an item on a preceding personalized slate counts; degraded fallbacks are excluded.
+The binary customer-conversion diagnostic uses chi-square, or Fisher's exact
+test for sparse/constant outcomes, after an assignment-ratio check.
 
-    promote B iff  p < 0.05  AND  lift > 0
-    (otherwise: keep A; a non-significant "win" is noise wearing a medal)
+This is a diagnostic, not the execution of REC-PILOT-2026-001. Its per-customer
+outcome is separate from the plan's per-impression metric. Maturity, power,
+commercial/trust/latency guardrails and slice review still require a final read.
+No result authorizes model promotion or establishes commercial lift.
 
 The offline context that motivates this experiment: the two-stage ranker
 LOST the offline bake-off (81.2% vs CF's 84.9% recall@10) but optimizes
@@ -24,7 +28,7 @@ import json
 import random
 from pathlib import Path
 
-from scipy.stats import chi2_contingency
+from scipy.stats import chi2_contingency, chisquare, fisher_exact
 
 ROOT = Path(__file__).resolve().parent.parent
 TELEMETRY = ROOT / "output" / "telemetry_events.jsonl"
@@ -33,45 +37,95 @@ ALPHA = 0.05
 
 
 def load_counts(path: Path = TELEMETRY) -> dict:
+    """One observation per exposed customer, preserving event order."""
     counts = {"A": {"impressions": 0, "purchases": 0},
               "B": {"impressions": 0, "purchases": 0}}
     if not path.exists():
         return counts
-    for line in path.read_text(encoding="utf-8").splitlines():
-        event = json.loads(line)
-        variant = event.get("variant")
-        if variant not in counts:
+    assignments: dict[str, str] = {}
+    exposed: dict[str, set[str]] = {"A": set(), "B": set()}
+    converted: dict[str, set[str]] = {"A": set(), "B": set()}
+    active_skus: dict[str, set[str]] = {}
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
             continue
-        if event["event_type"] == "impression":
-            counts[variant]["impressions"] += 1
-        elif event["event_type"] == "purchase":
-            counts[variant]["purchases"] += 1
+        event = json.loads(line)
+        if not isinstance(event, dict):
+            raise ValueError(f"Telemetry line {line_number} must be an object")
+        variant = event.get("variant")
+        event_type = event.get("event_type")
+        if variant not in counts or event_type not in {"impression", "purchase"}:
+            continue
+        customer = event.get("customer_id")
+        if not isinstance(customer, str) or not customer.strip():
+            raise ValueError(f"Telemetry line {line_number} needs a customer_id")
+        if event_type == "impression":
+            skus = event.get("skus")
+            if not isinstance(skus, list) or any(not isinstance(s, str) for s in skus):
+                raise ValueError(f"Telemetry line {line_number} needs a list of SKUs")
+            active_skus[customer] = set()
+            if event.get("serving_mode", "personalized_batch") != "personalized_batch" or not skus:
+                continue
+            if assignments.setdefault(customer, variant) != variant:
+                raise ValueError("A customer changed experiment variants; investigate assignment")
+            exposed[variant].add(customer)
+            active_skus[customer] = set(skus)
+        elif (assignments.get(customer) == variant
+              and event.get("sku") in active_skus.get(customer, set())):
+            converted[variant].add(customer)
+    for variant in counts:
+        counts[variant] = {"impressions": len(exposed[variant]), "purchases": len(converted[variant])}
     return counts
 
 
 def analyze(counts: dict) -> dict:
-    """Chi-square on the purchases-vs-no-purchase split across variants."""
-    a, b = counts["A"], counts["B"]
+    """Binary conversion diagnostic; callers must supply independent units."""
+    try:
+        a, b = counts["A"], counts["B"]
+        values = [arm[key] for arm in (a, b) for key in ("impressions", "purchases")]
+    except (KeyError, TypeError) as error:
+        raise ValueError("Both variants need impression and purchase counts") from error
+    if any(type(value) is not int or value < 0 or value > 2**53 - 1 for value in values):
+        raise ValueError("Counts must be bounded nonnegative integers")
+    if any(arm["purchases"] > arm["impressions"] for arm in (a, b)):
+        raise ValueError("Converted independent units cannot exceed exposed units")
+    boundary = {"promotion_authorized": False, "unit": "unique exposed customer",
+                "evidence_boundary": "Binary customer diagnostic only; the registered pilot and all guardrails still require review."}
     if min(a["impressions"], b["impressions"]) < 30:
-        return {"decision": "insufficient_data",
-                "reason": f"need >=30 impressions per variant, have "
+        return {**boundary, "decision": "insufficient_data",
+                "reason": f"need >=30 independent exposed customers per variant, have "
                           f"A={a['impressions']}, B={b['impressions']}"}
+
+    srm_p = float(chisquare([a["impressions"], b["impressions"]]).pvalue)
+    if srm_p < .01:
+        return {**boundary, "decision": "assignment_quality_review", "srm_p_value": srm_p,
+                "reason": "Assignment ratio differs from the planned 50/50 split; investigate before reading outcomes."}
 
     table = [[a["purchases"], a["impressions"] - a["purchases"]],
              [b["purchases"], b["impressions"] - b["purchases"]]]
-    chi2, p_value, _, _ = chi2_contingency(table)
+    total = a["impressions"] + b["impressions"]
+    successes = a["purchases"] + b["purchases"]
+    expected = [n * outcome / total for n in (a["impressions"], b["impressions"])
+                for outcome in (successes, total - successes)]
+    if min(expected) < 5:
+        _, p_value = fisher_exact(table)
+        chi2, method = None, "Fisher exact (two-sided)"
+    else:
+        chi2, p_value, _, _ = chi2_contingency(table)
+        method = "Chi-square with continuity correction"
     cvr_a = a["purchases"] / a["impressions"]
     cvr_b = b["purchases"] / b["impressions"]
-    lift = (cvr_b - cvr_a) / cvr_a if cvr_a else float("inf")
+    lift = (cvr_b - cvr_a) / cvr_a if cvr_a else (0.0 if cvr_b == 0 else None)
 
-    if p_value < ALPHA and lift > 0:
-        decision = "promote_B"
-    elif p_value < ALPHA and lift < 0:
-        decision = "retire_B"
+    if p_value < ALPHA and cvr_b > cvr_a:
+        decision = "review_B"
+    elif p_value < ALPHA and cvr_b < cvr_a:
+        decision = "review_harm_in_B"
     else:
         decision = "keep_A_keep_testing"
-    return {"cvr_a": cvr_a, "cvr_b": cvr_b, "lift": lift,
-            "chi2": chi2, "p_value": p_value, "decision": decision}
+    return {**boundary, "cvr_a": cvr_a, "cvr_b": cvr_b, "lift": lift,
+            "chi2": chi2, "p_value": float(p_value), "method": method,
+            "srm_p_value": srm_p, "decision": decision}
 
 
 def simulate(n_per_variant: int, cvr_a: float = 0.08, cvr_b: float = 0.11,
@@ -94,14 +148,15 @@ def report(counts: dict, label: str) -> dict:
     for v in ("A", "B"):
         c = counts[v]
         print(f"  {v}: {c['purchases']:,}/{c['impressions']:,} purchases")
-    if result.get("decision") == "insufficient_data":
+    if "reason" in result:
         print(f"  {result['reason']}")
         return result
-    print(f"  CVR A {result['cvr_a']:.2%} | CVR B {result['cvr_b']:.2%} "
-          f"| lift {result['lift']:+.1%}")
-    print(f"  chi2 {result['chi2']:.2f}, p = {result['p_value']:.4f} "
+    lift = "undefined (zero control conversion)" if result["lift"] is None else f"{result['lift']:+.1%}"
+    print(f"  CVR A {result['cvr_a']:.2%} | CVR B {result['cvr_b']:.2%} | lift {lift}")
+    print(f"  {result['method']}, p = {result['p_value']:.4f} "
           f"(alpha {ALPHA})")
     print(f"  decision: {result['decision']}")
+    print(f"  {result['evidence_boundary']}")
     return result
 
 

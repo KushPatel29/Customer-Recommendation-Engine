@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-9%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-814%20collected-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-832%20collected-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -210,23 +210,31 @@ The pieces ([`experiments/ab_analysis.py`](experiments/ab_analysis.py),
 - **Sticky assignment.** Every customer hashes to a variant — A is the CF
   champion, B the two-stage challenger — and the variant travels in every
   API response. Same customer, same variant, every time.
-- **Telemetry.** Impressions, clicks, and purchases land in an event log
-  via `POST /events`.
-- **A pre-registered promotion rule.** The analysis script builds the
-  conversion contingency table and runs a chi-square test. B gets promoted
-  only if `p < 0.05` *and* lift is positive — decided before looking at the
-  data, not after. It refuses to conclude anything from fewer than 30
-  impressions per variant.
+- **Telemetry.** Serving records impressions with their serving mode;
+  `POST /events` records clicks and purchases and rejects unknown products.
+- **A customer-level statistical diagnostic.** The analysis script counts
+  each exposed customer once. Replayed requests and purchases cannot inflate
+  the sample; a purchase needs a preceding personalized slate containing that
+  item. Fallback traffic is excluded. An assignment-ratio mismatch blocks the
+  outcome readout; sparse or constant outcomes use Fisher's exact test.
+  The helper requires 30 independent exposed customers per variant and returns
+  review recommendations, never promotion authorization.
+- **The registered pilot remains separate.** This binary per-customer diagnostic
+  is not the plan's per-impression primary metric. REC-PILOT-2026-001 still needs
+  its powered final read, outcome maturity, trust/commercial/latency guardrails
+  and slice review before promotion or any commercial-lift claim.
 - **Honesty about what this is.** The demo mode (`--simulate 5000`, labeled
   SIMULATION in its output) plants known conversion rates to show the test
-  detects a real difference and — just as important — refuses to promote on
-  noise. Only real traffic can actually judge the challenger. The framework
+  detects a planted difference and — just as important — refuses to favor B on
+  noise. Only a controlled real experiment can judge the challenger. The framework
   is how it would get a fair hearing.
 
 One more serving-layer detail closes the batch/online gap: a **serve-time
 suppressor**. `POST /events` with a purchase updates session state, and the
 very next recommendation call excludes the bought SKU and re-closes the
-ranks. Batch scores don't know what happened ten seconds ago; the API does.
+ranks, including when personalized artifacts are unavailable and the API uses
+its regional fallback. Batch scores don't know what happened ten seconds ago;
+the API does.
 
 ## Shipping it four ways
 
@@ -596,7 +604,7 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   `mypy` over `api/`, `engine/`, `contracts/` as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   before a commit leaves the machine.
-- **814 tests**: engine invariants (never recommend what's owned, symmetric
+- **832 collected tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
   gate, the data contracts, the API contract tests, the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
@@ -707,7 +715,7 @@ engine/           recommend.py — stage 1: CF cross-sell (+why/+$), growth
                   ranker.py — stage 2: gradient-boosted re-ranker (two-stage)
 evaluation/       holdout protocol: two-stage vs CF vs SVD vs popularity,
                   customer-disjoint ranker eval + MLflow logging
-experiments/      A/B analysis: chi-square with a pre-registered promotion rule
+experiments/      Customer-level statistical diagnostic; registered pilot still requires review
 api/              FastAPI service (batch-scored recs + live cold-start)
 decisioning/      release scorecard, slice evidence, latency/SLO and signed packet
 app/              Streamlit product decision room + rep console
