@@ -75,7 +75,8 @@ def test_telemetry_is_written(client, all_customers):
 
 def test_chi_square_detects_planted_difference():
     result = analyze(simulate(5000, cvr_a=0.08, cvr_b=0.11, seed=42))
-    assert result["decision"] == "promote_B"
+    assert result["decision"] == "review_B"
+    assert result["promotion_authorized"] is False
     assert result["p_value"] < 0.05
 
 
