@@ -27,9 +27,8 @@ st.markdown(
         border-radius: 4px; padding: 0.85rem 1rem; box-shadow: 0 4px 18px rgba(18,50,75,.05); }}
     [data-testid="stMetricLabel"] {{ color: #4B6575; letter-spacing: .04em; }}
     [data-testid="stMetricValue"] {{ color: {NAVY}; font-size: clamp(1.15rem, 2vw, 2rem); }}
-    [data-testid="stMetricValue"] > div, [data-testid="stMetricValue"] p,
-    [data-testid="stMetricLabel"] p, [data-testid="stMetricDelta"] p {{ white-space: normal; overflow: visible;
-        text-overflow: clip; line-height: 1.15; }}
+    :is([data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stMetricDelta"]),
+    :is([data-testid="stMetricLabel"], [data-testid="stMetricValue"], [data-testid="stMetricDelta"]) :is(div, p, span, label) {{ white-space: normal !important; overflow: visible !important; text-overflow: clip !important; overflow-wrap: anywhere; height: auto !important; max-height: none !important; -webkit-line-clamp: unset !important; line-height: 1.25; }}
     div[data-testid="stMetric"] div:has(> [data-testid="stMetricDelta"]) {{ overflow: visible; height: auto; }}
     [data-testid="stRadio"] label p {{ color: {NAVY} !important; font-weight: 650; }}
     .decision-band {{ background: {NAVY}; color: white; border-left: 7px solid {TEAL};
