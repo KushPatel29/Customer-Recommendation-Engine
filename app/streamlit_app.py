@@ -26,7 +26,9 @@ st.markdown(
     [data-testid="stMetric"] {{ background: white; border: 1px solid #D8E2E4;
         border-radius: 4px; padding: 0.85rem 1rem; box-shadow: 0 4px 18px rgba(18,50,75,.05); }}
     [data-testid="stMetricLabel"] {{ color: #4B6575; letter-spacing: .04em; }}
-    [data-testid="stMetricValue"] {{ color: {NAVY}; }}
+    [data-testid="stMetricValue"] {{ color: {NAVY}; font-size: clamp(1.15rem, 2vw, 2rem); }}
+    [data-testid="stMetricValue"] > div {{ white-space: normal; overflow: visible;
+        text-overflow: clip; line-height: 1.15; }}
     [data-testid="stRadio"] label p {{ color: {NAVY} !important; font-weight: 650; }}
     .decision-band {{ background: {NAVY}; color: white; border-left: 7px solid {TEAL};
         padding: 1rem 1.2rem; margin: .8rem 0 1rem; }}
@@ -168,7 +170,7 @@ def release_decision() -> None:
 
 def rep_assist() -> None:
     st.subheader("Human-reviewed call plan")
-    left, right = st.columns([1, 3])
+    left, right = st.columns([1, 2])
     with left:
         region = st.selectbox("Region", ["All"] + sorted(customers["region"].unique()))
         pool = customers if region == "All" else customers[customers["region"] == region]
@@ -179,6 +181,7 @@ def rep_assist() -> None:
             .sum()
         )
         default = ordered.index(opportunity.idxmax()) if len(opportunity) else 0
+    with right:
         pick = st.selectbox(
             "Customer",
             ordered,
@@ -187,13 +190,12 @@ def rep_assist() -> None:
             f"{pool.set_index('customer_id').at[customer_id, 'customer_name']}",
         )
     customer = customers[customers["customer_id"] == pick].iloc[0]
-    with right:
-        c1, c2, c3, c4, c5 = st.columns(5)
-        c1.metric("Revenue window", f"${customer['total_revenue']:,.0f}")
-        c2.metric("12-mo run-rate CLV", f"${customer['clv_12m_runrate']:,.0f}")
-        c3.metric("RFM segment", customer["rfm_segment"])
-        c4.metric("Churn risk", customer["churn_risk"])
-        c5.metric("Rep", customer["rep"])
+    c1, c2, c3, c4, c5 = st.columns(5)
+    c1.metric("Revenue window", f"${customer['total_revenue']:,.0f}")
+    c2.metric("12-mo run-rate CLV", f"${customer['clv_12m_runrate']:,.0f}")
+    c3.metric("RFM segment", customer["rfm_segment"])
+    c4.metric("Churn risk", customer["churn_risk"])
+    c5.metric("Rep", customer["rep"])
 
     recs = data["recs"][data["recs"]["customer_id"] == pick].sort_values("rank")
     col_recs, col_aff = st.columns([3, 2])
@@ -218,7 +220,7 @@ def rep_assist() -> None:
                 show,
                 hide_index=True,
                 use_container_width=True,
-                column_config={"$ opportunity": st.column_config.NumberColumn(format="$%.0f")},
+                column_config={"$ opportunity": st.column_config.NumberColumn(format="$%,.0f")},
             )
             st.markdown(
                 f"**Indicative—not forecast—opportunity: <span style='color:{TEAL}'>"
@@ -241,8 +243,8 @@ def experiment_and_reliability() -> None:
     st.markdown(f"**{experiment['decision']}**")
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Randomization", "Customer")
-    c2.metric("Assignment", "50 / 50 sticky")
-    c3.metric("Minimum exposure", "1,000 / variant")
+    c2.metric("Sticky assignment", "50 / 50")
+    c3.metric("Min. exposure per variant", "1,000")
     c4.metric("Promotion alpha", "0.05")
 
     left, right = st.columns(2)
