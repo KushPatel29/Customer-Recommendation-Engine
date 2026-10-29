@@ -27,8 +27,10 @@ st.markdown(
         border-radius: 4px; padding: 0.85rem 1rem; box-shadow: 0 4px 18px rgba(18,50,75,.05); }}
     [data-testid="stMetricLabel"] {{ color: #4B6575; letter-spacing: .04em; }}
     [data-testid="stMetricValue"] {{ color: {NAVY}; font-size: clamp(1.15rem, 2vw, 2rem); }}
-    [data-testid="stMetricValue"] > div {{ white-space: normal; overflow: visible;
+    [data-testid="stMetricValue"] > div, [data-testid="stMetricValue"] p,
+    [data-testid="stMetricLabel"] p, [data-testid="stMetricDelta"] p {{ white-space: normal; overflow: visible;
         text-overflow: clip; line-height: 1.15; }}
+    div[data-testid="stMetric"] div:has(> [data-testid="stMetricDelta"]) {{ overflow: visible; height: auto; }}
     [data-testid="stRadio"] label p {{ color: {NAVY} !important; font-weight: 650; }}
     .decision-band {{ background: {NAVY}; color: white; border-left: 7px solid {TEAL};
         padding: 1rem 1.2rem; margin: .8rem 0 1rem; }}
@@ -264,9 +266,9 @@ def experiment_and_reliability() -> None:
 
     st.subheader("Serving reliability")
     s1, s2, s3, s4 = st.columns(4)
-    s1.metric("p50", f"{benchmark['p50_ms']:.1f} ms", f"target {slo['targets_ms']['p50']} ms")
-    s2.metric("p95", f"{benchmark['p95_ms']:.1f} ms", f"target {slo['targets_ms']['p95']} ms")
-    s3.metric("p99", f"{benchmark['p99_ms']:.1f} ms", f"target {slo['targets_ms']['p99']} ms")
+    s1.metric("p50", f"{benchmark['p50_ms']:.1f} ms", f"target {slo['targets_ms']['p50']} ms", delta_color="off", delta_arrow="off")
+    s2.metric("p95", f"{benchmark['p95_ms']:.1f} ms", f"target {slo['targets_ms']['p95']} ms", delta_color="off", delta_arrow="off")
+    s3.metric("p99", f"{benchmark['p99_ms']:.1f} ms", f"target {slo['targets_ms']['p99']} ms", delta_color="off", delta_arrow="off")
     s4.metric("Fallback", "READY" if benchmark["all_targets_met"] else "REVIEW")
     st.success(
         "Degraded mode uses regional popularity, excludes owned items, carries a visible reason code "
