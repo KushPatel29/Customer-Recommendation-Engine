@@ -128,7 +128,7 @@ def release_decision() -> None:
     st.dataframe(
         shown[["objective", "metric", "value", "release_threshold", "status", "measurement_basis"]],
         hide_index=True,
-        use_container_width=True,
+        width="stretch",
     )
 
     left, right = st.columns([3, 2])
@@ -137,7 +137,7 @@ def release_decision() -> None:
         dimension = st.selectbox("Slice dimension", sorted(slices["dimension"].unique()))
         view = slices[slices["dimension"] == dimension].sort_values("recall_at_10")
         st.bar_chart(view.set_index("slice")["recall_at_10"], color=TEAL)
-        st.dataframe(view, hide_index=True, use_container_width=True)
+        st.dataframe(view, hide_index=True, width="stretch")
     with right:
         st.subheader("Eligibility control")
         served = int((eligibility["eligibility_decision"] == "SERVE").sum())
@@ -220,7 +220,7 @@ def rep_assist() -> None:
             st.dataframe(
                 show,
                 hide_index=True,
-                use_container_width=True,
+                width="stretch",
                 column_config={"$ opportunity": st.column_config.NumberColumn(format="$%,.0f")},
             )
             st.markdown(
@@ -232,7 +232,7 @@ def rep_assist() -> None:
         st.subheader("Basket talk tracks")
         affinity = data["affinity"].head(8)[["description_a", "description_b", "lift"]]
         affinity.columns = ["If they order…", "…suggest", "Observed lift"]
-        st.dataframe(affinity, hide_index=True, use_container_width=True)
+        st.dataframe(affinity, hide_index=True, width="stretch")
         st.caption("The representative decides whether context makes the suggestion appropriate.")
 
 

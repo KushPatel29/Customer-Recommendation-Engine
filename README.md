@@ -6,7 +6,7 @@
 ![API](https://img.shields.io/badge/FastAPI-Docker--packaged-009688?logo=fastapi&logoColor=white)
 ![MLflow](https://img.shields.io/badge/MLflow-experiment%20tracking-0194E2?logo=mlflow&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power%20BI-9%20pages%20%2B%20dynamic%20RLS-F2C811?logo=powerbi&logoColor=black)
-![Tests](https://img.shields.io/badge/tests-832%20collected-3B8C6E)
+![Tests](https://img.shields.io/badge/tests-833%20collected-3B8C6E)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 **▶ Live demo: [cross-sell-rep-console.streamlit.app](https://cross-sell-rep-console.streamlit.app)** —
@@ -604,7 +604,7 @@ sushi-buyer signature — which validates the pipeline end-to-end.
   `mypy` over `api/`, `engine/`, `contracts/` as a dedicated CI job;
   [`.pre-commit-config.yaml`](.pre-commit-config.yaml) runs the same checks
   before a commit leaves the machine.
-- **832 collected tests**: engine invariants (never recommend what's owned, symmetric
+- **833 collected tests**: engine invariants (never recommend what's owned, symmetric
   similarity, hand-checked lift math, determinism), the CF-beats-popularity
   gate, the data contracts, the API contract tests, the experimentation
   suite (sticky A/B assignment, serve-time suppression, chi-square detects
